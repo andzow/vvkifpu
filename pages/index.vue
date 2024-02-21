@@ -3,6 +3,7 @@
     <MainViMain/>
     <MainViTraning/>
     <MainViApplication/>
+    <MainViNews/>
   </div>
 </template>
 
