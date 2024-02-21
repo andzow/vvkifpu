@@ -64,6 +64,10 @@ img, svg {
     height: auto;
 }
 
+path {
+    transition: all .3s ease;
+}
+
 input, textarea, button, select {
     font-family: inherit;
     font-size: inherit;
@@ -106,7 +110,4 @@ button::-moz-focus-inner {
 ::-webkit-scrollbar-thumb {
     background: var(--violo);
     border-radius: 5px;
-}
-.traningCard__icon svg path {
-    fill: white
 }
