@@ -1,8 +1,14 @@
 <template>
-  <main class="main" @mousemove="handleMouseMove" ref="main" id="sandbox-container">
+  <main
+    class="main"
+    @mousemove="handleMouseMove"
+    ref="main"
+    id="sandbox-container"
+  >
+    <UIViHeader />
     <div class="main__background" :style="backgroundTransform"></div>
     <div class="main__component">
-      <p class="main__text" ref='el'></p>
+      <p class="main__text" ref="el"></p>
     </div>
     <div class="main__options" :style="isColor">
       <p class="main__option main__option_left">набор 2024</p>
@@ -13,66 +19,71 @@
 </template>
 
 <script>
-import Typed from 'typed.js';
+import Typed from "typed.js";
 export default {
   data() {
     return {
-      backgroundTransform: 'transform: translateX(-50%)',
+      backgroundTransform: "transform: translateX(-50%)",
       isColor: "color: #6110E9",
-    }
+    };
   },
   mounted() {
     const typed = new Typed(this.$refs.el, {
       strings: [
-        'Открытия через обучение, уверенность через практику, профессионализм через опыт', 
-        'Изучай, применяй, достигай: формула успеха в профессиональном мире',
-        'Фундаментальное образование, максимум практики и погружение в профессию',
+        "Открытия через обучение, уверенность через практику, профессионализм через опыт",
+        "Изучай, применяй, достигай: формула успеха в профессиональном мире",
+        "Фундаментальное образование, максимум практики и погружение в профессию",
       ],
       typeSpeed: 50,
       backSpeed: 10,
       backDelay: 3000,
-
+      showCursor: false,
       fadeOut: true,
-      fadeOutClass: 'typed-fade-out',
+      fadeOutClass: "typed-fade-out",
       fadeOutDelay: 700,
     });
   },
   methods: {
     handleMouseMove(event) {
-      const mainWidth = this.$refs.main.offsetWidth
-      const mouseX = event.clientX
+      const mainWidth = this.$refs.main.offsetWidth;
+      const mouseX = event.clientX;
       const percent = (mouseX / mainWidth) * 100;
       if (percent > 50) {
-        this.isColor = 'color: #1460d3'
+        this.isColor = "color: #1460d3";
       } else {
-        this.isColor = "color: #6110E9"
+        this.isColor = "color: #6110E9";
       }
       // const adjustedPercent = Math.max(Math.min(percent, 65), 35);
-      const adjustedPercent = (percent * 0.3) + 35
+      const adjustedPercent = percent * 0.3 + 35;
       this.backgroundTransform = `transform: translateX(${-adjustedPercent}%)`;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
 .main {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 .main__background {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2800px;
-    height: 100%;
-    background-image: linear-gradient(to right, #8001BC 0%, #6700EB 30%, #00EACE 100%);
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 400%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    #8001bc 0%,
+    #6700eb 30%,
+    #00eace 100%
+  );
+  z-index: 1;
 }
 .main__component {
   position: absolute;
@@ -89,8 +100,8 @@ export default {
   font-size: 68px;
   width: 1150px;
   border-radius: 20px;
-  overflow: hidden; 
-  transition: all .3s ease;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 .main__options {
   display: flex;
@@ -104,7 +115,7 @@ export default {
   padding: 20px 70px;
   background: #fff;
   border-radius: 50px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .main__option_left {
   transform: translateX(10px);

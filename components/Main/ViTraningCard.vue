@@ -8,47 +8,46 @@
 
 <script>
 export default {
-    props: {
-        card: Object
+  props: {
+    card: Object,
+  },
+  computed: {
+    squareStyle() {
+      return {
+        background: `url(${this.card.image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      };
     },
-    computed: {
-        squareStyle() {
-            return {
-                background: `url(${this.card.image})`,
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
 .traningCard {
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 320px;
-    cursor: pointer;
-    padding: 30px;
+  position: relative;
+  width: 100%;
+  padding: 30px;
+  cursor: pointer;
 }
 .traningCard__code {
-    font-family: "Inter", sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: #fff;
 }
 .traningCard__name {
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: #fff;
-    max-width: 350px;
-    line-height: 30px;
-    margin-top: 5px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  max-width: 350px;
+  line-height: 30px;
+  margin-top: 5px;
 }
 .traningCard__icon {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
 }
 </style>

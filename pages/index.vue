@@ -1,16 +1,12 @@
 <template>
   <div>
-    <MainViMain/>
-    <MainViTraning/>
+    <MainViMain />
+    <MainViTraning />
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>
