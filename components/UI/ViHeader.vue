@@ -129,6 +129,7 @@ header {
 .activeHeader {
   background: white;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 0;
 }
 .header__container {
   max-width: 1780px;
@@ -140,12 +141,20 @@ header {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
+  height: 60px;
   border-bottom: 1px solid #fff;
+  /* border-bottom: 1px solid #fff; */
   transition: all 0.3s ease;
 }
 .activeHeader .header__info {
-  border-bottom: 1px solid black;
+  height: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
 }
+/* .activeHeader .header__info {
+  border-bottom: 1px solid black;
+} */
 .activeHeader .header__info path {
   stroke: black;
 }
@@ -172,6 +181,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* border: 1px solid red; */
 }
 .header__logo {
   font-size: 40px;
