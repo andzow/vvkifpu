@@ -1,7 +1,7 @@
 <template>
   <div class="traningCard" :style="squareStyle">
     <p class="traningCard__code">{{ card.code }}</p>
-    <p class="traningCard__name">{{ card.name }}</p>
+    <h2 class="traningCard__name" :class="{traningCard__name_special: card.name === 'Коммерция (По отраслям)'}">{{ card.name }}</h2>
     <div class="traningCard__icon" v-html="card.icon"></div>
   </div>
 </template>
@@ -15,21 +15,25 @@ export default {
         squareStyle() {
             return {
                 background: `url(${this.card.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: "center",
             }
         }
     }
 }
 </script>
 
-<style scoped>
+<style>
+.traningCard:hover {
+    transform: scale(1.05);
+}
 .traningCard {
     position: relative;
-    background-position: center;
-    background-size: cover;
     width: 100%;
     height: 320px;
     cursor: pointer;
     padding: 30px;
+    transition: all .3s ease;
 }
 .traningCard__code {
     font-family: "Inter", sans-serif;
@@ -42,13 +46,19 @@ export default {
     font-weight: 700;
     font-size: 28px;
     color: #fff;
-    max-width: 350px;
+    max-width: 300px;
     line-height: 30px;
     margin-top: 5px;
+}
+.traningCard__name_special {
+    max-width: 220px;
 }
 .traningCard__icon {
     position: absolute;
     bottom: 30px;
-    right: 30px;
+    right: 40px;
+}
+.traningCard:hover .traningCard__icon svg path {
+    fill: var(--violo)
 }
 </style>
