@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NuxtPage :class="{page__inactive: !isActive}"/>
+    <NuxtPage :class="{page__active: !isActive}"/>
     <Transition>
-      <UIPreloader v-if="!isActive"/>
+      <UIViPreloader v-if="!isActive"/>
     </Transition>
   </div>
 </template>
@@ -23,13 +23,13 @@ export default {
 </script>
 
 <style>
-.page__inactive {
+.page__active {
   overflow: hidden;
   height: 100vh;
 }
 .v-enter-active,
 .v-leave-active {
-  transition: all .8s ease-out;
+  transition: all .5s ease-in-out;
 }
 
 .v-enter-from,

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <MainVimain/>
-    <MainViTest/>
+    <MainViMain/>
+    <MainViTraning/>
   </div>
 </template>
 
