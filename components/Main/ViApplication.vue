@@ -2,7 +2,7 @@
   <section class="application">
     <div class="application__container">
         <div class="application__info">
-            <h3 class="application__title">Оставьте заявку на обучение</h3>
+            <h3 class="application__title">Оставьте заявку и мы вам перезвоним</h3>
             <p class="application__description">наши специалисты ответят на все вопросы и смогут подобрать нужную программу</p>
         </div>
         <div class="application__form">
@@ -87,8 +87,7 @@ export default {
 <style scoped>
 .application {
     background: #000;
-    padding: 115px 0 60px 0;
-    margin-bottom: 300px;
+    padding: 100px 0 100px 0;
 }
 .application__container {
     max-width: 1800px;
@@ -101,8 +100,8 @@ export default {
 .application__title {
     font-family: "Inter", sans-serif;
     font-weight: 700;
-    font-size: 85px;
-    max-width: 800px;
+    font-size: 80px;
+    max-width: 890px;
     color: #fff;
     line-height: 75px;
 }

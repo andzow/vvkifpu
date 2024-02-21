@@ -1,8 +1,9 @@
 <template>
   <div>
-    <MainViMain />
-    <MainViTraning />
-    <MainViApplication />
+    <MainViMain/>
+    <MainViTraning/>
+    <MainViApplication/>
+    <MainViNews/>
   </div>
 </template>
 

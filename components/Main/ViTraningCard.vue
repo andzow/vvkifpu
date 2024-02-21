@@ -1,15 +1,12 @@
 <template>
-  <div class="traningCard" :style="squareStyle">
-    <p class="traningCard__code">{{ card.code }}</p>
-    <h2
-      class="traningCard__name"
-      :class="{
-        traningCard__name_special: card.name === 'Коммерция (По отраслям)',
-      }"
-    >
-      {{ card.name }}
-    </h2>
-    <div class="traningCard__icon" v-html="card.icon"></div>
+  <div class="traningCard">
+    <div class="traningCard__element" :style="squareStyle">
+      <p class="traningCard__code">{{ card.code }}</p>
+      <h2 class="traningCard__name" :class="{ traningCard__name_special: card.name === 'Коммерция (По отраслям)' }">{{
+        card.name }}</h2>
+      <div class="traningCard__icon" v-html="card.icon"></div>
+    </div>
+    <div class="traningCard__background"></div>
   </div>
 </template>
 
@@ -31,16 +28,21 @@ export default {
 </script>
 
 <style>
-.traningCard:hover {
-  transform: scale(1.05);
+.traningCard__element:hover {
+    transform: translate(-10px, -10px);
 }
 .traningCard {
   position: relative;
-  width: 100%;
-  height: 320px;
-  cursor: pointer;
-  padding: 30px;
-  transition: all 0.3s ease;
+  z-index: 2;
+}
+.traningCard__element {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    cursor: pointer;
+    padding: 30px;
+    transition: all .3s ease-in-out;
+    z-index: 3;
 }
 .traningCard__code {
   font-family: "Inter", sans-serif;
@@ -66,6 +68,15 @@ export default {
   right: 40px;
 }
 .traningCard:hover .traningCard__icon svg path {
-  fill: var(--violo);
+    fill: var(--violo)
+}
+.traningCard__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--violo);
+  z-index: 1;
 }
 </style>
