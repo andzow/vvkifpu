@@ -117,6 +117,9 @@ export default {
   border-radius: 50px;
   transition: all 0.3s ease;
 }
+.main__option_left {
+  transform: translateX(10px);
+}
 .main__option_right {
   transform: translateX(-10px);
 }
