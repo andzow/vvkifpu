@@ -23,8 +23,8 @@ export default {
         backgroundPosition: "center",
       };
     },
-  }
-}
+  },
+};
 </script>
 
 <style>
@@ -51,21 +51,21 @@ export default {
   color: #fff;
 }
 .traningCard__name {
-    font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: #fff;
-    max-width: 300px;
-    line-height: 30px;
-    margin-top: 5px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #fff;
+  max-width: 300px;
+  line-height: 30px;
+  margin-top: 5px;
 }
 .traningCard__name_special {
-    max-width: 220px;
+  max-width: 220px;
 }
 .traningCard__icon {
-    position: absolute;
-    bottom: 30px;
-    right: 40px;
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
 }
 .traningCard:hover .traningCard__icon svg path {
     fill: var(--violo)

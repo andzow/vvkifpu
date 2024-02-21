@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ activeHeader: isHover || isScrollDown }">
     <div class="header__container">
       <div class="header__info">
         <div class="header__left">
@@ -8,18 +8,46 @@
           <p class="header__text">8 (8332) 64-18-98</p>
           <div class="header__hide">
             <button class="header__btn">
-              <img src="@/assets/images/Header/eye.svg" />
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.5819 12.0004C15.5819 13.9804 13.9819 15.5804 12.0019 15.5804C10.0219 15.5804 8.42188 13.9804 8.42188 12.0004C8.42188 10.0204 10.0219 8.42041 12.0019 8.42041C13.9819 8.42041 15.5819 10.0204 15.5819 12.0004Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12.0018 20.2702C15.5318 20.2702 18.8218 18.1902 21.1118 14.5902C22.0118 13.1802 22.0118 10.8102 21.1118 9.40021C18.8218 5.80021 15.5318 3.72021 12.0018 3.72021C8.4718 3.72021 5.1818 5.80021 2.8918 9.40021C1.9918 10.8102 1.9918 13.1802 2.8918 14.5902C5.1818 18.1902 8.4718 20.2702 12.0018 20.2702Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </button>
           </div>
         </div>
-        <UIHeaderViSearch />
+        <UIHeaderViSearch :isHover="isHover" :isScrollDown="isScrollDown" />
       </div>
       <div class="header__nav">
         <p class="header__logo">ВВКИФПУ</p>
         <nav class="header__words">
           <ul class="header__ul">
-            <li class="header__li" v-for="item in navArr" :key="item">
+            <li
+              class="header__li"
+              v-for="(item, idx) in navArr"
+              :key="item"
+              @mouseenter="(isHover = true), (activeIdx = idx)"
+              @mouseleave="(isHover = false), (activeIdx = false)"
+            >
               {{ item.name }}
+              <MainViNavItem v-if="idx === activeIdx" :idx="idx" />
             </li>
           </ul>
         </nav>
@@ -58,7 +86,25 @@ export default {
           path: "/",
         },
       ],
+      isHover: false,
+      isScrollDown: false,
+      activeIdx: false,
     };
+  },
+  methods: {
+    scrollChangeColor() {
+      window.addEventListener("scroll", () => {
+        let scrollHeight = window.pageYOffset;
+        if (scrollHeight !== 0) {
+          this.isScrollDown = true;
+          return;
+        }
+        this.isScrollDown = false;
+      });
+    },
+  },
+  mounted() {
+    this.scrollChangeColor();
   },
 };
 </script>
@@ -69,8 +115,13 @@ header {
   top: 0;
   width: 100%;
   background: none;
-  padding: 30px 0;
+  padding: 30px 0 0 0;
+  transition: all 0.3s ease;
   z-index: 5;
+}
+.activeHeader {
+  background: white;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
 .header__container {
   max-width: 1780px;
@@ -83,7 +134,13 @@ header {
   justify-content: space-between;
   padding-bottom: 20px;
   border-bottom: 1px solid #fff;
-  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+.activeHeader .header__info {
+  border-bottom: 1px solid black;
+}
+.activeHeader .header__info path {
+  stroke: black;
 }
 .header__left {
   display: flex;
@@ -94,6 +151,10 @@ header {
   font-size: 17px;
   color: #fff;
   margin-right: 30px;
+  transition: all 0.3s ease;
+}
+.activeHeader .header__text {
+  color: #000;
 }
 .header__btn {
   display: flex;
@@ -104,10 +165,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 25px 0;
 }
 .header__logo {
   font-size: 40px;
   color: white;
+  transition: all 0.3s ease;
+}
+.activeHeader .header__logo {
+  color: #000;
 }
 .header__ul {
   display: flex;
@@ -120,5 +186,13 @@ header {
   text-transform: lowercase;
   margin-left: 50px;
   color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.activeHeader .header__li {
+  color: #000;
+}
+.header__li:hover {
+  color: #542fe6;
 }
 </style>
