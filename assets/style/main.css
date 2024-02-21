@@ -111,3 +111,71 @@ button::-moz-focus-inner {
     background: var(--violo);
     border-radius: 5px;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+  margin: 0;
+}
+
+input::-webkit-input-placeholder {
+  color: var(--violo);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.card__error::-webkit-input-placeholder {
+  color: #DC143C;
+}
+
+input::-moz-placeholder {
+  color: var(--violo);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.card__error::-moz-placeholder {
+  color: #DC143C;
+}
+
+input::-moz-placeholder {
+  color: var(--violo);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.card__error::-moz-placeholder {
+  color: #DC143C;
+}
+
+input::-ms-input-placeholder {
+  color: var(--violo);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.card__error::-ms-input-placeholder {
+  color: #DC143C;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+textarea:focus::-moz-placeholder,
+input:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+textarea:focus:-moz-placeholder,
+input:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+textarea:focus:-ms-input-placeholder,
+input:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}

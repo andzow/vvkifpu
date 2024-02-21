@@ -2,6 +2,7 @@
   <div>
     <MainViMain/>
     <MainViTraning/>
+    <MainViApplication/>
   </div>
 </template>
 
