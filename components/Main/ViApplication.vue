@@ -8,7 +8,7 @@
         <div class="application__form">
             <div class="application__data">
                 <input class="application__input" type="text" placeholder="Имя">
-                <input class="application__input" type="number" placeholder="+7 (000) - 000 - 00 - 00">
+                <input class="application__input" type="text" placeholder="+7 (000) - 000 - 00 - 00" v-model="isNumber" @beforeinput="handleBeforeInput" @input="numberValidator">
             </div>
             <button class="application__btn">Отправить</button>
             <p class="application__policy">*Нажимая кнопку вы соглашаетесь на обработку персональных данных на условиях, определенных <span class="application__policy_special">Политикой конфиденциальности</span></p>
@@ -19,7 +19,68 @@
 
 <script>
 export default {
+    data() {
+        return {
+            isNumber: '',
+            isNumberPrev: ''
+        }
+    },
+    methods: {
+        handleBeforeInput() {
+            this.isNumberPrev = this.isNumber
+        },
+        numberValidator(event) {
+            console.log(this.isNumber)
+            const hasLetters = /[a-zA-Zа-яА-Я!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]$/.test(this.isNumber)
+            const cursorPosition = event.target.selectionStart;
 
+            if (cursorPosition < this.isNumber.length) {
+                this.isNumber = this.isNumberPrev
+            }
+
+            if (hasLetters) {
+                this.isNumber = this.isNumber.replace(/[a-zA-Zа-яА-Я!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]$/, '');
+            }
+
+            if (this.isNumber[0] !== '+') {
+                this.isNumber = "+7 (" + this.isNumber
+            }
+            if (this.isNumber.length === 3) {
+                this.isNumber = ''
+            }
+            if (this.isNumber.length === 7) {
+                this.isNumber = this.isNumber + ') - '
+            }
+            if (this.isNumber.length === 9) {
+                this.isNumber = this.isNumber.slice(0, -3)
+            }
+            if (this.isNumber.length === 14) {
+                this.isNumber = this.isNumber + ' - '
+            }
+            if (this.isNumber.length === 15) {
+                this.isNumber = this.isNumber.slice(0, -2)
+            }
+            if (this.isNumber.length === 19) {
+                this.isNumber = this.isNumber + ' - '
+            }
+            if (this.isNumber.length === 20) {
+                this.isNumber = this.isNumber.slice(0, -2)
+            }
+            if (this.isNumber.length === 25) {
+                this.isNumber = this.isNumber.slice(0, -1)
+            }
+
+            if (this.isNumber.length != 0) {
+                this.phoneValidator = 1
+            }
+            if (this.isNumber.length === 24) {
+                this.phoneValidator = 2
+            }
+            if (this.isNumber.length === 0) {
+                this.phoneValidator = 0
+            }
+        }
+    }
 }
 </script>
 
@@ -89,6 +150,11 @@ export default {
     color: #fff;
     border-radius: 50px;
     margin-top: 20px;
+    transition: all .3s ease;
+}
+.application__btn:hover {
+    background: var(--violo);
+    border: 1px solid var(--violo);
 }
 .application__policy {
     font-family: "Inter", sans-serif;

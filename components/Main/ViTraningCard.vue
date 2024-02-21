@@ -28,6 +28,8 @@ export default {
     },
   },
 };
+  }
+}
 </script>
 
 <style>
@@ -37,8 +39,10 @@ export default {
 .traningCard {
   position: relative;
   width: 100%;
-  padding: 30px;
+  height: 320px;
   cursor: pointer;
+  padding: 30px;
+  transition: all 0.3s ease;
 }
 .traningCard__code {
   font-family: "Inter", sans-serif;
@@ -49,9 +53,9 @@ export default {
 .traningCard__name {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 28px;
   color: #fff;
-  max-width: 350px;
+  max-width: 300px;
   line-height: 30px;
   margin-top: 5px;
 }
@@ -61,6 +65,9 @@ export default {
 .traningCard__icon {
   position: absolute;
   bottom: 30px;
-  right: 30px;
+  right: 40px;
+}
+.traningCard:hover .traningCard__icon svg path {
+  fill: var(--violo);
 }
 </style>
