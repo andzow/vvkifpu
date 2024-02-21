@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NuxtPage :class="{page__active: !isActive}"/>
+    <NuxtPage :class="{ page__active: !isActive }" />
     <Transition>
-      <UIViPreloader v-if="!isActive"/>
+      <UIViPreloader v-if="!isActive" />
     </Transition>
   </div>
 </template>
@@ -11,15 +11,15 @@
 export default {
   data() {
     return {
-      isActive: false
-    }
+      isActive: false,
+    };
   },
   mounted() {
     setTimeout(() => {
-      this.isActive = true
-    }, 2000)
-  }
-}
+      this.isActive = true;
+    }, 2000);
+  },
+};
 </script>
 
 <style>
@@ -29,7 +29,7 @@ export default {
 }
 .v-enter-active,
 .v-leave-active {
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .v-enter-from,
