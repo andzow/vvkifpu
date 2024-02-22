@@ -1,59 +1,71 @@
 <template>
-  <div class="header__inner" :class="{ activeInner: isHoverNavItem }">
-    <div class="header__block" ref="item">
-      <p v-for="item in ularr" :key="item">{{ item }}</p>
+  <Transition name="slide-block">
+    <div
+      class="header__inner"
+      v-if="idx === activeIdxLi && item.allPages !== undefined"
+      ref="inner"
+    >
+      <UIHeaderViNavItem
+        :item="item"
+        :distancePx="distancePx"
+        :activeIdxLi="activeIdxLi"
+      />
     </div>
-  </div>
+  </Transition>
 </template>
 
 <script>
 export default {
-  props: { isHoverNavItem: { type: Boolean } },
-  data() {
-    return {
-      ularr: [
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-      ],
-      heighBlock: 0,
-    };
-  },
-  mounted() {
-    const el = this.$refs.item.getBoundingClientRect();
-    this.heighBlock = el.height;
-    this.$refs.item.style.height = "0px";
-  },
-  watch: {
-    isHoverNavItem(val) {
-      if (val) {
-        this.$refs.item.style.height = this.heighBlock + "px";
-        this.$refs.item.style.overflow = "visible";
-      } else {
-        this.$refs.item.style.height = "0px";
-        this.$refs.item.style.overflow = "hidden";
-      }
+  props: {
+    activeIdxLi: {
+      type: Number,
     },
+    item: {
+      type: Object,
+    },
+    idx: {
+      type: Number,
+    },
+    distancePx: { type: Number },
+  },
+  data() {
+    return {};
+  },
+
+  mounted() {
+    if (this.activeIdxLi !== this.idx) return;
   },
 };
 </script>
 
 <style scoped>
 .header__inner {
-  width: 100%;
-  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  background: white;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+  border-end-end-radius: 30px;
+  border-end-start-radius: 30px;
   transition: all 0.3s ease;
+  z-index: 0;
 }
 
-.header__block {
-  overflow: hidden;
-  transition: all 0.3s ease;
-  border: 1px solid red;
+.slide-block-enter-from {
+  transform: translateX(10px);
+  opacity: 0;
+}
+.slide-block-enter-to {
+  transform: translateX(0px);
+  opacity: 1;
+}
+.slide-block-leave-from {
+  transform: translateX(0px);
+  opacity: 1;
+}
+.slide-block-leave-to {
+  opacity: 0;
+  transform: translateX(10px);
 }
 </style>

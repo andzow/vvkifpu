@@ -1,30 +1,106 @@
 <template>
-  <div class="nav__item">
-    <p v-for="item in ularr" :key="item">{{ item }}</p>
+  <div
+    v-if="item"
+    class="header__item"
+    :style="{
+      transform: `translateX(${!activeIdxLi ? distancePx : distancePx + 55}px)`,
+    }"
+  >
+    <div class="header__item_text" v-for="list in item.allPages" :key="list">
+      <p class="header__item_name">{{ list.name }}</p>
+      <div class="header__item_block" v-if="list.children">
+        <div class="header__item_image">
+          <svg
+            width="12"
+            height="9"
+            viewBox="0 0 12 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 9L0.803847 -2.51245e-08L11.1962 8.834e-07L6 9Z"
+              fill="#333333"
+            />
+          </svg>
+        </div>
+        <div class="header__item_card"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    item: { type: Object },
+    distancePx: { type: Number },
+    activeIdxLi: {
+      type: Number,
+    },
+  },
   data() {
-    return {
-      ularr: [
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-        "afasdfas",
-      ],
-    };
+    return {};
   },
 };
 </script>
 
 <style scoped>
-.nav__item {
+.header__item {
+  overflow: auto;
+  padding: 20px 0;
+  max-height: calc(80vh - 40px);
 }
+.header__item::-webkit-scrollbar {
+  width: 7px;
+  background: #fff;
+}
+.header__item::-webkit-scrollbar-thumb {
+  background: var(--violo);
+  border-radius: 5px;
+}
+
+.header__item_text {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  cursor: pointer;
+}
+.header__item_name {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  max-width: 320px;
+  min-width: 320px;
+  color: #333;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
+.header__item_image {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+.header__item_text:hover {
+  background: #542fe6;
+}
+.header__item_text:hover .header__item_name {
+  color: white;
+}
+.header__item_text:hover .header__item_image {
+  transform: rotate(180deg);
+}
+.header__item_text:hover path {
+  fill: white;
+}
+/* .header__item_card {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 200px;
+  height: 20px;
+  border: 1px solid red;
+  z-index: 10000;
+} */
 </style>
