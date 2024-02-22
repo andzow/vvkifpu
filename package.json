@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "nuxt": "^3.10.2",
     "typed.js": "^2.1.0",
     "vue": "^3.4.19",
