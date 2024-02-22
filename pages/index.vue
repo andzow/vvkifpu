@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <UIViHeader />
-    <MainViMain />
+    <MainVimain />
     <MainViTraning />
     <MainViApplication />
     <MainViNews />
@@ -14,7 +14,7 @@ export default {};
 
 <style scoped>
 .app {
-  
+
   overflow: hidden;
 }
 </style>
