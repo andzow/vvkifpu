@@ -38,20 +38,26 @@
       <div class="header__nav">
         <p class="header__logo">ВВКИФПУ</p>
         <nav class="header__words">
-          <ul class="header__ul">
-            <li
-              class="header__li"
-              v-for="(item, idx) in navArr"
-              :key="item"
-              @mouseenter="(isHover = true), (activeIdx = idx)"
-              @mouseleave="(isHover = false), (activeIdx = false)"
-            >
+          <ul
+            class="header__ul"
+            @mouseenter="
+              (isHover = true), (activeIdx = idx), (isHoverNavItem = true)
+            "
+            @mouseleave="
+              (isHover = false), (activeIdx = false), (isHoverNavItem = true)
+            "
+          >
+            <li class="header__li" v-for="item in navArr" :key="item">
               {{ item.name }}
-              <MainViNavItem v-if="idx === activeIdx" :idx="idx" />
+              <div class="block"></div>
             </li>
           </ul>
         </nav>
       </div>
+      <!-- <UIHeaderViInner
+        :isHoverNavItem="isHoverNavItem"
+        @mouseleave="isHoverNavItem = false"
+      /> -->
     </div>
   </header>
 </template>
@@ -87,6 +93,7 @@ export default {
         },
       ],
       isHover: false,
+      isHoverNavItem: false,
       isScrollDown: false,
       activeIdx: false,
     };
@@ -122,6 +129,7 @@ header {
 .activeHeader {
   background: white;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 0;
 }
 .header__container {
   max-width: 1780px;
@@ -133,12 +141,20 @@ header {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
+  height: 60px;
   border-bottom: 1px solid #fff;
+  /* border-bottom: 1px solid #fff; */
   transition: all 0.3s ease;
 }
 .activeHeader .header__info {
-  border-bottom: 1px solid black;
+  height: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
 }
+/* .activeHeader .header__info {
+  border-bottom: 1px solid black;
+} */
 .activeHeader .header__info path {
   stroke: black;
 }
@@ -165,7 +181,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px 0;
+  /* border: 1px solid red; */
 }
 .header__logo {
   font-size: 40px;
@@ -187,6 +203,7 @@ header {
   margin-left: 50px;
   color: white;
   transition: all 0.3s ease;
+  padding: 35px 0;
   cursor: pointer;
 }
 .activeHeader .header__li {
@@ -194,5 +211,25 @@ header {
 }
 .header__li:hover {
   color: #542fe6;
+}
+.header__card {
+  width: 100%;
+  height: 200px;
+  background: red;
+}
+.header__ul:hover .block {
+  height: 300px;
+}
+.block {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  background: white;
+  transition: all 0.3s ease;
+  z-index: 100;
 }
 </style>
