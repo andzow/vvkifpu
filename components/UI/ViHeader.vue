@@ -1,5 +1,10 @@
 <template>
-  <header :class="{ activeHeader: isHover || isScrollDown }">
+  <header
+    :class="{
+      activeHeader: isHover || isScrollDown,
+      disableUpperHeader: activeInnerHeader,
+    }"
+  >
     <div class="header__container">
       <div class="header__info">
         <div class="header__left">
@@ -36,7 +41,7 @@
         <UIHeaderViSearch :isHover="isHover" :isScrollDown="isScrollDown" />
       </div>
       <div class="header__nav">
-        <p class="header__logo">ВВКИФПУ</p>
+        <h1 class="header__logo">ВВКИФПУ</h1>
         <nav class="header__words">
           <ul
             class="header__ul"
@@ -54,10 +59,6 @@
           </ul>
         </nav>
       </div>
-      <!-- <UIHeaderViInner
-        :isHoverNavItem="isHoverNavItem"
-        @mouseleave="isHoverNavItem = false"
-      /> -->
     </div>
   </header>
 </template>
@@ -93,20 +94,35 @@ export default {
         },
       ],
       isHover: false,
-      isHoverNavItem: false,
       isScrollDown: false,
       activeIdx: false,
+      activeInnerHeader: false,
+      activeScrollHeight: 0,
     };
   },
   methods: {
+    hideUpperHeader(scrH) {
+      if (this.activeScrollHeight < scrH) {
+        this.activeInnerHeader = true;
+        this.isScrollDown = true;
+      } else {
+        this.activeInnerHeader = false;
+      }
+    },
+    changeColorHeader(scrH) {
+      if (scrH !== 0) {
+        this.isScrollDown = true;
+        return;
+      }
+      this.activeInnerHeader = false;
+      this.isScrollDown = false;
+    },
     scrollChangeColor() {
       window.addEventListener("scroll", () => {
         let scrollHeight = window.pageYOffset;
-        if (scrollHeight !== 0) {
-          this.isScrollDown = true;
-          return;
-        }
-        this.isScrollDown = false;
+        this.hideUpperHeader(scrollHeight);
+        this.activeScrollHeight = scrollHeight;
+        this.changeColorHeader(scrollHeight);
       });
     },
   },
@@ -129,10 +145,9 @@ header {
 .activeHeader {
   background: white;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
-  padding: 0;
 }
 .header__container {
-  max-width: 1780px;
+  max-width: 1800px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -146,15 +161,19 @@ header {
   /* border-bottom: 1px solid #fff; */
   transition: all 0.3s ease;
 }
-.activeHeader .header__info {
+.disableUpperHeader {
+  padding: 0;
+}
+.disableUpperHeader .header__info {
   height: 0;
   padding: 0;
   border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
   overflow: hidden;
 }
-/* .activeHeader .header__info {
+.activeHeader .header__info {
   border-bottom: 1px solid black;
-} */
+}
 .activeHeader .header__info path {
   stroke: black;
 }
