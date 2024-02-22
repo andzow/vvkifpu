@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <MainViMain/>
-    <MainViTraning/>
-    <MainViApplication/>
-    <MainViNews/>
+  <div class="app">
+    <UIViHeader />
+    <MainViMain />
+    <MainViTraning />
+    <MainViApplication />
+    <MainViNews />
   </div>
 </template>
 
@@ -11,4 +12,8 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped>
+.app {
+  overflow: hidden;
+}
+</style>

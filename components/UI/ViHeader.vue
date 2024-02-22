@@ -1,5 +1,10 @@
 <template>
-  <header :class="{ activeHeader: isHover || isScrollDown }">
+  <header
+    :class="{
+      activeHeader: isHover || isScrollDown,
+      disableUpperHeader: activeInnerHeader,
+    }"
+  >
     <div class="header__container">
       <div class="header__info">
         <div class="header__left">
@@ -36,83 +41,325 @@
         <UIHeaderViSearch :isHover="isHover" :isScrollDown="isScrollDown" />
       </div>
       <div class="header__nav">
-        <p class="header__logo">ВВКИФПУ</p>
+        <h1 class="header__logo">ВВКИФПУ</h1>
         <nav class="header__words">
           <ul
             class="header__ul"
-            @mouseenter="
-              (isHover = true), (activeIdx = idx), (isHoverNavItem = true)
-            "
-            @mouseleave="
-              (isHover = false), (activeIdx = false), (isHoverNavItem = true)
-            "
+            @mouseenter="isHover = true"
+            @mouseleave="isHover = false"
           >
-            <li class="header__li" v-for="item in navArr" :key="item">
+            <li
+              class="header__li"
+              v-for="(item, idx) in navArr"
+              :key="item"
+              @mouseenter="setActiveLi(idx)"
+              @mouseleave="setDisableLi"
+              :class="{ activeLi: activeIdxLi === idx }"
+              ref="navItem"
+            >
               {{ item.name }}
-              <div class="block"></div>
+              <UIHeaderViInner
+                :idx="idx"
+                :activeIdxLi="activeIdxLi"
+                :item="item"
+              />
             </li>
           </ul>
         </nav>
       </div>
-      <!-- <UIHeaderViInner
-        :isHoverNavItem="isHoverNavItem"
-        @mouseleave="isHoverNavItem = false"
-      /> -->
     </div>
   </header>
 </template>
 
 <script>
+import { Body } from "~/node_modules/nuxt/dist/head/runtime/components";
 export default {
   data() {
     return {
       navArr: [
         {
           name: "АБИТУРИЕНТАМ",
+          allPages: [
+            {
+              name: "День открытых дверей",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Приемная комиссия",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Список специальностей",
+              path: "/",
+              children: [
+                {
+                  name: "9.02.04 “Информационные системы”",
+                  path: "/",
+                },
+                {
+                  name: "40.02.02 “Правоохранительная деятельность”",
+                  path: "/",
+                },
+                {
+                  name: "43.02.10 “Туризм”",
+                  path: "/",
+                },
+                {
+                  name: "38.02.04 “Коммерция (По отраслям)”",
+                  path: "/",
+                },
+                {
+                  name: "43.02.17 “Технологии индустрии красоты”",
+                  path: "/",
+                },
+                {
+                  name: "43.02.02 “Парикмахерское искусство”",
+                  path: "/",
+                },
+              ],
+            },
+            {
+              name: "Правила приема",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Стоимость обучения",
+              path: "/",
+              children: null,
+            },
+          ],
           path: "/",
+          height: 500,
         },
         {
           name: "СТУДЕНТАМ",
+          allPages: [
+            {
+              name: "Оплата обучения",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Онлайн обучение",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Документы на практику",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Контактные данные сотрудников ВВКИФПУ",
+              path: "/",
+              children: null,
+            },
+          ],
           path: "/",
+          height: 100,
         },
         {
           name: "БИБЛИОТЕКА",
+          allPages: [
+            {
+              name: "Электронная библиотека",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Дополнительная информация",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Дополнительные информационные ресурсы",
+              path: "/",
+              children: null,
+            },
+          ],
           path: "/",
+          height: 200,
         },
         {
           name: "СВЕДЕНИЯ ОБ ОО",
+          allPages: [
+            {
+              name: "Основные сведения",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Структура и органы управления ОО",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Документы",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Образование",
+              path: "/",
+              children: [
+                {
+                  name: "Численность обучающихся",
+                  path: "/",
+                },
+                {
+                  name: "Основные профессиональные образовательные стандарты",
+                  path: "/",
+                },
+                {
+                  name: "Учебные планы и Основные профессиональные образовательные программы",
+                  path: "/",
+                },
+              ],
+            },
+            {
+              name: "Руководство",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Педагогический состав",
+              path: "/",
+              children: null,
+            },
+            {
+              name: `Материально-техническое обеспечение
+и оснащенность образовательного процесса. Доступная среда`,
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Платные образовательнные услуги",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Финансово-хозяйственная деятельность",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Вакантные места для приема (перевода) обучающихся",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Стипендии и меры поддержки обучающихся",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Международное сотрудничество",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Организация питания в образовательной организации",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Образовательные стандарты",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Правила приема",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Виды материальной поддержки",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Наши реквизиты",
+              path: "/",
+              children: null,
+            },
+          ],
           path: "/",
+          height: 300,
         },
         {
           name: "НОВОСТИ",
+          allPages: [
+            {
+              name: "Новости колледжа",
+              path: "/",
+              children: null,
+            },
+            {
+              name: "Мероприятия",
+              path: "/",
+              children: null,
+            },
+          ],
           path: "/",
+          height: 400,
         },
         {
           name: "КОНТАКТЫ",
           path: "/",
+          height: 700,
         },
       ],
       isHover: false,
-      isHoverNavItem: false,
       isScrollDown: false,
       activeIdx: false,
+      activeInnerHeader: false,
+      activeScrollHeight: 0,
+      activeIdxLi: null,
+      distancePx: null,
     };
   },
   methods: {
+    hideUpperHeader(scrH) {
+      if (this.activeScrollHeight < scrH) {
+        this.activeInnerHeader = true;
+        this.isScrollDown = true;
+      } else {
+        this.activeInnerHeader = false;
+      }
+    },
+    changeColorHeader(scrH) {
+      if (scrH !== 0) {
+        this.isScrollDown = true;
+        return;
+      }
+      this.activeInnerHeader = false;
+      this.isScrollDown = false;
+    },
     scrollChangeColor() {
       window.addEventListener("scroll", () => {
         let scrollHeight = window.pageYOffset;
-        if (scrollHeight !== 0) {
-          this.isScrollDown = true;
-          return;
-        }
-        this.isScrollDown = false;
+        this.hideUpperHeader(scrollHeight);
+        this.activeScrollHeight = scrollHeight;
+        this.changeColorHeader(scrollHeight);
       });
+    },
+    setActiveLi(idx) {
+      this.activeIdxLi = idx;
+      this.distancePx = this.$refs.navItem[idx].getBoundingClientRect().left;
+      document.body.style.overflow = "hidden";
+    },
+    setDisableLi(e) {
+      this.activeIdxLi = null;
+      document.body.style.overflow = "auto";
     },
   },
   mounted() {
     this.scrollChangeColor();
   },
+  watch: {},
 };
 </script>
 
@@ -120,7 +367,7 @@ export default {
 header {
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   background: none;
   padding: 30px 0 0 0;
   transition: all 0.3s ease;
@@ -129,10 +376,9 @@ header {
 .activeHeader {
   background: white;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
-  padding: 0;
 }
 .header__container {
-  max-width: 1780px;
+  max-width: 1800px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -146,15 +392,19 @@ header {
   /* border-bottom: 1px solid #fff; */
   transition: all 0.3s ease;
 }
-.activeHeader .header__info {
+.disableUpperHeader {
+  padding: 0;
+}
+.disableUpperHeader .header__info {
   height: 0;
   padding: 0;
   border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
   overflow: hidden;
 }
-/* .activeHeader .header__info {
+.activeHeader .header__info {
   border-bottom: 1px solid black;
-} */
+}
 .activeHeader .header__info path {
   stroke: black;
 }
@@ -200,36 +450,20 @@ header {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   text-transform: lowercase;
-  margin-left: 50px;
   color: white;
   transition: all 0.3s ease;
-  padding: 35px 0;
   cursor: pointer;
+}
+.header__li:nth-child(1) {
+  padding: 35px 0px 35px 0px;
+}
+.header__li:not(:first-child) {
+  padding: 35px 0px 35px 55px;
 }
 .activeHeader .header__li {
   color: #000;
 }
-.header__li:hover {
-  color: #542fe6;
-}
-.header__card {
-  width: 100%;
-  height: 200px;
-  background: red;
-}
-.header__ul:hover .block {
-  height: 300px;
-}
-.block {
-  position: absolute;
-  height: 0;
-  overflow: hidden;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 0px;
-  background: white;
-  transition: all 0.3s ease;
-  z-index: 100;
+.activeLi {
+  color: #542fe6 !important;
 }
 </style>

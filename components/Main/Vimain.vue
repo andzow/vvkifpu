@@ -5,7 +5,6 @@
     ref="main"
     id="sandbox-container"
   >
-    <UIViHeader />
     <div class="main__background" :style="backgroundTransform"></div>
     <div class="main__component">
       <p class="main__text" ref="el"></p>
@@ -63,7 +62,7 @@ export default {
 
 <style scoped>
 .main {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: relative;
