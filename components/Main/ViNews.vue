@@ -10,7 +10,7 @@
             </button>
         </div>
         <div class="news__content">
-            <div class="news__main">
+            <div class="news__main" data-aos="fade-right" data-aos-offset="400" data-aos-duration="1000">
                 <div class="news__main_image">
                     <img class="news__img" :src="ArrayNews[0].image" alt="">
                     <div class="news__background"></div>
@@ -20,10 +20,11 @@
                 </p>
                 <h3 class="news__name">{{ ArrayNews[0].name }}</h3>
             </div>
-            <div class="news__additionally">
+            <div class="news__additionally" data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000">
                 <div class="news__additionally_add">
                     <div class="news__additionally_image">
                         <img class="news__additionally_img" :src="ArrayNews[1].image" alt="">
+                        <div class="news__background"></div>
                     </div>
                     <div>
                         <p class="news__info news__info_add">
@@ -35,6 +36,7 @@
                 <div class="news__additionally_add">
                     <div class="news__additionally_image">
                         <img class="news__additionally_img" :src="ArrayNews[2].image" alt="">
+                        <div class="news__background"></div>
                     </div>
                     <div>
                         <p class="news__info news__info_add">
@@ -81,7 +83,6 @@ export default {
 <style scoped>
 .news {
     padding-top: 60px;
-    margin-bottom: 400px;
 }
 .news__container {
     max-width: 1440px;
@@ -174,14 +175,21 @@ export default {
     margin-bottom: 30px;
 }
 .news__additionally_image {
+    position: relative;
     width: 260px;
     min-width: 260px;
     height: 260px;
     margin-right: 40px;
 }
 .news__additionally_img {
+    position: relative;
     width: 100%;
     height: 100%;
+    z-index: 3;
+    transition: all .3s ease-in-out;
+}
+.news__additionally_img:hover {
+    transform: translate(-10px, -10px);
 }
 .news__info_add {
     margin-top: 0;

@@ -8,6 +8,9 @@
 </template>
 
 <script>
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 export default {
   data() {
     return {
@@ -15,6 +18,9 @@ export default {
     };
   },
   mounted() {
+    if (process.client) {
+      AOS.init();
+    }
     setTimeout(() => {
       this.isActive = true;
     }, 2000);

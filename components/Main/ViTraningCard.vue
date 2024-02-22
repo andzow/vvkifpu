@@ -1,5 +1,5 @@
 <template>
-  <div class="traningCard">
+  <div class="traningCard" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="1000">
     <div class="traningCard__element" :style="squareStyle">
       <p class="traningCard__code">{{ card.code }}</p>
       <h2 class="traningCard__name" :class="{ traningCard__name_special: card.name === 'Коммерция (По отраслям)' }">{{
