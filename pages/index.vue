@@ -14,6 +14,7 @@ export default {};
 
 <style scoped>
 .app {
+  
   overflow: hidden;
 }
 </style>

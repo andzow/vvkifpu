@@ -4,6 +4,7 @@
     @mousemove="handleMouseMove"
     ref="main"
     id="sandbox-container"
+    
   >
     <div class="main__background" :style="backgroundTransform"></div>
     <div class="main__component">
