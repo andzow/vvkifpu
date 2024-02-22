@@ -21,15 +21,26 @@
                 <h3 class="news__name">{{ ArrayNews[0].name }}</h3>
             </div>
             <div class="news__additionally">
-                <div class="news__additionally_second">
+                <div class="news__additionally_add">
                     <div class="news__additionally_image">
                         <img class="news__additionally_img" :src="ArrayNews[1].image" alt="">
                     </div>
                     <div>
-                        <p class="news__info news__info_second">
+                        <p class="news__info news__info_add">
                             {{ ArrayNews[1].data }} | <span class="news__type">{{ ArrayNews[1].type }}</span>
                         </p>
                         <h3 class="news__name">{{ ArrayNews[1].name }}</h3>
+                    </div>
+                </div>
+                <div class="news__additionally_add">
+                    <div class="news__additionally_image">
+                        <img class="news__additionally_img" :src="ArrayNews[2].image" alt="">
+                    </div>
+                    <div>
+                        <p class="news__info news__info_add">
+                            {{ ArrayNews[2].data }} | <span class="news__type">{{ ArrayNews[2].type }}</span>
+                        </p>
+                        <h3 class="news__name">{{ ArrayNews[2].name }}</h3>
                     </div>
                 </div>
             </div>
@@ -153,22 +164,26 @@ export default {
     font-size: 35px;
     margin-top: 10px;
 }
-.news__additionally_second {
+.news__additionally_add {
     display: flex;
     padding: 30px 0;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
 }
+.news__additionally_add:nth-child(1) {
+    margin-bottom: 30px;
+}
 .news__additionally_image {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    min-width: 260px;
+    height: 260px;
     margin-right: 40px;
 }
 .news__additionally_img {
     width: 100%;
     height: 100%;
 }
-.news__info_second {
+.news__info_add {
     margin-top: 0;
 }
 </style>
