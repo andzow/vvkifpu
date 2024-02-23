@@ -13,15 +13,17 @@
       <div class="header__item_block" v-if="list.children">
         <div class="header__item_image">
           <svg
-            width="12"
-            height="9"
-            viewBox="0 0 12 9"
+            width="8"
+            height="12"
+            viewBox="0 0 8 12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M6 9L0.803847 -2.51245e-08L11.1962 8.834e-07L6 9Z"
-              fill="#333333"
+              d="M1 1L6 6L1 11"
+              stroke="#542FE6"
+              stroke-width="2"
+              stroke-linecap="round"
             />
           </svg>
         </div>
@@ -111,19 +113,9 @@ export default {
   color: white;
 }
 .activeBlock .header__item_image {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 .activeBlock path {
-  fill: white;
+  stroke: white;
 }
-
-/* .header__item_card {
-  position: absolute;
-  top: 0;
-  right: -100%;
-  width: 200px;
-  height: 20px;
-  border: 1px solid red;
-  z-index: 10000;
-} */
 </style>

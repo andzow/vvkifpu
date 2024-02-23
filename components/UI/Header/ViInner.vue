@@ -15,7 +15,7 @@
       />
     </div>
   </Transition>
-  <Transition name="slide-left">
+  <Transition name="slide-right">
     <div
       class="header__slide"
       v-if="arrChildren"
@@ -53,7 +53,7 @@ export default {
   computed: {
     calcLeftDistance() {
       return {
-        top: `${!this.idx ? "150%" : "170%"}`,
+        top: `${!this.idx ? "140%" : "160%"}`,
         left: `${
           !this.idx ? this.distancePx.left - 400 : this.distancePx.left - 345
         }px`,
@@ -91,6 +91,9 @@ export default {
   background: white;
   overflow: hidden;
   box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+  /* border-left: 2px solid #542fe6;
+  border-right: 2px solid #542fe6;
+  border-bottom: 2px solid #542fe6; */
   border-end-end-radius: 30px;
   border-end-start-radius: 30px;
   transition: all 0.3s ease;
@@ -102,9 +105,9 @@ export default {
   max-width: 400px;
   background: white;
   border-radius: 30px;
-  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2); */
   transition: all 0.3s ease;
-  z-index: 5;
+  z-index: 0;
 }
 .header__slide_text {
   font-family: "Inter", sans-serif;
@@ -137,22 +140,5 @@ export default {
 .slide-right-leave-to {
   opacity: 0;
   transform: translateX(30px);
-}
-
-.slide-left-enter-from {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-.slide-left-enter-to {
-  transform: translateX(0px);
-  opacity: 1;
-}
-.slide-left-leave-from {
-  transform: translateX(0px);
-  opacity: 1;
-}
-.slide-left-leave-to {
-  transform: translateX(-30px);
-  opacity: 0;
 }
 </style>
