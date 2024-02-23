@@ -1,12 +1,14 @@
 <template>
-  <div
-    v-if="item"
-    class="header__item"
-    :style="{
-      transform: `translateX(${!activeIdxLi ? distancePx : distancePx + 55}px)`,
-    }"
-  >
-    <div class="header__item_text" v-for="list in item.allPages" :key="list">
+  <div v-if="item" class="header__item">
+    <div
+      class="header__item_text"
+      ref="headerItem"
+      :class="{ activeBlock: idx === activeIdxList }"
+      v-for="(list, idx) in item.allPages"
+      :key="list"
+      @mouseenter="openChildren(list, idx)"
+      @mouseleave="closeChildren($event, idx)"
+    >
       <p class="header__item_name">{{ list.name }}</p>
       <div class="header__item_block" v-if="list.children">
         <div class="header__item_image">
@@ -33,21 +35,41 @@
 export default {
   props: {
     item: { type: Object },
-    distancePx: { type: Number },
     activeIdxLi: {
+      type: Number,
+    },
+    idx: {
       type: Number,
     },
   },
   data() {
-    return {};
+    return {
+      activeIdxList: null,
+    };
   },
+  methods: {
+    openChildren(el, idx) {
+      this.$emit("slideChildren", el.children);
+      this.activeIdxList = idx;
+    },
+    closeChildren(e, idx) {
+      const yItem = this.$refs.headerItem[idx].getBoundingClientRect().top;
+      this.$emit("iItem", yItem);
+      const nameSlide = "header__slide";
+      if (!e?.relatedTarget?.className.includes(nameSlide)) {
+        this.$emit("slideChildren", null);
+        return;
+      }
+    },
+  },
+  mounted() {},
 };
 </script>
 
 <style scoped>
 .header__item {
   overflow: auto;
-  padding: 20px 0;
+  padding: 15px 0;
   max-height: calc(80vh - 40px);
 }
 .header__item::-webkit-scrollbar {
@@ -82,18 +104,19 @@ export default {
   margin-left: 15px;
   transition: all 0.3s ease;
 }
-.header__item_text:hover {
+.activeBlock {
   background: #542fe6;
 }
-.header__item_text:hover .header__item_name {
+.activeBlock .header__item_name {
   color: white;
 }
-.header__item_text:hover .header__item_image {
+.activeBlock .header__item_image {
   transform: rotate(180deg);
 }
-.header__item_text:hover path {
+.activeBlock path {
   fill: white;
 }
+
 /* .header__item_card {
   position: absolute;
   top: 0;

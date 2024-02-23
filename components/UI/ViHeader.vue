@@ -62,6 +62,7 @@
                 :idx="idx"
                 :activeIdxLi="activeIdxLi"
                 :item="item"
+                :distancePx="distancePx"
               />
             </li>
           </ul>
@@ -72,7 +73,6 @@
 </template>
 
 <script>
-import { Body } from "~/node_modules/nuxt/dist/head/runtime/components";
 export default {
   data() {
     return {
@@ -348,7 +348,7 @@ export default {
     },
     setActiveLi(idx) {
       this.activeIdxLi = idx;
-      this.distancePx = this.$refs.navItem[idx].getBoundingClientRect().left;
+      this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
       document.body.style.overflow = "hidden";
     },
     setDisableLi(e) {
