@@ -2,7 +2,7 @@
   <div class="traningCard" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="1000">
     <div class="traningCard__element" :style="squareStyle">
       <p class="traningCard__code">{{ card.code }}</p>
-      <h2 class="traningCard__name" :class="{ traningCard__name_special: card.name === 'Коммерция (По отраслям)' }">{{
+      <h2 class="traningCard__name font" :class="{ traningCard__name_special: card.name === 'Коммерция (По отраслям)' }">{{
         card.name }}</h2>
       <div class="traningCard__icon" v-html="card.icon"></div>
     </div>
@@ -53,7 +53,7 @@ export default {
 .traningCard__name {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 28px;
+  font-size: calc(var(--assistant ) * 2.8);
   color: #fff;
   max-width: 300px;
   line-height: 30px;
