@@ -2,7 +2,7 @@
   <Transition name="slide-right">
     <div
       class="header__inner"
-      v-if="idx === activeIdxLi && item.allPages !== undefined"
+      v-show="idx === activeIdxLi && item.allPages !== undefined"
       ref="inner"
     >
       <UIHeaderViNavItem
@@ -18,7 +18,7 @@
   <Transition name="slide-right">
     <div
       class="header__slide"
-      v-if="arrChildren"
+      v-show="arrChildren"
       :style="calcLeftDistance"
       @mouseleave="closeSlide"
     >
@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       arrChildren: null,
+      closeMainLi: false,
       topItem: null,
     };
   },
@@ -106,7 +107,6 @@ export default {
   background: white;
   border-radius: 30px;
   /* box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2); */
-  transition: all 0.3s ease;
   z-index: 0;
 }
 .header__slide_text {
@@ -127,10 +127,12 @@ export default {
 
 .slide-right-enter-from {
   transform: translateX(30px);
+  transition: all 0.3s ease;
   opacity: 0;
 }
 .slide-right-enter-to {
   transform: translateX(0px);
+  transition: all 0.3s ease;
   opacity: 1;
 }
 .slide-right-leave-from {
