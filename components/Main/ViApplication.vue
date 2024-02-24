@@ -46,7 +46,6 @@ export default {
       this.isNumberPrev = this.isNumber;
     },
     numberValidator(event) {
-      console.log(this.isNumber);
       const hasLetters = /[a-zA-Zа-яА-Я!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]$/.test(
         this.isNumber
       );

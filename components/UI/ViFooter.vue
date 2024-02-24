@@ -85,7 +85,7 @@ footer {
   position: relative;
   width: 100vw;
   background: black;
-  padding-top: 66px;
+  padding-top: 136px;
   padding-bottom: 60px;
 }
 .footer__container {
