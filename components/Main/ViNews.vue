@@ -2,7 +2,7 @@
   <section class="news">
     <div class="news__container">
       <div class="news__roof">
-        <h2 class="news__title">Новости</h2>
+        <UIViTitle>Новости</UIViTitle>
         <button class="news__btn">
           Все новости
           <svg
@@ -116,6 +116,7 @@ export default {
 .news {
   width: 100vw;
   padding-top: 60px;
+  padding-bottom: 60px;
 }
 .news__container {
   max-width: 1440px;
@@ -126,11 +127,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.news__title {
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-size: 60px;
 }
 .news__btn {
   font-family: "Inter", sans-serif;

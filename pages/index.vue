@@ -5,6 +5,8 @@
     <MainViTraning />
     <MainViApplication />
     <MainViNews />
+    <MainViAbout />
+    <UIViFooter />
   </div>
 </template>
 
@@ -14,7 +16,6 @@ export default {};
 
 <style scoped>
 .app {
-
   overflow: hidden;
 }
 </style>
