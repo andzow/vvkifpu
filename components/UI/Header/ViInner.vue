@@ -2,7 +2,7 @@
   <Transition name="slide-right">
     <div
       class="header__inner"
-      v-show="idx === activeIdxLi && item.allPages !== undefined"
+      v-if="idx === activeIdxLi && item.allPages !== undefined"
       ref="inner"
     >
       <UIHeaderViNavItem
@@ -18,7 +18,7 @@
   <Transition name="slide-right">
     <div
       class="header__slide"
-      v-show="arrChildren"
+      v-if="arrChildren"
       :style="calcLeftDistance"
       @mouseleave="closeSlide"
     >

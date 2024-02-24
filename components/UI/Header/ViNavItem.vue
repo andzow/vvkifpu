@@ -1,5 +1,5 @@
 <template>
-  <div v-show="item" class="header__item">
+  <div v-if="item" class="header__item">
     <div
       class="header__item_text"
       ref="headerItem"
@@ -10,7 +10,7 @@
       @mouseleave="closeChildren($event, idx)"
     >
       <p class="header__item_name">{{ list.name }}</p>
-      <div class="header__item_block" v-show="list.children">
+      <div class="header__item_block" v-if="list.children">
         <div class="header__item_image">
           <svg
             width="8"
