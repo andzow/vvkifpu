@@ -82,6 +82,7 @@ export default {
 
 <style scoped>
 footer {
+  position: relative;
   width: 100vw;
   background: black;
   padding-top: 66px;
