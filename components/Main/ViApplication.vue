@@ -4,7 +4,7 @@
       <div class="application__info">
         <h3 class="application__title">Оставьте заявку и мы вам перезвоним</h3>
         <p class="application__description">
-          наши специалисты ответят на все вопросы и смогут подобрать нужную
+          Наши специалисты ответят на все вопросы и смогут подобрать нужную
           программу
         </p>
       </div>
@@ -121,7 +121,7 @@ export default {
 .application__title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 80px;
+  font-size: 68px;
   max-width: 890px;
   color: #fff;
   line-height: 75px;
@@ -131,7 +131,7 @@ export default {
   font-weight: 500;
   margin-top: 30px;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
 }
 .application__form {
   width: 745px;

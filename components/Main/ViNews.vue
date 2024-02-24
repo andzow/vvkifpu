@@ -130,7 +130,7 @@ export default {
 }
 .news__btn {
   font-family: "Inter", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 22px;
   padding: 20px 40px;
   background: var(--violo);
@@ -164,7 +164,7 @@ export default {
 .news__info {
   margin-top: 30px;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   color: #9b9b9b;
 }
 .news__type {
@@ -191,7 +191,7 @@ export default {
 }
 .news__name {
   font-family: "Inter", sans-serif;
-  font-size: 35px;
+  font-size: 28px;
   margin-top: 10px;
 }
 .news__additionally_add {
