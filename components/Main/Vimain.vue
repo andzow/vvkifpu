@@ -28,19 +28,20 @@ export default {
     };
   },
   mounted() {
-    const typed = new Typed(this.$refs.el, {
+    new Typed(this.$refs.el, {
       strings: [
         "Открытия через обучение, уверенность через практику, профессионализм через опыт",
         "Изучай, применяй, достигай: формула успеха в профессиональном мире",
         "Фундаментальное образование, максимум практики и погружение в профессию",
       ],
       typeSpeed: 50,
-      backSpeed: 10,
+      backSpeed: 0,
       backDelay: 3000,
       showCursor: false,
       fadeOut: true,
       fadeOutClass: "typed-fade-out",
       fadeOutDelay: 700,
+      loop: true,
     });
   },
   methods: {
@@ -98,6 +99,7 @@ export default {
   text-align: center;
   color: #fff;
   font-size: 68px;
+  min-height: 250px;
   width: 1150px;
   border-radius: 20px;
   overflow: hidden;

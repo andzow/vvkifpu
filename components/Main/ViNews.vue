@@ -25,7 +25,7 @@
           class="news__main"
           data-aos="fade-right"
           data-aos-offset="400"
-          data-aos-duration="1000"
+          data-aos-duration="800"
         >
           <div class="news__main_image">
             <img class="news__img" :src="ArrayNews[0].image" alt="" />
@@ -41,7 +41,7 @@
           class="news__additionally"
           data-aos="fade-left"
           data-aos-offset="400"
-          data-aos-duration="1000"
+          data-aos-duration="800"
         >
           <div class="news__additionally_add">
             <div class="news__additionally_image">
