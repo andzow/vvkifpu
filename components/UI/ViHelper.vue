@@ -59,6 +59,7 @@ export default {
         }
         // localStorage.removeItem('ArrayBacground');
         // localStorage.removeItem('imageOff');
+        // localStorage.removeItem('background');
     },
     methods: {
         increaseFontSize(size) {
@@ -269,13 +270,12 @@ export default {
             const elements = document.querySelectorAll('*')
             const paths = document.querySelectorAll('.path')
             paths.forEach(path => {
-                path.style.fill = "#fff"
+                path.removeAttribute('style');
             })
             elements.forEach(element => {
                 element.classList.remove('white', 'blue', 'yellow', 'brown', 'black', 'border-log', 'input-white', 'input-black', 'input-brown', 'input-yellow', 'input-blue')
             })
-            const arrow = document.querySelector('.arrow')
-            arrow.style.fill = '#fff'
+
 
             localStorage.removeItem('background')
         }

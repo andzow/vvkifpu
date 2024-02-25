@@ -256,3 +256,6 @@ input:focus:-ms-input-placeholder {
 .border-log {
   border: 1px solid #fff;
 }
+.traningCard:hover .traningCard__element .traningCard__icon svg path {
+  fill: var(--violo);
+}
