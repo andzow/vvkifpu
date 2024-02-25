@@ -24,7 +24,7 @@ export default {
     }
     setTimeout(() => {
       this.isActive = true;
-    }, 2000);
+    }, 2400);
   },
 };
 </script>
