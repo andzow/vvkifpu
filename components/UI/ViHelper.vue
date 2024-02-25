@@ -30,6 +30,14 @@ export default {
     },
     mounted() {
         const background = localStorage.getItem("background")
+        const font = localStorage.getItem("ArrayFont")
+        const image = localStorage.getItem("imageOff")
+        if (font !== null) {
+            this.loadArrayFont()
+        }
+        if (image !== null) {
+            this.loadBackground()
+        }
         switch (background) {
             case "blue":
                 this.changeBackgroundBlue();
@@ -49,8 +57,6 @@ export default {
             default:
                 break;
         }
-        this.loadArrayFont()
-        this.loadBackground()
         // localStorage.removeItem('ArrayBacground');
         // localStorage.removeItem('imageOff');
     },
@@ -146,7 +152,7 @@ export default {
         },
         changeBackgroundBlue() {
             this.resetChangeBackground()
-            const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, p, button, input, li, div, section, header');
+            const elements = document.querySelectorAll('*');
             const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
             const elementsBorder = document.querySelectorAll('.border')
             const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
@@ -169,7 +175,7 @@ export default {
         },
         changeBackgroundYellow() {
             this.resetChangeBackground()
-            const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, p, button, input, li, div, section, header');
+            const elements = document.querySelectorAll('*');
             const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
             const elementsBorder = document.querySelectorAll('.border')
             const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
@@ -192,7 +198,7 @@ export default {
         },
         changeBackgroundBrown() {
             this.resetChangeBackground()
-            const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, p, button, input, li, div, section, header');
+            const elements = document.querySelectorAll('*');
             const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
             const elementsBorder = document.querySelectorAll('.border')
             const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
@@ -215,7 +221,7 @@ export default {
         },
         changeBackgroundBlack() {
             this.resetChangeBackground()
-            const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, p, button, input, li, div, section, header');
+            const elements = document.querySelectorAll('*');
             const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
             const elementsBorder = document.querySelectorAll('.border')
             const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
@@ -238,7 +244,7 @@ export default {
         },
         changeBackgroundWhite() {
             this.resetChangeBackground()
-            const elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, p, button, input, li, div, section, header');
+            const elements = document.querySelectorAll('*');
             const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
             const elementsBorder = document.querySelectorAll('.border')
             const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
@@ -263,7 +269,7 @@ export default {
             const elements = document.querySelectorAll('*')
             const paths = document.querySelectorAll('.path')
             paths.forEach(path => {
-                path.style.fill = "#542FE6"
+                path.style.fill = "#fff"
             })
             elements.forEach(element => {
                 element.classList.remove('white', 'blue', 'yellow', 'brown', 'black', 'border-log', 'input-white', 'input-black', 'input-brown', 'input-yellow', 'input-blue')
