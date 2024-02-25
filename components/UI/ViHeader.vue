@@ -201,6 +201,7 @@ header {
 .header__logo {
   font-size: 40px;
   color: white;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 .activeHeader .header__logo {

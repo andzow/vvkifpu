@@ -199,6 +199,7 @@ export default {
   padding: 30px 0;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
+  cursor: pointer;
 }
 .news__additionally_add:nth-child(1) {
   margin-bottom: 30px;
@@ -214,10 +215,10 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  z-index: 3;
   transition: all 0.3s ease-in-out;
+  z-index: 3;
 }
-.news__additionally_img:hover {
+.news__additionally_add:hover .news__additionally_img {
   transform: translate(-10px, -10px);
 }
 .news__info_add {
