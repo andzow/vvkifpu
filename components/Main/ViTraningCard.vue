@@ -1,9 +1,8 @@
 <template>
-  <div class="traningCard" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="1000">
-    <div class="traningCard__element" :style="squareStyle">
-      <p class="traningCard__code">{{ card.code }}</p>
-      <h2 class="traningCard__name font" :class="{ traningCard__name_special: card.name === 'Коммерция (По отраслям)' }">{{
-        card.name }}</h2>
+  <div class="traningCard border" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="1000" @click="console.log('asdasda')">
+    <div class="traningCard__element traningCard__animation background border" :style="squareStyle">
+      <p class="traningCard__code font" data-font-actual="22">{{ card.code }}</p>
+      <h2 class="traningCard__name font" data-font-actual="28" v-html="card.name"></h2>
       <div class="traningCard__icon" v-html="card.icon"></div>
     </div>
     <div class="traningCard__background"></div>
@@ -27,8 +26,8 @@ export default {
 };
 </script>
 
-<style>
-.traningCard__element:hover {
+<style scoped>
+.traningCard__animation:hover {
     transform: translate(-10px, -10px);
 }
 .traningCard {
@@ -49,18 +48,17 @@ export default {
   font-weight: 900;
   font-size: 22px;
   color: #fff;
+  transition: all .3s ease;
 }
 .traningCard__name {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: calc(var(--assistant ) * 2.8);
   color: #fff;
-  max-width: 300px;
-  line-height: 30px;
   margin-top: 5px;
-}
-.traningCard__name_special {
-  max-width: 220px;
+  transition: all .3s ease;
+  display: flex;
+  justify-content: flex-start;
 }
 .traningCard__icon {
   position: absolute;

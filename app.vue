@@ -4,7 +4,7 @@
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
-    <!-- <UIViHelper/> -->
+    <UIViHelper/>
   </div>
 </template>
 

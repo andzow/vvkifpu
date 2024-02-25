@@ -2,79 +2,53 @@
   <section class="news">
     <div class="news__container">
       <div class="news__roof">
-        <h2 class="news__title">Новости</h2>
-        <button class="news__btn">
+        <h2 class="news__title font" data-font-actual="60">Новости</h2>
+        <button class="news__btn font border" data-font-actual="22">
           Все новости
-          <svg
-            class="news__svg"
-            width="55"
-            height="19"
-            viewBox="0 0 66 19"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
-              fill="white"
-            />
+          <svg class="news__svg" width="55" height="19" viewBox="0 0 66 19" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="path arrow" d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
+              fill="white" />
           </svg>
         </button>
       </div>
       <div class="news__content">
-        <div
-          class="news__main"
-          data-aos="fade-right"
-          data-aos-offset="400"
-          data-aos-duration="1000"
-        >
+        <div class="news__main" data-aos="fade-right" data-aos-offset="400" data-aos-duration="1000">
           <div class="news__main_image">
-            <img class="news__img" :src="ArrayNews[0].image" alt="" />
-            <div class="news__background"></div>
+            <img class="news__img image" :src="ArrayNews[0].image" alt="" />
+            <div class="news__background border"></div>
           </div>
-          <p class="news__info">
+          <p class="news__info font" data-font-actual="20">
             {{ ArrayNews[0].data }} |
-            <span class="news__type">{{ ArrayNews[0].type }}</span>
+            <span class="news__type font" data-font-actual="20">{{ ArrayNews[0].type }}</span>
           </p>
-          <h3 class="news__name">{{ ArrayNews[0].name }}</h3>
+          <h3 class="news__name font" data-font-actual="35">{{ ArrayNews[0].name }}</h3>
         </div>
-        <div
-          class="news__additionally"
-          data-aos="fade-left"
-          data-aos-offset="400"
-          data-aos-duration="1000"
-        >
+        <div class="news__additionally" data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000">
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img
-                class="news__additionally_img"
-                :src="ArrayNews[1].image"
-                alt=""
-              />
-              <div class="news__background"></div>
+              <img class="news__additionally_img image" :src="ArrayNews[1].image" alt="" />
+              <div class="news__background border"></div>
             </div>
             <div>
-              <p class="news__info news__info_add">
+              <p class="news__info news__info_add font" data-font-actual="20">
                 {{ ArrayNews[1].data }} |
-                <span class="news__type">{{ ArrayNews[1].type }}</span>
+                <span class="news__type font" data-font-actual="20">{{ ArrayNews[1].type }}</span>
               </p>
-              <h3 class="news__name">{{ ArrayNews[1].name }}</h3>
+              <h3 class="news__name font" data-font-actual="35">{{ ArrayNews[1].name }}</h3>
             </div>
           </div>
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img
-                class="news__additionally_img"
-                :src="ArrayNews[2].image"
-                alt=""
-              />
-              <div class="news__background"></div>
+              <img class="news__additionally_img image" :src="ArrayNews[2].image" alt="" />
+              <div class="news__background border"></div>
             </div>
             <div>
-              <p class="news__info news__info_add">
+              <p class="news__info news__info_add font" data-font-actual="20">
                 {{ ArrayNews[2].data }} |
-                <span class="news__type">{{ ArrayNews[2].type }}</span>
+                <span class="news__type font" data-font-actual="20">{{ ArrayNews[2].type }}</span>
               </p>
-              <h3 class="news__name">{{ ArrayNews[2].name }}</h3>
+              <h3 class="news__name font" data-font-actual="35">{{ ArrayNews[2].name }}</h3>
             </div>
           </div>
         </div>
@@ -131,6 +105,7 @@ export default {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 60px;
+  transition: all .3s ease;
 }
 .news__btn {
   font-family: "Inter", sans-serif;
@@ -170,11 +145,13 @@ export default {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: #9b9b9b;
+  transition: all .3s ease;
 }
 .news__type {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: #8101bd;
+  transition: all .3s ease;
 }
 .news__background {
   position: absolute;
@@ -197,6 +174,7 @@ export default {
   font-family: "Inter", sans-serif;
   font-size: 35px;
   margin-top: 10px;
+  transition: all .3s ease;
 }
 .news__additionally_add {
   display: flex;
@@ -213,6 +191,7 @@ export default {
   min-width: 260px;
   height: 260px;
   margin-right: 40px;
+  cursor: pointer;
 }
 .news__additionally_img {
   position: relative;
