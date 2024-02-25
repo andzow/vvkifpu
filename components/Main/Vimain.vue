@@ -4,7 +4,6 @@
     @mousemove="handleMouseMove"
     ref="main"
     id="sandbox-container"
-    
   >
     <div class="main__background" :style="backgroundTransform"></div>
     <div class="main__component">
@@ -15,6 +14,7 @@
       <p class="main__option">день открытых дверей</p>
       <p class="main__option main__option_right">документы</p>
     </div>
+    <MainViMainBackground />
   </main>
 </template>
 
@@ -63,10 +63,10 @@ export default {
 
 <style scoped>
 .main {
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: center;

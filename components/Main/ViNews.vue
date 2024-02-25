@@ -207,7 +207,7 @@ export default {
   position: relative;
   width: 260px;
   min-width: 260px;
-  height: 260px;
+  height: 240px;
   margin-right: 40px;
 }
 .news__additionally_img {

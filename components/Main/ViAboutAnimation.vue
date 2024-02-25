@@ -78,7 +78,6 @@ export default {};
   animation-delay: 3s;
 }
 
-/* Стили для новых шариков */
 .about__animate_item7 {
   top: 60%;
   left: 20%;
