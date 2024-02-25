@@ -38,7 +38,6 @@ export default {
       this.isNumberPrev = this.isNumber;
     },
     numberValidator(event) {
-      console.log(this.isNumber);
       const hasLetters = /[a-zA-Zа-яА-Я!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]$/.test(
         this.isNumber
       );
@@ -114,6 +113,7 @@ export default {
 .application__title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
+  font-size: 68px;
   font-size: 68px;
   max-width: 890px;
   color: #fff;

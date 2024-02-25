@@ -4,6 +4,8 @@
       activeHeader: isHover || isScrollDown,
       disableUpperHeader: activeInnerHeader,
     }"
+    @mousemove="handleMouseMove"
+    ref="header"
   >
     <div class="header__container">
       <div class="header__info">
@@ -41,7 +43,7 @@
         <UIHeaderViSearch :isHover="isHover" :isScrollDown="isScrollDown" />
       </div>
       <div class="header__nav">
-        <h1 class="header__logo">ВВКИФПУ</h1>
+        <h1 class="header__logo" @click="$router.push('/')">ВВКИФПУ</h1>
         <nav class="header__words">
           <ul
             class="header__ul"
@@ -62,256 +64,22 @@
                 :idx="idx"
                 :activeIdxLi="activeIdxLi"
                 :item="item"
+                :distancePx="distancePx"
               />
             </li>
           </ul>
         </nav>
       </div>
     </div>
+    <div class="header__animate"></div>
   </header>
 </template>
 
 <script>
-import { Body } from "~/node_modules/nuxt/dist/head/runtime/components";
 export default {
   data() {
     return {
-      navArr: [
-        {
-          name: "АБИТУРИЕНТАМ",
-          allPages: [
-            {
-              name: "День открытых дверей",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Приемная комиссия",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Список специальностей",
-              path: "/",
-              children: [
-                {
-                  name: "9.02.04 “Информационные системы”",
-                  path: "/",
-                },
-                {
-                  name: "40.02.02 “Правоохранительная деятельность”",
-                  path: "/",
-                },
-                {
-                  name: "43.02.10 “Туризм”",
-                  path: "/",
-                },
-                {
-                  name: "38.02.04 “Коммерция (По отраслям)”",
-                  path: "/",
-                },
-                {
-                  name: "43.02.17 “Технологии индустрии красоты”",
-                  path: "/",
-                },
-                {
-                  name: "43.02.02 “Парикмахерское искусство”",
-                  path: "/",
-                },
-              ],
-            },
-            {
-              name: "Правила приема",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Стоимость обучения",
-              path: "/",
-              children: null,
-            },
-          ],
-          path: "/",
-          height: 500,
-        },
-        {
-          name: "СТУДЕНТАМ",
-          allPages: [
-            {
-              name: "Оплата обучения",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Онлайн обучение",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Документы на практику",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Контактные данные сотрудников ВВКИФПУ",
-              path: "/",
-              children: null,
-            },
-          ],
-          path: "/",
-          height: 100,
-        },
-        {
-          name: "БИБЛИОТЕКА",
-          allPages: [
-            {
-              name: "Электронная библиотека",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Дополнительная информация",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Дополнительные информационные ресурсы",
-              path: "/",
-              children: null,
-            },
-          ],
-          path: "/",
-          height: 200,
-        },
-        {
-          name: "СВЕДЕНИЯ ОБ ОО",
-          allPages: [
-            {
-              name: "Основные сведения",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Структура и органы управления ОО",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Документы",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Образование",
-              path: "/",
-              children: [
-                {
-                  name: "Численность обучающихся",
-                  path: "/",
-                },
-                {
-                  name: "Основные профессиональные образовательные стандарты",
-                  path: "/",
-                },
-                {
-                  name: "Учебные планы и Основные профессиональные образовательные программы",
-                  path: "/",
-                },
-              ],
-            },
-            {
-              name: "Руководство",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Педагогический состав",
-              path: "/",
-              children: null,
-            },
-            {
-              name: `Материально-техническое обеспечение
-и оснащенность образовательного процесса. Доступная среда`,
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Платные образовательнные услуги",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Финансово-хозяйственная деятельность",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Вакантные места для приема (перевода) обучающихся",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Стипендии и меры поддержки обучающихся",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Международное сотрудничество",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Организация питания в образовательной организации",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Образовательные стандарты",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Правила приема",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Виды материальной поддержки",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Наши реквизиты",
-              path: "/",
-              children: null,
-            },
-          ],
-          path: "/",
-          height: 300,
-        },
-        {
-          name: "НОВОСТИ",
-          allPages: [
-            {
-              name: "Новости колледжа",
-              path: "/",
-              children: null,
-            },
-            {
-              name: "Мероприятия",
-              path: "/",
-              children: null,
-            },
-          ],
-          path: "/",
-          height: 400,
-        },
-        {
-          name: "КОНТАКТЫ",
-          path: "/",
-          height: 700,
-        },
-      ],
+      navArr: useNavArr(),
       isHover: false,
       isScrollDown: false,
       activeIdx: false,
@@ -348,12 +116,24 @@ export default {
     },
     setActiveLi(idx) {
       this.activeIdxLi = idx;
-      this.distancePx = this.$refs.navItem[idx].getBoundingClientRect().left;
+      this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
       document.body.style.overflow = "hidden";
     },
     setDisableLi(e) {
       this.activeIdxLi = null;
       document.body.style.overflow = "auto";
+    },
+    handleMouseMove(event) {
+      const mainWidth = this.$refs.header.offsetWidth;
+      const mouseX = event.clientX;
+      const percent = (mouseX / mainWidth) * 100;
+      if (percent > 50) {
+        this.isColor = "color: #1460d3";
+      } else {
+        this.isColor = "color: #6110E9";
+      }
+      const adjustedPercent = percent * 0.3 + 35;
+      this.backgroundTransform = `transform: translateX(${-adjustedPercent}%)`;
     },
   },
   mounted() {
@@ -368,10 +148,24 @@ header {
   position: fixed;
   top: 0;
   width: 100vw;
-  background: none;
   padding: 30px 0 0 0;
+  background: none;
   transition: all 0.3s ease;
   z-index: 5;
+}
+.header__animate {
+  /* position: absolute;
+  top: 0;
+  left: 0%;
+  width: 400%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    #8001bc 0%,
+    #6700eb 30%,
+    #00eace 100%
+  );
+  z-index: -1; */
 }
 .activeHeader {
   background: white;
@@ -436,6 +230,7 @@ header {
 .header__logo {
   font-size: 40px;
   color: white;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 .activeHeader .header__logo {

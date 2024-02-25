@@ -4,7 +4,6 @@
     @mousemove="handleMouseMove"
     ref="main"
     id="sandbox-container"
-    
   >
     <div class="main__background" :style="backgroundTransform"></div>
     <div class="main__component">
@@ -15,6 +14,7 @@
       <p class="main__option font border" data-font-actual="30">день открытых дверей</p>
       <p class="main__option main__option_right font border" data-font-actual="30">документы</p>
     </div>
+    <MainViMainBackground />
   </main>
 </template>
 
@@ -28,19 +28,20 @@ export default {
     };
   },
   mounted() {
-    const typed = new Typed(this.$refs.el, {
+    new Typed(this.$refs.el, {
       strings: [
         "Открытия через обучение, уверенность через практику, профессионализм через опыт",
         "Изучай, применяй, достигай: формула успеха в профессиональном мире",
         "Фундаментальное образование, максимум практики и погружение в профессию",
       ],
       typeSpeed: 50,
-      backSpeed: 10,
+      backSpeed: 0,
       backDelay: 3000,
       showCursor: false,
       fadeOut: true,
       fadeOutClass: "typed-fade-out",
       fadeOutDelay: 700,
+      loop: true,
     });
   },
   methods: {
@@ -63,10 +64,10 @@ export default {
 
 <style scoped>
 .main {
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -98,6 +99,7 @@ export default {
   text-align: center;
   color: #fff;
   font-size: 68px;
+  min-height: 250px;
   width: 1150px;
   border-radius: 20px;
   overflow: hidden;

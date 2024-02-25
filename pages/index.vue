@@ -5,6 +5,8 @@
     <MainViTraning />
     <MainViApplication />
     <MainViNews />
+    <MainViAbout />
+    <UIViFooter />
   </div>
 </template>
 

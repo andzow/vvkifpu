@@ -35,13 +35,13 @@ export default {
   z-index: 2;
 }
 .traningCard__element {
-    position: relative;
-    width: 100%;
-    height: 320px;
-    cursor: pointer;
-    padding: 30px;
-    transition: all .3s ease-in-out;
-    z-index: 3;
+  position: relative;
+  width: 100%;
+  height: 320px;
+  cursor: pointer;
+  padding: 30px;
+  transition: all 0.3s ease-in-out;
+  z-index: 3;
 }
 .traningCard__code {
   font-family: "Inter", sans-serif;
@@ -53,7 +53,7 @@ export default {
 .traningCard__name {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: calc(var(--assistant ) * 2.8);
+  font-size: calc(var(--assistant) * 2.8);
   color: #fff;
   margin-top: 5px;
   transition: all .3s ease;
@@ -66,7 +66,7 @@ export default {
   right: 40px;
 }
 .traningCard:hover .traningCard__icon svg path {
-    fill: var(--violo)
+  fill: var(--violo);
 }
 .traningCard__background {
   position: absolute;
