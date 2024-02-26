@@ -4,6 +4,9 @@
       <div class="preloader__name">
         <p v-for="(item, idx) in wordArray" :key="idx" class="preloader__letter" :class="'preloader__letter_' + idx">{{ item }}</p>
       </div>
+      <div class="preloader__container">
+        <div class="preloader__progress background"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -15,6 +18,29 @@ export default {
       wordArray: [
         'В','В','К','И','Ф','П','У'
       ]
+    }
+  },
+  mounted() {
+    const background = localStorage.getItem('background')
+    const progress = document.querySelector('.preloader__progress')
+    switch (background) {
+      case "blue":
+        progress.style.background = "#063462"
+        break;
+      case "yellow":
+      progress.style.background = "#4d4b43"
+        break;
+      case "brown":
+      progress.style.background = "#a9e44d"
+        break;
+      case "black":
+      progress.style.background = "#fff"
+        break;
+      case "white":
+      progress.style.background = "#000"
+        break;
+      default:
+        break;
     }
   }
 }
@@ -32,6 +58,32 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.preloader__info {
+  position: relative;
+}
+.preloader__container {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  height: 12px;
+  width: 312px;
+  background: #F8F7F7;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.preloader__progress {
+  height: 100%;
+  width: 0;
+  background-image: linear-gradient(
+    to right,
+    #8001bc 0%,
+    #6700eb 30%,
+    #00eace 100%
+  );
+  animation: progress 1.3s ease forwards;
+  animation-delay: 1s;
+  border-radius: 20px;
 }
 .preloader__name {
   display: flex;
@@ -53,6 +105,25 @@ export default {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes progressColor {
+  0% {
+    background-color: #8001bc;
+  }
+  50% {
+    background-color: #6700eb;
+  }
+  100% {
+    background-color: #00eace;
   }
 }
 .preloader__letter_0 { animation-delay: 0.1s; }

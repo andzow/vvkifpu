@@ -65,9 +65,6 @@ export default {
   bottom: 30px;
   right: 40px;
 }
-.traningCard:hover .traningCard__icon svg path {
-  fill: var(--violo);
-}
 .traningCard__background {
   position: absolute;
   top: 0;
