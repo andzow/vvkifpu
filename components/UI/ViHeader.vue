@@ -4,8 +4,6 @@
       activeHeader: isHover || isScrollDown,
       disableUpperHeader: activeInnerHeader,
     }"
-    @mousemove="handleMouseMove"
-    ref="header"
   >
     <div class="header__container">
       <div class="header__info">
@@ -123,18 +121,7 @@ export default {
       this.activeIdxLi = null;
       document.body.style.overflow = "auto";
     },
-    handleMouseMove(event) {
-      const mainWidth = this.$refs.header.offsetWidth;
-      const mouseX = event.clientX;
-      const percent = (mouseX / mainWidth) * 100;
-      if (percent > 50) {
-        this.isColor = "color: #1460d3";
-      } else {
-        this.isColor = "color: #6110E9";
-      }
-      const adjustedPercent = percent * 0.3 + 35;
-      this.backgroundTransform = `transform: translateX(${-adjustedPercent}%)`;
-    },
+    handleMouseMove(event) {},
   },
   mounted() {
     this.scrollChangeColor();
@@ -152,20 +139,6 @@ header {
   background: none;
   transition: all 0.3s ease;
   z-index: 5;
-}
-.header__animate {
-  /* position: absolute;
-  top: 0;
-  left: 0%;
-  width: 400%;
-  height: 100%;
-  background-image: linear-gradient(
-    to right,
-    #8001bc 0%,
-    #6700eb 30%,
-    #00eace 100%
-  );
-  z-index: -1; */
 }
 .activeHeader {
   background: white;

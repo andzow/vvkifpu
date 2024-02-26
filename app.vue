@@ -1,5 +1,6 @@
 <template>
   <div>
+    <UIViHeader />
     <NuxtPage :class="{ page__active: !isActive }" />
     <Transition>
       <UIViPreloader v-if="!isActive" />

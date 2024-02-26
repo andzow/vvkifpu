@@ -78,7 +78,7 @@ export default {
   computed: {
     distanceUnderHeader() {
       return {
-        padding: `${this.headerHeight + 20}px 20px 0 20px`,
+        padding: `${200}px 20px 0 20px`,
       };
     },
   },
@@ -93,13 +93,6 @@ export default {
   background: url("@/assets/images/Speciality/information.webp") no-repeat;
   background-size: cover;
   overflow-x: hidden;
-}
-.main__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 .main__container {
   height: 100%;
@@ -140,6 +133,7 @@ export default {
   justify-content: space-between;
   width: 100%;
   max-width: 1800px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 .main__start_title {
