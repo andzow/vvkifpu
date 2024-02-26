@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="app">
     <UIViHeader />
     <UISpecialityViMain />
+    <UISpecialityViBasics />
   </div>
 </template>
 
@@ -9,4 +10,8 @@
 export default {};
 </script>
 
-<style scoped></style>
+<style scoped>
+.app {
+  overflow-x: hidden;
+}
+</style>
