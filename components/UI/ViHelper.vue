@@ -69,12 +69,11 @@ export default {
             elements.forEach(element => {
                 const dataFontValue = parseInt(element.getAttribute('data-font-actual')); 
                 let fontObject = this.ArrayFont.find(item => item.font === dataFontValue);
-                if (dataFontValue === 68 || dataFontValue === 60 && size > 150) {
+                if ((dataFontValue === 68 || dataFontValue === 60)  && size > 150) {
                     size = 150;
                 } else {
                     size = fontLog
                 }
-                console.log(size)
                 if (!fontObject) {
                     fontObject = {
                         font: dataFontValue,
