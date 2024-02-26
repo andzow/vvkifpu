@@ -1,3 +1,4 @@
+export const useModal = () => useState('use_modal', () => false)
 const navArr = [
   {
     name: "АБИТУРИЕНТАМ",

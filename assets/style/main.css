@@ -129,6 +129,11 @@ input::-webkit-inner-spin-button {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
+.modal__input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
 .input-blue::-webkit-input-placeholder {
   color: #063462;
 }
@@ -150,6 +155,11 @@ input::-webkit-inner-spin-button {
 
 .application__input::-moz-placeholder {
   color: var(--violo);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.modal__input::-moz-placeholder {
+  color: #fff;
   opacity: 1;
   transition: opacity 0.3s ease;
 }
@@ -177,12 +187,22 @@ input::-webkit-inner-spin-button {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
+.modal__input::-moz-placeholder {
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
 .card__error::-moz-placeholder {
   color: #DC143C;
 }
 
 .application__input::-ms-input-placeholder {
   color: var(--violo);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.modal__input::-ms-input-placeholder {
+  color: #fff;
   opacity: 1;
   transition: opacity 0.3s ease;
 }
@@ -233,25 +253,40 @@ input:focus:-ms-input-placeholder {
   background: #9dd1ff !important;
   border-color: #063462 !important;
 }
+.back-blue {
+  background: #063462 !important;
+}
 .yellow {
   color: #4d4b43  !important;
   background: #f7f3d6 !important;
   border-color: #4d4b43  !important;
+}
+.back-yellow {
+  background: #4d4b43 !important;
 }
 .brown {
   color: #a9e44d  !important;
   background: #3b2716 !important;
   border-color: #a9e44d  !important;
 }
+.back-brown {
+  background: #a9e44d !important;
+}
 .black {
   color: #fff  !important;
   background: #000 !important;
   border-color: #fff  !important;
 }
+.back-black {
+  background: #fff !important;
+}
 .white {
   color: #000  !important;
   background: #fff !important;
   border-color: #000  !important;
+}
+.back-white {
+  background: #000 !important;
 }
 .border-log {
   border: 1px solid #fff;

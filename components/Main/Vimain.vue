@@ -11,7 +11,7 @@
     </div>
     <div class="main__options" :style="isColor">
       <p class="main__option main__option_left font border" data-font-actual="30">набор 2024</p>
-      <p class="main__option font border" data-font-actual="30">день открытых дверей</p>
+      <p class="main__option font border" @click="useModal = true" data-font-actual="30">день открытых дверей</p>
       <p class="main__option main__option_right font border" data-font-actual="30">документы</p>
     </div>
     <MainViMainBackground />
@@ -23,6 +23,7 @@ import Typed from "typed.js";
 export default {
   data() {
     return {
+      useModal: useModal(),
       backgroundTransform: "transform: translateX(-50%)",
       isColor: "color: #6110E9",
     };

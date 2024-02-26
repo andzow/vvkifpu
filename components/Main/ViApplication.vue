@@ -3,8 +3,8 @@
     <div class="application__container">
       <div class="application__info">
         <h3 class="application__title font" data-font-actual="68">Оставьте заявку и мы вам перезвоним</h3>
-        <p class="application__description font" data-font-actual="20">
-          наши специалисты ответят на все вопросы и смогут подобрать нужную
+        <p class="application__description font" data-font-actual="18">
+          Наши специалисты ответят на все вопросы и смогут подобрать нужную
           программу
         </p>
       </div>
@@ -126,7 +126,7 @@ export default {
   font-weight: 500;
   margin-top: 30px;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   transition: all .3s ease;
 }
 .application__form {
