@@ -171,6 +171,7 @@ export default {
     changeBackgroundBlue() {
       this.resetChangeBackground();
       const elements = document.querySelectorAll("*");
+      const backs = document.querySelectorAll(".back");
       const filteredElements = Array.from(elements).filter(
         (element) =>
           !element.classList.contains("background") &&
@@ -196,11 +197,15 @@ export default {
       filteredElements.forEach((element) => {
         element.classList.add("blue");
       });
+      backs.forEach((back) => {
+        back.classList.add("back-blue");
+      });
       localStorage.setItem("background", "blue");
     },
     changeBackgroundYellow() {
       this.resetChangeBackground();
       const elements = document.querySelectorAll("*");
+      const backs = document.querySelectorAll(".back");
       const filteredElements = Array.from(elements).filter(
         (element) =>
           !element.classList.contains("background") &&
@@ -226,11 +231,15 @@ export default {
       filteredElements.forEach((element) => {
         element.classList.add("yellow");
       });
+      backs.forEach((back) => {
+        back.classList.add("back-yellow");
+      });
       localStorage.setItem("background", "yellow");
     },
     changeBackgroundBrown() {
       this.resetChangeBackground();
       const elements = document.querySelectorAll("*");
+      const backs = document.querySelectorAll(".back");
       const filteredElements = Array.from(elements).filter(
         (element) =>
           !element.classList.contains("background") &&
@@ -256,11 +265,15 @@ export default {
       filteredElements.forEach((element) => {
         element.classList.add("brown");
       });
+      backs.forEach((back) => {
+        back.classList.add("back-brown");
+      });
       localStorage.setItem("background", "brown");
     },
     changeBackgroundBlack() {
       this.resetChangeBackground();
       const elements = document.querySelectorAll("*");
+      const backs = document.querySelectorAll(".back");
       const filteredElements = Array.from(elements).filter(
         (element) =>
           !element.classList.contains("background") &&
@@ -286,11 +299,15 @@ export default {
       filteredElements.forEach((element) => {
         element.classList.add("black");
       });
+      backs.forEach((back) => {
+        back.classList.add("back-black");
+      });
       localStorage.setItem("background", "black");
     },
     changeBackgroundWhite() {
       this.resetChangeBackground();
       const elements = document.querySelectorAll("*");
+      const backs = document.querySelectorAll(".back");
       const filteredElements = Array.from(elements).filter(
         (element) =>
           !element.classList.contains("background") &&
@@ -316,6 +333,9 @@ export default {
       filteredElements.forEach((element) => {
         element.classList.add("white");
       });
+      backs.forEach((back) => {
+        back.classList.add("back-white");
+      });
       localStorage.setItem("background", "white");
     },
     resetChangeBackground() {
@@ -336,7 +356,13 @@ export default {
           "input-black",
           "input-brown",
           "input-yellow",
-          "input-blue"
+          "input-blue",
+          "back-white",
+          "back-blue",
+          "back-yellow",
+          "back-brown",
+          "back-black",
+          "back-white"
         );
       });
 
