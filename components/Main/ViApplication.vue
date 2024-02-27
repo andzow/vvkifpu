@@ -166,9 +166,10 @@ export default {
 
 <style scoped>
 .application {
-  width: 100vw;
+  width: 100%;
   background: #000;
   padding: 100px 0 100px 0;
+  overflow: hidden;
 }
 .application__container {
   max-width: 1800px;
