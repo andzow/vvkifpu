@@ -110,11 +110,14 @@ export default {
       }
     },
     sendData() {
+      if (this.phoneValidator !== 2) {
+        this.phoneValidator = 1
+      }
+      if (this.NameValidator !== 2) {
+        this.NameValidator = 1
+      }
       if (this.phoneValidator === 2 && this.NameValidator === 2) {
         console.log("Успех")
-      } else {
-        this.phoneValidator = 1
-        this.NameValidator = 1
       }
     }
   },
