@@ -5,7 +5,7 @@
         <p v-for="(item, idx) in wordArray" :key="idx" class="preloader__letter" :class="'preloader__letter_' + idx">{{ item }}</p>
       </div>
       <div class="preloader__container">
-        <div class="preloader__progress background"></div>
+        <div class="preloader__progress back"></div>
       </div>
     </div>
   </div>
@@ -20,29 +20,6 @@ export default {
       ]
     }
   },
-  mounted() {
-    const background = localStorage.getItem('background')
-    const progress = document.querySelector('.preloader__progress')
-    switch (background) {
-      case "blue":
-        progress.style.background = "#063462"
-        break;
-      case "yellow":
-      progress.style.background = "#4d4b43"
-        break;
-      case "brown":
-      progress.style.background = "#a9e44d"
-        break;
-      case "black":
-      progress.style.background = "#fff"
-        break;
-      case "white":
-      progress.style.background = "#000"
-        break;
-      default:
-        break;
-    }
-  }
 }
 </script>
 
@@ -89,10 +66,10 @@ export default {
   display: flex;
   align-items: center;
   color: #542FE6;
-  font-size: 80px;
   overflow: hidden;
 }
 .preloader__letter {
+  font-size: 80px;
   opacity: 0;
   animation: appear 0.5s ease forwards;
 }

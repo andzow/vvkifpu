@@ -5,7 +5,10 @@
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
-    <UIViHelper />
+    <Transition>
+      <UIModalViModal/>
+    </Transition>
+    <UIViHelper/>
   </div>
 </template>
 

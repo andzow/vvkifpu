@@ -16,7 +16,11 @@
       >
         набор 2024
       </p>
-      <p class="main__option font border" data-font-actual="30">
+      <p
+        class="main__option font border"
+        @click="useModal = true"
+        data-font-actual="30"
+      >
         день открытых дверей
       </p>
       <p
@@ -35,6 +39,7 @@ import Typed from "typed.js";
 export default {
   data() {
     return {
+      useModal: useModal(),
       backgroundTransform: "transform: translateX(-50%)",
       isColor: "color: #6110E9",
     };

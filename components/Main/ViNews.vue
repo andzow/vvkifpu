@@ -18,11 +18,11 @@
             <img class="news__img image" :src="ArrayNews[0].image" alt="" />
             <div class="news__background border"></div>
           </div>
-          <p class="news__info font" data-font-actual="20">
+          <p class="news__info font" data-font-actual="16">
             {{ ArrayNews[0].data }} |
             <span class="news__type font" data-font-actual="20">{{ ArrayNews[0].type }}</span>
           </p>
-          <h3 class="news__name font" data-font-actual="35">{{ ArrayNews[0].name }}</h3>
+          <h3 class="news__name font" data-font-actual="28">{{ ArrayNews[0].name }}</h3>
         </div>
         <div class="news__additionally" data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000">
           <div class="news__additionally_add">
@@ -31,11 +31,11 @@
               <div class="news__background border"></div>
             </div>
             <div>
-              <p class="news__info news__info_add font" data-font-actual="20">
+              <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[1].data }} |
                 <span class="news__type font" data-font-actual="20">{{ ArrayNews[1].type }}</span>
               </p>
-              <h3 class="news__name font" data-font-actual="35">{{ ArrayNews[1].name }}</h3>
+              <h3 class="news__name font" data-font-actual="28">{{ ArrayNews[1].name }}</h3>
             </div>
           </div>
           <div class="news__additionally_add">
@@ -44,11 +44,11 @@
               <div class="news__background border"></div>
             </div>
             <div>
-              <p class="news__info news__info_add font" data-font-actual="20">
+              <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[2].data }} |
                 <span class="news__type font" data-font-actual="20">{{ ArrayNews[2].type }}</span>
               </p>
-              <h3 class="news__name font" data-font-actual="35">{{ ArrayNews[2].name }}</h3>
+              <h3 class="news__name font" data-font-actual="28">{{ ArrayNews[2].name }}</h3>
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default {
 .news__info {
   margin-top: 30px;
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   color: #9b9b9b;
   transition: all .3s ease;
 }
@@ -172,7 +172,7 @@ export default {
 }
 .news__name {
   font-family: "Inter", sans-serif;
-  font-size: 35px;
+  font-size: 28px;
   margin-top: 10px;
   transition: all .3s ease;
 }
