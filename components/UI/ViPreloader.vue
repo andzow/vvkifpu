@@ -66,10 +66,10 @@ export default {
   display: flex;
   align-items: center;
   color: #542FE6;
-  font-size: 80px;
   overflow: hidden;
 }
 .preloader__letter {
+  font-size: 80px;
   opacity: 0;
   animation: appear 0.5s ease forwards;
 }
