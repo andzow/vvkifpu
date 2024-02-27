@@ -1,4 +1,4 @@
-export const useModal = () => useState('use_modal', () => false)
+export const useModal = () => useState("use_modal", () => false);
 const navArr = [
   {
     name: "АБИТУРИЕНТАМ",
@@ -19,27 +19,27 @@ const navArr = [
         children: [
           {
             name: "9.02.04 “Информационные системы”",
-            path: "/",
+            path: "/speciality/information-systems",
           },
           {
             name: "40.02.02 “Правоохранительная деятельность”",
-            path: "/",
+            path: "/speciality/pravoved",
           },
           {
             name: "43.02.10 “Туризм”",
-            path: "/",
+            path: "/speciality/tourism",
           },
           {
             name: "38.02.04 “Коммерция (По отраслям)”",
-            path: "/",
+            path: "/speciality/commerce",
           },
           {
             name: "43.02.17 “Технологии индустрии красоты”",
-            path: "/",
+            path: "/speciality/beauty-industry",
           },
           {
             name: "43.02.02 “Парикмахерское искусство”",
-            path: "/",
+            path: "/speciality/hairdressing",
           },
         ],
       },

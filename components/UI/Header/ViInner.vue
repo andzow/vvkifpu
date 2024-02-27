@@ -22,7 +22,12 @@
       :style="calcLeftDistance"
       @mouseleave="closeSlide"
     >
-      <p class="header__slide_text" v-for="item in arrChildren" :key="item">
+      <p
+        class="header__slide_text"
+        v-for="item in arrChildren"
+        :key="item"
+        @click="routerPush(item)"
+      >
         {{ item.name }}
       </p>
     </div>
@@ -62,6 +67,11 @@ export default {
     },
   },
   methods: {
+    routerPush(item) {
+      this.$router.push(item.path);
+      this.$emit("closeLi");
+      this.arrChildren = null;
+    },
     setArrChildren(el) {
       this.arrChildren = el;
     },

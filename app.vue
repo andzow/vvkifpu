@@ -6,9 +6,9 @@
       <UIViPreloader v-if="!isActive" />
     </Transition>
     <Transition>
-      <UIModalViModal/>
+      <UIModalViModal />
     </Transition>
-    <UIViHelper/>
+    <UIViHelper />
   </div>
 </template>
 

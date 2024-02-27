@@ -57,9 +57,10 @@ export default {
       default:
         break;
     }
-    // localStorage.removeItem('ArrayBacground');
-    // localStorage.removeItem('imageOff');
-    // localStorage.removeItem('background');
+
+    // localStorage.removeItem("ArrayBacground");
+    // localStorage.removeItem("imageOff");
+    // localStorage.removeItem("background");
   },
   methods: {
     increaseFontSize(size) {

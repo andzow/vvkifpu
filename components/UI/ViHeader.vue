@@ -63,6 +63,7 @@
                 :activeIdxLi="activeIdxLi"
                 :item="item"
                 :distancePx="distancePx"
+                @closeLi="setCloseLi"
               />
             </li>
           </ul>
@@ -104,6 +105,11 @@ export default {
       this.activeInnerHeader = false;
       this.isScrollDown = false;
     },
+    setCloseLi() {
+      this.isHover = false;
+      this.activeIdxLi = null;
+      document.body.style.overflow = "auto";
+    },
     scrollChangeColor() {
       window.addEventListener("scroll", () => {
         let scrollHeight = window.pageYOffset;
@@ -126,7 +132,6 @@ export default {
   mounted() {
     this.scrollChangeColor();
   },
-  watch: {},
 };
 </script>
 

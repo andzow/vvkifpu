@@ -30,6 +30,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
+  scrollToTop: true,
   props: {
     settingsObject: {
       type: Object,
@@ -47,7 +48,10 @@ export default {
       distanceOnContainer: null,
       distanceBottomOnContainer: null,
       distanceHeaderUnderActive: true,
+      constScrollTrigger: null,
+      scrollTriggerVeriable: null,
       settingSt: null,
+      endMarkers: "60%",
     };
   },
   methods: {
@@ -58,55 +62,63 @@ export default {
       this.distanceOnContainer = document
         .querySelector(".basics__container")
         .getBoundingClientRect().top;
-      this.distanceBottomOnContainer = document
-        .querySelector(".basics__container")
-        .getBoundingClientRect();
       this.distanceHeaderUnderActive = false;
+    },
+    setSettings() {
+      this.scrollTriggerVeriable = {
+        trigger: ".basics__container",
+        markers: false,
+        start: `top ${240}px`,
+        end: "bottom 60%",
+        onEnter: () => {
+          this.setPosition();
+          this.settingSt = {
+            position: "fixed",
+            top: `${this.distanceOnContainer}px`,
+            alignSelf: "auto",
+          };
+          setTimeout(() => {
+            this.constScrollTrigger.scrollTrigger.vars.end = `bottom ${
+              this.$refs.basicsMenu.getBoundingClientRect().bottom
+            }px`;
+            ScrollTrigger.refresh();
+          }, 0);
+        },
+        onLeaveBack: () => {
+          this.settingSt = {
+            position: "relative",
+            alignSelf: "auto",
+            top: `0px`,
+          };
+        },
+        onLeave: () => {
+          this.settingSt = {
+            position: "relative",
+            alignSelf: "end",
+            top: `0px`,
+          };
+        },
+        onEnterBack: () => {
+          this.settingSt = {
+            position: "fixed",
+            alignSelf: "auto",
+            top: `${this.distanceOnContainer}px`,
+          };
+        },
+      };
     },
   },
   mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
     gsap.registerPlugin(ScrollTrigger);
 
-    this.scrollTrigger = {
-      trigger: ".basics__container",
-      markers: true,
-      start: `top ${240}px`,
-      end: () => `bottom 60%`,
-      onEnter: () => {
-        this.setPosition();
-        console.log(this.distanceOnContainer);
-        this.settingSt = {
-          position: "fixed",
-          top: `${this.distanceOnContainer}px`,
-          alignSelf: "auto",
-        };
-      },
-      onLeaveBack: () => {
-        this.settingSt = {
-          position: "relative",
-          alignSelf: "auto",
-          top: `0px`,
-        };
-      },
-      onLeave: () => {
-        this.settingSt = {
-          position: "relative",
-          alignSelf: "end",
-          top: `0px`,
-        };
-      },
-      onEnterBack: () => {
-        this.settingSt = {
-          position: "fixed",
-          alignSelf: "auto",
-          top: `${this.distanceOnContainer}px`,
-        };
-      },
-    };
+    this.setSettings();
+
     setTimeout(() => {
-      gsap.to(".basics__container", {
-        scrollTrigger: this.scrollTrigger,
-        overwrite: true,
+      this.constScrollTrigger = gsap.to(".basics__container", {
+        scrollTrigger: this.scrollTriggerVeriable,
       });
     }, 300);
   },
@@ -114,9 +126,6 @@ export default {
     settingsStyle(obj) {
       return this.settingSt;
     },
-  },
-  watch: {
-    // 'при переходе на другую страницу убить анимацию'
   },
 };
 </script>

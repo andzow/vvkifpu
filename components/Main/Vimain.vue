@@ -116,7 +116,6 @@ export default {
   text-align: center;
   color: #fff;
   font-size: 68px;
-  min-height: 250px;
   width: 1150px;
   border-radius: 20px;
   overflow: hidden;

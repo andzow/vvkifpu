@@ -30,9 +30,9 @@ export default {
   margin-bottom: 30px;
 }
 .features__container {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
-.features__container:nth-child(2) {
+.features__container:last-child {
   margin-bottom: 0px;
 }
 .features__title {

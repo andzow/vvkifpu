@@ -1,21 +1,24 @@
 <template>
-  <main class="main">
+  <main
+    class="main"
+    :style="{
+      background: `url(${backImage}) no-repeat`,
+      backgroundSize: 'cover',
+    }"
+  >
     <div class="main__container">
       <div class="main__breadcrumbs" :style="distanceUnderHeader">
         Главная - 09.02.04 Информационные системы
       </div>
       <div class="main__name">
-        <h1 class="main__title">
-          09.02.04<br />
-          ИНФОРМАЦИОННЫЕ СИСТЕМЫ
-        </h1>
+        <h1 class="main__title" v-html="specialityTitle"></h1>
         <div class="main__button">
           <UISpecialityViButton>Заявка на обучение</UISpecialityViButton>
         </div>
       </div>
       <div class="main__about">
         <div class="main__content">
-          <div class="main__start" v-for="item in arrAbout" :key="item">
+          <div class="main__start" v-for="item in arrDes" :key="item">
             <p class="main__start_title">{{ item.name }}</p>
             <p class="main__start_des" v-for="list in item.arrDes" :key="list">
               {{ list }}
@@ -34,7 +37,7 @@
             </ul>
           </div>
           <div class="main__image">
-            <img :src="'../assets/images/Speciality/arrow.svg'" />
+            <img :src="imageSrc" />
           </div>
         </div>
       </div>
@@ -44,36 +47,25 @@
 
 <script>
 export default {
-  data() {
-    return {
-      headerHeight: null,
-      arrAbout: [
-        {
-          name: "Начало обучения",
-          arrDes: ["01 сен 2024"],
-        },
-        {
-          name: "Продолжительность",
-          arrDes: ["3 г 10 мес (база 9 кл)", "2 г 10 мес (база 11 кл)"],
-        },
-      ],
-      arrProffesions: [
-        "программист информационных систем",
-        "системный администратор",
-        "администратор компьютерной сети",
-        "техник по обслуживанию аппаратных средств",
-        "веб-мастер (веб-дизайнер)",
-        "ИТ-специалист",
-        "администратор базы данных",
-        "и многие другие",
-      ],
-      imageSrc: "../assets/images/Speciality/arrow.svg",
-    };
+  props: {
+    specialityTitle: {
+      type: String,
+    },
+    arrDes: {
+      type: Array,
+    },
+    arrProffesions: {
+      type: Array,
+    },
+    imageSrc: {
+      type: String,
+    },
+    backImage: {
+      type: String,
+    },
   },
   mounted() {
-    this.headerHeight = document
-      ?.querySelector("header")
-      ?.getBoundingClientRect().height;
+    console.log(this.backImage);
   },
   computed: {
     distanceUnderHeader() {
@@ -90,7 +82,7 @@ export default {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url("@/assets/images/Speciality/information.webp") no-repeat;
+
   background-size: cover;
   overflow-x: hidden;
 }
