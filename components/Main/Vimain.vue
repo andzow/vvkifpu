@@ -10,9 +10,21 @@
       <p class="main__text font" ref="el" data-font-actual="68"></p>
     </div>
     <div class="main__options" :style="isColor">
-      <p class="main__option main__option_left font border" data-font-actual="30">набор 2024</p>
-      <p class="main__option font border" data-font-actual="30">день открытых дверей</p>
-      <p class="main__option main__option_right font border" data-font-actual="30">документы</p>
+      <p
+        class="main__option main__option_left font border"
+        data-font-actual="30"
+      >
+        набор 2024
+      </p>
+      <p class="main__option font border" data-font-actual="30">
+        день открытых дверей
+      </p>
+      <p
+        class="main__option main__option_right font border"
+        data-font-actual="30"
+      >
+        документы
+      </p>
     </div>
     <MainViMainBackground />
   </main>

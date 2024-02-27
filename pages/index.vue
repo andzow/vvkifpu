@@ -1,6 +1,5 @@
 <template>
   <div class="app">
-    <UIViHeader />
     <MainVimain />
     <MainViTraning />
     <MainViApplication />

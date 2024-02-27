@@ -107,6 +107,9 @@ footer {
 .footer__spec {
   margin-bottom: 80px;
 }
+.footer__spec_li {
+  transition: all 0.3s ease;
+}
 .footer__spec_li a {
   font-size: 16px;
   font-family: "Inter", sans-serif;
@@ -121,9 +124,12 @@ footer {
 .footer__spec_li:last-child {
   margin-bottom: 0px;
 }
+.footer__spec_li:hover {
+  transform: scale(1.02);
+}
 .footer__spec_li a:hover {
   color: white;
-  text-decoration: underline;
+  transform: scale(1.2);
 }
 .footer__contact_title {
   font-size: 40px;
@@ -172,6 +178,6 @@ footer {
 }
 .footer__nav_li:hover {
   color: White;
-  text-decoration: underline;
+  transform: scale(1.02);
 }
 </style>

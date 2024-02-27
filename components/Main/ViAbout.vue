@@ -89,6 +89,7 @@ export default {
 .about {
   position: relative;
   width: 100vw;
+  margin: 60px 0 0 0;
   padding: 113px 0;
   background: black;
 }

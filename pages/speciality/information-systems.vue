@@ -3,6 +3,8 @@
     <UIViHeader />
     <UISpecialityViMain />
     <UISpecialityViBasics />
+    <MainViApplication />
+    <UIViFooter />
   </div>
 </template>
 
