@@ -79,7 +79,6 @@ export default {
   position: relative;
   width: 100vw;
   height: 100vh;
-
   background-size: cover;
   overflow-x: hidden;
 }
@@ -116,10 +115,12 @@ export default {
   width: 100vw;
   padding: 30px 0;
   background: black;
+  min-height: 150px;
 }
 .main__content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 1800px;
   padding: 0 20px;
