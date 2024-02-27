@@ -201,6 +201,7 @@ export default {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 20px;
+  white-space: nowrap;
 }
 .payment__line {
   font-family: "Inter", sans-serif;

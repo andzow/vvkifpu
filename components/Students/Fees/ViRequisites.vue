@@ -4,21 +4,21 @@
         <UIViTitle :settings="true">наши реквизиты</UIViTitle>
         <div class="requisites__info">
             <div class="requisites__box">
-                <p class="requisites__description">Профессиональное Образовательное Учреждение «Волго-Вятский колледж информатики, финансов, права, управления»</p>
-                <p class="requisites__description">Назначение платежа: Оплата за обучение по договору № _____ от Ф.И.О.</p>
-                <p class="requisites__description">ОРГН: 1024301327709</p>
-                <p class="requisites__description">ИНН-4345010977</p>
-                <p class="requisites__description">КПП-434501001</p>
-                <p class="requisites__description">610017 г.Киров Карла Маркса 75</p>
-                <p class="requisites__description">Банк-АО КБ «Хлынов» г.Киров</p>
-                <p class="requisites__description">БИК-043304711</p>
-                <p class="requisites__description">Кор/счет-30101810100000000711</p>
-                <p class="requisites__description">Расч/счет-40703810300430000015</p>
+                <p class="requisites__description font" data-font-actual="20">Профессиональное Образовательное Учреждение «Волго-Вятский колледж информатики, финансов, права, управления»</p>
+                <p class="requisites__description font" data-font-actual="20">Назначение платежа: Оплата за обучение по договору № _____ от Ф.И.О.</p>
+                <p class="requisites__description font" data-font-actual="20">ОРГН: 1024301327709</p>
+                <p class="requisites__description font" data-font-actual="20">ИНН-4345010977</p>
+                <p class="requisites__description font" data-font-actual="20">КПП-434501001</p>
+                <p class="requisites__description font" data-font-actual="20">610017 г.Киров Карла Маркса 75</p>
+                <p class="requisites__description font" data-font-actual="20">Банк-АО КБ «Хлынов» г.Киров</p>
+                <p class="requisites__description font" data-font-actual="20">БИК-043304711</p>
+                <p class="requisites__description font" data-font-actual="20">Кор/счет-30101810100000000711</p>
+                <p class="requisites__description font" data-font-actual="20">Расч/счет-40703810300430000015</p>
                 <div class="requisites__line"></div>
-                <p class="requisites__description">Банк-ПАО «Норвик Банк» г.Киров</p>
-                <p class="requisites__description">БИК-043304728</p>
-                <p class="requisites__description">Кор/счет-30101810300000000728</p>
-                <p class="requisites__description">Расч/счет-40703810400000128982</p>
+                <p class="requisites__description font" data-font-actual="20">Банк-ПАО «Норвик Банк» г.Киров</p>
+                <p class="requisites__description font" data-font-actual="20">БИК-043304728</p>
+                <p class="requisites__description font" data-font-actual="20">Кор/счет-30101810300000000728</p>
+                <p class="requisites__description font" data-font-actual="20">Расч/счет-40703810400000128982</p>
             </div>
         </div>
     </div>
