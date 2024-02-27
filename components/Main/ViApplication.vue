@@ -110,11 +110,14 @@ export default {
       }
     },
     sendData() {
+      if (this.phoneValidator !== 2) {
+        this.phoneValidator = 1
+      }
+      if (this.NameValidator !== 2) {
+        this.NameValidator = 1
+      }
       if (this.phoneValidator === 2 && this.NameValidator === 2) {
         console.log("Успех")
-      } else {
-        this.phoneValidator = 1
-        this.NameValidator = 1
       }
     }
   },
@@ -163,9 +166,10 @@ export default {
 
 <style scoped>
 .application {
-  width: 100vw;
+  width: 100%;
   background: #000;
   padding: 100px 0 100px 0;
+  overflow: hidden;
 }
 .application__container {
   max-width: 1800px;
