@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  emits: ["slideChildren"],
+  emits: ["slideChildren", "animateCloseLi"],
   props: {
     activeIdxLi: {
       type: Number,
@@ -69,7 +69,7 @@ export default {
   methods: {
     routerPush(item) {
       this.$router.push(item.path);
-      this.$emit("closeLi");
+      this.$emit("animateCloseLi");
       this.arrChildren = null;
     },
     setArrChildren(el) {

@@ -120,7 +120,7 @@ export default {
       this.constScrollTrigger = gsap.to(".basics__container", {
         scrollTrigger: this.scrollTriggerVeriable,
       });
-    }, 300);
+    }, 100);
   },
   computed: {
     settingsStyle(obj) {

@@ -2,7 +2,7 @@
   <section class="sert">
     <div class="sert__item" v-for="item in arrSert" :key="item">
       <a :href="item.imageOpen" target="_blank"
-        ><NuxtImg :src="item.imageSrc" height="375" width="270" :quality="90"
+        ><img :src="item.imageOpen"
       /></a>
     </div>
   </section>

@@ -64,9 +64,6 @@ export default {
       type: String,
     },
   },
-  mounted() {
-    console.log(this.backImage);
-  },
   computed: {
     distanceUnderHeader() {
       return {

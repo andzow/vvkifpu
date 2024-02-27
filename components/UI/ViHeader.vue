@@ -63,7 +63,7 @@
                 :activeIdxLi="activeIdxLi"
                 :item="item"
                 :distancePx="distancePx"
-                @closeLi="setCloseLi"
+                @animateCloseLi="setCloseLi"
               />
             </li>
           </ul>
@@ -76,6 +76,7 @@
 
 <script>
 export default {
+  emits: ["animateCloseLi"],
   data() {
     return {
       navArr: useNavArr(),
