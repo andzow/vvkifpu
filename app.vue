@@ -8,7 +8,7 @@
     <Transition>
       <UIModalViModal />
     </Transition>
-    <UIViHelper />
+    <!-- <UIViHelper /> -->
   </div>
 </template>
 
