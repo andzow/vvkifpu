@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      breadcrumbs="38.02.04 Коммерция (по отраслям)"
     />
     <UISpecialityViBasics
       :arrAbout="arrAbout"

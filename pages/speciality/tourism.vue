@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      breadcrumbs="43.02.10 Туризм"
     />
     <UISpecialityViBasics
       :arrAbout="arrAbout"

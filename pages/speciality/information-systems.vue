@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      breadcrumbs="09.02.04 Информационные системы"
     />
     <UISpecialityViBasics
       :arrAbout="arrAbout"

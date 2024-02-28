@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      breadcrumbs="43.02.17 Технологии индустрии красоты"
     />
     <UISpecialityViBasics
       :arrAbout="arrAbout"
