@@ -7,7 +7,7 @@
   >
     <UIHeaderViVisual
       :activeVisualHeader="activeVisualHeader"
-      @closeVisual="activeVisualHeader = false"
+      @closeVisual="(activeVisualHeader = false), (isHover = false)"
     />
     <div class="header__container">
       <div class="header__info">
@@ -47,7 +47,11 @@
             </button>
           </div>
         </div>
-        <UIHeaderViSearch :isHover="isHover" :isScrollDown="isScrollDown" />
+        <UIHeaderViSearch
+          :isHover="isHover"
+          :isScrollDown="isScrollDown"
+          :activeVisualHeader="activeVisualHeader"
+        />
       </div>
       <div class="header__nav">
         <h1 class="header__logo" @click="$router.push('/')">ВВКИФПУ</h1>
@@ -55,7 +59,11 @@
           <ul
             class="header__ul"
             @mouseenter="isHover = true"
-            @mouseleave="isHover = false"
+            @mouseleave="
+              activeVisualHeader
+                ? isHover
+                : ((isHover = false), (isScrollDown = false))
+            "
           >
             <li
               class="header__li"
@@ -140,6 +148,7 @@ export default {
     },
     handleMouseMove(event) {},
   },
+
   mounted() {
     this.scrollChangeColor();
   },
