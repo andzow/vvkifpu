@@ -30,7 +30,7 @@
         документы
       </p>
     </div>
-    <MainViMainBackground />
+    <!-- <MainViMainBackground /> -->
   </main>
 </template>
 

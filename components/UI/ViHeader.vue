@@ -1,10 +1,14 @@
 <template>
   <header
     :class="{
-      activeHeader: isHover || isScrollDown,
+      activeHeader: isHover || isScrollDown || activeVisualHeader,
       disableUpperHeader: activeInnerHeader,
     }"
   >
+    <UIHeaderViVisual
+      :activeVisualHeader="activeVisualHeader"
+      @closeVisual="activeVisualHeader = false"
+    />
     <div class="header__container">
       <div class="header__info">
         <div class="header__left">
@@ -12,7 +16,12 @@
           <p class="header__text">г. Киров, ул. Герцена 41</p>
           <p class="header__text">8 (8332) 64-18-98</p>
           <div class="header__hide">
-            <button class="header__btn">
+            <button
+              class="header__btn"
+              @click="
+                (activeVisualHeader = !activeVisualHeader), (isHover = !isHover)
+              "
+            >
               <svg
                 width="24"
                 height="24"
@@ -87,6 +96,7 @@ export default {
       activeScrollHeight: 0,
       activeIdxLi: null,
       distancePx: null,
+      activeVisualHeader: false,
     };
   },
   methods: {
