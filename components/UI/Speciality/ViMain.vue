@@ -13,7 +13,9 @@
       <div class="main__name">
         <h1 class="main__title" v-html="specialityTitle"></h1>
         <div class="main__button">
-          <UISpecialityViButton>Заявка на обучение</UISpecialityViButton>
+          <UISpecialityViButton @click="useModal = true"
+            >Заявка на обучение</UISpecialityViButton
+          >
         </div>
       </div>
       <div class="main__about">
@@ -63,6 +65,11 @@ export default {
     backImage: {
       type: String,
     },
+  },
+  data() {
+    return {
+      useModal: useModal(),
+    };
   },
   computed: {
     distanceUnderHeader() {

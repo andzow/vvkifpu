@@ -1,10 +1,14 @@
 <template>
   <header
     :class="{
-      activeHeader: isHover || isScrollDown,
+      activeHeader: isHover || isScrollDown || activeVisualHeader,
       disableUpperHeader: activeInnerHeader,
     }"
   >
+    <UIHeaderViVisual
+      :activeVisualHeader="activeVisualHeader"
+      @closeVisual="(activeVisualHeader = false), (isHover = false)"
+    />
     <div class="header__container">
       <div class="header__info">
         <div class="header__left">
@@ -12,7 +16,12 @@
           <p class="header__text">г. Киров, ул. Герцена 41</p>
           <p class="header__text">8 (8332) 64-18-98</p>
           <div class="header__hide">
-            <button class="header__btn">
+            <button
+              class="header__btn"
+              @click="
+                (activeVisualHeader = !activeVisualHeader), (isHover = !isHover)
+              "
+            >
               <svg
                 width="24"
                 height="24"
@@ -38,7 +47,11 @@
             </button>
           </div>
         </div>
-        <UIHeaderViSearch :isHover="isHover" :isScrollDown="isScrollDown" />
+        <UIHeaderViSearch
+          :isHover="isHover"
+          :isScrollDown="isScrollDown"
+          :activeVisualHeader="activeVisualHeader"
+        />
       </div>
       <div class="header__nav">
         <h1 class="header__logo" @click="$router.push('/')">ВВКИФПУ</h1>
@@ -46,7 +59,11 @@
           <ul
             class="header__ul"
             @mouseenter="isHover = true"
-            @mouseleave="isHover = false"
+            @mouseleave="
+              activeVisualHeader
+                ? isHover
+                : ((isHover = false), (isScrollDown = false))
+            "
           >
             <li
               class="header__li"
@@ -87,6 +104,7 @@ export default {
       activeScrollHeight: 0,
       activeIdxLi: null,
       distancePx: null,
+      activeVisualHeader: false,
     };
   },
   methods: {
@@ -130,6 +148,7 @@ export default {
     },
     handleMouseMove(event) {},
   },
+
   mounted() {
     this.scrollChangeColor();
   },

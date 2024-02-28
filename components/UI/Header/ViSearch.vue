@@ -47,6 +47,7 @@ export default {
   props: {
     isHover: { type: Boolean },
     isScrollDown: { type: Boolean },
+    activeVisualHeader: { type: Boolean },
   },
   data() {
     return {
@@ -55,6 +56,13 @@ export default {
   },
   methods: {
     setInput() {
+      if (!this.isScrollDown && this.activeVisualHeader) {
+        this.$refs.inputSearch.style.border = "1px solid black";
+        this.$refs.inputSearch.style.color = "black";
+        this.activeInput = true;
+        return;
+      }
+
       if (this.activeInput && !this.isScrollDown) {
         this.activeInput = false;
         this.$refs.inputSearch.style.border = "1px solid rgba(0,0,0,0)";
