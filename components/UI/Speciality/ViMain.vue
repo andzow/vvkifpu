@@ -8,7 +8,7 @@
   >
     <div class="main__container">
       <div class="main__breadcrumbs" :style="distanceUnderHeader">
-        Главная - 09.02.04 Информационные системы
+        Главная - {{ breadcrumbs }}
       </div>
       <div class="main__name">
         <h1 class="main__title" v-html="specialityTitle"></h1>
@@ -50,6 +50,9 @@
 <script>
 export default {
   props: {
+    breadcrumbs: {
+      type: String,
+    },
     specialityTitle: {
       type: String,
     },

@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      breadcrumbs="40.02.02 Правоохранительная деятельность"
     />
     <UISpecialityViBasics
       :arrAbout="arrAbout"
