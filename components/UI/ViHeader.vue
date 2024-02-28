@@ -59,11 +59,7 @@
           <ul
             class="header__ul"
             @mouseenter="isHover = true"
-            @mouseleave="
-              activeVisualHeader
-                ? isHover
-                : ((isHover = false), (isScrollDown = false))
-            "
+            @mouseleave="activeVisualHeader ? isHover : (isHover = false)"
           >
             <li
               class="header__li"
