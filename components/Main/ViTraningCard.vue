@@ -1,12 +1,12 @@
 <template>
-  <div class="traningCard border" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="1000" @click="console.log('asdasda')">
+  <NuxtLink :to="card.path" class="traningCard border" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="1000" @click="console.log('asdasda')">
     <div class="traningCard__element traningCard__animation background border" :style="squareStyle">
       <p class="traningCard__code font" data-font-actual="22">{{ card.code }}</p>
       <h2 class="traningCard__name font" data-font-actual="28" v-html="card.name"></h2>
       <div class="traningCard__icon" v-html="card.icon"></div>
     </div>
     <div class="traningCard__background"></div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script>
