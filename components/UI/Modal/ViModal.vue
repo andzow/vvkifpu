@@ -41,7 +41,8 @@ export default {
             isNumberPrev: "",
             phoneValidator: 0,
             NameValidator: 0,
-            useModal: useModal()
+            useModal: useModal(),
+            useModalFinal: useModalFinal()
         }
     },
     methods: {
@@ -101,7 +102,7 @@ export default {
             this.isNumberPrev = this.isNumber;
         },
         nameValidator() {
-            if (this.isName.length <= 3) {
+            if (this.isName.length <= 1) {
                 this.NameValidator = 1
             } else {
                 this.NameValidator = 2
@@ -119,7 +120,8 @@ export default {
                 this.NameValidator = 1
             }
             if (this.phoneValidator === 2 && this.NameValidator === 2) {
-                console.log("Успех")
+                this.useModal = false
+                this.useModalFinal = true
             }
         }
     },

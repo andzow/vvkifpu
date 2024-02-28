@@ -1,12 +1,15 @@
 <template>
   <div>
-    <!-- <UIViHeader /> -->
+    <UIViHeader />
     <NuxtPage :class="{ page__active: !isActive }" />
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
     <Transition>
       <UIModalViModal />
+    </Transition>
+    <Transition>
+      <UIModalViModalFinal />
     </Transition>
     <!-- <UIViHelper /> -->
   </div>
