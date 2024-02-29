@@ -1,5 +1,8 @@
 <template>
-  <h1>привет</h1>
+  <div>
+    <h1>Дизайна нет</h1>
+    <UIViBreadcrumbs />
+  </div>
 </template>
 
 <script>

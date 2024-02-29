@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import { routes } from "./data/seoRoutes.js";
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/style/main.css"],
