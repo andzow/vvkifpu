@@ -18,9 +18,7 @@
       class="breadcrumbs__li"
     >
       <NuxtLink property="item" typeof="WebPage" :to="crumb.path">
-        <span property="name">{{
-          $route.fullPath === crumb.path && title !== null ? title : crumb.name
-        }}</span>
+        <span property="name">{{ crumb.name }}</span>
       </NuxtLink>
       <meta property="position" :content="index + 2" />
     </li>
@@ -41,11 +39,12 @@ export default {
       fullPath.shift();
 
       let path = "";
+
       const crumbs = fullPath.map((el) => {
         path = `${path}/${el}`;
-        const match = this.$router.resolve(path);
-        if (match.name !== null) {
-          return match;
+        const resolveRoute = this.$router.resolve(path);
+        if (resolveRoute.name !== null) {
+          return resolveRoute;
         }
       });
       return crumbs;
@@ -64,7 +63,7 @@ export default {
   display: inline;
 }
 .breadcrumbs__li:after {
-  content: " » ";
+  content: " - ";
   display: inline;
   font-size: 16px;
   font-weight: 400;
