@@ -3,6 +3,7 @@
     :class="{
       activeHeader: isHover || isScrollDown || activeVisualHeader,
       disableUpperHeader: activeInnerHeader,
+      activeBackground: backgroundLinear,
     }"
   >
     <UIHeaderViVisual
@@ -65,7 +66,7 @@
               class="header__li"
               v-for="(item, idx) in navArr"
               :key="item"
-              @mouseenter="setActiveLi(idx)"
+              @mouseenter="setActiveLi(idx), (headerBackgroundActive = false)"
               @mouseleave="setDisableLi"
               :class="{ activeLi: activeIdxLi === idx }"
               ref="navItem"
@@ -83,7 +84,6 @@
         </nav>
       </div>
     </div>
-    <div class="header__animate"></div>
   </header>
 </template>
 
@@ -101,6 +101,7 @@ export default {
       activeIdxLi: null,
       distancePx: null,
       activeVisualHeader: false,
+      headerBackgroundActive: false,
     };
   },
   methods: {
@@ -142,9 +143,27 @@ export default {
       this.activeIdxLi = null;
       document.body.style.overflow = "auto";
     },
-    handleMouseMove(event) {},
   },
+  computed: {
+    backgroundLinear() {
+      const arrNav = [
+        "/",
+        "/speciality/beauty-industry",
+        "/speciality/commerce",
+        "/speciality/hairdressing",
+        "/speciality/information-systems",
+        "/speciality/pravoved",
+        "/speciality/tourism",
+      ];
+      const { fullPath } = this.$route;
 
+      if (arrNav.findIndex((el) => el === fullPath) === -1) {
+        return true;
+      }
+      return false;
+    },
+  },
+  watch: {},
   mounted() {
     this.scrollChangeColor();
   },
@@ -157,9 +176,17 @@ header {
   top: 0;
   width: 100vw;
   padding: 30px 0 0 0;
-  background: none;
+  background: rgba(0, 0, 0, 0);
   transition: all 0.3s ease;
   z-index: 5;
+}
+.activeBackground {
+  background-image: linear-gradient(
+    to right,
+    #8001bc 0%,
+    #6700eb 30%,
+    #00eace 100%
+  ) !important;
 }
 .activeHeader {
   background: white;
@@ -255,4 +282,35 @@ header {
 .activeLi {
   color: #542fe6 !important;
 }
+.header__images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-image: linear-gradient(
+    to right,
+    #8001bc 0%,
+    #6700eb 30%,
+    #00eace 100%
+  );
+  z-index: -1;
+}
+
+/* .header-animate-enter-from {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.header-animate-enter-leave {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.header-animate-leave-from {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.header-animate-leave-to {
+  opacity: 0;
+  transition: all 0.3s ease;
+} */
 </style>
