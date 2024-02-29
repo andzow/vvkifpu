@@ -1,5 +1,5 @@
 <template>
-  <main
+  <section
     class="main"
     @mousemove="handleMouseMove"
     ref="main"
@@ -27,7 +27,7 @@
       </p>
     </div>
     <!-- <MainViMainBackground /> -->
-  </main>
+  </section>
 </template>
 
 <script>
