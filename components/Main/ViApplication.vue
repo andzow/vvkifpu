@@ -167,7 +167,7 @@ export default {
 
 <style scoped>
 .application {
-  width: 100%;
+  width: 100vw;
   background: #000;
   padding: 100px 0 100px 0;
   overflow: hidden;

@@ -67,5 +67,10 @@ export default <RouterConfig>{
       path: "/students/support",
       component: () => import("~/pages/students/support.vue"),
     },
+    {
+      name: "Документы на практику",
+      path: "/students/documents",
+      component: () => import("~/pages/students/documents.vue"),
+    },
   ],
 };
