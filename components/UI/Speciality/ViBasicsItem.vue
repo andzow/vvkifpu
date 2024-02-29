@@ -60,8 +60,8 @@ export default {
         return;
       }
       this.distanceOnContainer = document
-        .querySelector(".basics__container")
-        .getBoundingClientRect().top;
+        ?.querySelector(".basics__container")
+        ?.getBoundingClientRect().top;
       this.distanceHeaderUnderActive = false;
     },
     setSettings() {
