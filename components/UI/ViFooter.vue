@@ -83,10 +83,11 @@ export default {
 <style scoped>
 footer {
   position: relative;
-  width: 100vw;
+  width: 100%;
   background: black;
   padding-top: 136px;
   padding-bottom: 60px;
+  overflow-x: hidden;
 }
 .footer__container {
   max-width: 1800px;

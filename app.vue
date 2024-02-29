@@ -1,8 +1,7 @@
 <template>
+  <UIViHeader />
   <main>
-    <UIViHeader />
     <NuxtPage :class="{ page__active: !isActive }" />
-    <UIViFooter />
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
@@ -14,6 +13,7 @@
     </Transition>
     <!-- <UIViHelper /> -->
   </main>
+  <UIViFooter />
 </template>
 
 <script>
@@ -37,10 +37,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 main {
   overflow-x: hidden;
 }
+</style>
+<style>
 .page__active {
   overflow: hidden;
   height: 100vh;
