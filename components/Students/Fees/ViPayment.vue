@@ -3,25 +3,39 @@
     <div class="payment__container">
       <UIViTitle :settings="true">Оплата обучения</UIViTitle>
       <div class="payment__back">
-        <p class="payment__description font" data-font-actual="30">Стоимость обучения в 2024-2025 учебном году:</p>
+        <p class="payment__description font" data-font-actual="30">
+          Стоимость обучения в 2024-2025 учебном году:
+        </p>
       </div>
       <div class="payment__grid">
         <div class="payment__item" v-for="(item, idx) in ArrauInfo" :key="idx">
           <div class="payment__head">
-            <p class="payment__code font" data-font-actual="20">{{ item.code }}</p>
-            <p class="payment__name font" data-font-actual="20">{{ item.name }}</p>
+            <p class="payment__code font" data-font-actual="20">
+              {{ item.code }}
+            </p>
+            <p class="payment__name font" data-font-actual="20">
+              {{ item.name }}
+            </p>
           </div>
           <div class="payment__footer">
             <div class="payment__term">
-              <p class="payment__price font" data-font-actual="20">{{ item.info[0].price }} руб</p>
+              <p class="payment__price font" data-font-actual="20">
+                {{ item.info[0].price }} руб
+              </p>
               <p class="payment__line font" data-font-actual="20">-</p>
-              <p class="payment__price font" data-font-actual="20">{{ item.info[0].term1 }} сем.</p>
+              <p class="payment__price font" data-font-actual="20">
+                {{ item.info[0].term1 }} сем.
+              </p>
             </div>
             <div class="payment__border font" data-font-actual="20">|</div>
             <div class="payment__term">
-              <p class="payment__price font" data-font-actual="20">{{ item.info[1].price }} руб</p>
+              <p class="payment__price font" data-font-actual="20">
+                {{ item.info[1].price }} руб
+              </p>
               <p class="payment__line font" data-font-actual="20">-</p>
-              <p class="payment__price font" data-font-actual="20">{{ item.info[1].term1 }} сем.</p>
+              <p class="payment__price font" data-font-actual="20">
+                {{ item.info[1].term1 }} сем.
+              </p>
             </div>
           </div>
         </div>
@@ -36,97 +50,98 @@ export default {
     return {
       ArrauInfo: [
         {
-          code: '09.02.07',
-          name: 'Информационные системы и программирование',
+          code: "09.02.07",
+          name: "Информационные системы и программирование",
           info: [
             {
-              term1: '1',
-              price: '22 000'
+              term1: "1",
+              price: "22 000",
             },
             {
-              term1: '2',
-              price: '22 000'
-            }
-          ]
+              term1: "2",
+              price: "22 000",
+            },
+          ],
         },
         {
-          code: '40.02.02',
-          name: 'Правоохранительная деятельность',
+          code: "40.02.02",
+          name: "Правоохранительная деятельность",
           info: [
             {
-              term1: '1',
-              price: '22 000'
+              term1: "1",
+              price: "22 000",
             },
             {
-              term1: '2',
-              price: '22 000'
-            }
-          ]
+              term1: "2",
+              price: "22 000",
+            },
+          ],
         },
         {
-          code: '43.02.10',
-          name: 'Туризм',
+          code: "43.02.10",
+          name: "Туризм",
           info: [
             {
-              term1: '1',
-              price: '20 000'
+              term1: "1",
+              price: "20 000",
             },
             {
-              term1: '2',
-              price: '20 000'
-            }
-          ]
+              term1: "2",
+              price: "20 000",
+            },
+          ],
         },
         {
-          code: '38.02.04',
-          name: 'Коммерция (по отраслям)',
+          code: "38.02.04",
+          name: "Коммерция (по отраслям)",
           info: [
             {
-              term1: '1',
-              price: '20 000'
+              term1: "1",
+              price: "20 000",
             },
             {
-              term1: '2',
-              price: '20 000'
-            }
-          ]
+              term1: "2",
+              price: "20 000",
+            },
+          ],
         },
         {
-          code: '43.02.17',
-          name: 'Технологии индустрии красоты',
+          code: "43.02.17",
+          name: "Технологии индустрии красоты",
           info: [
             {
-              term1: '1',
-              price: '20 000'
+              term1: "1",
+              price: "20 000",
             },
             {
-              term1: '2',
-              price: '20 000'
-            }
-          ]
+              term1: "2",
+              price: "20 000",
+            },
+          ],
         },
         {
-          code: '43.02.02',
-          name: 'Парикмахерское искусство',
+          code: "43.02.02",
+          name: "Парикмахерское искусство",
           info: [
             {
-              term1: '1',
-              price: '20 000'
+              term1: "1",
+              price: "20 000",
             },
             {
-              term1: '2',
-              price: '20 000'
-            }
-          ]
-        }
-      ]
-    }
-  }
-}
+              term1: "2",
+              price: "20 000",
+            },
+          ],
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
 .payment {
+  width: 100vw;
   margin-top: 80px;
 }
 .payment__container {
@@ -168,7 +183,7 @@ export default {
   border-radius: 70px;
   padding: 30px;
   cursor: pointer;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .payment__item:hover {
   background: var(--violo);

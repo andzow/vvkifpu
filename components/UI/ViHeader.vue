@@ -157,7 +157,7 @@ export default {
       ];
       const { fullPath } = this.$route;
 
-      if (arrNav.findIndex((el) => el === fullPath) === -1) {
+      if (arrNav.findIndex((el) => el === fullPath) === -1 && !this.isHover) {
         return true;
       }
       return false;
@@ -181,12 +181,7 @@ header {
   z-index: 5;
 }
 .activeBackground {
-  background-image: linear-gradient(
-    to right,
-    #8001bc 0%,
-    #6700eb 30%,
-    #00eace 100%
-  ) !important;
+  background: linear-gradient(to right, #8001bc 0%, #6700eb 30%, #00eace 100%);
 }
 .activeHeader {
   background: white;

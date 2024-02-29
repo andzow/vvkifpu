@@ -1,37 +1,42 @@
 <template>
   <section class="relief">
     <div class="relief__container">
-        <UIViTitle :settings="true">Виды материальной поддержки</UIViTitle>
-        <p class="relief__description relief__description_special">Льготы по оплате за обучение (в размере 3%) предоставляются следующим категориям граждан.</p>
-        <div class="relief__position relief__position_special">
-          <div class="relief__circle"></div>
-          <p class="relief__text">Многодетные семьи</p>
-        </div>
-        <div class="relief__position">
-          <div class="relief__circle"></div>
-          <p class="relief__text">Малоимущие</p>
-        </div>
-        <div class="relief__position">
-          <div class="relief__circle"></div>
-          <p class="relief__text">По потере кормильца</p>
-        </div>
-        <div class="relief__position">
-          <div class="relief__circle"></div>
-          <p class="relief__text">Инвалиды</p>
-        </div>
-        <p class="relief__description">Размер скидки рассматривается в каждом отдельном случае индивидуально, и может периодически меняться.</p>
+      <UIViTitle :settings="true">Виды материальной поддержки</UIViTitle>
+      <p class="relief__description relief__description_special">
+        Льготы по оплате за обучение (в размере 3%) предоставляются следующим
+        категориям граждан.
+      </p>
+      <div class="relief__position relief__position_special">
+        <div class="relief__circle"></div>
+        <p class="relief__text">Многодетные семьи</p>
+      </div>
+      <div class="relief__position">
+        <div class="relief__circle"></div>
+        <p class="relief__text">Малоимущие</p>
+      </div>
+      <div class="relief__position">
+        <div class="relief__circle"></div>
+        <p class="relief__text">По потере кормильца</p>
+      </div>
+      <div class="relief__position">
+        <div class="relief__circle"></div>
+        <p class="relief__text">Инвалиды</p>
+      </div>
+      <p class="relief__description">
+        Размер скидки рассматривается в каждом отдельном случае индивидуально, и
+        может периодически меняться.
+      </p>
     </div>
   </section>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
 .relief {
+  width: 100vw;
   margin-top: 80px;
   margin-bottom: 65px;
 }
