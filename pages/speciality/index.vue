@@ -1,5 +1,5 @@
 <template>
-  <h1>привет</h1>
+  <h1>Дизайна нет</h1>
 </template>
 
 <script>

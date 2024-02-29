@@ -9,13 +9,23 @@ export default <RouterConfig>{
     },
     {
       name: "Новости",
-      path: "/college",
+      path: "/news/college",
       component: () => import("~/pages/news/college.vue"),
     },
     {
       name: "Мероприятия",
-      path: "/events",
+      path: "/news/events",
       component: () => import("~/pages/news/events.vue"),
+    },
+    {
+      name: "Специальности",
+      path: "/speciality",
+      component: () => import("~/pages/speciality/index.vue"),
+    },
+    {
+      name: "43.02.17 Технологии индустрии красоты",
+      path: "/speciality/beauty-industry",
+      component: () => import("~/pages/speciality/beauty-industry.vue"),
     },
     {
       name: "43.02.17 Технологии индустрии красоты",

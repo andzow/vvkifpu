@@ -1,8 +1,12 @@
 <template>
-  <ol vocab="http://schema.org/" typeof="BreadcrumbList">
-    <li property="itemListElement" typeof="ListItem">
+  <ol
+    class="breadcrumbs__ol"
+    vocab="http://schema.org/"
+    typeof="BreadcrumbList"
+  >
+    <li class="breadcrumbs__li" property="itemListElement" typeof="ListItem">
       <NuxtLink property="item" typeof="WebPage" to="/">
-        <span property="name">Vonage Learn</span>
+        <span property="name">Главная</span>
       </NuxtLink>
       <meta property="position" content="1" />
     </li>
@@ -11,10 +15,11 @@
       :key="index"
       property="itemListElement"
       typeof="ListItem"
+      class="breadcrumbs__li"
     >
       <NuxtLink property="item" typeof="WebPage" :to="crumb.path">
         <span property="name">{{
-          $route.fullPath === crumb.path && title !== null ? title : crumb.title
+          $route.fullPath === crumb.path && title !== null ? title : crumb.name
         }}</span>
       </NuxtLink>
       <meta property="position" :content="index + 2" />
@@ -38,16 +43,16 @@ export default {
         : fullPath.split("/");
       const crumbs = [];
       let path = "";
+
       params.forEach((param, index) => {
         path = `${path}/${param}`;
         const match = this.$router.resolve(path);
-        console.log(match);
-        // if (match.name !== null) {
-        //   crumbs.push({
-        //     title: param.replace(/-/g, " "),
-        //     ...match,
-        //   });
-        // }
+        if (match.name !== null) {
+          crumbs.push({
+            title: param.replace(/-/g, " "),
+            ...match,
+          });
+        }
       });
       return crumbs;
     },
@@ -55,26 +60,34 @@ export default {
 };
 </script>
 <style scoped>
-ol {
+.breadcrumbs__ol {
   list-style: none;
 }
-li {
+.breadcrumbs__ol span {
+  font-family: "Inter", sans-serif;
+}
+.breadcrumbs__li {
   display: inline;
 }
-li:after {
-  content: " » ";
+.breadcrumbs__li:after {
+  content: " - ";
   display: inline;
-  font-size: 0.9em;
-  color: #aaa;
-  padding: 0 0.0725em 0 0.15em;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
 }
-li:last-child:after {
+.breadcrumbs__li:last-child:after {
   content: "";
 }
-li a {
-  color: black;
+.breadcrumbs__li a {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
 }
-li a.nuxt-link-exact-active.nuxt-link-active {
+.breadcrumbs__li a:hover {
+  text-decoration: underline;
+}
+.breadcrumbs__li a.nuxt-link-exact-active.nuxt-link-active {
   color: grey;
 }
 </style>
