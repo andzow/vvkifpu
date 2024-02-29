@@ -37,21 +37,15 @@ export default {
   },
   computed: {
     crumbs() {
-      const fullPath = this.$route.fullPath;
-      const params = fullPath.startsWith("/")
-        ? fullPath.substring(1).split("/")
-        : fullPath.split("/");
-      const crumbs = [];
-      let path = "";
+      const fullPath = this.$route.fullPath.split("/");
+      fullPath.shift();
 
-      params.forEach((param, index) => {
-        path = `${path}/${param}`;
+      let path = "";
+      const crumbs = fullPath.map((el) => {
+        path = `${path}/${el}`;
         const match = this.$router.resolve(path);
         if (match.name !== null) {
-          crumbs.push({
-            title: param.replace(/-/g, " "),
-            ...match,
-          });
+          return match;
         }
       });
       return crumbs;
@@ -70,7 +64,7 @@ export default {
   display: inline;
 }
 .breadcrumbs__li:after {
-  content: " - ";
+  content: " » ";
   display: inline;
   font-size: 16px;
   font-weight: 400;
