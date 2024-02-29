@@ -62,5 +62,10 @@ export default <RouterConfig>{
       path: "/students/tuition-fees",
       component: () => import("~/pages/students/tuition-fees.vue"),
     },
+    {
+      name: "Виды материальной поддержки",
+      path: "/students/support",
+      component: () => import("~/pages/students/support.vue"),
+    },
   ],
 };
