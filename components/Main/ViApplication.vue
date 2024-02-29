@@ -40,6 +40,7 @@ export default {
       phoneValidator: 0,
       NameValidator: 0,
       isNumberPrev: "",
+      useModalFinal: useModalFinal()
     };
   },
   methods: {
@@ -99,7 +100,7 @@ export default {
       }
     },
     nameValidator() {
-      if (this.isName.length <= 3) {
+      if (this.isName.length <= 1) {
         this.NameValidator = 1
       } else {
         this.NameValidator = 2
@@ -117,7 +118,7 @@ export default {
         this.NameValidator = 1
       }
       if (this.phoneValidator === 2 && this.NameValidator === 2) {
-        console.log("Успех")
+        this.useModalFinal = true
       }
     }
   },
