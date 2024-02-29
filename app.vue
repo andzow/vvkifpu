@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <!-- <UIViHeader /> -->
     <NuxtPage :class="{ page__active: !isActive }" />
     <UIViFooter />
