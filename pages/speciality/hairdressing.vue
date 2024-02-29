@@ -16,7 +16,6 @@
       :arrSert="arrSert"
     />
     <MainViApplication />
-    <UIViFooter />
   </div>
 </template>
 
