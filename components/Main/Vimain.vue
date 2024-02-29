@@ -16,10 +16,7 @@
       >
         набор 2024
       </p>
-      <p
-        class="main__option font border"
-        data-font-actual="30"
-      >
+      <p class="main__option font border" data-font-actual="30">
         день открытых дверей
       </p>
       <p
@@ -40,6 +37,7 @@ export default {
     return {
       backgroundTransform: "transform: translateX(-50%)",
       isColor: "color: #6110E9",
+      isHome: true,
     };
   },
   mounted() {
@@ -61,7 +59,7 @@ export default {
   },
   methods: {
     handleMouseMove(event) {
-      const mainWidth = this.$refs.main.offsetWidth;
+      const mainWidth = this.$refs?.main?.offsetWidth;
       const mouseX = event.clientX;
       const percent = (mouseX / mainWidth) * 100;
       if (percent > 50) {
