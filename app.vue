@@ -1,7 +1,7 @@
 <template>
   <UIViHeader />
   <main>
-    <NuxtPage :class="{ page__active: !isActive }" />
+    <NuxtPage />
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
@@ -34,6 +34,13 @@ export default {
       this.isActive = true;
     }, 2400);
   },
+  watch: {
+    isActive(val) {
+      if (val) {
+        document.body.style.overflow = "auto";
+      }
+    },
+  },
 };
 </script>
 
@@ -43,6 +50,9 @@ main {
 }
 </style>
 <style>
+body {
+  overflow: hidden;
+}
 .page__active {
   overflow: hidden;
   height: 100vh;
