@@ -47,5 +47,10 @@ export default <RouterConfig>{
       path: "/speciality/tourism",
       component: () => import("~/pages/speciality/tourism.vue"),
     },
+    {
+      name: "Оплата обучения",
+      path: "/students/tuition-fees",
+      component: () => import("~/pages/students/tuition-fees.vue"),
+    },
   ],
 };
