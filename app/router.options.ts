@@ -59,7 +59,7 @@ export default <RouterConfig>{
     },
     {
       name: "Оплата обучения",
-      path: "/students/tuition-fees",
+      path: "/students/payment",
       component: () => import("~/pages/students/tuition-fees.vue"),
     },
     {

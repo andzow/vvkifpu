@@ -181,7 +181,7 @@ header {
   z-index: 5;
 }
 .activeBackground {
-  background: linear-gradient(to right, #8001bc 0%, #6700eb 30%, #00eace 100%);
+  background: #542fe6;
 }
 .activeHeader {
   background: white;

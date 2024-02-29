@@ -3,6 +3,7 @@
     class="breadcrumbs__ol"
     vocab="http://schema.org/"
     typeof="BreadcrumbList"
+    :class="{ breadcrumbs__ol_active: isColor }"
   >
     <li class="breadcrumbs__li" property="itemListElement" typeof="ListItem">
       <NuxtLink property="item" typeof="WebPage" to="/">
@@ -31,6 +32,9 @@ export default {
     title: {
       type: String,
       default: null,
+    },
+    isColor: {
+      type: Boolean,
     },
   },
   computed: {
@@ -69,6 +73,9 @@ export default {
   font-weight: 400;
   color: white;
 }
+.breadcrumbs__ol_active .breadcrumbs__li:after {
+  color: black !important;
+}
 .breadcrumbs__li:last-child:after {
   content: "";
 }
@@ -76,6 +83,9 @@ export default {
   font-size: 16px;
   font-weight: 400;
   color: white;
+}
+.breadcrumbs__ol_active .breadcrumbs__li a {
+  color: black !important;
 }
 .breadcrumbs__li a:hover {
   text-decoration: underline;
