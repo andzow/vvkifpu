@@ -72,5 +72,10 @@ export default <RouterConfig>{
       path: "/students/documents",
       component: () => import("~/pages/students/documents.vue"),
     },
+    {
+      name: "Правила приема",
+      path: "/speciality/admission-rules",
+      component: () => import("~/pages/speciality/admission-rules.vue"),
+    },
   ],
 };
