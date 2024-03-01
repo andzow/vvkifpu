@@ -8,15 +8,7 @@ export default defineNuxtConfig({
     },
   },
   hooks: {
-    "pages:extend": (pages) => {
-      pages.push({
-        name: "Дом",
-        path: "/home",
-        file: "~/pages/home.vue",
-      });
-      const findIndex = [];
-      console.log(pages);
-    },
+    "pages:extend": (pages) => {},
   },
   modules: ["@nuxt/image"],
   image: {
