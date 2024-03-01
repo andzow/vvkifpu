@@ -180,13 +180,7 @@ header {
   transition: all 0.3s ease;
   z-index: 5;
 }
-.activeBackground {
-  background: #542fe6;
-}
-.activeHeader {
-  background: white;
-  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
-}
+
 .header__container {
   max-width: 1800px;
   padding: 0 20px;
@@ -212,12 +206,6 @@ header {
   border-bottom: 1px solid rgba(0, 0, 0, 0) !important;
   overflow: hidden;
 }
-.activeHeader .header__info {
-  border-bottom: 1px solid black;
-}
-.activeHeader .header__info path {
-  stroke: black;
-}
 .header__left {
   display: flex;
   align-items: center;
@@ -228,9 +216,6 @@ header {
   color: #fff;
   margin-right: 30px;
   transition: all 0.3s ease;
-}
-.activeHeader .header__text {
-  color: #000;
 }
 .header__btn {
   display: flex;
@@ -248,9 +233,6 @@ header {
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-.activeHeader .header__logo {
-  color: #000;
 }
 .header__ul {
   display: flex;
@@ -271,9 +253,6 @@ header {
 .header__li:not(:first-child) {
   padding: 35px 0px 35px 55px;
 }
-.activeHeader .header__li {
-  color: #000;
-}
 .activeLi {
   color: #542fe6 !important;
 }
@@ -292,20 +271,44 @@ header {
   z-index: -1;
 }
 
-/* .header-animate-enter-from {
-  opacity: 0;
-  transition: all 0.3s ease;
+.activeBackground {
+  background: #6700eb;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
-.header-animate-enter-leave {
-  opacity: 1;
-  transition: all 0.3s ease;
+
+/* .activeBackground .header__logo {
+  color: #000;
 }
-.header-animate-leave-from {
-  opacity: 1;
-  transition: all 0.3s ease;
+.activeBackground .header__li {
+  color: #000;
 }
-.header-animate-leave-to {
-  opacity: 0;
-  transition: all 0.3s ease;
+.activeBackground .header__text {
+  color: #000;
+}
+.activeBackground .header__info {
+  border-bottom: 1px solid black;
+}
+.activeBackground .header__info path {
+  stroke: black;
 } */
+
+.activeHeader {
+  background: white;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.activeHeader .header__logo {
+  color: #000;
+}
+.activeHeader .header__li {
+  color: #000;
+}
+.activeHeader .header__text {
+  color: #000;
+}
+.activeHeader .header__info {
+  border-bottom: 1px solid black;
+}
+.activeHeader .header__info path {
+  stroke: black;
+}
 </style>
