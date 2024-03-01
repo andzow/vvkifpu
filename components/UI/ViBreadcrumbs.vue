@@ -17,6 +17,7 @@
       property="itemListElement"
       typeof="ListItem"
       class="breadcrumbs__li"
+      :class="{ activeLi: index + 1 === crumbs.length && !isColor }"
     >
       <NuxtLink property="item" typeof="WebPage" :to="crumb.path">
         <span property="name">{{ crumb.name }}</span>
@@ -66,12 +67,15 @@ export default {
 .breadcrumbs__li {
   display: inline;
 }
+.breadcrumbs__span {
+  color: #8d8d8d;
+}
 .breadcrumbs__li:after {
   content: " - ";
   display: inline;
-  font-size: 16px;
-  font-weight: 400;
-  color: black;
+  font-size: 17px;
+  font-weight: 500;
+  color: #8d8d8d;
 }
 .breadcrumbs__ol_active .breadcrumbs__li:after {
   color: white;
@@ -80,9 +84,9 @@ export default {
   content: "";
 }
 .breadcrumbs__li a {
-  font-size: 16px;
-  font-weight: 400;
-  color: black;
+  font-size: 17px;
+  font-weight: 500;
+  color: #8d8d8d;
 }
 .breadcrumbs__ol_active .breadcrumbs__li a {
   color: white;
@@ -92,5 +96,12 @@ export default {
 }
 .breadcrumbs__li a.nuxt-link-exact-active.nuxt-link-active {
   color: grey;
+}
+
+.activeLi a {
+  color: black;
+}
+.activeSpan {
+  color: black;
 }
 </style>
