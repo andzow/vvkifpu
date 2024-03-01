@@ -92,5 +92,10 @@ export default <RouterConfig>{
       path: "/library/additionally",
       component: () => import("~/pages/library/additionally.vue"),
     },
+    {
+      name: "Копии документов",
+      path: "/information/copies-documents",
+      component: () => import("~/pages/information/copies-documents.vue"),
+    },
   ],
 };
