@@ -72,5 +72,10 @@ export default <RouterConfig>{
       path: "/students/documents",
       component: () => import("~/pages/students/documents.vue"),
     },
+    {
+      name: "Контактные данные сотрудников ВВКИФПУ",
+      path: "/students/contacts",
+      component: () => import("~/pages/students/contacts.vue"),
+    },
   ],
 };
