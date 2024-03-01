@@ -1,7 +1,8 @@
 <template>
   <section class="novelty">
     <div class="novelty__container">
-      <UIViTitle :settings="true">Новости колледжа</UIViTitle>
+      <UIViBreadcrumbs />
+      <UIViTitle class="novelty__title" :settings="true">Новости колледжа</UIViTitle>
       <div class="novelty__grid">
         <div
           class="novelty__item"
@@ -58,7 +59,7 @@ export default {
         {
           image: "../assets/images/News/college.webp",
           date: "15 сентября, 2020",
-          type: "Мероприятия",
+          type: "Новости колледжа",
           name: "Чаепитие в библиотеке",
         },
       ],
@@ -70,13 +71,16 @@ export default {
 <style scoped>
 .novelty {
   width: 100vw;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  padding-top: 230px;
+  margin-bottom: 65px;
 }
 .novelty__container {
   max-width: 1800px;
   padding: 0 20px;
   margin: 0 auto;
+}
+.novelty__title {
+  margin-top: 30px;
 }
 .novelty__grid {
   display: grid;

@@ -77,5 +77,10 @@ export default <RouterConfig>{
       path: "/speciality/admission-rules",
       component: () => import("~/pages/speciality/admission-rules.vue"),
     },
+    {
+      name: "Контактные данные сотрудников ВВКИФПУ",
+      path: "/students/contacts",
+      component: () => import("~/pages/students/contacts.vue"),
+    },
   ],
 };

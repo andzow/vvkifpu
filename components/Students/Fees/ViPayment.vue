@@ -1,7 +1,8 @@
 <template>
   <section class="payment">
     <div class="payment__container">
-      <UIViTitle :settings="true">Оплата обучения</UIViTitle>
+      <UIViBreadcrumbs />
+      <UIViTitle class="payment__title" :settings="true">Оплата обучения</UIViTitle>
       <div class="payment__back">
         <p class="payment__description font" data-font-actual="30">
           Стоимость обучения в 2024-2025 учебном году:
@@ -142,12 +143,15 @@ export default {
 <style scoped>
 .payment {
   width: 100vw;
-  margin-top: 80px;
+  padding-top: 230px;
 }
 .payment__container {
   max-width: 1800px;
   padding: 0 20px;
   margin: 0 auto;
+}
+.payment__title {
+  margin-top: 30px;
 }
 .payment__back {
   display: flex;

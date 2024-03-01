@@ -1,7 +1,8 @@
 <template>
   <section class="occasion">
     <div class="occasion__container">
-      <UIViTitle :settings="true">Мероприятия</UIViTitle>
+      <UIViBreadcrumbs />
+      <UIViTitle class="occasion__title" :settings="true">Мероприятия</UIViTitle>
       <div class="occasion__grid">
         <div
           class="occasion__item"
@@ -70,13 +71,16 @@ export default {
 <style scoped>
 .occasion {
   width: 100vw;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  padding-top: 230px;
+  margin-bottom: 65px;
 }
 .occasion__container {
   max-width: 1800px;
   padding: 0 20px;
   margin: 0 auto;
+}
+.occasion__title {
+    margin-top: 30px;
 }
 .occasion__grid {
   display: grid;
