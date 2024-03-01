@@ -87,5 +87,10 @@ export default <RouterConfig>{
       path: "/library/digital",
       component: () => import("~/pages/library/digital.vue"),
     },
+    {
+      name: "Дополнительная информация",
+      path: "/library/additionally",
+      component: () => import("~/pages/library/additionally.vue"),
+    },
   ],
 };

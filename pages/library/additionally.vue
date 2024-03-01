@@ -1,7 +1,6 @@
 <template>
   <div>
-    <LibraryViDigital/>
-    <MainViApplication />
+    <LibraryViAdditionally/>
   </div>
 </template>
 
