@@ -92,5 +92,10 @@ export default <RouterConfig>{
       path: "/library/additionally",
       component: () => import("~/pages/library/additionally.vue"),
     },
+    {
+      name: "Структура и органы управления ПОУ «ВВКИФПУ»",
+      path: "/information/administration",
+      component: () => import("~/pages/information/administration.vue"),
+    },
   ],
 };
