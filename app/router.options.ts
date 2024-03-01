@@ -77,5 +77,10 @@ export default <RouterConfig>{
       path: "/students/contacts",
       component: () => import("~/pages/students/contacts.vue"),
     },
+    {
+      name: "Электронная библиотека",
+      path: "/library/digital",
+      component: () => import("~/pages/library/digital.vue"),
+    },
   ],
 };
