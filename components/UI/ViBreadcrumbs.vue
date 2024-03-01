@@ -71,10 +71,10 @@ export default {
   display: inline;
   font-size: 16px;
   font-weight: 400;
-  color: white;
+  color: black;
 }
 .breadcrumbs__ol_active .breadcrumbs__li:after {
-  color: black !important;
+  color: white;
 }
 .breadcrumbs__li:last-child:after {
   content: "";
@@ -82,10 +82,10 @@ export default {
 .breadcrumbs__li a {
   font-size: 16px;
   font-weight: 400;
-  color: white;
+  color: black;
 }
 .breadcrumbs__ol_active .breadcrumbs__li a {
-  color: black !important;
+  color: white;
 }
 .breadcrumbs__li a:hover {
   text-decoration: underline;
