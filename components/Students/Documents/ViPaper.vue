@@ -1,7 +1,8 @@
 <template>
   <section class="paper">
     <div class="paper__container">
-      <UIViTitle :settings="true">Документы на практику</UIViTitle>
+      <UIViBreadcrumbs />
+      <UIViTitle class="paper__title" :settings="true">Документы на практику</UIViTitle>
       <div class="paper__table">
         <div
           class="paper__item"
@@ -78,13 +79,16 @@ export default {
 <style scoped>
 .paper {
   width: 100vw;
-  margin-top: 80px;
+  padding-top: 230px;
   margin-bottom: 65px;
 }
 .paper__container {
   max-width: 1800px;
   padding: 0 20px;
   margin: 0 auto;
+}
+.paper__title {
+  margin-top: 30px;
 }
 .paper__item {
   display: flex;
