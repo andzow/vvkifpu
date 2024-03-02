@@ -19,7 +19,7 @@ if (process.client && mode === "custom") {
 
 const options = {
   fullScreen: {
-    enable: true,
+    enable: false,
     zIndex: -1,
   },
   particles: {
