@@ -173,7 +173,7 @@ export default {
   overflow: hidden;
 }
 .application__container {
-  max-width: 1800px;
+  max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
   display: flex;
@@ -183,8 +183,7 @@ export default {
 .application__title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 68px;
-  font-size: 68px;
+  font-size: 60px;
   max-width: 890px;
   color: #fff;
   line-height: 75px;
@@ -213,10 +212,10 @@ export default {
   width: 100%;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  padding: 20px;
+  padding: 15px;
   border-radius: 50px;
   text-align: center;
-  font-size: 28px;
+  font-size: 24px;
   color: var(--violo);
   transition: all .3s ease;
 }
@@ -229,10 +228,10 @@ export default {
 }
 .application__btn {
   width: 100%;
-  padding: 20px 0;
+  padding: 15px 0;
   border: 1px solid #fff;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 24px;
   color: #fff;
   border-radius: 50px;
   margin-top: 20px;
