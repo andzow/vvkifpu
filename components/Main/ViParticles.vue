@@ -135,15 +135,12 @@ const options = {
 
 <style>
 #tsparticles {
-  position: relative;
-  z-index: 5;
-  /* position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
-  height: 200px;
+  height: 100vh;
   width: 100vw;
   z-index: 5;
   overflow: hidden;
-  border: 1px solid red; */
 }
 </style>
