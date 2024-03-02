@@ -155,9 +155,9 @@ export default {
         "/speciality/pravoved",
         "/speciality/tourism",
       ];
-      const { fullPath } = this.$route;
+      const { path } = this.$route;
 
-      if (arrNav.findIndex((el) => el === fullPath) === -1 && !this.isHover) {
+      if (arrNav.findIndex((el) => el === path) === -1 && !this.isHover) {
         return true;
       }
       return false;

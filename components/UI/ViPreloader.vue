@@ -2,7 +2,14 @@
   <div class="preloader">
     <div class="preloader__info">
       <div class="preloader__name">
-        <p v-for="(item, idx) in wordArray" :key="idx" class="preloader__letter" :class="'preloader__letter_' + idx">{{ item }}</p>
+        <p
+          v-for="(item, idx) in wordArray"
+          :key="idx"
+          class="preloader__letter"
+          :class="'preloader__letter_' + idx"
+        >
+          {{ item }}
+        </p>
       </div>
       <div class="preloader__container">
         <div class="preloader__progress back"></div>
@@ -15,12 +22,15 @@
 export default {
   data() {
     return {
-      wordArray: [
-        'В','В','К','И','Ф','П','У'
-      ]
-    }
+      wordArray: ["В", "В", "К", "И", "Ф", "П", "У"],
+    };
   },
-}
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  },
+};
 </script>
 
 <style scoped>
@@ -35,6 +45,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 20;
 }
 .preloader__info {
   position: relative;
@@ -45,7 +56,7 @@ export default {
   left: 0;
   height: 12px;
   width: 312px;
-  background: #F8F7F7;
+  background: #f8f7f7;
   border-radius: 20px;
   overflow: hidden;
 }
@@ -65,7 +76,7 @@ export default {
 .preloader__name {
   display: flex;
   align-items: center;
-  color: #542FE6;
+  color: #542fe6;
   overflow: hidden;
 }
 .preloader__letter {
@@ -103,11 +114,25 @@ export default {
     background-color: #00eace;
   }
 }
-.preloader__letter_0 { animation-delay: 0.1s; }
-.preloader__letter_1 { animation-delay: 0.2s; }
-.preloader__letter_2 { animation-delay: 0.3s; }
-.preloader__letter_3 { animation-delay: 0.4s; }
-.preloader__letter_4 { animation-delay: 0.5s; }
-.preloader__letter_5 { animation-delay: 0.6s; }
-.preloader__letter_6 { animation-delay: 0.7s; }
+.preloader__letter_0 {
+  animation-delay: 0.1s;
+}
+.preloader__letter_1 {
+  animation-delay: 0.2s;
+}
+.preloader__letter_2 {
+  animation-delay: 0.3s;
+}
+.preloader__letter_3 {
+  animation-delay: 0.4s;
+}
+.preloader__letter_4 {
+  animation-delay: 0.5s;
+}
+.preloader__letter_5 {
+  animation-delay: 0.6s;
+}
+.preloader__letter_6 {
+  animation-delay: 0.7s;
+}
 </style>

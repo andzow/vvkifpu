@@ -28,9 +28,9 @@
       </p>
     </div>
     <!-- <MainViMainBackground /> -->
-    <!-- <MainViBackground /> -->
-    <!-- <MainViParticles /> -->
-    <MainViParticlesSnow />
+    <MainViBackground v-if="!$route.query.index" />
+    <MainViParticles v-else-if="$route.query.index === '0'" />
+    <MainViParticlesSnow v-else />
   </section>
 </template>
 

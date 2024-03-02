@@ -2,7 +2,9 @@
   <section class="application">
     <div class="application__container">
       <div class="application__info">
-        <h3 class="application__title font" data-font-actual="68">Оставьте заявку и мы вам перезвоним</h3>
+        <h3 class="application__title font" data-font-actual="68">
+          Оставьте заявку и мы вам перезвоним
+        </h3>
         <p class="application__description font" data-font-actual="18">
           Наши специалисты ответят на все вопросы и смогут подобрать нужную
           программу
@@ -11,20 +13,52 @@
       <div class="application__form">
         <div class="application__data">
           <div class="application__dop">
-            <p class="application__text application__text_name font" data-font-actual='16'>Короткое имя</p>
-            <input class="application__input application__input_name font border" data-font-actual="28" type="text" placeholder="Имя" @input="nameValidator" v-model="isName"/>
+            <p
+              class="application__text application__text_name font"
+              data-font-actual="16"
+            >
+              Короткое имя
+            </p>
+            <input
+              class="application__input application__input_name font border"
+              data-font-actual="28"
+              type="text"
+              placeholder="Имя"
+              @input="nameValidator"
+              v-model="isName"
+            />
           </div>
           <div class="application__dop">
-            <p class="application__text appliction__text_phone font" data-font-actual='16'>Некорректный телефон</p>
-            <input class="application__input application__input_phone font border" data-font-actual="28" type="text" placeholder="+7 (000) - 000 - 00 - 00" v-model="isNumber"
-            @beforeinput="handleBeforeInput" @input="numberValidator" />
+            <p
+              class="application__text appliction__text_phone font"
+              data-font-actual="16"
+            >
+              Некорректный телефон
+            </p>
+            <input
+              class="application__input application__input_phone font border"
+              data-font-actual="28"
+              type="text"
+              placeholder="+7 (000) - 000 - 00 - 00"
+              v-model="isNumber"
+              @beforeinput="handleBeforeInput"
+              @input="numberValidator"
+            />
           </div>
         </div>
-        <button class="application__btn font" data-font-actual="28" @click="sendData">Отправить</button>
+        <button
+          class="application__btn font"
+          data-font-actual="28"
+          @click="sendData"
+        >
+          Отправить
+        </button>
         <p class="application__policy font" data-font-actual="14">
           *Нажимая кнопку вы соглашаетесь на обработку персональных данных на
           условиях, определенных
-          <span class="application__policy_special">Политикой конфиденциальности</span>
+          <span class="application__policy_special"
+            >Политикой конфиденциальности</span
+          >
         </p>
       </div>
     </div>
@@ -35,12 +69,12 @@
 export default {
   data() {
     return {
-      isName: '',
+      isName: "",
       isNumber: "",
       phoneValidator: 0,
       NameValidator: 0,
       isNumberPrev: "",
-      useModalFinal: useModalFinal()
+      useModalFinal: useModalFinal(),
     };
   },
   methods: {
@@ -101,67 +135,67 @@ export default {
     },
     nameValidator() {
       if (this.isName.length <= 1) {
-        this.NameValidator = 1
+        this.NameValidator = 1;
       } else {
-        this.NameValidator = 2
+        this.NameValidator = 2;
       }
 
       if (this.isName.length === 0) {
-        this.NameValidator = 0
+        this.NameValidator = 0;
       }
     },
     sendData() {
       if (this.phoneValidator !== 2) {
-        this.phoneValidator = 1
+        this.phoneValidator = 1;
       }
       if (this.NameValidator !== 2) {
-        this.NameValidator = 1
+        this.NameValidator = 1;
       }
       if (this.phoneValidator === 2 && this.NameValidator === 2) {
-        this.useModalFinal = true
+        this.useModalFinal = true;
       }
-    }
+    },
   },
   watch: {
     phoneValidator() {
-      const input = document.querySelector('.application__input_phone')
-      const text = document.querySelector('.appliction__text_phone')
+      const input = document.querySelector(".application__input_phone");
+      const text = document.querySelector(".appliction__text_phone");
       if (this.phoneValidator === 1) {
-        text.classList.add("application__text_error")
-        input.classList.add("input__error")
-        input.classList.remove("phoneValidator")
+        text.classList.add("application__text_error");
+        input.classList.add("input__error");
+        input.classList.remove("phoneValidator");
       }
       if (this.phoneValidator === 2) {
-        text.classList.remove("application__text_error")
-        input.classList.add("phoneValidator")
-        input.classList.remove("input__error")
+        text.classList.remove("application__text_error");
+        input.classList.add("phoneValidator");
+        input.classList.remove("input__error");
       }
       if (this.phoneValidator === 0) {
-        text.classList.remove("application__text_error")
-        input.classList.remove("input__validator")
-        input.classList.remove("input__error")
+        text.classList.remove("application__text_error");
+        input.classList.remove("input__validator");
+        input.classList.remove("input__error");
       }
     },
     NameValidator() {
-      const input = document.querySelector('.application__input_name')
-      const text = document.querySelector('.application__text_name')
+      const input = document.querySelector(".application__input_name");
+      const text = document.querySelector(".application__text_name");
       if (this.NameValidator === 1) {
-        text.classList.add("application__text_error")
-        input.classList.add("input__error")
-        input.classList.remove("input__validator")
+        text.classList.add("application__text_error");
+        input.classList.add("input__error");
+        input.classList.remove("input__validator");
       }
       if (this.NameValidator === 2) {
-        text.classList.remove("application__text_error")
-        input.classList.add("input__validator")
-        input.classList.remove("input__error")
+        text.classList.remove("application__text_error");
+        input.classList.add("input__validator");
+        input.classList.remove("input__error");
       }
       if (this.NameValidator === 0) {
-        text.classList.remove("application__text_error")
-        input.classList.remove("input__validator")
-        input.classList.remove("input__error")
+        text.classList.remove("application__text_error");
+        input.classList.remove("input__validator");
+        input.classList.remove("input__error");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -187,7 +221,7 @@ export default {
   max-width: 890px;
   color: #fff;
   line-height: 75px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .application__description {
   font-family: "Inter", sans-serif;
@@ -196,7 +230,7 @@ export default {
   margin-top: 30px;
   color: #fff;
   font-size: 18px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .application__form {
   width: 745px;
@@ -217,7 +251,7 @@ export default {
   text-align: center;
   font-size: 24px;
   color: var(--violo);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .application__dop:nth-child(1) {
   flex-basis: 40%;
@@ -248,7 +282,7 @@ export default {
   color: #fff;
   font-size: 14px;
   margin-top: 15px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .application__policy_special {
   color: var(--violo);
@@ -263,19 +297,19 @@ export default {
   top: -30px;
   left: 50%;
   transform: translateX(-50%); */
-  color: #DC143C;
-    max-height: 0;
-    opacity: 0;
-    transition: all .3s ease;
-    margin-bottom: 0px;
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    white-space: nowrap;
-    text-align: center;
+  color: #dc143c;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-bottom: 0px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: center;
 }
 .application__text_error {
-    max-height: 100px;
-    margin-bottom: 10px;
-    opacity: 1;
+  max-height: 100px;
+  margin-bottom: 10px;
+  opacity: 1;
 }
 </style>

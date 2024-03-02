@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 .header__visual {
-  max-width: 1800px;
+  max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
   display: flex;

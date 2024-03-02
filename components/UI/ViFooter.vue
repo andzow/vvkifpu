@@ -99,12 +99,15 @@ footer {
   overflow-x: hidden;
 }
 .footer__container {
-  max-width: 1800px;
+  max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+.footer__about {
+  max-width: 200px;
 }
 .foooter__logo {
   font-size: 40px;
@@ -162,6 +165,12 @@ footer {
 }
 .footer__contact_image:hover path {
   fill: #542fe6;
+}
+.footer__nav {
+  margin-right: 10px;
+}
+.footer__nav:last-child {
+  margin-right: 0;
 }
 .footer__nav_title {
   font-size: 22px;

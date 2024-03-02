@@ -20,8 +20,8 @@ export default {};
 <style scoped>
 .about__animate {
   position: absolute;
-  left: 0%;
-  bottom: -2%;
+  left: 10%;
+  bottom: -10%;
   width: 40%;
   height: 400px;
   overflow: hidden;
