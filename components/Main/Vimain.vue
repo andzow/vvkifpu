@@ -1,22 +1,36 @@
 <template>
-  <section class="main" @mousemove="handleMouseMove" ref="main" id="sandbox-container">
+  <section
+    class="main"
+    @mousemove="handleMouseMove"
+    ref="main"
+    id="sandbox-container"
+  >
     <div class="main__background" :style="backgroundTransform"></div>
     <div class="main__component">
+      <p class="main__des" data-font-actual="68">Развивая таланты</p>
       <p class="main__text font" ref="el" data-font-actual="68"></p>
     </div>
     <div class="main__options" :style="isColor">
-      <p class="main__option main__option_left font border" data-font-actual="30">
+      <p
+        class="main__option main__option_left font border"
+        data-font-actual="30"
+      >
         набор 2024
       </p>
       <p class="main__option font border" data-font-actual="30">
         день открытых дверей
       </p>
-      <p class="main__option main__option_right font border" data-font-actual="30">
+      <p
+        class="main__option main__option_right font border"
+        data-font-actual="30"
+      >
         документы
       </p>
     </div>
     <!-- <MainViMainBackground /> -->
-    <MainViBackground/>
+    <!-- <MainViBackground /> -->
+    <!-- <MainViParticles /> -->
+    <MainViParticlesSnow />
   </section>
 </template>
 
@@ -33,15 +47,16 @@ export default {
   mounted() {
     new Typed(this.$refs.el, {
       strings: [
-        "Открытия через обучение, уверенность через практику, профессионализм через опыт",
-        "Изучай, применяй, достигай: формула успеха в профессиональном мире",
-        "Фундаментальное образование, максимум практики и погружение в профессию",
+        "Фундаментальное образование",
+        "Открытия через обучение",
+        "Изучай, применяй, достигай",
+        "Покоряй вершины знаний с нами",
       ],
-      typeSpeed: 50,
-      backSpeed: 0,
+      typeSpeed: 40,
+      backSpeed: 20,
       backDelay: 3000,
       showCursor: false,
-      fadeOut: true,
+      fadeOut: false,
       fadeOutClass: "typed-fade-out",
       fadeOutDelay: 700,
       loop: true,
@@ -91,32 +106,50 @@ export default {
 }
 .main__component {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-  z-index: 3;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.main__text {
+.main__des {
+  position: relative;
   text-align: center;
-  color: #fff;
-  font-size: 68px;
-  width: 1150px;
+  color: white;
+  font-size: 88px;
   border-radius: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
   transition: all 0.3s ease;
+  z-index: 10;
+}
+.main__text {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  font-size: 52px;
+  border-radius: 20px;
+  padding: 0 10px;
+  height: 70px;
+  color: var(--violo);
+  background: white;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 .main__options {
+  position: relative;
   display: flex;
   align-items: center;
   margin-bottom: 60px;
+  z-index: 10;
 }
 .main__option {
   position: relative;
   z-index: 2;
-  font-size: 30px;
-  padding: 20px 70px;
+  font-size: 28px;
+  padding: 20px 60px;
   background: #fff;
   border-radius: 50px;
   transition: all 0.3s ease;

@@ -178,11 +178,11 @@ header {
   padding: 30px 0 0 0;
   background: rgba(0, 0, 0, 0);
   transition: all 0.3s ease;
-  z-index: 5;
+  z-index: 15;
 }
 
 .header__container {
-  max-width: 1800px;
+  max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
 }
