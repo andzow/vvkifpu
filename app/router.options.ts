@@ -93,6 +93,11 @@ export default <RouterConfig>{
       component: () => import("~/pages/library/additionally.vue"),
     },
     {
+      name: "Копии документов",
+      path: "/information/copies-documents",
+      component: () => import("~/pages/information/copies-documents.vue"),
+    },
+    {
       name: "Структура и органы управления ПОУ «ВВКИФПУ»",
       path: "/information/administration",
       component: () => import("~/pages/information/administration.vue"),
