@@ -16,7 +16,7 @@
       </p>
     </div>
     <!-- <MainViMainBackground /> -->
-    <MainViBackground/>
+    <MainViBackground/> 
   </section>
 </template>
 

@@ -10,7 +10,9 @@ export default defineNuxtConfig({
   hooks: {
     "pages:extend": (pages) => {},
   },
-  modules: ["@nuxt/image"],
+  modules: [
+    "@nuxt/image",
+  ],
   image: {
     format: ["webp", "svg"],
   },
