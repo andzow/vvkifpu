@@ -1,5 +1,8 @@
 <template>
-  <div></div>
+  <div>
+    <InformationCopiesViMain />
+    <MainViApplication />
+  </div>
 </template>
 
 <script></script>
