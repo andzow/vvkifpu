@@ -7,7 +7,7 @@
         <table class="info__table" cellpadding="0" cellspacing="0" border="0">
         <thead class="info__thead">
           <tr>
-            <th class="info__pos">Имя</th>
+            <th class="info__pos">Ф. И. О.</th>
             <th class="info__pos">Должность</th>
             <th class="info__pos">Дисциплина</th>
             <th class="info__pos">Эл. почта</th>
