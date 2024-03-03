@@ -70,7 +70,7 @@ const options = {
     },
     line_linked: {
       enable: true,
-      distance: 140,
+      distance: 150,
       color: "#ffffff",
       opacity: 0.1,
       width: 1,
