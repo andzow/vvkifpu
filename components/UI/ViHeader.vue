@@ -212,7 +212,7 @@ header {
 }
 .header__text {
   font-family: "Inter", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   color: #fff;
   margin-right: 30px;
   transition: all 0.3s ease;
@@ -239,7 +239,7 @@ header {
   align-items: center;
 }
 .header__li {
-  font-size: 20px;
+  font-size: 19px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   text-transform: lowercase;

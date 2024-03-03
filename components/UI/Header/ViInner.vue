@@ -121,7 +121,7 @@ export default {
 }
 .header__slide_text {
   font-family: "Inter", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   padding: 15px 20px;
   color: #333;
