@@ -112,5 +112,10 @@ export default <RouterConfig>{
       path: "/information/guide",
       component: () => import("~/pages/information/guide.vue"),
     },
+    {
+      name: "Международное сотрудничество",
+      path: "/information/cooperation",
+      component: () => import("~/pages/information/cooperation.vue"),
+    },
   ],
 };

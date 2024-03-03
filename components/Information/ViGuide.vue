@@ -22,7 +22,7 @@
             <td class="guide__element">{{ administration.education }}</td>
           </tr>
         </tbody>
-      </table>
+        </table>
 
       <p class="guide__name">Сведения о педагогическом составе ВВКИФПУ</p>
         <table class="guide__table" cellpadding="0" cellspacing="0" border="0">
@@ -42,7 +42,7 @@
             <td class="guide__element">{{ item.time }}</td>
           </tr>
         </tbody>
-      </table>
+        </table>
 
       <p class="guide__name">Список преподавателей дисциплин по специальностям</p>
         <table class="guide__table" cellpadding="0" cellspacing="0" border="0">
@@ -64,7 +64,7 @@
             <td class="guide__element guide__element_specialization">{{ item.specialization }}</td>
           </tr>
         </tbody>
-      </table>
+        </table>
 
     </div>
   </section>
