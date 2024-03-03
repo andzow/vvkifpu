@@ -149,7 +149,7 @@ export default {
   position: relative;
   z-index: 2;
   font-size: 24px;
-  padding: 20px 60px;
+  padding: 20px 45px;
   background: #fff;
   border-radius: 50px;
   cursor: auto;
