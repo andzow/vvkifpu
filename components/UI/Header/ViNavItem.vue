@@ -96,7 +96,7 @@ export default {
 }
 .header__item_name {
   font-family: "Inter", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   max-width: 320px;
   min-width: 320px;

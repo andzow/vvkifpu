@@ -116,7 +116,7 @@ export default {
 .main__title {
   text-align: center;
   color: #fff;
-  font-size: 88px;
+  font-size: 78px;
   margin-bottom: 20px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -130,7 +130,7 @@ export default {
 .main__content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   max-width: 1440px;
   padding: 0 20px;

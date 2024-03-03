@@ -119,7 +119,7 @@ button::-moz-focus-inner {
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
   background: #fff;
 }
 ::-webkit-scrollbar-thumb {
