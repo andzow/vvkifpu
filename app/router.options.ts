@@ -102,5 +102,15 @@ export default <RouterConfig>{
       path: "/information/administration",
       component: () => import("~/pages/information/administration.vue"),
     },
+    {
+      name: "Основные сведения ПОУ Волго-Вятский колледж",
+      path: "/information/intelligence",
+      component: () => import("~/pages/information/intelligence.vue"),
+    },
+    {
+      name: "Руководство и педагогический состав",
+      path: "/information/guide",
+      component: () => import("~/pages/information/guide.vue"),
+    },
   ],
 };
