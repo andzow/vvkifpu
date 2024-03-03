@@ -73,7 +73,7 @@ export default {
 .breadcrumbs__li:after {
   content: " - ";
   display: inline;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   color: #8d8d8d;
 }
@@ -84,7 +84,7 @@ export default {
   content: "";
 }
 .breadcrumbs__li a {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   color: #8d8d8d;
 }

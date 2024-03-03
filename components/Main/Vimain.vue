@@ -148,10 +148,11 @@ export default {
 .main__option {
   position: relative;
   z-index: 2;
-  font-size: 28px;
+  font-size: 24px;
   padding: 20px 60px;
   background: #fff;
   border-radius: 50px;
+  cursor: auto;
   transition: all 0.3s ease;
 }
 .main__option_left {

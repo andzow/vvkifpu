@@ -8,8 +8,8 @@ export default {};
 
 <style scoped>
 .button {
-  font-size: 28px;
-  padding: 20px 70px;
+  font-size: 24px;
+  padding: 17px 40px;
   background: #fff;
   border-radius: 50px;
   color: #542fe6;
