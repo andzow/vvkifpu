@@ -125,11 +125,11 @@ export default {
   transform: translateX(5px);
 }
 .about__description {
-  max-width: 890px;
+  max-width: 750px;
 }
 .about__text {
   padding-top: 6px;
-  font-size: 16px;
+  font-size: 17px;
   font-family: "Inter", sans-serif;
   line-height: 140%;
   font-weight: 400;
@@ -137,7 +137,7 @@ export default {
   color: white;
 }
 .about__animate_title {
-  font-size: 36px;
+  font-size: 28px;
   font-family: "Inter", sans-serif;
   line-height: 140%;
   font-weight: 600;
@@ -148,11 +148,12 @@ export default {
   max-width: 300px;
 }
 .about__animate_item:nth-child(2) .about__animate_title {
-  max-width: 350px;
+  max-width: 300px;
+  padding-left: 0px;
 }
 
 .about__animate_item:nth-child(3) .about__animate_title {
-  max-width: 350px;
+  max-width: 280px;
 }
 .about__animate_item:nth-child(2) {
   display: flex;

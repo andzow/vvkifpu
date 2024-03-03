@@ -53,8 +53,8 @@ export default {};
 .about__animate_item3 {
   top: 20%;
   left: 80%;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   animation-delay: 1.5s;
 }
 
@@ -65,7 +65,7 @@ export default {};
 }
 
 .about__animate_item5 {
-  top: 80%;
+  top: 60%;
   left: 10%;
   width: 10px;
   height: 10px;
@@ -107,7 +107,7 @@ export default {};
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(17px, 17px) scale(1.2);
+    transform: translate(15px, 15px) scale(1.02);
   }
   100% {
     transform: translate(0, 0) scale(1);
