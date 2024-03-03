@@ -129,7 +129,7 @@ export default {
 }
 .about__text {
   padding-top: 6px;
-  font-size: 17px;
+  font-size: 16px;
   font-family: "Inter", sans-serif;
   line-height: 140%;
   font-weight: 400;
