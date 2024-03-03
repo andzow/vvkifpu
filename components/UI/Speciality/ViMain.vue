@@ -100,7 +100,7 @@ export default {
 }
 .main__breadcrumbs {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1440px;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -132,7 +132,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1440px;
   padding: 0 20px;
   margin: 0 auto;
 }

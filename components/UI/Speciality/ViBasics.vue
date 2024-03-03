@@ -41,8 +41,8 @@ export default {
 .basics__container {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  margin-left: 80px;
+  grid-template-columns: 1fr 3fr;
+  margin-left: 250px;
 }
 .basics__content {
   position: relative;
@@ -51,5 +51,6 @@ export default {
 .basics__menu {
   position: relative;
   display: grid;
+  width: 450px;
 }
 </style>
