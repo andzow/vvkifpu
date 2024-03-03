@@ -28,8 +28,8 @@
       </p>
     </div>
     <!-- <MainViMainBackground /> -->
-    <MainViBackground v-if="!$route.query.index" />
-    <MainViParticles v-else-if="$route.query.index === '0'" />
+    <MainViParticles v-if="!$route.query.index" />
+    <MainViBackground v-else-if="$route.query.index === '0'" />
     <MainViParticlesSnow v-else />
   </section>
 </template>
