@@ -72,7 +72,7 @@ const options = {
       enable: true,
       distance: 150,
       color: "#ffffff",
-      opacity: 0.4,
+      opacity: 0.1,
       width: 1,
     },
     move: {
@@ -105,9 +105,9 @@ const options = {
     },
     modes: {
       grab: {
-        distance: 155.84415584415586,
+        distance: 120.84415584415586,
         line_linked: {
-          opacity: 1,
+          opacity: 0.5,
         },
       },
       bubble: {
