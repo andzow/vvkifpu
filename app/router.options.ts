@@ -117,5 +117,15 @@ export default <RouterConfig>{
       path: "/information/cooperation",
       component: () => import("~/pages/information/cooperation.vue"),
     },
+    {
+      name: "Вакантные места для приема (перевода)",
+      path: "/information/places",
+      component: () => import("~/pages/information/places.vue"),
+    },
+    {
+      name: "Основные профессиональные образовательные стандарты",
+      path: "/information/education/standards",
+      component: () => import("~/pages/information/education/standards.vue"),
+    },
   ],
 };
