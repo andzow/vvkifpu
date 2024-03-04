@@ -142,5 +142,15 @@ export default <RouterConfig>{
       path: "/information/study-plan",
       component: () => import("~/pages/information/study-plan.vue"),
     },
+    {
+      name: "План финансово-хозяйственной деятельности ПОУ «ВВКИФПУ» на 2019-2020 учебный год",
+      path: "/information/economy",
+      component: () => import("~/pages/information/economy.vue"),
+    },
+    {
+      name: "Образовательные программы",
+      path: "/information/education",
+      component: () => import("~/pages/information/education/index.vue"),
+    },
   ],
 };
