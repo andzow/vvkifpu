@@ -99,7 +99,7 @@ footer {
   overflow-x: hidden;
 }
 .footer__container {
-  max-width: 1440px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
   display: flex;
@@ -107,7 +107,7 @@ footer {
   justify-content: space-between;
 }
 .footer__about {
-  max-width: 200px;
+  max-width: 350px;
 }
 .foooter__logo {
   font-size: 40px;

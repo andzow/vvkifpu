@@ -7,25 +7,32 @@
   >
     <div class="main__background" :style="backgroundTransform"></div>
     <div class="main__component">
-      <p class="main__des" data-font-actual="68">Развивая таланты</p>
-      <p class="main__text font" ref="el" data-font-actual="68"></p>
+      <div class="main__typer">
+        <p class="main__des" data-font-actual="68">Развивая таланты</p>
+        <p class="main__text font" ref="el" data-font-actual="68"></p>
+      </div>
+      <div class="main__images">
+        <img :src="'../back.png'" />
+      </div>
     </div>
-    <div class="main__options" :style="isColor">
-      <p
-        class="main__option main__option_left font border"
-        data-font-actual="30"
-      >
-        набор 2024
-      </p>
-      <p class="main__option font border" data-font-actual="30">
-        день открытых дверей
-      </p>
-      <p
-        class="main__option main__option_right font border"
-        data-font-actual="30"
-      >
-        документы
-      </p>
+    <div class="main__do">
+      <div class="main__options" :style="isColor">
+        <p
+          class="main__option main__option_left font border"
+          data-font-actual="30"
+        >
+          набор 2024
+        </p>
+        <p class="main__option font border" data-font-actual="30">
+          день открытых дверей
+        </p>
+        <p
+          class="main__option main__option_right font border"
+          data-font-actual="30"
+        >
+          документы
+        </p>
+      </div>
     </div>
     <!-- <MainViMainBackground /> -->
     <MainViParticles v-if="!$route.query.index" />
@@ -108,9 +115,21 @@ export default {
   position: absolute;
   width: 100vw;
   height: 100vh;
+  top: 35%;
+  max-width: 1600px;
+  padding: 0 20px;
+}
+
+.main__images {
+  position: absolute;
+  top: -35%;
+  right: -20%;
+  z-index: 10;
+}
+
+.main__typer {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 .main__des {
@@ -138,6 +157,7 @@ export default {
   transition: all 0.3s ease;
   z-index: 10;
 }
+
 .main__options {
   position: relative;
   display: flex;

@@ -182,7 +182,7 @@ header {
 }
 
 .header__container {
-  max-width: 1440px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
