@@ -152,5 +152,10 @@ export default <RouterConfig>{
       path: "/information/education",
       component: () => import("~/pages/information/education/index.vue"),
     },
+    {
+      name: "Контакты",
+      path: "/contacts",
+      component: () => import("~/pages/contacts/index.vue"),
+    },
   ],
 };
