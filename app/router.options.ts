@@ -127,5 +127,20 @@ export default <RouterConfig>{
       path: "/information/education/standards",
       component: () => import("~/pages/information/education/standards.vue"),
     },
+    {
+      name: "Основные профессиональные образовательные стандарты",
+      path: "/information/education/standards",
+      component: () => import("~/pages/information/education/standards.vue"),
+    },
+    {
+      name: "Численность обучающихся",
+      path: "/information/number-students",
+      component: () => import("~/pages/information/number-students.vue"),
+    },
+    {
+      name: "Учебные планы и Основные профессиональные образовательные программы",
+      path: "/information/study-plan",
+      component: () => import("~/pages/information/study-plan.vue"),
+    },
   ],
 };
