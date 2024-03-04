@@ -11,9 +11,9 @@
         <p class="main__des" data-font-actual="68">Развивая таланты</p>
         <p class="main__text font" ref="el" data-font-actual="68"></p>
       </div>
-      <div class="main__images">
+      <!-- <div class="main__images">
         <img :src="'../back.png'" />
-      </div>
+      </div> -->
     </div>
     <div class="main__do">
       <div class="main__options" :style="isColor">
@@ -115,21 +115,23 @@ export default {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  top: 35%;
+  top: 40%;
   max-width: 1600px;
   padding: 0 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .main__images {
   position: absolute;
-  top: -35%;
-  right: -20%;
+  top: -15%;
+  right: 0%;
   z-index: 10;
 }
 
 .main__typer {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
 }
 .main__des {
