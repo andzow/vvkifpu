@@ -172,38 +172,35 @@ const navArr = [
         children: null,
       },
       {
-        name: "Вакантные места для приема (перевода) обучающихся",
-        path: "/",
+        name: "Доступная среда",
+        path: "http://vvkifpu.ru/wp-content/uploads/2021/04/dostup-sreda.pdf",
         children: null,
       },
       {
         name: "Международное сотрудничество",
-        path: "/",
+        path: "/information/cooperation",
         children: null,
       },
       {
-        name: "Организация питания в образовательной организации",
-        path: "/",
+        name: "Вакансии для преподавателей",
+        path: "/information/job",
         children: null,
       },
-      {
-        name: "Образовательные стандарты",
-        path: "/",
-        children: null,
-      },
+
       {
         name: "Правила приема",
-        path: "/",
+        path: "/speciality/admission-rules",
         children: null,
       },
+
       {
-        name: "Виды материальной поддержки",
-        path: "/",
+        name: "Вакантные места для приема (перевода) обучающихся",
+        path: "/information/places",
         children: null,
       },
       {
         name: "Наши реквизиты",
-        path: "/",
+        path: "/students/payment",
         children: null,
       },
     ],
@@ -214,12 +211,12 @@ const navArr = [
     allPages: [
       {
         name: "Новости колледжа",
-        path: "/",
+        path: "/news/college",
         children: null,
       },
       {
         name: "Мероприятия",
-        path: "/",
+        path: "/news/events",
         children: null,
       },
     ],
@@ -227,7 +224,7 @@ const navArr = [
   },
   {
     name: "КОНТАКТЫ",
-    path: "/",
+    path: "/contacts",
   },
 ];
 const navArrFooter = [
