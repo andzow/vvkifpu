@@ -66,6 +66,11 @@ const navArr = [
         children: null,
       },
       {
+        name: "Виды материальной поддержки",
+        path: "/students/support",
+        children: null,
+      },
+      {
         name: "Онлайн обучение",
         path: "https://vk.com/vvkifpu?w=wall-1774054_561",
         children: null,
@@ -145,11 +150,6 @@ const navArr = [
         path: "/information/guide",
         children: null,
       },
-      // {
-      //   name: "Педагогический состав",
-      //   path: "/",
-      //   children: null,
-      // },
       {
         name: `Материально-техническое обеспечение
 и оснащенность образовательного процесса. Доступная среда`,
@@ -163,12 +163,12 @@ const navArr = [
       },
       {
         name: "Стипендии и меры поддержки обучающихся",
-        path: "/",
+        path: "/students/support",
         children: null,
       },
       {
         name: "Финансово-хозяйственная деятельность",
-        path: "/",
+        path: "/information/economy",
         children: null,
       },
       {

@@ -66,6 +66,7 @@
               class="header__li"
               v-for="(item, idx) in navArr"
               :key="item"
+              @click="redirectPage(item)"
               @mouseenter="setActiveLi(idx), (headerBackgroundActive = false)"
               @mouseleave="setDisableLi"
               :class="{ activeLi: activeIdxLi === idx }"
@@ -142,6 +143,11 @@ export default {
     setDisableLi(e) {
       this.activeIdxLi = null;
       document.body.style.overflow = "auto";
+    },
+    redirectPage(item) {
+      if (item.path !== "/") {
+        this.$router.push(item.path);
+      }
     },
   },
   computed: {

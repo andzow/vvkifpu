@@ -5,6 +5,7 @@
       ref="headerItem"
       :class="{ activeBlock: idx === activeIdxList }"
       v-for="(list, idx) in item.allPages"
+      @click="redirectPage(list)"
       :key="list"
       @mouseenter="openChildren(list, idx)"
       @mouseleave="closeChildren($event, idx)"
@@ -66,6 +67,9 @@ export default {
       //   this.$emit("slideChildren", null);
       //   return;
       // }
+    },
+    redirectPage(item) {
+      this.$router.push(item.path);
     },
   },
   mounted() {},
