@@ -177,5 +177,10 @@ export default <RouterConfig>{
       path: "/contacts",
       component: () => import("~/pages/contacts/index.vue"),
     },
+    {
+      name: "День открытых дверей",
+      path: "/applicants/open",
+      component: () => import("~/pages/applicants/open.vue"),
+    },
   ],
 };
