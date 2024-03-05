@@ -93,6 +93,11 @@ export default <RouterConfig>{
       component: () => import("~/pages/library/additionally.vue"),
     },
     {
+      name: "Дополнительные информационные ресурсы",
+      path: "/library/informational-resources",
+      component: () => import("~/pages/library/informational-resources.vue"),
+    },
+    {
       name: "Копии документов",
       path: "/information/copies-documents",
       component: () => import("~/pages/information/copies-documents.vue"),
@@ -128,11 +133,6 @@ export default <RouterConfig>{
       component: () => import("~/pages/information/education/standards.vue"),
     },
     {
-      name: "Основные профессиональные образовательные стандарты",
-      path: "/information/education/standards",
-      component: () => import("~/pages/information/education/standards.vue"),
-    },
-    {
       name: "Численность обучающихся",
       path: "/information/number-students",
       component: () => import("~/pages/information/number-students.vue"),
@@ -151,6 +151,26 @@ export default <RouterConfig>{
       name: "Образовательные программы",
       path: "/information/education",
       component: () => import("~/pages/information/education/index.vue"),
+    },
+    {
+      name: "Материально-техническое обеспечение и оснащенность образовательного процесса",
+      path: "/information/social-security",
+      component: () => import("~/pages/information/social-security.vue"),
+    },
+    {
+      name: "Столовая",
+      path: "/information/canteen",
+      component: () => import("~/pages/information/canteen.vue"),
+    },
+    {
+      name: "Федеральные государственные образовательные стандарты",
+      path: "/information/federal-standards",
+      component: () => import("~/pages/information/federal-standards.vue"),
+    },
+    {
+      name: "Вакансии для преподавателей",
+      path: "/information/job",
+      component: () => import("~/pages/information/job.vue"),
     },
   ],
 };

@@ -46,12 +46,12 @@ const navArr = [
       },
       {
         name: "Правила приема",
-        path: "/",
+        path: "/speciality/admission-rules",
         children: null,
       },
       {
         name: "Стоимость обучения",
-        path: "/",
+        path: "/students/payment",
         children: null,
       },
     ],
@@ -62,22 +62,22 @@ const navArr = [
     allPages: [
       {
         name: "Оплата обучения",
-        path: "/",
+        path: "/students/payment",
         children: null,
       },
       {
         name: "Онлайн обучение",
-        path: "/",
+        path: "https://vk.com/vvkifpu?w=wall-1774054_561",
         children: null,
       },
       {
         name: "Документы на практику",
-        path: "/",
+        path: "/students/documents",
         children: null,
       },
       {
         name: "Контактные данные сотрудников ВВКИФПУ",
-        path: "/",
+        path: "/students/contacts",
         children: null,
       },
     ],
@@ -88,17 +88,17 @@ const navArr = [
     allPages: [
       {
         name: "Электронная библиотека",
-        path: "/",
+        path: "/library/digital",
         children: null,
       },
       {
         name: "Дополнительная информация",
-        path: "/",
+        path: "/library/additionally",
         children: null,
       },
       {
         name: "Дополнительные информационные ресурсы",
-        path: "/",
+        path: "/library/informational-resources",
         children: null,
       },
     ],
@@ -109,17 +109,17 @@ const navArr = [
     allPages: [
       {
         name: "Основные сведения",
-        path: "/",
+        path: "/information/intelligence",
         children: null,
       },
       {
         name: "Структура и органы управления ОО",
-        path: "/",
+        path: "/information/administration",
         children: null,
       },
       {
         name: "Документы",
-        path: "/",
+        path: "/information/copies-documents",
         children: null,
       },
       {
@@ -128,36 +128,41 @@ const navArr = [
         children: [
           {
             name: "Численность обучающихся",
-            path: "/",
+            path: "/information/number-students",
           },
           {
             name: "Основные профессиональные образовательные стандарты",
-            path: "/",
+            path: "/information/education/standards",
           },
           {
             name: "Учебные планы и Основные профессиональные образовательные программы",
-            path: "/",
+            path: "/information/study-plan",
           },
         ],
       },
       {
         name: "Руководство",
-        path: "/",
+        path: "/information/guide",
         children: null,
       },
-      {
-        name: "Педагогический состав",
-        path: "/",
-        children: null,
-      },
+      // {
+      //   name: "Педагогический состав",
+      //   path: "/",
+      //   children: null,
+      // },
       {
         name: `Материально-техническое обеспечение
 и оснащенность образовательного процесса. Доступная среда`,
-        path: "/",
+        path: "/information/social-security",
         children: null,
       },
       {
         name: "Платные образовательнные услуги",
+        path: "/students/payment",
+        children: null,
+      },
+      {
+        name: "Стипендии и меры поддержки обучающихся",
         path: "/",
         children: null,
       },
@@ -168,11 +173,6 @@ const navArr = [
       },
       {
         name: "Вакантные места для приема (перевода) обучающихся",
-        path: "/",
-        children: null,
-      },
-      {
-        name: "Стипендии и меры поддержки обучающихся",
         path: "/",
         children: null,
       },
@@ -250,12 +250,12 @@ const navArrFooter = [
       },
       {
         name: "Правила приема",
-        path: "/",
+        path: "/speciality/admission-rules",
         children: null,
       },
       {
         name: "Стоимость обучения",
-        path: "/",
+        path: "/students/payment",
         children: null,
       },
     ],
@@ -266,22 +266,22 @@ const navArrFooter = [
     allPages: [
       {
         name: "Оплата обучения",
-        path: "/",
+        path: "/students/payment",
         children: null,
       },
       {
         name: "Онлайн обучение",
-        path: "/",
+        path: "https://vk.com/vvkifpu?w=wall-1774054_561",
         children: null,
       },
       {
         name: "Документы на практику",
-        path: "/",
+        path: "/students/documents",
         children: null,
       },
       {
         name: "Контактные данные сотрудников ВВКИФПУ",
-        path: "/",
+        path: "/students/contacts",
         children: null,
       },
     ],
@@ -292,17 +292,17 @@ const navArrFooter = [
     allPages: [
       {
         name: "Электронная библиотека",
-        path: "/",
+        path: "/library/digital",
         children: null,
       },
       {
         name: "Дополнительная информация",
-        path: "/",
+        path: "/library/additionally",
         children: null,
       },
       {
         name: "Дополнительные информационные ресурсы",
-        path: "/",
+        path: "/library/informational-resources",
         children: null,
       },
     ],

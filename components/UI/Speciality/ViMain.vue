@@ -100,7 +100,7 @@ export default {
 }
 .main__breadcrumbs {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -132,7 +132,7 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -167,6 +167,7 @@ export default {
   font-weight: 400;
   font-family: "Inter", sans-serif;
   max-width: 350px;
+  margin-left: 20px;
   color: #cdcdcd;
   list-style-type: circle;
 }

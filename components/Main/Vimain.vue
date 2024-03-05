@@ -35,9 +35,9 @@
       </div>
     </div>
     <!-- <MainViMainBackground /> -->
-    <MainViParticles v-if="!$route.query.index" />
-    <MainViBackground v-else-if="$route.query.index === '0'" />
-    <MainViParticlesSnow v-else />
+    <MainViParticles />
+    <!-- <MainViBackground v-else-if="$route.query.index === '0'" />
+    <MainViParticlesSnow v-else />-->
   </section>
 </template>
 
@@ -169,7 +169,6 @@ export default {
 }
 .main__option {
   position: relative;
-  z-index: 2;
   font-size: 24px;
   padding: 20px 45px;
   background: #fff;

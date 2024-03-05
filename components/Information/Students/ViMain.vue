@@ -54,9 +54,10 @@ export default {
 .main {
   width: 100vw;
   padding-top: 230px;
+  margin-bottom: 80px;
 }
 .main__container {
-  max-width: 1440px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }

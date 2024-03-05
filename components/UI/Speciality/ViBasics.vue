@@ -42,7 +42,7 @@ export default {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  margin-left: 250px;
+  margin-left: 180px;
 }
 .basics__content {
   position: relative;
