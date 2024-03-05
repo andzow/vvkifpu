@@ -172,5 +172,10 @@ export default <RouterConfig>{
       path: "/information/job",
       component: () => import("~/pages/information/job.vue"),
     },
+    {
+      name: "Контакты",
+      path: "/contacts",
+      component: () => import("~/pages/contacts/index.vue"),
+    },
   ],
 };
