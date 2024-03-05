@@ -35,9 +35,9 @@
       </div>
     </div>
     <!-- <MainViMainBackground /> -->
-    <MainViParticles />
-    <!-- <MainViBackground v-else-if="$route.query.index === '0'" />
-    <MainViParticlesSnow v-else />-->
+    <!--<MainViParticles />-->
+    <!-- <MainViBackground v-else-if="$route.query.index === '0'" /> -->
+    <MainViParticlesSnow v-else />
   </section>
 </template>
 
