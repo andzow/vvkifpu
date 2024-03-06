@@ -2,6 +2,8 @@
   <div>
     <AdmissionsViDoor/>
     <AdmissionsViLearn/>
+    <AdmissionsViTime/>
+    <AdmissionsViVisit/>
   </div>
 </template>
 

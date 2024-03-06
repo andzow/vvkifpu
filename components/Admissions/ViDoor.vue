@@ -13,7 +13,6 @@
         </div>
       </div>
     </div>
-    <MainViBackground/>
   </section>
 </template>
 
@@ -36,6 +35,7 @@
 .door__container {
   display: flex;
   align-items: center;
+  margin-top: 50px;
 }
 .door__name {
   font-family: "Inter", sans-serif;

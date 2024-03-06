@@ -92,7 +92,8 @@
                             <p class="learn__text">{{ item }}</p>
                         </div>
                         <div class="learn__back">
-
+                            <p class="learn__logo">ВВКИФПУ</p>
+                            <!-- <p class="learn__other">Подробнее</p> -->
                         </div>
                     </div>
                 </div>
@@ -129,7 +130,7 @@ export default {
   margin: 0 auto;
 }
 .learn__title {
-  margin-top: 30px;
+  margin-top: 65px;
 }
 .learn__grid {
     display: grid;
@@ -173,6 +174,10 @@ export default {
     backface-visibility: hidden;
     transform: rotateY(180deg);
     border-radius:12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .learn__number {
     text-align: center;
@@ -196,5 +201,15 @@ export default {
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.learn__logo {
+    color: #fff;
+    font-size: 48px;
+}
+.learn__other {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
 }
 </style>
