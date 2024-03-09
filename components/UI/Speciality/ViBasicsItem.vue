@@ -74,12 +74,14 @@ export default {
           this.setPosition();
           this.settingSt = {
             position: "fixed",
-            top: `${this.distanceOnContainer}px`,
+            top: `${
+              this.distanceOnContainer <= 237 ? 237 : this.distanceOnContainer
+            }px`,
             alignSelf: "auto",
           };
           setTimeout(() => {
             this.constScrollTrigger.scrollTrigger.vars.end = `bottom ${
-              this.$refs.basicsMenu.getBoundingClientRect().bottom
+              this.$refs?.basicsMenu?.getBoundingClientRect()?.bottom
             }px`;
             ScrollTrigger.refresh();
           }, 0);
@@ -102,7 +104,9 @@ export default {
           this.settingSt = {
             position: "fixed",
             alignSelf: "auto",
-            top: `${this.distanceOnContainer}px`,
+            top: `${
+              this.distanceOnContainer <= 237 ? 237 : this.distanceOnContainer
+            }px`,
           };
         },
       };
