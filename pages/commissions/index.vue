@@ -1,6 +1,7 @@
 <template>
   <div>
     <CommissionsFuCommissions/>
+    <CommissionsFuAct/>
   </div>
 </template>
 
