@@ -4,7 +4,7 @@
       <div class="door__position">
         <h1 class="door__name">День открытых дверей</h1>
         <p class="door__text">30 марта 2024 </p>
-        <p class="door__date">Осталось: 24д 12ч 10м</p>
+        <p class="door__date">Осталось: {{ remainingTime.days }}д {{ remainingTime.hours }}ч {{ remainingTime.minutes }}м {{ remainingTime.seconds }}с</p>
       </div>
       <div class="door__position">
         <div class="door__map">      
@@ -17,8 +17,38 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      targetDate: new Date("2024-03-30T10:00:00"),
+      remainingTime: {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      }
+    }
+  },
+  mounted() {
+    this.calculateTimeRemaining();
+    setInterval(this.calculateTimeRemaining, 1000);
+  },
+  methods: {
+    calculateTimeRemaining() {
+      const now = new Date().getTime();
+      const difference = this.targetDate - now;
 
-
+      this.remainingTime.days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      this.remainingTime.hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      this.remainingTime.minutes = Math.floor(
+        (difference % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      this.remainingTime.seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    }
+  }
+}
 </script>
 
 <style scoped>
