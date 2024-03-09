@@ -20,20 +20,28 @@
 export default {
   data() {
     return {
-      targetDate: new Date("2024-03-30T10:00:00"),
+      targetDate: this.getTargetDate(),
       remainingTime: {
         days: 0,
         hours: 0,
         minutes: 0,
         seconds: 0
       }
-    }
+    };
   },
   mounted() {
     this.calculateTimeRemaining();
     setInterval(this.calculateTimeRemaining, 1000);
   },
   methods: {
+    getTargetDate() {
+      const now = new Date();
+      // Если текущая дата больше, чем указанная, сдвинуть дату на следующий год
+      if (now > new Date(`${now.getFullYear()}-03-30T10:00:00`)) {
+        return new Date(`${now.getFullYear() + 1}-03-30T10:00:00`);
+      }
+      return new Date(`${now.getFullYear()}-03-30T10:00:00`);
+    },
     calculateTimeRemaining() {
       const now = new Date().getTime();
       const difference = this.targetDate - now;
@@ -48,7 +56,7 @@ export default {
       this.remainingTime.seconds = Math.floor((difference % (1000 * 60)) / 1000);
     }
   }
-}
+};
 </script>
 
 <style scoped>
