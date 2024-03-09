@@ -184,8 +184,8 @@ export default <RouterConfig>{
     },
     {
       name: "Приемная комиссия",
-      path: "/Commissions",
-      component: () => import("~/pages/Commissions/index.vue"),
+      path: "/commissions",
+      component: () => import("~/pages/commissions/index.vue"),
     },
   ],
 };
