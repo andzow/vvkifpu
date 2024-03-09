@@ -161,6 +161,7 @@ export default {
         "/speciality/pravoved",
         "/speciality/tourism",
         "/applicants/open",
+        "/commissions",
       ];
       const { path } = this.$route;
 
