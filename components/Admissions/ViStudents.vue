@@ -1,7 +1,7 @@
 <template>
   <section class="students">
     <div class="students__container">
-      <h2 class="students_title">СПИСОК ДОКУМЕНТОВ ДЛЯ ПОСТУПЛЕНИЯ:</h2>
+      <h2 class="students_title">НАШИ СТУДЕНТЫ ПОЛУЧАЮТ:</h2>
       <div class="students_container">
         <p class="students_name" v-for="item in arrStudents" :key="item">
           {{ item }}
@@ -30,7 +30,7 @@ export default {
   width: 100vw;
 }
 .students__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px 80px 20px;
   margin: 0 auto;
 }
@@ -45,23 +45,20 @@ export default {
 .students_container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
 .students_name {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--violo);
   border-radius: 70px;
-  padding: 30px 20px;
+  padding: 20px 20px;
   font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 18px;
   margin-right: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.students_name:hover {
-  background: var(--violo);
-  color: white;
 }
 </style>

@@ -2,7 +2,9 @@
   <section class="paper">
     <div class="paper__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="paper__title" :settings="true">Документы на практику</UIViTitle>
+      <UIViTitle class="paper__title" :settings="true"
+        >Документы на практику</UIViTitle
+      >
       <div class="paper__table">
         <div
           class="paper__item"
@@ -83,7 +85,7 @@ export default {
   margin-bottom: 65px;
 }
 .paper__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -102,11 +104,11 @@ export default {
 }
 .paper__name {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
 }
 .paper__btn {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
   border-radius: 50px;
   overflow: hidden;

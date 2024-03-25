@@ -2,39 +2,41 @@
   <section class="payment">
     <div class="payment__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="payment__title" :settings="true">Оплата обучения</UIViTitle>
+      <UIViTitle class="payment__title" :settings="true"
+        >Оплата обучения</UIViTitle
+      >
       <div class="payment__back">
-        <p class="payment__description font" data-font-actual="30">
+        <p class="payment__description font" data-font-actual="22">
           Стоимость обучения в 2024-2025 учебном году:
         </p>
       </div>
       <div class="payment__grid">
         <div class="payment__item" v-for="(item, idx) in ArrauInfo" :key="idx">
           <div class="payment__head">
-            <p class="payment__code font" data-font-actual="20">
+            <p class="payment__code font" data-font-actual="18">
               {{ item.code }}
             </p>
-            <p class="payment__name font" data-font-actual="20">
+            <p class="payment__name font" data-font-actual="18">
               {{ item.name }}
             </p>
           </div>
           <div class="payment__footer">
             <div class="payment__term">
-              <p class="payment__price font" data-font-actual="20">
+              <p class="payment__price font" data-font-actual="18">
                 {{ item.info[0].price }} руб
               </p>
-              <p class="payment__line font" data-font-actual="20">-</p>
-              <p class="payment__price font" data-font-actual="20">
+              <p class="payment__line font" data-font-actual="18">-</p>
+              <p class="payment__price font" data-font-actual="18">
                 {{ item.info[0].term1 }} сем.
               </p>
             </div>
-            <div class="payment__border font" data-font-actual="20">|</div>
+            <div class="payment__border font" data-font-actual="18">|</div>
             <div class="payment__term">
-              <p class="payment__price font" data-font-actual="20">
+              <p class="payment__price font" data-font-actual="18">
                 {{ item.info[1].price }} руб
               </p>
-              <p class="payment__line font" data-font-actual="20">-</p>
-              <p class="payment__price font" data-font-actual="20">
+              <p class="payment__line font" data-font-actual="18">-</p>
+              <p class="payment__price font" data-font-actual="18">
                 {{ item.info[1].term1 }} сем.
               </p>
             </div>
@@ -146,7 +148,7 @@ export default {
   padding-top: 230px;
 }
 .payment__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -161,7 +163,7 @@ export default {
 .payment__description {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 22px;
   margin-top: 30px;
   -webkit-background-clip: text;
   background-clip: text;
@@ -175,6 +177,7 @@ export default {
 }
 .payment__grid {
   display: grid;
+
   margin-top: 40px;
   row-gap: 15px;
   max-width: 1600px;
@@ -208,31 +211,31 @@ export default {
 .payment__code {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   margin-right: 10px;
 }
 .payment__name {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
 }
 .payment__price {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   white-space: nowrap;
 }
 .payment__line {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 10px;
 }
 .payment__border {
   color: var(--violo);
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 40px;
 }
 </style>

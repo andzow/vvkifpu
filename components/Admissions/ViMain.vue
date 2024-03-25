@@ -30,7 +30,7 @@ export default {
   padding-top: 230px;
 }
 .main__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -49,7 +49,7 @@ export default {
 .main__des {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 22px;
   margin-top: 30px;
   -webkit-background-clip: text;
   background-clip: text;

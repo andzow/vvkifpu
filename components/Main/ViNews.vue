@@ -5,50 +5,89 @@
         <h2 class="news__title font" data-font-actual="60">Новости</h2>
         <button class="news__btn font border" data-font-actual="22">
           Все новости
-          <svg class="news__svg" width="55" height="19" viewBox="0 0 66 19" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path class="path arrow" d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
-              fill="white" />
+          <svg
+            class="news__svg"
+            width="55"
+            height="19"
+            viewBox="0 0 66 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="path arrow"
+              d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
+              fill="white"
+            />
           </svg>
         </button>
       </div>
       <div class="news__content">
-        <div class="news__main" data-aos="fade-right" data-aos-offset="400" data-aos-duration="1000">
+        <div
+          class="news__main"
+          data-aos="fade-right"
+          data-aos-offset="400"
+          data-aos-duration="1000"
+        >
           <div class="news__main_image">
             <img class="news__img image" :src="ArrayNews[0].image" alt="" />
             <div class="news__background border"></div>
           </div>
           <p class="news__info font" data-font-actual="16">
             {{ ArrayNews[0].data }} |
-            <span class="news__type font" data-font-actual="20">{{ ArrayNews[0].type }}</span>
+            <span class="news__type font" data-font-actual="20">{{
+              ArrayNews[0].type
+            }}</span>
           </p>
-          <h3 class="news__name font" data-font-actual="28">{{ ArrayNews[0].name }}</h3>
+          <h3 class="news__name font" data-font-actual="28">
+            {{ ArrayNews[0].name }}
+          </h3>
         </div>
-        <div class="news__additionally" data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000">
+        <div
+          class="news__additionally"
+          data-aos="fade-left"
+          data-aos-offset="400"
+          data-aos-duration="1000"
+        >
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img class="news__additionally_img image" :src="ArrayNews[1].image" alt="" />
+              <img
+                class="news__additionally_img image"
+                :src="ArrayNews[1].image"
+                alt=""
+              />
               <div class="news__background border"></div>
             </div>
             <div>
               <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[1].data }} |
-                <span class="news__type font" data-font-actual="20">{{ ArrayNews[1].type }}</span>
+                <span class="news__type font" data-font-actual="20">{{
+                  ArrayNews[1].type
+                }}</span>
               </p>
-              <h3 class="news__name font" data-font-actual="28">{{ ArrayNews[1].name }}</h3>
+              <h3 class="news__name font" data-font-actual="28">
+                {{ ArrayNews[1].name }}
+              </h3>
             </div>
           </div>
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img class="news__additionally_img image" :src="ArrayNews[2].image" alt="" />
+              <img
+                class="news__additionally_img image"
+                :src="ArrayNews[2].image"
+                alt=""
+              />
               <div class="news__background border"></div>
             </div>
             <div>
               <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[2].data }} |
-                <span class="news__type font" data-font-actual="20">{{ ArrayNews[2].type }}</span>
+                <span class="news__type font" data-font-actual="20">{{
+                  ArrayNews[2].type
+                }}</span>
               </p>
-              <h3 class="news__name font" data-font-actual="28">{{ ArrayNews[2].name }}</h3>
+              <h3 class="news__name font" data-font-actual="28">
+                {{ ArrayNews[2].name }}
+              </h3>
             </div>
           </div>
         </div>
@@ -92,7 +131,7 @@ export default {
   padding-top: 60px;
 }
 .news__container {
-  max-width: 1440px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -105,11 +144,11 @@ export default {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 60px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .news__btn {
   font-family: "Inter", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 22px;
   padding: 20px 40px;
   background: var(--violo);
@@ -127,16 +166,16 @@ export default {
 }
 .news__content {
   margin-top: 50px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .news__main {
   margin-right: 40px;
-  min-width: 680px;
 }
 .news__main_image {
   position: relative;
-  max-width: 680px;
-  height: 450px;
+
+  /* height: 450px; */
   z-index: 2;
   cursor: pointer;
 }
@@ -145,13 +184,13 @@ export default {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   color: #9b9b9b;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .news__type {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   color: #8101bd;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .news__background {
   position: absolute;
@@ -174,7 +213,7 @@ export default {
   font-family: "Inter", sans-serif;
   font-size: 28px;
   margin-top: 10px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .news__additionally_add {
   display: flex;
@@ -187,9 +226,9 @@ export default {
 }
 .news__additionally_image {
   position: relative;
-  width: 260px;
-  min-width: 260px;
-  height: 260px;
+  width: 230px;
+  min-width: 230px;
+  height: 230px;
   margin-right: 40px;
   cursor: pointer;
 }

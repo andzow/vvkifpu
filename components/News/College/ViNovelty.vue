@@ -2,7 +2,9 @@
   <section class="novelty">
     <div class="novelty__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="novelty__title" :settings="true">Новости колледжа</UIViTitle>
+      <UIViTitle class="novelty__title" :settings="true"
+        >Новости колледжа</UIViTitle
+      >
       <div class="novelty__grid">
         <div
           class="novelty__item"
@@ -75,7 +77,7 @@ export default {
   margin-bottom: 65px;
 }
 .novelty__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -118,14 +120,14 @@ export default {
 }
 .novelty__type {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   color: var(--violo);
   transition: all 0.3s ease;
 }
 .novelty__name {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 24px;
   margin-top: 10px;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -139,7 +141,7 @@ export default {
   margin-top: 60px;
   padding: 20px 40px;
   font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   background: var(--violo);
   border-radius: 50px;

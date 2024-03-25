@@ -2,7 +2,9 @@
   <section class="relief">
     <div class="relief__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="relief__title" :settings="true">Виды материальной поддержки</UIViTitle>
+      <UIViTitle class="relief__title" :settings="true"
+        >Виды материальной поддержки</UIViTitle
+      >
       <p class="relief__description relief__description_special">
         Льготы по оплате за обучение (в размере 3%) предоставляются следующим
         категориям граждан.
@@ -42,7 +44,7 @@ export default {};
   margin-bottom: 65px;
 }
 .relief__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -51,7 +53,7 @@ export default {};
 }
 .relief__description {
   font-family: "Inter", sans-serif;
-  font-size: 22px;
+  font-size: 17px;
   margin-top: 30px;
 }
 .relief__description_special {
@@ -59,7 +61,7 @@ export default {};
 }
 .relief__text {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
 }
 .relief__position {
   display: flex;

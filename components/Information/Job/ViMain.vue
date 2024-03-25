@@ -115,7 +115,7 @@ export default {
   text-align: center;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
   color: black;
   border: 1px solid var(--violo);
   border-radius: 70px;

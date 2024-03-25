@@ -182,7 +182,7 @@ export default {
   padding-top: 230px;
 }
 .main__container {
-  max-width: 1440px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -191,6 +191,7 @@ export default {
 }
 .main__header {
   margin-bottom: 50px;
+  max-width: 1400px;
 }
 .main__menu {
   margin-bottom: 80px;
@@ -215,10 +216,10 @@ export default {
   text-align: center;
   border: 1px solid var(--violo);
   border-radius: 70px;
-  padding: 20px 30px;
+  padding: 18px 30px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 17px;
   height: 80px;
   color: black;
   cursor: pointer;

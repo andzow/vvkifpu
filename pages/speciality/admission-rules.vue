@@ -4,7 +4,7 @@
     <AdmissionsViAbout />
     <AdmissionsViDocuments />
     <AdmissionsViStudents />
-    <AdmissionsViDoor />
+    <!-- <AdmissionsViDoor /> -->
     <AdmissionsViImages />
     <MainViApplication />
   </div>

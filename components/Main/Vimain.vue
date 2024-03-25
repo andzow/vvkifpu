@@ -150,7 +150,7 @@ export default {
   text-align: center;
   color: #fff;
   font-size: 52px;
-  border-radius: 20px;
+
   padding: 0 10px;
   height: 70px;
   color: var(--violo);

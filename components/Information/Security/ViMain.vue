@@ -84,7 +84,7 @@ export default {
 
 .main__content {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   margin-bottom: 80px;
 }
@@ -102,7 +102,7 @@ export default {
 .main__link_text {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
   color: black;
   transition: all 0.3s ease;
 }

@@ -24,7 +24,7 @@ export default {};
   width: 100vw;
 }
 .about__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px 80px 20px;
   margin: 0 auto;
 }

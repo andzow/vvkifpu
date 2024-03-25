@@ -36,7 +36,7 @@ export default {
   width: 100vw;
 }
 .documents__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px 80px 20px;
   margin: 0 auto;
 }
@@ -51,23 +51,20 @@ export default {
 .documents_container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
 .documents_name {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--violo);
   border-radius: 70px;
-  padding: 30px 0;
+  padding: 20px 20px;
   font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 18px;
   margin-right: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.documents_name:hover {
-  background: var(--violo);
-  color: white;
 }
 </style>

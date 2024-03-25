@@ -1,8 +1,23 @@
 <template>
-  <NuxtLink :to="card.path" class="traningCard border" data-aos="zoom-in-up" data-aos-offset="200" data-aos-duration="1000" @click="console.log('asdasda')">
-    <div class="traningCard__element traningCard__animation background border" :style="squareStyle">
-      <p class="traningCard__code font" data-font-actual="22">{{ card.code }}</p>
-      <h2 class="traningCard__name font" data-font-actual="28" v-html="card.name"></h2>
+  <NuxtLink
+    :to="card.path"
+    class="traningCard border"
+    data-aos="zoom-in-up"
+    data-aos-offset="200"
+    data-aos-duration="1000"
+  >
+    <div
+      class="traningCard__element traningCard__animation background border"
+      :style="squareStyle"
+    >
+      <p class="traningCard__code font" data-font-actual="22">
+        {{ card.code }}
+      </p>
+      <h2
+        class="traningCard__name font"
+        data-font-actual="28"
+        v-html="card.name"
+      ></h2>
       <div class="traningCard__icon" v-html="card.icon"></div>
     </div>
     <div class="traningCard__background"></div>
@@ -28,7 +43,7 @@ export default {
 
 <style scoped>
 .traningCard__animation:hover {
-    transform: translate(-10px, -10px);
+  transform: translate(-10px, -10px);
 }
 .traningCard {
   position: relative;
@@ -43,12 +58,22 @@ export default {
   transition: all 0.3s ease-in-out;
   z-index: 3;
 }
+.traningCard__element::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
 .traningCard__code {
   font-family: "Inter", sans-serif;
   font-weight: 900;
   font-size: 22px;
   color: #fff;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .traningCard__name {
   font-family: "Inter", sans-serif;
@@ -56,7 +81,7 @@ export default {
   font-size: calc(var(--assistant) * 2.8);
   color: #fff;
   margin-top: 5px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   display: flex;
   justify-content: flex-start;
 }

@@ -2,7 +2,9 @@
   <section class="occasion">
     <div class="occasion__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="occasion__title" :settings="true">Мероприятия</UIViTitle>
+      <UIViTitle class="occasion__title" :settings="true"
+        >Мероприятия</UIViTitle
+      >
       <div class="occasion__grid">
         <div
           class="occasion__item"
@@ -75,12 +77,12 @@ export default {
   margin-bottom: 65px;
 }
 .occasion__container {
-  max-width: 1800px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
 }
 .occasion__title {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 .occasion__grid {
   display: grid;
@@ -118,14 +120,14 @@ export default {
 }
 .occasion__type {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   color: #8101bd;
   transition: all 0.3s ease;
 }
 .occasion__name {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 24px;
   margin-top: 10px;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -139,7 +141,7 @@ export default {
   margin-top: 60px;
   padding: 20px 40px;
   font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
   background: #8101bd;
   border-radius: 50px;

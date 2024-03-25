@@ -5,7 +5,7 @@
         <h3 class="application__title font" data-font-actual="68">
           Оставьте заявку и мы вам перезвоним
         </h3>
-        <p class="application__description font" data-font-actual="18">
+        <p class="application__description font" data-font-actual="17">
           Наши специалисты ответят на все вопросы и смогут подобрать нужную
           программу
         </p>
@@ -21,7 +21,7 @@
             </p>
             <input
               class="application__input application__input_name font border"
-              data-font-actual="28"
+              data-font-actual="22"
               type="text"
               placeholder="Имя"
               @input="nameValidator"
@@ -37,7 +37,7 @@
             </p>
             <input
               class="application__input application__input_phone font border"
-              data-font-actual="28"
+              data-font-actual="22"
               type="text"
               placeholder="+7 (000) - 000 - 00 - 00"
               v-model="isNumber"
@@ -207,7 +207,7 @@ export default {
   overflow: hidden;
 }
 .application__container {
-  max-width: 1440px;
+  max-width: 1600px;
   padding: 0 20px;
   margin: 0 auto;
   display: flex;
@@ -217,8 +217,8 @@ export default {
 .application__title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 60px;
-  max-width: 890px;
+  font-size: 68px;
+  max-width: 1000px;
   color: #fff;
   line-height: 75px;
   transition: all 0.3s ease;
@@ -226,10 +226,10 @@ export default {
 .application__description {
   font-family: "Inter", sans-serif;
   max-width: 840px;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 30px;
   color: #fff;
-  font-size: 18px;
+  font-size: 17px;
   transition: all 0.3s ease;
 }
 .application__form {
@@ -246,10 +246,10 @@ export default {
   width: 100%;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  padding: 15px;
+  padding: 20px 25px;
   border-radius: 50px;
   text-align: center;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--violo);
   transition: all 0.3s ease;
 }
@@ -261,11 +261,12 @@ export default {
   flex-basis: 60%;
 }
 .application__btn {
-  width: 100%;
-  padding: 15px 0;
+  width: 98%;
+  font-family: "Inter", sans-serif;
+  padding: 20px 0;
   border: 1px solid #fff;
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 500;
+  font-size: 22px;
   color: #fff;
   border-radius: 50px;
   margin-top: 20px;
