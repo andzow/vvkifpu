@@ -182,5 +182,10 @@ export default <RouterConfig>{
       path: "/applicants/open",
       component: () => import("~/pages/applicants/open.vue"),
     },
+    {
+      name: "Приемная комиссия",
+      path: "/commissions",
+      component: () => import("~/pages/commissions/index.vue"),
+    },
   ],
 };
