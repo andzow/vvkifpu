@@ -23,7 +23,7 @@ import "aos/dist/aos.css";
 export default {
   data() {
     return {
-      isActive: true,
+      isActive: false,
     };
   },
   mounted() {
