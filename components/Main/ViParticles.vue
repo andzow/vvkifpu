@@ -140,7 +140,7 @@ const options = {
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 5;
   overflow: hidden;
+  z-index: 4;
 }
 </style>

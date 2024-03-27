@@ -79,7 +79,6 @@ export default {
       } else {
         this.isColor = "color: #6110E9";
       }
-      // const adjustedPercent = Math.max(Math.min(percent, 65), 35);
       const adjustedPercent = percent * 0.3 + 35;
       this.backgroundTransform = `transform: translateX(${-adjustedPercent}%)`;
     },

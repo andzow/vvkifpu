@@ -1,7 +1,7 @@
 <template>
   <UIViHeader />
   <main>
-    <NuxtPage />
+    <NuxtPage v-if="isActive" />
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
@@ -23,7 +23,7 @@ import "aos/dist/aos.css";
 export default {
   data() {
     return {
-      isActive: false,
+      isActive: true,
     };
   },
   mounted() {
@@ -50,8 +50,11 @@ main {
 }
 </style>
 <style>
-body {
+/* body {
   overflow: hidden;
+} */
+body {
+  overflow: auto;
 }
 .page__active {
   overflow: hidden;
