@@ -6,12 +6,12 @@ const navArr = [
     allPages: [
       {
         name: "День открытых дверей",
-        path: "/",
+        path: "/applicants/open",
         children: null,
       },
       {
         name: "Приемная комиссия",
-        path: "/",
+        path: "/commissions",
         children: null,
       },
       {

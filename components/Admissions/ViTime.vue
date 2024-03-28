@@ -1,29 +1,32 @@
 <template>
   <section class="time">
     <div class="time__container">
-        <UIViTitle class="time__title" :settings="true">Когда начало?</UIViTitle>
-        <p class="time__text">Для Вашего удобства мы организуем 3 группы посетителей:</p>
-        <div class="time__position time__position_special">
-            <div class="time__circle"></div>
-            <p class="time__info">1гр. — начало в 10:00</p>
-        </div>
-        <div class="time__position">
-            <div class="time__circle"></div>
-            <p class="time__info">2гр. — начало в 11:30</p>
-        </div>
-        <div class="time__position">
-            <div class="time__circle"></div>
-            <p class="time__info">3гр. — начало в 13:00</p>
-        </div>
-        <p class="time__text time__text_special"><span class="time__span">Записываться не нужно.</span> Мы ждем всех желающих!</p>
+      <UIViTitle class="time__title" :settings="true">Когда начало?</UIViTitle>
+      <p class="time__text">
+        Для Вашего удобства мы организуем 3 группы посетителей:
+      </p>
+      <div class="time__position time__position_special">
+        <div class="time__circle"></div>
+        <p class="time__info">1гр. — начало в 10:00</p>
+      </div>
+      <div class="time__position">
+        <div class="time__circle"></div>
+        <p class="time__info">2гр. — начало в 11:30</p>
+      </div>
+      <div class="time__position">
+        <div class="time__circle"></div>
+        <p class="time__info">3гр. — начало в 13:00</p>
+      </div>
+      <p class="time__text time__text_special">
+        <span class="time__span">Записываться не нужно.</span> Мы ждем всех
+        желающих!
+      </p>
     </div>
   </section>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
@@ -37,17 +40,17 @@ export default {
   margin: 0 auto;
 }
 .time__text {
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 24px;
-    margin-top: 40px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 40px;
 }
 .time__position {
   display: flex;
   align-items: center;
 }
 .time__position_special {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .time__position:not(:last-child) {
   margin-bottom: 7px;
@@ -62,12 +65,12 @@ export default {
 }
 .time__info {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
 }
 .time__text_special {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .time__span {
-    color: var(--violo);
+  color: var(--violo);
 }
 </style>
