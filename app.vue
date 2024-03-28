@@ -23,7 +23,7 @@ import "aos/dist/aos.css";
 export default {
   data() {
     return {
-      isActive: true,
+      isActive: false,
     };
   },
   mounted() {
@@ -50,12 +50,12 @@ main {
 }
 </style>
 <style>
-/* body {
-  overflow: hidden;
-} */
 body {
-  overflow: auto;
+  overflow: hidden;
 }
+/* body {
+  overflow: auto;
+} */
 .page__active {
   overflow: hidden;
   height: 100vh;
