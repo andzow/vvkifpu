@@ -9,11 +9,11 @@
       >
       <div class="main__content">
         <div class="main__item" v-for="item in arrMain" :key="item">
-          <p class="main__name">{{ item.name }}</p>
+          <p class="main__name font" data-font-actual="18">{{ item.name }}</p>
           <div class="main__btns">
             <div class="main__button" v-for="el in item.arrBtn" :key="el">
               <a :href="el.href" target="_blank"
-                ><button class="main__href">{{ el.name }}</button></a
+                ><button class="main__href font" data-font-actual="16">{{ el.name }}</button></a
               >
             </div>
           </div>

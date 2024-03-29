@@ -1,23 +1,11 @@
 <template>
-  <NuxtLink
-    :to="card.path"
-    class="traningCard border"
-    data-aos="zoom-in-up"
-    data-aos-offset="200"
-    data-aos-duration="1000"
-  >
-    <div
-      class="traningCard__element traningCard__animation background border"
-      :style="squareStyle"
-    >
+  <NuxtLink :to="card.path" class="traningCard border" data-aos="zoom-in-up" data-aos-offset="200"
+    data-aos-duration="1000">
+    <div class="traningCard__element traningCard__animation background border" :style="squareStyle">
       <p class="traningCard__code font" data-font-actual="22">
         {{ card.code }}
       </p>
-      <h2
-        class="traningCard__name font"
-        data-font-actual="28"
-        v-html="card.name"
-      ></h2>
+      <h2 class="traningCard__name font" data-font-actual="28" v-html="card.name"></h2>
       <div class="traningCard__icon" v-html="card.icon"></div>
     </div>
     <div class="traningCard__background"></div>
@@ -78,7 +66,7 @@ export default {
 .traningCard__name {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: calc(var(--assistant) * 2.8);
+  font-size: 28px;
   color: #fff;
   margin-top: 5px;
   transition: all 0.3s ease;

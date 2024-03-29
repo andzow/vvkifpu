@@ -5,7 +5,7 @@
       <UIViTitle class="cooperation__title" :settings="true"
         >Международное сотрудничество</UIViTitle
       >
-      <p class="cooperation__text">
+      <p class="cooperation__text font" data-font-actual="18">
         Договоры с иностранными организациями по вопросам образования —
         отсутствуют.
       </p>

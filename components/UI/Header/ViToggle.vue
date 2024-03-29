@@ -1,12 +1,47 @@
 <template>
-  <label class="header__visual_toggle">
+  <label class="header__visual_toggle border">
     <input class="header__visual_checkbox" type="checkbox" />
     <div class="header__visual_switch"></div>
   </label>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    hiddenImage() {
+      const elements = document.querySelectorAll('.background');
+      const elementsBack = document.querySelectorAll(".image")
+      elementsBack.forEach(elementBack => {
+        elementBack.style.opacity = "0"
+      })
+      elements.forEach(element => {
+        const backgroundImage = window.getComputedStyle(element).getPropertyValue('background-image');
+        const imageUrl = backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+        const checkArray = this.ArrayBackground.find(item => item === imageUrl)
+        if (!checkArray) {
+          this.ArrayBackground.push(imageUrl);
+        }
+        element.style.background = 'none'
+        element.classList.remove('traningCard__animation');
+      })
+      localStorage.setItem('ArrayBacground', JSON.stringify(this.ArrayBackground));
+      localStorage.setItem('imageOff', true);
+    },
+    visibleImage() {
+      const elements = document.querySelectorAll('.background');
+      const elementsBack = document.querySelectorAll(".image")
+      elementsBack.forEach(elementBack => {
+        elementBack.style.opacity = "1"
+      })
+      elements.forEach((element, index) => {
+        const imageUrl = this.ArrayBackground[index];
+        element.style.backgroundImage = `url('${imageUrl}')`;
+        element.classList.add('traningCard__animation');
+      })
+      localStorage.setItem('imageOff', false);
+    },
+  }
+};
 </script>
 
 <style scoped>
@@ -14,6 +49,7 @@ export default {};
   cursor: pointer;
   display: inline-block;
   margin-left: 10px;
+  border-radius: 20px;
 }
 
 .header__visual_switch {

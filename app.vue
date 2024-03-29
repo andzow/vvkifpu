@@ -1,7 +1,7 @@
 <template>
   <UIViHeader />
   <main>
-    <NuxtPage v-if="isActive" />
+    <NuxtPage/>
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>

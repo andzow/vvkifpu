@@ -2,20 +2,12 @@
   <section class="paper">
     <div class="paper__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="paper__title" :settings="true"
-        >Документы на практику</UIViTitle
-      >
+      <UIViTitle class="paper__title" :settings="true">Документы на практику</UIViTitle>
       <div class="paper__table">
-        <div
-          class="paper__item"
-          v-for="(item, idx) in ArrayDocument"
-          :key="idx"
-        >
+        <div class="paper__item" v-for="(item, idx) in ArrayDocument" :key="idx">
           <div class="paper__circle"></div>
-          <h3 class="paper__name">{{ item.name }} -</h3>
-          <a :href="item.path" class="paper__btn" :download="item.pathName"
-            >Скачать</a
-          >
+          <h3 class="paper__name font" data-font-actual="17">{{ item.name }} -</h3>
+          <a :href="item.path" class="paper__btn font" :download="item.pathName" data-font-actual="17">Скачать</a>
         </div>
       </div>
     </div>

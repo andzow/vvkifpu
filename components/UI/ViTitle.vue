@@ -1,8 +1,8 @@
 <template>
-  <h1 class="title" v-if="settings" :style="setColor">
+  <h1 class="title font_special" data-font-actual="60" v-if="settings" :style="setColor">
     <slot />
   </h1>
-  <h2 class="title" v-else :style="setColor">
+  <h2 class="title font" v-else :style="setColor">
     <slot />
   </h2>
 </template>

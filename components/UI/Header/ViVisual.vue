@@ -7,22 +7,22 @@
       </div>
     </div>
     <div class="header__visual_font">
-      <p class="header__visual_size">А</p>
-      <p class="header__visual_size">А</p>
-      <p class="header__visual_size">А</p>
+      <p class="header__visual_size" @click="increaseFontSize(100)">А</p>
+      <p class="header__visual_size" @click="increaseFontSize(150)">А</p>
+      <p class="header__visual_size" @click="increaseFontSize(200)">А</p>
     </div>
     <div class="header__visual_colors">
-      <p class="header__visual_color">А</p>
-      <p class="header__visual_color">А</p>
-      <p class="header__visual_color">А</p>
-      <p class="header__visual_color">А</p>
-      <p class="header__visual_color">А</p>
+      <p class="header__visual_color background" @click="changeBackgroundWhite">А</p>
+      <p class="header__visual_color background" @click="changeBackgroundBlack">А</p>
+      <p class="header__visual_color background" @click="changeBackgroundBlue">А</p>
+      <p class="header__visual_color background" @click="changeBackgroundYellow">А</p>
+      <p class="header__visual_color background" @click="changeBackgroundBrown">А</p>
     </div>
     <div class="header__visual_btn">
-      <button class="header__visual_button">обычная версия сайта</button>
+      <button class="header__visual_button border" @click="resetChangeBackground">обычная версия сайта</button>
     </div>
     <div class="header__visual_leave">
-      <button class="header__visual_leav" @click="$emit('closeVisual')">
+      <button class="header__visual_leav border" @click="$emit('closeVisual')">
         -
       </button>
     </div>
@@ -36,14 +36,258 @@ export default {
   },
   data() {
     return {
+      ArrayFontSpecial: 100,
+      ArrayBackground: [],
       activeVisual: false,
     };
   },
-  watch: {
-    activeVisual(val) {
-      console.log(val);
-    },
+  mounted() {
+        //   localStorage.removeItem('ArrayBacground');
+        // localStorage.removeItem('imageOff');
+        // localStorage.removeItem('background');
+        // localStorage.removeItem('ArrayFont');
+    const background = localStorage.getItem("background")
+    const font = localStorage.getItem("ArrayFont")
+    if (font !== null) {
+      this.increaseFontSize(font)
+    }
+    switch (background) {
+      case "blue":
+        this.changeBackgroundBlue();
+        break;
+      case "yellow":
+        this.changeBackgroundYellow();
+        break;
+      case "brown":
+        this.changeBackgroundBrown();
+        break;
+      case "black":
+        this.changeBackgroundBlack();
+        break;
+      case "white":
+        this.changeBackgroundWhite();
+        break;
+      default:
+        break;
+    }
   },
+  methods: {
+    increaseFontSize(size) {
+      const elements = document.querySelectorAll('.font'); // Получаем ссылки на все элементы
+      elements.forEach(element => {
+        const dataFontValue = parseInt(element.getAttribute('data-font-actual'));
+        const newFontSize = dataFontValue / 100 * size;
+        element.style.fontSize = `${newFontSize}px`;
+      });
+      const elements_special = document.querySelectorAll('.font_special');
+      elements_special.forEach( element => {
+        if (size >= 150) {
+          this.ArrayFontSpecial = 150
+        } else {
+          this.ArrayFontSpecial = 100
+        }
+        const elementFont = parseInt(element.getAttribute('data-font-actual'));
+        const newFont = elementFont / 100 * this.ArrayFontSpecial;
+        element.style.fontSize = `${newFont}px`;
+      })
+      localStorage.setItem('ArrayFont', size);
+    },
+    changeBackgroundBlue() {
+      this.resetChangeBackground()
+      const elements = document.querySelectorAll('*');
+      const backs = document.querySelectorAll('.back');
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const elementsBorder = document.querySelectorAll('.border')
+      const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
+      const inputs = document.querySelectorAll('input')
+      const paths = document.querySelectorAll('.path')
+
+      paths.forEach(path => {
+        path.style.fill = "#063462"
+      })
+      inputs.forEach(input => {
+        input.classList.add('input-blue')
+      })
+      elementsBorderFilter.forEach(elementBorder => {
+        elementBorder.classList.add('border-log')
+      })
+      filteredElements.forEach(element => {
+        element.classList.add("blue")
+      });
+      backs.forEach(back => {
+        back.classList.add("back-blue")
+      })
+      localStorage.setItem('background', "blue")
+    },
+    changeBackgroundBlack() {
+      this.resetChangeBackground()
+      const elements = document.querySelectorAll('*');
+      const backs = document.querySelectorAll('.back');
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const elementsBorder = document.querySelectorAll('.border')
+      const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
+      const inputs = document.querySelectorAll('input')
+      const paths = document.querySelectorAll('.path')
+
+      paths.forEach(path => {
+        path.style.fill = "#fff"
+      })
+      inputs.forEach(input => {
+        input.classList.add('input-black')
+      })
+      elementsBorderFilter.forEach(elementBorder => {
+        elementBorder.classList.add('border-log')
+      })
+      filteredElements.forEach(element => {
+        element.classList.add("black")
+      });
+      backs.forEach(back => {
+        back.classList.add("back-black")
+      })
+      localStorage.setItem('background', "black")
+    },
+    changeBackgroundWhite() {
+      this.resetChangeBackground()
+      const elements = document.querySelectorAll('*');
+      const backs = document.querySelectorAll('.back');
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const elementsBorder = document.querySelectorAll('.border')
+      const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
+      const inputs = document.querySelectorAll('input')
+      const paths = document.querySelectorAll('.path')
+
+      paths.forEach(path => {
+        path.style.fill = "#000"
+      })
+      inputs.forEach(input => {
+        input.classList.add('input-white')
+      })
+      elementsBorderFilter.forEach(elementBorder => {
+        elementBorder.classList.add('border-log')
+      })
+      filteredElements.forEach(element => {
+        element.classList.add("white")
+      });
+      backs.forEach(back => {
+        back.classList.add("back-white")
+      })
+      localStorage.setItem('background', "white")
+    },
+    changeBackgroundBrown() {
+      this.resetChangeBackground()
+      const elements = document.querySelectorAll('*');
+      const backs = document.querySelectorAll('.back');
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const elementsBorder = document.querySelectorAll('.border')
+      const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
+      const inputs = document.querySelectorAll('input')
+      const paths = document.querySelectorAll('.path')
+
+      paths.forEach(path => {
+        path.style.fill = "#a9e44d"
+      })
+      inputs.forEach(input => {
+        input.classList.add('input-brown')
+      })
+      elementsBorderFilter.forEach(elementBorder => {
+        elementBorder.classList.add('border-log')
+      })
+      filteredElements.forEach(element => {
+        element.classList.add("brown")
+      });
+      backs.forEach(back => {
+        back.classList.add("back-brown")
+      })
+      localStorage.setItem('background', "brown")
+    },
+    changeBackgroundYellow() {
+      this.resetChangeBackground()
+      const elements = document.querySelectorAll('*');
+      const backs = document.querySelectorAll('.back');
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const elementsBorder = document.querySelectorAll('.border')
+      const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
+      const inputs = document.querySelectorAll('input')
+      const paths = document.querySelectorAll('.path')
+
+      paths.forEach(path => {
+        path.style.fill = "#4d4b43"
+      })
+      inputs.forEach(input => {
+        input.classList.add('input-yellow')
+      })
+      elementsBorderFilter.forEach(elementBorder => {
+        elementBorder.classList.add('border-log')
+      })
+      filteredElements.forEach(element => {
+        element.classList.add("yellow")
+      });
+      backs.forEach(back => {
+        back.classList.add("back-yellow")
+      })
+      localStorage.setItem('background', "yellow")
+    },
+    resetChangeBackground() {
+      const elements = document.querySelectorAll('*')
+      const paths = document.querySelectorAll('.path')
+      paths.forEach(path => {
+        path.removeAttribute('style');
+      })
+      elements.forEach(element => {
+        element.classList.remove(
+          'white',
+          'blue',
+          'yellow',
+          'brown',
+          'black',
+          'border-log',
+          'input-white',
+          'input-black',
+          'input-brown',
+          'input-yellow',
+          'input-blue',
+          'back-white',
+          'back-black',
+          'back-blue',
+          'back-yellow',
+          'back-brown',
+        )
+      })
+
+
+      localStorage.removeItem('background')
+    }
+  },
+  watch: {
+    $route() {
+      setTimeout(() => {
+        const font = localStorage.getItem("ArrayFont")
+        const background = localStorage.getItem("background")
+        if (font !== null) {
+          this.increaseFontSize(font)
+        }
+        switch (background) {
+          case "blue":
+            this.changeBackgroundBlue();
+            break;
+          case "yellow":
+            this.changeBackgroundYellow();
+            break;
+          case "brown":
+            this.changeBackgroundBrown();
+            break;
+          case "black":
+            this.changeBackgroundBlack();
+            break;
+          case "white":
+            this.changeBackgroundWhite();
+            break;
+          default:
+            break;
+        }
+      }, 700)
+    }
+  }
 };
 </script>
 
@@ -123,23 +367,29 @@ export default {
   cursor: pointer;
 }
 .header__visual_color:nth-child(1) {
+  background: white;
+  color: black;
   border: 1px solid black;
 }
 .header__visual_color:nth-child(2) {
   background: black;
   color: white;
+  border:1px solid white;
 }
 .header__visual_color:nth-child(3) {
   background: #9dd1ff;
   color: #063462;
+  border:1px solid #063462;
 }
 .header__visual_color:nth-child(4) {
   background: #f7f3d6;
   color: #4d4b43;
+  border:1px solid #4d4b43;
 }
 .header__visual_color:nth-child(5) {
   background: #3b2716;
   color: #a9e44d;
+  border:1px solid #a9e44d;
 }
 .header__visual_btn {
   margin-left: 20px;

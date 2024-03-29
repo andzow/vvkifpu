@@ -6,6 +6,7 @@
     url("../fonts/Soyuz-Grotesk.otf") format("embedded-opentype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -305,7 +306,7 @@ input:focus:-ms-input-placeholder {
   background: #000 !important;
 }
 .border-log {
-  border: 1px solid #fff;
+  border: 1px solid !important;
 }
 .traningCard:hover .traningCard__element .traningCard__icon svg path {
   fill: var(--violo);

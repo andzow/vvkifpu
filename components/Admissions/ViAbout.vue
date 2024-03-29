@@ -1,16 +1,16 @@
 <template>
   <section class="about">
     <div class="about__container">
-      <p class="about_text">Сроки подачи документов</p>
-      <p class="about_text">Основные даты поступления:</p>
+      <p class="about_text font" data-font-actual="17">Сроки подачи документов</p>
+      <p class="about_text font" data-font-actual="17">Основные даты поступления:</p>
       <ul class="about_ul">
-        <li class="about_li">Прием документов с 1 июня;</li>
-        <li class="about_li">
+        <li class="about_li font" data-font-actual="17">Прием документов с 1 июня;</li>
+        <li class="about_li font" data-font-actual="17">
           Прием документов останавливается при отсутствии свободных мест в
           группах.
         </li>
       </ul>
-      <p class="about_text">Начало занятий с 1 сентября.</p>
+      <p class="about_text font" data-font-actual="17">Начало занятий с 1 сентября.</p>
     </div>
   </section>
 </template>

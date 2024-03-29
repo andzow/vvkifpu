@@ -2,85 +2,72 @@
   <section class="guide">
     <div class="guide__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="guide__title" :settings="true"
-        >Руководство и педагогический состав</UIViTitle
-      >
+      <UIViTitle class="guide__title" :settings="true">Руководство и педагогический состав</UIViTitle>
 
-      <p class="guide__name">Администрация ВВКИФПУ</p>
+      <p class="guide__name font" data-font-actual="20">Администрация ВВКИФПУ</p>
       <table class="guide__table" cellpadding="0" cellspacing="0" border="0">
-        <thead class="guide__thead">
+        <thead class="guide__thead border">
           <tr>
-            <th class="guide__pos">Ф. И. О.</th>
-            <th class="guide__pos">Должность</th>
-            <th class="guide__pos">Общий стаж работы</th>
-            <th class="guide__pos">Уровень образования</th>
+            <th class="guide__pos font" data-font-actual="17">Ф. И. О.</th>
+            <th class="guide__pos font" data-font-actual="17">Должность</th>
+            <th class="guide__pos font" data-font-actual="17">Общий стаж работы</th>
+            <th class="guide__pos font" data-font-actual="17">Уровень образования</th>
           </tr>
         </thead>
         <tbody class="info__tbody">
-          <tr
-            v-for="(administration, index) in ArrayAdministration"
-            :key="index"
-          >
-            <td class="guide__element">{{ administration.name }}</td>
-            <td class="guide__element">{{ administration.post }}</td>
-            <td class="guide__element">{{ administration.time }}</td>
-            <td class="guide__element">{{ administration.education }}</td>
+          <tr v-for="(administration, index) in ArrayAdministration" :key="index">
+            <td class="guide__element font" data-font-actual="17">{{ administration.name }}</td>
+            <td class="guide__element font" data-font-actual="17">{{ administration.post }}</td>
+            <td class="guide__element font" data-font-actual="17">{{ administration.time }}</td>
+            <td class="guide__element font" data-font-actual="17">{{ administration.education }}</td>
           </tr>
         </tbody>
       </table>
 
-      <p class="guide__name">Сведения о педагогическом составе ВВКИФПУ</p>
+      <p class="guide__name font" data-font-actual="20">Сведения о педагогическом составе ВВКИФПУ</p>
       <table class="guide__table" cellpadding="0" cellspacing="0" border="0">
-        <thead class="guide__thead">
+        <thead class="guide__thead border">
           <tr>
-            <th class="guide__pos">Ф. И. О.</th>
-            <th class="guide__pos">Преподаватель дисциплин</th>
-            <th class="guide__pos">Уровень образования</th>
-            <th class="guide__pos">Общий стаж на должности</th>
+            <th class="guide__pos font" data-font-actual="17">Ф. И. О.</th>
+            <th class="guide__pos font" data-font-actual="17">Преподаватель дисциплин</th>
+            <th class="guide__pos font" data-font-actual="17">Уровень образования</th>
+            <th class="guide__pos font" data-font-actual="17">Общий стаж на должности</th>
           </tr>
         </thead>
         <tbody class="info__tbody">
           <tr v-for="(item, index) in ArrayTeacher" :key="index">
-            <td class="guide__element">{{ item.name }}</td>
-            <td class="guide__element">{{ item.post }}</td>
-            <td class="guide__element">{{ item.level }}</td>
-            <td class="guide__element">{{ item.time }}</td>
+            <td class="guide__element font" data-font-actual="17">{{ item.name }}</td>
+            <td class="guide__element font" data-font-actual="17">{{ item.post }}</td>
+            <td class="guide__element font" data-font-actual="17">{{ item.level }}</td>
+            <td class="guide__element font" data-font-actual="17">{{ item.time }}</td>
           </tr>
         </tbody>
       </table>
 
-      <p class="guide__name">
+      <p class="guide__name font" data-font-actual="20">
         Список преподавателей дисциплин по специальностям
       </p>
       <table class="guide__table" cellpadding="0" cellspacing="0" border="0">
-        <thead class="guide__thead">
+        <thead class="guide__thead border">
           <tr>
-            <th class="guide__pos">Ф. И. О. преподавателя</th>
-            <th class="guide__pos">Контакты</th>
-            <th class="guide__pos">Виды дисциплин</th>
+            <th class="guide__pos font" data-font-actual="17">Ф. И. О. преподавателя</th>
+            <th class="guide__pos font" data-font-actual="17">Контакты</th>
+            <th class="guide__pos font" data-font-actual="17">Виды дисциплин</th>
           </tr>
         </thead>
         <tbody class="info__tbody">
           <tr v-for="(item, index) in ArraySpecialization" :key="index">
             <td class="guide__element">
-              <p
-                class="guide__text"
-                v-for="(name, idx) in item.names"
-                :key="idx"
-              >
+              <p class="guide__text font" data-font-actual="17" v-for="(name, idx) in item.names" :key="idx">
                 {{ name }}
               </p>
             </td>
             <td class="guide__element">
-              <p
-                class="guide__text"
-                v-for="(contact, i) in item.contacts"
-                :key="i"
-              >
+              <p class="guide__text font" data-font-actual="17" v-for="(contact, i) in item.contacts" :key="i">
                 {{ contact }}
               </p>
             </td>
-            <td class="guide__element guide__element_specialization">
+            <td class="guide__element guide__element_specialization font" data-font-actual="17">
               {{ item.specialization }}
             </td>
           </tr>
