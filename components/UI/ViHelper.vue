@@ -29,34 +29,34 @@ export default {
         }
     },
     mounted() {
-        const background = localStorage.getItem("background")
-        const font = localStorage.getItem("ArrayFont")
-        const image = localStorage.getItem("imageOff")
-        if (font !== null) {
-            this.loadArrayFont()
-        }
-        if (image !== null) {
-            this.loadBackground()
-        }
-        switch (background) {
-            case "blue":
-                this.changeBackgroundBlue();
-                break;
-            case "yellow":
-                this.changeBackgroundYellow();
-                break;
-            case "brown":
-                this.changeBackgroundBrown();
-                break;
-            case "black":
-                this.changeBackgroundBlack();
-                break;
-            case "white":
-                this.changeBackgroundWhite();
-                break;
-            default:
-                break;
-        }
+        // const background = localStorage.getItem("background")
+        // const font = localStorage.getItem("ArrayFont")
+        // const image = localStorage.getItem("imageOff")
+        // if (font !== null) {
+        //     this.loadArrayFont()
+        // }
+        // if (image !== null) {
+        //     this.loadBackground()
+        // }
+        // switch (background) {
+        //     case "blue":
+        //         this.changeBackgroundBlue();
+        //         break;
+        //     case "yellow":
+        //         this.changeBackgroundYellow();
+        //         break;
+        //     case "brown":
+        //         this.changeBackgroundBrown();
+        //         break;
+        //     case "black":
+        //         this.changeBackgroundBlack();
+        //         break;
+        //     case "white":
+        //         this.changeBackgroundWhite();
+        //         break;
+        //     default:
+        //         break;
+        // }
         // localStorage.removeItem('ArrayBacground');
         // localStorage.removeItem('imageOff');
         // localStorage.removeItem('background');

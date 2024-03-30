@@ -9,7 +9,7 @@
         Полный отчет о финансово-хозяйственной деятельности колледжа отражен на
         сайте министерства юстиции Кировской области.
       </p>
-      <img class="economy__img" src="~/assets/images/Information/document.webp" alt="" />
+      <img class="economy__img image" src="~/assets/images/Information/document.webp" alt="" />
     </div>
   </section>
 </template>

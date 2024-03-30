@@ -1,5 +1,6 @@
 export const useModal = () => useState("use_modal", () => false);
 export const useModalFinal = () => useState("use_modal_final", () => false);
+export const useToogle = () => useState("use_toogle", () => false);
 const navArr = [
   {
     name: "АБИТУРИЕНТАМ",

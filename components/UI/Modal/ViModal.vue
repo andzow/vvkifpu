@@ -180,6 +180,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 }
 .modal__container {
     padding:  0 20px;

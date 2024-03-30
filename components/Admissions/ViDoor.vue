@@ -1,18 +1,20 @@
 <template>
   <section class="door">
+    <img class="door__image image" :src="'../assets/images/UI/background.webp'" alt="">
+    <div class="door__color"></div>
     <div class="door__container">
       <div class="door__position">
-        <h1 class="door__name">День открытых дверей</h1>
-        <p class="door__text">30 марта 2024</p>
-        <p class="door__date">
+        <h1 class="door__name font_special" data-font-actual="56">День открытых дверей</h1>
+        <p class="door__text font" data-font-actual="40">30 марта 2024</p>
+        <p class="door__date font" data-font-actual="28">
           Осталось: {{ remainingTime.days }}д {{ remainingTime.hours }}ч
           {{ remainingTime.minutes }}м {{ remainingTime.seconds }}с
         </p>
       </div>
       <div class="door__position">
-        <div class="door__map">
+        <div class="door__map border">
           <iframe
-            class="door__frame"
+            class="door__frame image"
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A3680bbe87b8f8d4e18aa9b5e7e7a0fc04493ff0fe533a4d0009d44a98fb2642a&amp;source=constructor"
             frameborder="0"
           ></iframe>
@@ -70,14 +72,33 @@ export default {
 
 <style scoped>
 .door {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  background: url("../assets/images/UI/background.webp");
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 10;
+}
+.door__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--violo);
+  z-index: 2;
+}
+.door__color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--violo);
+  z-index: 1;
 }
 .door__container {
   display: flex;
@@ -104,7 +125,7 @@ export default {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 28px;
-  color: var(--violo);
+  color: #fff;
   text-align: center;
 }
 .door__frame {

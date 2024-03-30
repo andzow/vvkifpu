@@ -2,22 +2,22 @@
   <section class="time">
     <div class="time__container">
       <UIViTitle class="time__title" :settings="true">Когда начало?</UIViTitle>
-      <p class="time__text">
+      <p class="time__text font" data-font-actual="18">
         Для Вашего удобства мы организуем 3 группы посетителей:
       </p>
       <div class="time__position time__position_special">
-        <div class="time__circle"></div>
-        <p class="time__info">1гр. — начало в 10:00</p>
+        <div class="time__circle back"></div>
+        <p class="time__info font" data-font-actual="18">1гр. — начало в 10:00</p>
       </div>
       <div class="time__position">
-        <div class="time__circle"></div>
-        <p class="time__info">2гр. — начало в 11:30</p>
+        <div class="time__circle back"></div>
+        <p class="time__info font" data-font-actual="18">2гр. — начало в 11:30</p>
       </div>
       <div class="time__position">
-        <div class="time__circle"></div>
-        <p class="time__info">3гр. — начало в 13:00</p>
+        <div class="time__circle back"></div>
+        <p class="time__info font" data-font-actual="18">3гр. — начало в 13:00</p>
       </div>
-      <p class="time__text time__text_special">
+      <p class="time__text time__text_special font" data-font-actual="18">
         <span class="time__span">Записываться не нужно.</span> Мы ждем всех
         желающих!
       </p>

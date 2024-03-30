@@ -12,14 +12,14 @@
       <p class="header__visual_size" @click="increaseFontSize(200)">А</p>
     </div>
     <div class="header__visual_colors">
-      <p class="header__visual_color background" @click="changeBackgroundWhite">А</p>
-      <p class="header__visual_color background" @click="changeBackgroundBlack">А</p>
-      <p class="header__visual_color background" @click="changeBackgroundBlue">А</p>
-      <p class="header__visual_color background" @click="changeBackgroundYellow">А</p>
-      <p class="header__visual_color background" @click="changeBackgroundBrown">А</p>
+      <p class="header__visual_color exception" @click="changeBackgroundWhite">А</p>
+      <p class="header__visual_color exception" @click="changeBackgroundBlack">А</p>
+      <p class="header__visual_color exception" @click="changeBackgroundBlue">А</p>
+      <p class="header__visual_color exception" @click="changeBackgroundYellow">А</p>
+      <p class="header__visual_color exception" @click="changeBackgroundBrown">А</p>
     </div>
     <div class="header__visual_btn">
-      <button class="header__visual_button border" @click="resetChangeBackground">обычная версия сайта</button>
+      <button class="header__visual_button border" @click="offVersion">обычная версия сайта</button>
     </div>
     <div class="header__visual_leave">
       <button class="header__visual_leav border" @click="$emit('closeVisual')">
@@ -39,6 +39,7 @@ export default {
       ArrayFontSpecial: 100,
       ArrayBackground: [],
       activeVisual: false,
+      useToogle: useToogle()
     };
   },
   mounted() {
@@ -49,7 +50,7 @@ export default {
     const background = localStorage.getItem("background")
     const font = localStorage.getItem("ArrayFont")
     if (font !== null) {
-      this.increaseFontSize(font)
+      this.increaseFontSize(font);
     }
     switch (background) {
       case "blue":
@@ -96,14 +97,18 @@ export default {
       this.resetChangeBackground()
       const elements = document.querySelectorAll('*');
       const backs = document.querySelectorAll('.back');
-      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && !element.classList.contains('exception') && element.tagName !== 'SVG'  && !element.classList.contains('traningCard__icon'));
       const elementsBorder = document.querySelectorAll('.border')
       const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
       const inputs = document.querySelectorAll('input')
       const paths = document.querySelectorAll('.path')
+      const strokes = document.querySelectorAll('.stroke')
 
       paths.forEach(path => {
         path.style.fill = "#063462"
+      })
+      strokes.forEach(path => {
+        path.style.stroke = "#063462"
       })
       inputs.forEach(input => {
         input.classList.add('input-blue')
@@ -123,12 +128,16 @@ export default {
       this.resetChangeBackground()
       const elements = document.querySelectorAll('*');
       const backs = document.querySelectorAll('.back');
-      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && !element.classList.contains('exception') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
       const elementsBorder = document.querySelectorAll('.border')
       const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
       const inputs = document.querySelectorAll('input')
       const paths = document.querySelectorAll('.path')
+      const strokes = document.querySelectorAll('.stroke')
 
+      strokes.forEach(path => {
+        path.style.stroke = "#fff"
+      })
       paths.forEach(path => {
         path.style.fill = "#fff"
       })
@@ -150,11 +159,16 @@ export default {
       this.resetChangeBackground()
       const elements = document.querySelectorAll('*');
       const backs = document.querySelectorAll('.back');
-      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && !element.classList.contains('exception') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
       const elementsBorder = document.querySelectorAll('.border')
       const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
       const inputs = document.querySelectorAll('input')
       const paths = document.querySelectorAll('.path')
+      const strokes = document.querySelectorAll('.stroke')
+
+      strokes.forEach(path => {
+        path.style.stroke = "#000"
+      })
 
       paths.forEach(path => {
         path.style.fill = "#000"
@@ -177,11 +191,16 @@ export default {
       this.resetChangeBackground()
       const elements = document.querySelectorAll('*');
       const backs = document.querySelectorAll('.back');
-      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && !element.classList.contains('exception') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
       const elementsBorder = document.querySelectorAll('.border')
       const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
       const inputs = document.querySelectorAll('input')
       const paths = document.querySelectorAll('.path')
+      const strokes = document.querySelectorAll('.stroke')
+
+      strokes.forEach(path => {
+        path.style.stroke = "#a9e44d"
+      })
 
       paths.forEach(path => {
         path.style.fill = "#a9e44d"
@@ -204,12 +223,16 @@ export default {
       this.resetChangeBackground()
       const elements = document.querySelectorAll('*');
       const backs = document.querySelectorAll('.back');
-      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
+      const filteredElements = Array.from(elements).filter(element => !element.classList.contains('background') && !element.classList.contains('exception') && element.tagName !== 'SVG' && !element.classList.contains('traningCard__icon'));
       const elementsBorder = document.querySelectorAll('.border')
       const elementsBorderFilter = Array.from(elementsBorder).filter(element => !element.classList.contains('background'));
       const inputs = document.querySelectorAll('input')
       const paths = document.querySelectorAll('.path')
+      const strokes = document.querySelectorAll('.stroke')
 
+      strokes.forEach(path => {
+        path.style.stroke = "#4d4b43"
+      })
       paths.forEach(path => {
         path.style.fill = "#4d4b43"
       })
@@ -230,6 +253,11 @@ export default {
     resetChangeBackground() {
       const elements = document.querySelectorAll('*')
       const paths = document.querySelectorAll('.path')
+      const strokes = document.querySelectorAll('.stroke')
+
+      strokes.forEach(path => {
+        path.removeAttribute('style')
+      })
       paths.forEach(path => {
         path.removeAttribute('style');
       })
@@ -256,6 +284,24 @@ export default {
 
 
       localStorage.removeItem('background')
+    },
+    visibleImage() {
+      const elements = document.querySelectorAll('.background');
+      const elementsBack = document.querySelectorAll(".image")
+      elementsBack.forEach(elementBack => {
+        elementBack.style.opacity = "1"
+      })
+      elements.forEach((element, index) => {
+        const imageUrl = this.ArrayBackground[index];
+        element.style.backgroundImage = `url('${imageUrl}')`;
+        element.classList.add('traningCard__animation');
+      })
+      localStorage.setItem('imageOff', false);
+    },
+    offVersion() {
+      this.increaseFontSize(100);
+      this.resetChangeBackground();
+      this.useToogle = false
     }
   },
   watch: {

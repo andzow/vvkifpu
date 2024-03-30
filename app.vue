@@ -11,7 +11,6 @@
     <Transition>
       <UIModalViModalFinal />
     </Transition>
-    <!-- <UIViHelper /> -->
   </main>
   <UIViFooter />
 </template>

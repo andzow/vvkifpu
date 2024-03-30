@@ -50,7 +50,7 @@
         библиотечному фонду КОГБУК «Кировской ордена почета государственной
         универсальной областной научной библиотеки имени А.И. Герцена»
       </p>
-      <div class="additionally__image">
+      <div class="additionally__image image">
         <img src="~/assets/images/UI/dogovor.webp" alt="" />
       </div>
     </div>

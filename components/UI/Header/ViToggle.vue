@@ -1,20 +1,31 @@
 <template>
   <label class="header__visual_toggle border">
-    <input class="header__visual_checkbox" type="checkbox" />
+    <input class="header__visual_checkbox" type="checkbox" v-model="useToogle"/>
     <div class="header__visual_switch"></div>
   </label>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      useToogle: useToogle(),
+      ArrayBackground: []
+    }
+  },
   methods: {
     hiddenImage() {
       const elements = document.querySelectorAll('.background');
       const elementsBack = document.querySelectorAll(".image")
-      elementsBack.forEach(elementBack => {
+      const elementsOpacity = document.querySelectorAll(".image_opacity")
+      elementsOpacity.forEach(elementBack => {
         elementBack.style.opacity = "0"
       })
+      elementsBack.forEach(elementBack => {
+        elementBack.style.display = "none"
+      })
       elements.forEach(element => {
+        console.log(element)
         const backgroundImage = window.getComputedStyle(element).getPropertyValue('background-image');
         const imageUrl = backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
         const checkArray = this.ArrayBackground.find(item => item === imageUrl)
@@ -30,8 +41,12 @@ export default {
     visibleImage() {
       const elements = document.querySelectorAll('.background');
       const elementsBack = document.querySelectorAll(".image")
-      elementsBack.forEach(elementBack => {
+      const elementsOpacity = document.querySelectorAll(".image_opacity")
+      elementsOpacity.forEach(elementBack => {
         elementBack.style.opacity = "1"
+      })
+      elementsBack.forEach(elementBack => {
+        elementBack.style.display = "block"
       })
       elements.forEach((element, index) => {
         const imageUrl = this.ArrayBackground[index];
@@ -40,6 +55,30 @@ export default {
       })
       localStorage.setItem('imageOff', false);
     },
+  },
+  mounted() {
+    const image = localStorage.getItem("imageOff")
+    if (image == "true") {
+      this.hiddenImage()
+      this.useToogle = true
+    }
+  },
+  watch: {
+    useToogle(val) {
+      if (val) {
+        this.hiddenImage()
+      } else {
+        this.visibleImage()
+      }
+    },
+    $route() {
+      setTimeout(() => {
+        const image = localStorage.getItem("imageOff")
+        if (image == "true") {
+          this.hiddenImage()
+        }
+      }, 700)
+    }
   }
 };
 </script>

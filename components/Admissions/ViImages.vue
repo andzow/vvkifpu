@@ -1,7 +1,7 @@
 <template>
   <div class="images">
     <div class="images_container">
-      <div class="images_image" v-for="item in arrImages" :key="item">
+      <div class="images_image image" v-for="item in arrImages" :key="item">
         <a :href="item" target="_blank"> <img :src="item" /></a>
       </div>
     </div>

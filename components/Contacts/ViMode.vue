@@ -3,10 +3,10 @@
     <div class="mode__container">
         <UIViTitle class="mode__title" :settings="true">Режим работы ВВКИФПУ:</UIViTitle>
         <div class="mode__position" v-for="(item, idx) in ArrayMode" :key="idx">
-          <div class="mode__circle">
+          <div class="mode__circle font" data-font-actual="18">
             {{ item.name }}
           </div>
-          <p class="mode__text">{{ item.time }}</p>
+          <p class="mode__text font" data-font-actual="20">{{ item.time }}</p>
         </div>
     </div>
   </section>
