@@ -1,8 +1,7 @@
 <template>
   <section class="main" @mousemove="handleMouseMove" ref="main">
     <div class="main__background" :style="backgroundTransform"></div>
-    <MainViMainSlider :isColor="isColor" v-if="$route.query.id" />
-    <MainViMainSliderTw :isColor="isColor" v-else />
+    <MainViMainSlider :isColor="isColor" />
   </section>
 </template>
 

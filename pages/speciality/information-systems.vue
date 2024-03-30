@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <UISpecialityViMain
+    <UISpecialityViMainInformation
       :specialityTitle="specialityTitle"
       :arrDes="arrDes"
       :arrProffesions="arrProffesions"
