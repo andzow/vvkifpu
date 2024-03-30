@@ -4,15 +4,13 @@
       <div class="main__breadcrumbs">
         <UIViBreadcrumbs />
       </div>
-      <UIViTitle :settings="true" class="main__header"
-        >Численность обучающихся</UIViTitle
-      >
+      <UIViTitle :settings="true" class="main__header">Численность обучающихся</UIViTitle>
       <div class="main__content">
         <div class="main__link" v-for="item in arrStudents" :key="item">
-          <p class="main__link_text">
+          <p class="main__link_text font" data-font-actual="16">
             {{ item.name }}
           </p>
-          <p class="main__link_text">{{ item.count }}</p>
+          <p class="main__link_text font" data-font-actual="16">{{ item.count }}</p>
         </div>
       </div>
     </div>
@@ -88,5 +86,9 @@ export default {
   font-weight: 500;
   font-size: 16px;
   color: black;
+  white-space: nowrap;
+}
+.main__link_text:nth-child(1) {
+  margin-right: 20px;
 }
 </style>

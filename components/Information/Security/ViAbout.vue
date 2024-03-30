@@ -1,22 +1,18 @@
 <template>
   <section class="about">
     <div class="about__container">
-      <h2 class="about__title">Малый и большой спортивный зал.</h2>
+      <h2 class="about__title font" data-font-actual="34">Малый и большой спортивный зал.</h2>
       <div class="about__content">
-        <div
-          class="about__images"
-          v-for="imageSrc in arrImages"
-          :key="imageSrc"
-        >
+        <div class="about__images image" v-for="imageSrc in arrImages" :key="imageSrc">
           <img :src="imageSrc" />
         </div>
       </div>
-      <p class="about__des">
+      <p class="about__des font" data-font-actual="16">
         Среди учащихся колледжа лица, имеющие инвалидность — отсутствуют.<br />
         При входе в колледж установлена кнопка вызова социального педагога, для
         обращений лиц-инвалидов.
       </p>
-      <img class="about__image" :src="'../assets/images/Information/3.png'" />
+      <img class="about__image image" :src="'../assets/images/Information/3.png'" />
     </div>
   </section>
 </template>

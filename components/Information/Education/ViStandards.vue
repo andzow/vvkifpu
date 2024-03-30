@@ -2,34 +2,28 @@
   <section class="standards">
     <div class="standards__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="standards__title" :settings="true"
-        >Основные профессиональные образовательные стандарты</UIViTitle
-      >
+      <UIViTitle class="standards__title" :settings="true">Основные профессиональные образовательные стандарты
+      </UIViTitle>
 
-      <table
-        class="standards__table"
-        cellpadding="0"
-        cellspacing="0"
-        border="0"
-      >
-        <thead class="standards__thead">
+      <table class="standards__table" cellpadding="0" cellspacing="0" border="0">
+        <thead class="standards__thead border">
           <tr>
-            <th class="standards__pos">Наименование специальности</th>
-            <th class="standards__pos">Квалификация</th>
-            <th class="standards__pos">Уровень образования</th>
-            <th class="standards__pos">На базе какого образования обучаются</th>
-            <th class="standards__pos">Срок обучения</th>
-            <th class="standards__pos">Форма обучения</th>
+            <th class="standards__pos font_special" data-font-actual="17">Наименование специальности</th>
+            <th class="standards__pos font_special" data-font-actual="17">Квалификация</th>
+            <th class="standards__pos font_special" data-font-actual="17">Уровень образования</th>
+            <th class="standards__pos font_special" data-font-actual="17">На базе какого образования обучаются</th>
+            <th class="standards__pos font_special" data-font-actual="17">Срок обучения</th>
+            <th class="standards__pos font_special" data-font-actual="17">Форма обучения</th>
           </tr>
         </thead>
         <tbody class="info__tbody">
           <tr v-for="(item, index) in ArrayStandards" :key="index">
-            <td class="standards__element">{{ item.name }}</td>
-            <td class="standards__element">{{ item.qualification }}</td>
-            <td class="standards__element">{{ item.level }}</td>
-            <td class="standards__element">{{ item.education }}</td>
-            <td class="standards__element">{{ item.term }}</td>
-            <td class="standards__element">{{ item.form }}</td>
+            <td class="standards__element font_special" data-font-actual="17">{{ item.name }}</td>
+            <td class="standards__element font_special" data-font-actual="17">{{ item.qualification }}</td>
+            <td class="standards__element font_special" data-font-actual="17">{{ item.level }}</td>
+            <td class="standards__element font_special" data-font-actual="17">{{ item.education }}</td>
+            <td class="standards__element font_special" data-font-actual="17">{{ item.term }}</td>
+            <td class="standards__element font_special" data-font-actual="17">{{ item.form }}</td>
           </tr>
         </tbody>
       </table>

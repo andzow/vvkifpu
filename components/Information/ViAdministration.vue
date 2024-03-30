@@ -2,33 +2,23 @@
   <section class="administration">
     <div class="administration__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="administration__title" :settings="true"
-        >Структура и органы управления ПОУ «ВВКИФПУ»</UIViTitle
-      >
-      <p class="administration__name">Администрация ВВКИФПУ</p>
-      <table
-        class="administration__table"
-        cellpadding="0"
-        cellspacing="0"
-        border="0"
-      >
+      <UIViTitle class="administration__title" :settings="true">Структура и органы управления ПОУ «ВВКИФПУ»</UIViTitle>
+      <p class="administration__name font" data-font-actual="18">Администрация ВВКИФПУ</p>
+      <table class="administration__table border" cellpadding="0" cellspacing="0" border="0">
         <thead class="administration__thead">
           <tr>
-            <th class="administration__pos">Ф. И. О.</th>
-            <th class="administration__pos">Должность</th>
-            <th class="administration__pos">Общий стаж работы</th>
-            <th class="administration__pos">Уровень образования</th>
+            <th class="administration__pos font" data-font-actual="17">Ф. И. О.</th>
+            <th class="administration__pos font" data-font-actual="17">Должность</th>
+            <th class="administration__pos font" data-font-actual="17">Общий стаж работы</th>
+            <th class="administration__pos font" data-font-actual="17">Уровень образования</th>
           </tr>
         </thead>
         <tbody class="info__tbody">
-          <tr
-            v-for="(administration, index) in ArrayAdministration"
-            :key="index"
-          >
-            <td class="administration__element">{{ administration.name }}</td>
-            <td class="administration__element">{{ administration.post }}</td>
-            <td class="administration__element">{{ administration.time }}</td>
-            <td class="administration__element">
+          <tr v-for="(administration, index) in ArrayAdministration" :key="index">
+            <td class="administration__element font" data-font-actual="17">{{ administration.name }}</td>
+            <td class="administration__element font" data-font-actual="17">{{ administration.post }}</td>
+            <td class="administration__element font" data-font-actual="17">{{ administration.time }}</td>
+            <td class="administration__element font" data-font-actual="17">
               {{ administration.education }}
             </td>
           </tr>

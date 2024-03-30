@@ -1,9 +1,9 @@
 <template>
   <section class="students">
     <div class="students__container">
-      <h2 class="students_title">НАШИ СТУДЕНТЫ ПОЛУЧАЮТ:</h2>
+      <h2 class="students_title font_special" data-font-actual="34">НАШИ СТУДЕНТЫ ПОЛУЧАЮТ:</h2>
       <div class="students_container">
-        <p class="students_name" v-for="item in arrStudents" :key="item">
+        <p class="students_name font" data-font-actual="18" v-for="item in arrStudents" :key="item">
           {{ item }}
         </p>
       </div>

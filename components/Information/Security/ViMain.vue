@@ -4,18 +4,12 @@
       <div class="main__breadcrumbs">
         <UIViBreadcrumbs />
       </div>
-      <UIViTitle :settings="true" class="main__header"
-        >Материально-техническое обеспечение и оснащенность образовательного
-        процесса</UIViTitle
-      >
+      <UIViTitle :settings="true" class="main__header">Материально-техническое обеспечение и оснащенность
+        образовательного
+        процесса</UIViTitle>
       <div class="main__content">
-        <div
-          class="main__link"
-          v-for="item in arrStudents"
-          :key="item"
-          @click="setPage(item)"
-        >
-          <p class="main__link_text">
+        <div class="main__link" v-for="item in arrStudents" :key="item" @click="setPage(item)">
+          <p class="main__link_text font" data-font-actual="17">
             {{ item.name }}
           </p>
         </div>
@@ -95,6 +89,9 @@ export default {
   padding: 20px 30px;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .main__link:hover {
   background: var(--violo);
@@ -105,6 +102,7 @@ export default {
   font-size: 17px;
   color: black;
   transition: all 0.3s ease;
+  text-align: center;
 }
 .main__link:hover .main__link_text {
   color: white;

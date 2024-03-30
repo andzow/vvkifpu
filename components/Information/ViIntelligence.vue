@@ -13,8 +13,8 @@
       >
         <tbody class="intelligence__tbody">
           <tr v-for="(item, index) in ArrayIntelligence" :key="index">
-            <td class="intelligence__element">{{ item.first }}</td>
-            <td class="intelligence__element">{{ item.second }}</td>
+            <td class="intelligence__element font" data-font-actual="17">{{ item.first }}</td>
+            <td class="intelligence__element font" data-font-actual="17">{{ item.second }}</td>
           </tr>
         </tbody>
       </table>

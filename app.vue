@@ -1,7 +1,7 @@
 <template>
   <UIViHeader />
   <main>
-    <NuxtPage v-if="isActive" />
+    <NuxtPage/>
     <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
@@ -11,7 +11,6 @@
     <Transition>
       <UIModalViModalFinal />
     </Transition>
-    <!-- <UIViHelper /> -->
   </main>
   <UIViFooter />
 </template>

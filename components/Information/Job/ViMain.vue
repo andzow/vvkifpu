@@ -4,21 +4,13 @@
       <div class="main__breadcrumbs">
         <UIViBreadcrumbs />
       </div>
-      <UIViTitle :settings="true" class="main__header"
-        >Вакансии для преподавателей</UIViTitle
-      >
+      <UIViTitle :settings="true" class="main__header">Вакансии для преподавателей</UIViTitle>
       <div class="main__menu" v-for="item in arrCopies" :key="item">
-        <h2 class="main__title">{{ item.name }}</h2>
+        <h2 class="main__title font_special" data-font-actual="34">{{ item.name }}</h2>
         <div class="main__content">
-          <div
-            clas="main__href"
-            :href="list.href"
-            target="_blank"
-            v-for="list in item.arrDocs"
-            :key="list"
-          >
+          <div clas="main__href" :href="list.href" target="_blank" v-for="list in item.arrDocs" :key="list">
             <div class="main__item">
-              <div class="main__link">{{ list.name }}</div>
+              <div class="main__link font" data-font-actual="17">{{ list.name }}</div>
             </div>
           </div>
         </div>

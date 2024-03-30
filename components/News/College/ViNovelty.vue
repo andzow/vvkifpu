@@ -2,28 +2,24 @@
   <section class="novelty">
     <div class="novelty__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="novelty__title" :settings="true"
-        >Новости колледжа</UIViTitle
-      >
+      <UIViTitle class="novelty__title" :settings="true">Новости колледжа</UIViTitle>
       <div class="novelty__grid">
-        <div
-          class="novelty__item"
-          v-for="(item, idx) in ArrayOccasion"
-          :key="idx"
-        >
+        <div class="novelty__item" v-for="(item, idx) in ArrayOccasion" :key="idx">
           <div class="novelty__image">
-            <img class="novelty__img" :src="item.image" alt="" />
-            <div class="novelty__back"></div>
+            <img class="novelty__img image_opacity" :src="item.image" alt="" />
+            <div class="novelty__back border">
+              <p class="novelty__help font" data-font-actual="28">Фотография</p>
+            </div>
           </div>
-          <p class="novelty__info">
+          <p class="novelty__info font" data-font-actual="16">
             {{ item.date }} |
-            <span class="novelty__type">{{ item.type }}</span>
+            <span class="novelty__type font" data-font-actual="16">{{ item.type }}</span>
           </p>
-          <h3 class="novelty__name">{{ item.name }}</h3>
+          <h3 class="novelty__name font" data-font-actual="24">{{ item.name }}</h3>
         </div>
       </div>
       <div class="novelty__position">
-        <button class="novelty__btn">Загрузить ещё</button>
+        <button class="novelty__btn font border" data-font-actual="18">Загрузить ещё</button>
       </div>
     </div>
   </section>
@@ -110,6 +106,9 @@ export default {
   bottom: 0;
   background: var(--violo);
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .novelty__info {
   margin-top: 30px;
@@ -151,5 +150,9 @@ export default {
 }
 .novelty__btn:hover {
   transform: scale(1.05);
+}
+.novelty__help {
+  font-size: 28px;
+  color: #fff;
 }
 </style>

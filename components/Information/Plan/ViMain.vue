@@ -4,27 +4,21 @@
       <div class="main__breadcrumbs">
         <UIViBreadcrumbs />
       </div>
-      <UIViTitle :settings="true" class="main__header"
-        >Учебные планы и Основные профессиональные образовательные программы
+      <UIViTitle :settings="true" class="main__header">Учебные планы и Основные профессиональные образовательные
+        программы
       </UIViTitle>
       <div class="main__menu" v-for="item in arrCopies" :key="item">
-        <h2 class="main__title">{{ item.name }}</h2>
+        <h2 class="main__title font_special" data-font-actual="34">{{ item.name }}</h2>
         <div class="main__content">
-          <div
-            clas="main__href"
-            :href="list.href"
-            target="_blank"
-            v-for="list in item.arrDocs"
-            :key="list"
-          >
-            <a
-              ><div class="main__item">
-                <div class="main__link">{{ list.name }}</div>
-              </div></a
-            >
+          <div clas="main__href" :href="list.href" target="_blank" v-for="list in item.arrDocs" :key="list">
+            <a>
+              <div class="main__item">
+                <div class="main__link font" data-font-actual="17">{{ list.name }}</div>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="main__des">{{ item.des }}</div>
+        <div class="main__des font" data-font-actual="16">{{ item.des }}</div>
       </div>
     </div>
   </section>
@@ -220,7 +214,6 @@ export default {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 17px;
-  height: 80px;
   color: black;
   cursor: pointer;
   transition: all 0.3s ease;

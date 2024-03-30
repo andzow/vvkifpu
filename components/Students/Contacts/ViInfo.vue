@@ -2,33 +2,31 @@
   <section class="info">
     <div class="info__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="info__title" :settings="true"
-        >Контактные данные сотрудников ВВКИФПУ</UIViTitle
-      >
-      <p class="info__description">
+      <UIViTitle class="info__title" :settings="true">Контактные данные сотрудников ВВКИФПУ</UIViTitle>
+      <p class="info__description font" data-font-actual="18">
         <span class="info__description_special">Огромная просьба</span> по
         указанным номерам телефонов звонить строго с 10:00 до 17:00.<br />
         Уважайте личное время сотрудников колледжа.
       </p>
       <table class="info__table" cellpadding="0" cellspacing="0" border="0">
-        <thead class="info__thead">
+        <thead class="info__thead border">
           <tr>
-            <th class="info__pos">Ф. И. О.</th>
-            <th class="info__pos">Должность</th>
-            <th class="info__pos">Дисциплина</th>
-            <th class="info__pos">Эл. почта</th>
-            <th class="info__pos">ВКонтакте</th>
-            <th class="info__pos">Телефон</th>
+            <th class="info__pos font" data-font-actual="16">Ф. И. О.</th>
+            <th class="info__pos font" data-font-actual="16">Должность</th>
+            <th class="info__pos font" data-font-actual="16">Дисциплина</th>
+            <th class="info__pos font" data-font-actual="16">Эл. почта</th>
+            <th class="info__pos font" data-font-actual="16">ВКонтакте</th>
+            <th class="info__pos font" data-font-actual="16">Телефон</th>
           </tr>
         </thead>
         <tbody class="info__tbody">
           <tr v-for="(contact, index) in ArrayContacts" :key="index">
-            <td class="info__element">{{ contact.name }}</td>
-            <td class="info__element">{{ contact.post }}</td>
-            <td class="info__element">{{ contact.discipline }}</td>
-            <td class="info__element">{{ contact.info.mail }}</td>
-            <td class="info__element">{{ contact.info.vk }}</td>
-            <td class="info__element">{{ contact.info.phone }}</td>
+            <td class="info__element font_special" data-font-actual="16">{{ contact.name }}</td>
+            <td class="info__element font_special" data-font-actual="16">{{ contact.post }}</td>
+            <td class="info__element font_special" data-font-actual="16">{{ contact.discipline }}</td>
+            <td class="info__element font_special" data-font-actual="16">{{ contact.info.mail }}</td>
+            <td class="info__element font_special" data-font-actual="16">{{ contact.info.vk }}</td>
+            <td class="info__element font_special" data-font-actual="16">{{ contact.info.phone }}</td>
           </tr>
         </tbody>
       </table>

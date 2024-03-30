@@ -2,28 +2,24 @@
   <section class="occasion">
     <div class="occasion__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="occasion__title" :settings="true"
-        >Мероприятия</UIViTitle
-      >
+      <UIViTitle class="occasion__title" :settings="true">Мероприятия</UIViTitle>
       <div class="occasion__grid">
-        <div
-          class="occasion__item"
-          v-for="(item, idx) in ArrayOccasion"
-          :key="idx"
-        >
+        <div class="occasion__item" v-for="(item, idx) in ArrayOccasion" :key="idx">
           <div class="occasion__image">
-            <img class="occasion__img" :src="item.image" alt="" />
-            <div class="occasion__back"></div>
+            <img class="occasion__img image_opacity" :src="item.image" alt="" />
+            <div class="occasion__back border">
+              <p class="occasion__help font" data-font-actual="28">Фотография</p>
+            </div>
           </div>
-          <p class="occasion__info">
+          <p class="occasion__info font" data-font-actual="16">
             {{ item.date }} |
-            <span class="occasion__type">{{ item.type }}</span>
+            <span class="occasion__type font" data-font-actual="16">{{ item.type }}</span>
           </p>
-          <h3 class="occasion__name">{{ item.name }}</h3>
+          <h3 class="occasion__name font" data-font-actual="24">{{ item.name }}</h3>
         </div>
       </div>
       <div class="occasion__position">
-        <button class="occasion__btn">Загрузить ещё</button>
+        <button class="occasion__btn font border" data-font-actual="18">Загрузить ещё</button>
       </div>
     </div>
   </section>
@@ -109,6 +105,9 @@ export default {
   right: 0;
   bottom: 0;
   background: #8101bd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 2;
 }
 .occasion__info {
@@ -151,5 +150,9 @@ export default {
 }
 .occasion__btn:hover {
   transform: scale(1.05);
+}
+.occasion__help {
+  font-size: 28px;
+  color: #fff;
 }
 </style>
