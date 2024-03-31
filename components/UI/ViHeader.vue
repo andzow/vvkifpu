@@ -1,14 +1,16 @@
 <template>
   <header
     :class="{
-      activeHeader: isHover || isScrollDown || activeVisualHeader,
-      disableUpperHeader: activeInnerHeader,
-      activeBackground: backgroundLinear,
+      activeHeader:
+        (isHover || isScrollDown || activeVisualHeader) && !bodyClassName,
+      disableUpperHeader: activeInnerHeader && !bodyClassName,
+      activeBackground: backgroundLinear && !bodyClassName,
     }"
   >
     <UIHeaderViVisual
       :activeVisualHeader="activeVisualHeader"
       @closeVisual="(activeVisualHeader = false), (isHover = false)"
+      @checkClass="setBodyClassName"
     />
     <div class="header__container">
       <div class="header__info">
@@ -31,6 +33,7 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  class="stroke"
                   d="M15.5819 12.0004C15.5819 13.9804 13.9819 15.5804 12.0019 15.5804C10.0219 15.5804 8.42188 13.9804 8.42188 12.0004C8.42188 10.0204 10.0219 8.42041 12.0019 8.42041C13.9819 8.42041 15.5819 10.0204 15.5819 12.0004Z"
                   stroke="white"
                   stroke-width="2"
@@ -38,6 +41,7 @@
                   stroke-linejoin="round"
                 />
                 <path
+                  class="stroke"
                   d="M12.0018 20.2702C15.5318 20.2702 18.8218 18.1902 21.1118 14.5902C22.0118 13.1802 22.0118 10.8102 21.1118 9.40021C18.8218 5.80021 15.5318 3.72021 12.0018 3.72021C8.4718 3.72021 5.1818 5.80021 2.8918 9.40021C1.9918 10.8102 1.9918 13.1802 2.8918 14.5902C5.1818 18.1902 8.4718 20.2702 12.0018 20.2702Z"
                   stroke="white"
                   stroke-width="2"
@@ -52,6 +56,7 @@
           :isHover="isHover"
           :isScrollDown="isScrollDown"
           :activeVisualHeader="activeVisualHeader"
+          :bodyClassName="bodyClassName"
         />
       </div>
       <div class="header__nav">
@@ -67,9 +72,9 @@
               v-for="(item, idx) in navArr"
               :key="item"
               @click="redirectPage(item)"
-              @mouseenter="setActiveLi(idx), (headerBackgroundActive = false)"
+              @mouseenter="setActiveLi(idx)"
               @mouseleave="setDisableLi"
-              :class="{ activeLi: activeIdxLi === idx }"
+              :class="{ activeLi: activeIdxLi === idx && !bodyClassName }"
               ref="navItem"
             >
               {{ item.name }}
@@ -78,6 +83,7 @@
                 :activeIdxLi="activeIdxLi"
                 :item="item"
                 :distancePx="distancePx"
+                :bodyClassName="bodyClassName"
                 @animateCloseLi="setCloseLi"
               />
             </li>
@@ -103,6 +109,8 @@ export default {
       distancePx: null,
       activeVisualHeader: false,
       headerBackgroundActive: false,
+      activeVisual: false,
+      bodyClassName: false,
     };
   },
   methods: {
@@ -129,6 +137,7 @@ export default {
     },
     scrollChangeColor() {
       window.addEventListener("scroll", () => {
+        if (this.bodyClassName) return;
         let scrollHeight = window.pageYOffset;
         this.hideUpperHeader(scrollHeight);
         this.activeScrollHeight = scrollHeight;
@@ -139,6 +148,7 @@ export default {
       this.activeIdxLi = idx;
       this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
       document.body.style.overflow = "hidden";
+      this.headerBackgroundActive = false;
     },
     setDisableLi(e) {
       this.activeIdxLi = null;
@@ -148,6 +158,15 @@ export default {
       if (item.path !== "/") {
         this.$router.push(item.path);
       }
+    },
+    setBodyClassName() {
+      setTimeout(() => {
+        if (document.body.className) {
+          this.bodyClassName = true;
+        } else {
+          this.bodyClassName = false;
+        }
+      }, 0);
     },
   },
   computed: {
@@ -174,6 +193,27 @@ export default {
   watch: {},
   mounted() {
     this.scrollChangeColor();
+
+    if (document.body.className) {
+      this.bodyClassName = true;
+    }
+  },
+  watch: {
+    isHover() {
+      this.setBodyClassName();
+    },
+    isScrollDown() {
+      this.setBodyClassName();
+    },
+    activeVisualHeader() {
+      this.setBodyClassName();
+    },
+    activeInnerHeader() {
+      this.setBodyClassName();
+    },
+    backgroundLinear() {
+      this.setBodyClassName();
+    },
   },
 };
 </script>
@@ -283,22 +323,6 @@ header {
   background: #6700eb;
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
-
-/* .activeBackground .header__logo {
-  color: #000;
-}
-.activeBackground .header__li {
-  color: #000;
-}
-.activeBackground .header__text {
-  color: #000;
-}
-.activeBackground .header__info {
-  border-bottom: 1px solid black;
-}
-.activeBackground .header__info path {
-  stroke: black;
-} */
 
 .activeHeader {
   background: white;

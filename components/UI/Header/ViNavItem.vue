@@ -3,14 +3,18 @@
     <div
       class="header__item_text"
       ref="headerItem"
-      :class="{ activeBlock: idx === activeIdxList }"
+      :class="{
+        activeBlock: idx === activeIdxList && !bodyClassName,
+      }"
       v-for="(list, idx) in item.allPages"
       @click="redirectPage(list)"
       :key="list"
       @mouseenter="openChildren(list, idx)"
       @mouseleave="closeChildren($event, idx)"
     >
-      <p class="header__item_name">{{ list.name }}</p>
+      <p class="header__item_name" :class="{ activeBlockBody: bodyClassName }">
+        {{ list.name }}
+      </p>
       <div class="header__item_block" v-if="list.children">
         <div class="header__item_image">
           <svg
@@ -21,6 +25,7 @@
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              class="stroke"
               d="M1 1L6 6L1 11"
               stroke="#542FE6"
               stroke-width="2"
@@ -43,6 +48,9 @@ export default {
     },
     idx: {
       type: Number,
+    },
+    bodyClassName: {
+      type: Boolean,
     },
   },
   data() {
@@ -72,7 +80,16 @@ export default {
       this.$router.push(item.path);
     },
   },
-  mounted() {},
+  mounted() {
+    setTimeout(() => {
+      if (this.bodyClassName) {
+        const textEl = document.querySelectorAll(".header__item_name");
+        for (let i = 0; i < textEl.length; i++) {
+          textEl[i].classList.add(document.body.className);
+        }
+      }
+    }, 0);
+  },
 };
 </script>
 
@@ -113,6 +130,9 @@ export default {
   align-items: center;
   margin-left: 15px;
   transition: all 0.3s ease;
+}
+.activeBlockBody:hover {
+  text-decoration: underline;
 }
 .activeBlock {
   background: #542fe6;

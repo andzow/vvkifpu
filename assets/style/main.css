@@ -399,3 +399,15 @@ input:focus:-ms-input-placeholder {
 .main__slide-leave-to {
   opacity: 0;
 }
+
+.blackInput {
+  border: 1px solid black;
+  color: black;
+}
+.whiteInput {
+  border: 1px solid white;
+  color: white;
+}
+.opacityInp {
+  border: 1px solid rgba(0, 0, 0, 0);
+}

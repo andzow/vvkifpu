@@ -1,15 +1,18 @@
 <template>
+  <!-- v-if="idx === activeIdxLi && item.allPages !== undefined" -->
   <Transition name="slide-right">
     <div
       class="header__inner"
-      v-if="idx === activeIdxLi && item.allPages !== undefined"
+      id="header__inner"
       ref="inner"
+      v-show="idx === activeIdxLi && item.allPages !== undefined"
     >
       <UIHeaderViNavItem
         :item="item"
         :distancePx="distancePx"
         :activeIdxLi="activeIdxLi"
         :idx="idx"
+        :bodyClassName="bodyClassName"
         @iItem="setItemTop"
         @slideChildren="setArrChildren"
       />
@@ -18,7 +21,7 @@
   <Transition name="slide-right">
     <div
       class="header__slide"
-      v-if="arrChildren"
+      v-show="arrChildren"
       :style="calcLeftDistance"
       @mouseleave="closeSlide"
     >
@@ -26,6 +29,7 @@
         class="header__slide_text"
         v-for="item in arrChildren"
         :key="item"
+        :class="{ activeTextChildren: bodyClassName }"
         @click="routerPush(item)"
       >
         {{ item.name }}
@@ -47,6 +51,9 @@ export default {
     idx: {
       type: Number,
     },
+    bodyClassName: {
+      type: Boolean,
+    },
     distancePx: { type: Object },
   },
   data() {
@@ -58,12 +65,14 @@ export default {
   },
   computed: {
     calcLeftDistance() {
-      return {
-        top: `${!this.idx ? "140%" : "160%"}`,
-        left: `${
-          !this.idx ? this.distancePx.left - 400 : this.distancePx.left - 345
-        }px`,
-      };
+      if (this.arrChildren) {
+        return {
+          top: `${!this.idx ? "140%" : "160%"}`,
+          left: `${
+            !this.idx ? this.distancePx.left - 400 : this.distancePx.left - 345
+          }px`,
+        };
+      }
     },
   },
   methods: {
@@ -85,11 +94,30 @@ export default {
       this.topItem = topY;
     },
   },
-
+  watch: {
+    activeIdxLi(val) {
+      // const innerBl = document.getElementById("header__inner");
+      // if (innerBl) {
+      //   innerBl.classList.add("path");
+      // }
+    },
+    arrChildren(val) {
+      setTimeout(() => {
+        if (this.bodyClassName) {
+          const textEl = document.querySelectorAll(".header__slide_text");
+          for (let i = 0; i < textEl.length; i++) {
+            textEl[i].classList.add(document.body.className);
+            console.log(textEl[i]);
+          }
+        }
+      }, 0);
+    },
+  },
   mounted() {
     document.addEventListener("visibilitychange", () => {
       this.arrChildren = null;
     });
+    console.log(document.querySelectorAll(".header__slide_text"));
     if (this.activeIdxLi !== this.idx) return;
   },
 };
@@ -128,6 +156,9 @@ export default {
   text-transform: capitalize;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+.activeTextChildren:hover {
+  text-decoration: underline;
 }
 
 .header__slide_text:hover {
