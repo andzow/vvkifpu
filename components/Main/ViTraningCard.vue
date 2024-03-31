@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="card.path" class="traningCard border">
+  <NuxtLink :to="card.path" class="traningCard border" data-aos="fade-up" data-aos-duration="1000">
     <p class="traningCard__code font" data-font-actual="22">
       {{ card.code }}
     </p>
