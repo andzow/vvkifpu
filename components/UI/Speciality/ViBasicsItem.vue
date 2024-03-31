@@ -1,10 +1,12 @@
 <template>
   <div class="basics__item" ref="basicsMenu" :style="settingsStyle">
     <div class="basics__item_header">
-      <h2 class="basics__item_title">Основные спец. дисциплины</h2>
+      <h2 class="basics__item_title font_special" data-font-actual="48">
+        Основные спец. дисциплины
+      </h2>
       <div class="basics__item_arrow">
         <svg
-          class="news__svg"
+          class="news__svg image_opacity"
           width="55"
           height="19"
           viewBox="0 0 66 19"
@@ -19,7 +21,12 @@
         </svg>
       </div>
     </div>
-    <p class="basics__item_name" v-for="item in arrNames" :key="item">
+    <p
+      class="basics__item_name font"
+      data-font-actual="17"
+      v-for="item in arrNames"
+      :key="item"
+    >
       {{ item }}
     </p>
   </div>

@@ -1,10 +1,10 @@
 <template>
-  <section class="learn">
+  <section class="learn border">
     <div class="learn__item" v-for="(item, idx) in arrLearn" :key="item">
-      <h3 class="learn__number">
+      <h3 class="learn__number font_special" data-font-actual="40">
         {{ idx + 1 < 10 ? "0" + (idx + 1) : idx + 1 }}
       </h3>
-      <h4 class="learn__text">{{ item }}</h4>
+      <h4 class="learn__text font" data-font-actual="17">{{ item }}</h4>
     </div>
   </section>
 </template>

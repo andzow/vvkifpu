@@ -6,7 +6,13 @@
     :class="{ breadcrumbs__ol_active: isColor }"
   >
     <li class="breadcrumbs__li" property="itemListElement" typeof="ListItem">
-      <NuxtLink property="item" typeof="WebPage" to="/">
+      <NuxtLink
+        class="font"
+        data-font-actual="16"
+        property="item"
+        typeof="WebPage"
+        to="/"
+      >
         <span property="name">Главная</span>
       </NuxtLink>
       <meta property="position" content="1" />
@@ -19,7 +25,13 @@
       class="breadcrumbs__li"
       :class="{ activeLi: index + 1 === crumbs.length && !isColor }"
     >
-      <NuxtLink property="item" typeof="WebPage" :to="crumb.path">
+      <NuxtLink
+        class="font"
+        data-font-actual="16"
+        property="item"
+        typeof="WebPage"
+        :to="crumb.path"
+      >
         <span property="name">{{ crumb.name }}</span>
       </NuxtLink>
       <meta property="position" :content="index + 2" />

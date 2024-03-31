@@ -52,6 +52,7 @@ export default {
       ArrayBackground: [],
       activeVisual: false,
       useToogle: useToogle(),
+      fontSizeInner: useFontSize(),
     };
   },
   mounted() {
@@ -61,6 +62,7 @@ export default {
     // localStorage.removeItem('ArrayFont');
     const background = localStorage.getItem("background");
     const font = localStorage.getItem("ArrayFont");
+    this.summFontSizeInner(true);
     if (font !== null) {
       this.increaseFontSize(font);
     }
@@ -91,7 +93,8 @@ export default {
       }, 5);
     },
     increaseFontSize(size) {
-      const elements = document.querySelectorAll(".font"); // Получаем ссылки на все элементы
+      const elements = document.querySelectorAll(".font");
+      this.summFontSizeInner(false, size);
       elements.forEach((element) => {
         const dataFontValue = parseInt(
           element.getAttribute("data-font-actual")
@@ -111,6 +114,14 @@ export default {
         element.style.fontSize = `${newFont}px`;
       });
       localStorage.setItem("ArrayFont", size);
+    },
+    summFontSizeInner(font, size) {
+      const fontStorage = localStorage.getItem("ArrayFont");
+      if (font) {
+        this.fontSizeInner = (16 / 100) * Number(fontStorage);
+        return;
+      }
+      this.fontSizeInner = (16 / 100) * size;
     },
     changeBackgroundBlue() {
       this.delayChangeBackground();

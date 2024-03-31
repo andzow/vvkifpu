@@ -27,9 +27,13 @@
     >
       <p
         class="header__slide_text"
+        :style="summFontSizeStyle"
         v-for="item in arrChildren"
         :key="item"
-        :class="{ activeTextChildren: bodyClassName }"
+        :class="{
+          activeTextChildren: bodyClassName,
+          hoverText: !bodyClassName,
+        }"
         @click="routerPush(item)"
       >
         {{ item.name }}
@@ -61,6 +65,7 @@ export default {
       arrChildren: null,
       closeMainLi: false,
       topItem: null,
+      fontSize: useFontSize(),
     };
   },
   computed: {
@@ -73,6 +78,11 @@ export default {
           }px`,
         };
       }
+    },
+    summFontSizeStyle() {
+      return {
+        fontSize: `${this.fontSize}px`,
+      };
     },
   },
   methods: {
@@ -107,18 +117,21 @@ export default {
           const textEl = document.querySelectorAll(".header__slide_text");
           for (let i = 0; i < textEl.length; i++) {
             textEl[i].classList.add(document.body.className);
-            console.log(textEl[i]);
           }
         }
-      }, 0);
+      }, 1);
     },
   },
   mounted() {
     document.addEventListener("visibilitychange", () => {
       this.arrChildren = null;
     });
-    console.log(document.querySelectorAll(".header__slide_text"));
     if (this.activeIdxLi !== this.idx) return;
+  },
+  watch: {
+    fontSize(val) {
+      console.log(val);
+    },
   },
 };
 </script>
@@ -161,7 +174,7 @@ export default {
   text-decoration: underline;
 }
 
-.header__slide_text:hover {
+.hoverText:hover {
   color: white;
   background: #542fe6;
 }

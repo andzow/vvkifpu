@@ -6,7 +6,7 @@
           >о ВВКИФПУ</UIViTitle
         >
         <div class="about__button" v-for="item in arrNav" :key="item">
-          <button class="about__btn">
+          <button class="about__btn font" data-font-actual="22">
             {{ item.name }}
             <svg
               class="news__svg"
@@ -17,6 +17,7 @@
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                class="path"
                 d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
                 fill="white"
               />
@@ -25,7 +26,7 @@
         </div>
       </div>
       <div class="about__description">
-        <p class="about__text">{{ desText }}</p>
+        <p class="about__text font" data-font-actual="16">{{ desText }}</p>
         <div class="about__animate">
           <div
             class="about__animate_item"
@@ -36,7 +37,9 @@
             v-for="item in arrAnimateText"
             :key="item"
           >
-            <h3 class="about__animate_title">{{ item.name }}</h3>
+            <h3 class="about__animate_title font" data-font-actual="28">
+              {{ item.name }}
+            </h3>
           </div>
         </div>
       </div>

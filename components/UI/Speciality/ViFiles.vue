@@ -1,5 +1,5 @@
 <template>
-  <section class="files">
+  <section class="files border">
     <div class="files__container">
       <div
         class="files__item"
@@ -10,18 +10,22 @@
       >
         <div class="files__about">
           <div class="files__image">
-            <img :src="item.imageSrc" />
+            <img class="image_opacity" :src="item.imageSrc" />
           </div>
           <div class="files__des">
-            <p class="files__index">
+            <p class="files__index font_special" data-font-actual="40">
               {{ idx + 1 < 10 ? "0" + (idx + 1) : idx + 1 }}
             </p>
-            <p class="files__name">{{ item.name }}</p>
+            <p class="files__name font" data-font-actual="17">
+              {{ item.name }}
+            </p>
           </div>
         </div>
         <Transition name="fade-button">
           <div class="files__button" v-if="isActiveIndex === idx">
-            <button class="files__btn">скачать</button>
+            <button class="files__btn border font" data-font-actual="20">
+              скачать
+            </button>
           </div>
         </Transition>
       </div>

@@ -17,12 +17,16 @@
           <swiper-slide v-for="item in arrSlider" :key="item">
             <div class="main__slide">
               <div class="main__about">
-                <p class="main__code">{{ item.code }}</p>
-                <h1 class="main__title">{{ item.title }}</h1>
-                <p class="main__des" ref="el"></p>
+                <p class="main__code font" data-font-actual="20">
+                  {{ item.code }}
+                </p>
+                <h1 class="main__title font_special" data-font-actual="68">
+                  {{ item.title }}
+                </h1>
+                <p class="main__des font" data-font-actual="16" ref="el"></p>
               </div>
               <div class="main__image">
-                <img :src="item.path" />
+                <img class="image_opacity" :src="item.path" />
                 <div
                   onmousedown="return false"
                   onselectstart="return false"
@@ -32,13 +36,115 @@
                     class="main__navigate_btn btn_prev"
                     @click="swiper.slidePrev()"
                   >
-                    <img src="@/assets/images/UI/prev.svg" />
+                    <svg
+                      width="14"
+                      height="25"
+                      viewBox="0 0 14 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <path
+                        class="stroke"
+                        d="M1 12.5L13 1ZM1 12.5L13 24Z"
+                        fill="url(#pattern0)"
+                      />
+                      <path
+                        class="stroke"
+                        d="M1 12.5L13 1ZM1 12.5L13 24Z"
+                        fill="url(#paint0_linear_2133_986)"
+                        fill-opacity="0.2"
+                      />
+                      <path
+                        class="stroke"
+                        d="M13 1L1 12.5L13 24"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <defs>
+                        <pattern
+                          id="pattern0"
+                          patternContentUnits="objectBoundingBox"
+                          width="1"
+                          height="1"
+                        >
+                          <use
+                            xlink:href="#image0_2133_986"
+                            transform="matrix(0.000467936 0 0 0.000244141 -0.285197 0)"
+                          />
+                        </pattern>
+                        <linearGradient
+                          id="paint0_linear_2133_986"
+                          x1="15.25"
+                          y1="27.7367"
+                          x2="0.775504"
+                          y2="25.2439"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-opacity="0.2" />
+                          <stop offset="1" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </button>
                   <button
                     class="main__navigate_btn btn_next"
                     @click="swiper.slideNext()"
                   >
-                    <img src="@/assets/images/UI/next.svg" />
+                    <svg
+                      width="14"
+                      height="25"
+                      viewBox="0 0 14 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <path
+                        class="stroke"
+                        d="M13 12.5L1 1ZM13 12.5L1 24Z"
+                        fill="url(#pattern0)"
+                      />
+                      <path
+                        class="stroke"
+                        d="M13 12.5L1 1ZM13 12.5L1 24Z"
+                        fill="url(#paint0_linear_2133_988)"
+                        fill-opacity="0.2"
+                      />
+                      <path
+                        class="stroke"
+                        d="M1 1L13 12.5L1 24"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <defs>
+                        <pattern
+                          id="pattern0"
+                          patternContentUnits="objectBoundingBox"
+                          width="1"
+                          height="1"
+                        >
+                          <use
+                            xlink:href="#image0_2133_988"
+                            transform="matrix(0.000467936 0 0 0.000244141 -0.285197 0)"
+                          />
+                        </pattern>
+                        <linearGradient
+                          id="paint0_linear_2133_988"
+                          x1="-1.25"
+                          y1="27.7367"
+                          x2="13.2245"
+                          y2="25.2439"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-opacity="0.2" />
+                          <stop offset="1" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -53,9 +159,27 @@
     </div>
     <div class="main__buttons">
       <div class="main__card">
-        <button class="main__btn" :style="isColor">набор 2024</button>
-        <button class="main__btn" :style="isColor">день отквытых дверей</button>
-        <button class="main__btn" :style="isColor">документы</button>
+        <button
+          class="main__btn border font"
+          data-font-actual="21"
+          :style="isColor"
+        >
+          набор 2024
+        </button>
+        <button
+          class="main__btn border font"
+          :style="isColor"
+          data-font-actual="21"
+        >
+          день отквытых дверей
+        </button>
+        <button
+          class="main__btn border font"
+          :style="isColor"
+          data-font-actual="21"
+        >
+          документы
+        </button>
       </div>
     </div>
   </div>

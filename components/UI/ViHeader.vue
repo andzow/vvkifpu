@@ -16,9 +16,13 @@
     <div class="header__container">
       <div class="header__info">
         <div class="header__left">
-          <p class="header__text">07:30 - 19:00</p>
-          <p class="header__text">г. Киров, ул. Герцена 41</p>
-          <p class="header__text">8 (8332) 64-18-98</p>
+          <p class="header__text font" data-font-actual="16">07:30 - 19:00</p>
+          <p class="header__text font" data-font-actual="16">
+            г. Киров, ул. Герцена 41
+          </p>
+          <p class="header__text font" data-font-actual="16">
+            8 (8332) 64-18-98
+          </p>
           <div class="header__hide">
             <button
               class="header__btn"
@@ -61,7 +65,13 @@
         />
       </div>
       <div class="header__nav">
-        <h1 class="header__logo" @click="$router.push('/')">ВВКИФПУ</h1>
+        <h1
+          class="header__logo font"
+          @click="$router.push('/')"
+          data-font-actual="40"
+        >
+          ВВКИФПУ
+        </h1>
         <nav class="header__words">
           <ul
             class="header__ul"
@@ -69,7 +79,8 @@
             @mouseleave="activeVisualHeader ? isHover : (isHover = false)"
           >
             <li
-              class="header__li"
+              class="header__li font"
+              data-font-actual="19"
               v-for="(item, idx) in navArr"
               :key="item"
               @click="redirectPage(item)"

@@ -46,7 +46,9 @@ export default {
         "администратор базы данных",
         "и многие другие",
       ],
-      imageSrc: "../assets/images/Speciality/arrow.svg",
+      imageSrc: `<svg class="image_opacity" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="path" d="M66 21L26 44.094L66 67.1881L66 21ZM44.5359 50.177L29.5359 76.1577L36.4641 80.1577L51.4641 54.177L44.5359 50.177Z" fill="white"/>
+</svg>`,
       arrAbout: [
         "Основы алгоритмизации и программирования",
         "Основы проектирования баз данных",

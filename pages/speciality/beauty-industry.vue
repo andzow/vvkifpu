@@ -37,7 +37,11 @@ export default {
       ],
       backImage: "../assets/images/Speciality/makeup-back.webp",
       arrProffesions: ["профессиональный визажист", "профессиональный стилист"],
-      imageSrc: "../assets/images/Speciality/makeup.svg",
+      imageSrc: `<svg class="image_opacity" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path class="path" d="M57 14L64.0224 32.9776L83 40L64.0224 47.0224L57 66L49.9776 47.0224L31 40L49.9776 32.9776L57 14Z" fill="white"/>
+<path class="path" d="M31 59L34.7813 69.2187L45 73L34.7813 76.7813L31 87L27.2187 76.7813L17 73L27.2187 69.2187L31 59Z" fill="white"/>
+</svg>
+`,
       arrAbout: [
         "Пластическая анатомия человека",
         "Коррекция и окрашивание бровей и ресниц",

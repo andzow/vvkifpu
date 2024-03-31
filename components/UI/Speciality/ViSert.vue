@@ -1,8 +1,8 @@
 <template>
-  <section class="sert">
+  <section class="sert border">
     <div class="sert__item" v-for="item in arrSert" :key="item">
       <a :href="item.imageOpen" target="_blank"
-        ><img :src="item.imageOpen"
+        ><img class="image_opacity" :src="item.imageOpen"
       /></a>
     </div>
   </section>

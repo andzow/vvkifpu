@@ -1,5 +1,5 @@
 <template>
-  <main
+  <section
     class="main"
     :style="{
       background: `url(${backImage}) no-repeat`,
@@ -11,26 +11,40 @@
         <UIViBreadcrumbs :isColor="true" />
       </div>
       <div class="main__name">
-        <h1 class="main__title" v-html="specialityTitle"></h1>
+        <h1
+          class="main__title font_special"
+          data-font-actual="78"
+          v-html="specialityTitle"
+        ></h1>
         <div class="main__button">
           <UISpecialityViButton @click="useModal = true"
             >Заявка на обучение</UISpecialityViButton
           >
         </div>
       </div>
-      <div class="main__about">
+      <div class="main__about border">
         <div class="main__content">
           <div class="main__start" v-for="item in arrDes" :key="item">
-            <p class="main__start_title">{{ item.name }}</p>
-            <p class="main__start_des" v-for="list in item.arrDes" :key="list">
+            <p class="main__start_title font" data-font-actual="18">
+              {{ item.name }}
+            </p>
+            <p
+              class="main__start_des font"
+              data-font-actual="15"
+              v-for="list in item.arrDes"
+              :key="list"
+            >
               {{ list }}
             </p>
           </div>
           <div class="main__proffesions">
-            <p class="main__proffesions_title">Будущие профессии</p>
+            <p class="main__proffesions_title font" data-font-actual="18">
+              Будущие профессии
+            </p>
             <ul class="main__proffesions_ul">
               <li
-                class="main__proffesions_li"
+                class="main__proffesions_li font"
+                data-font-actual="15"
                 v-for="item in arrProffesions"
                 :key="item"
               >
@@ -38,13 +52,11 @@
               </li>
             </ul>
           </div>
-          <div class="main__image">
-            <img :src="imageSrc" />
-          </div>
+          <div class="main__image" v-html="imageSrc"></div>
         </div>
       </div>
     </div>
-  </main>
+  </section>
 </template>
 
 <script>
@@ -89,8 +101,10 @@ export default {
   position: relative;
   width: 100vw;
   height: 100vh;
+  max-height: 100vh;
   background-size: cover;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 .main__container {
   height: 100%;

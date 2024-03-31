@@ -3,24 +3,34 @@
     <div class="footer__content">
       <div class="footer__container">
         <div class="footer__about">
-          <div class="foooter__logo">ВВКИФПУ</div>
+          <div class="foooter__logo font" data-font-actual="40">ВВКИФПУ</div>
           <ul class="footer__spec">
             <li
               class="footer__spec_li"
               v-for="item in arrSpeciality"
               :key="item"
             >
-              <router-link :to="item.path">{{ item.name }}</router-link>
+              <router-link class="font" :to="item.path" data-font-actual="16">{{
+                item.name
+              }}</router-link>
             </li>
           </ul>
           <div class="footer__contact">
-            <div class="footer__contact_title">КОНТАКТЫ</div>
-            <p class="footer__contact_text">
+            <div class="footer__contact_title font" data-font-actual="40">
+              КОНТАКТЫ
+            </div>
+            <p class="footer__contact_text font" data-font-actual="16">
               Адрес: 610002, г.Киров, ул.Герцена 41
             </p>
-            <p class="footer__contact_text">07:30 - 19:00</p>
-            <p class="footer__contact_text">8 (8332) 64-18-98</p>
-            <p class="footer__contact_text">vvkifpu@mail.ru</p>
+            <p class="footer__contact_text font" data-font-actual="16">
+              07:30 - 19:00
+            </p>
+            <p class="footer__contact_text font" data-font-actual="16">
+              8 (8332) 64-18-98
+            </p>
+            <p class="footer__contact_text font" data-font-actual="16">
+              vvkifpu@mail.ru
+            </p>
             <div class="footer__contact_image">
               <svg
                 width="38"
@@ -30,6 +40,7 @@
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  class="path"
                   d="M20.6969 23C7.71385 23 0.30856 14.3663 0 0H6.50347C6.71703 10.5446 11.5114 15.011 15.3091 15.9319V0H21.433V9.09405C25.1831 8.70267 29.1227 4.55853 30.4518 0H36.5757C35.5551 5.61758 31.2827 9.76173 28.2446 11.4655C31.2827 12.8468 36.1486 16.4614 38 23H31.259C29.8112 18.6256 26.2037 15.2412 21.433 14.7808V23H20.6969Z"
                   fill="white"
                 />
@@ -38,9 +49,16 @@
           </div>
         </div>
         <div class="footer__nav" v-for="item in arrNav" :key="item">
-          <div class="footer__nav_title">{{ item.name }}</div>
+          <div class="footer__nav_title font" data-font-actual="22">
+            {{ item.name }}
+          </div>
           <ul class="footer__nav_ul">
-            <li class="footer__nav_li" v-for="el in item.allPages" :key="el">
+            <li
+              class="footer__nav_li font"
+              v-for="el in item.allPages"
+              :key="el"
+              data-font-actual="16"
+            >
               {{ el.name }}
             </li>
           </ul>

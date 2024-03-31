@@ -1,7 +1,14 @@
 <template>
-  <section class="about">
+  <section class="about border">
     <ul class="about__ul">
-      <li class="about__li" v-for="item in arrAbout" :key="item">{{ item }}</li>
+      <li
+        class="about__li font"
+        data-font-actual="17"
+        v-for="item in arrAbout"
+        :key="item"
+      >
+        {{ item }}
+      </li>
     </ul>
   </section>
 </template>

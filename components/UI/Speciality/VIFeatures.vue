@@ -1,8 +1,10 @@
 <template>
-  <section class="features">
+  <section class="features border">
     <div class="features__container" v-for="item in arrFeatures" :key="item">
-      <h3 class="features__title">{{ item.name }}</h3>
-      <p class="features__des" v-html="item.des"></p>
+      <h3 class="features__title font_special" data-font-actual="28">
+        {{ item.name }}
+      </h3>
+      <p class="features__des font" data-font-actual="17" v-html="item.des"></p>
     </div>
     <span class="features__span"
       >100% выпускников по специальности трудоустраиваются.</span

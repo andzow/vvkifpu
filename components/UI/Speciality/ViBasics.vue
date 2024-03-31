@@ -46,6 +46,7 @@ export default {
 }
 .basics__content {
   position: relative;
+  margin-left: 40px;
   width: 100%;
 }
 .basics__menu {

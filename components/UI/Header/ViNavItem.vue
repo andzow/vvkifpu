@@ -12,12 +12,17 @@
       @mouseenter="openChildren(list, idx)"
       @mouseleave="closeChildren($event, idx)"
     >
-      <p class="header__item_name" :class="{ activeBlockBody: bodyClassName }">
+      <p
+        class="header__item_name font"
+        data-font-actual="16"
+        :class="{ activeBlockBody: bodyClassName }"
+      >
         {{ list.name }}
       </p>
       <div class="header__item_block" v-if="list.children">
         <div class="header__item_image">
           <svg
+            class="image_opacity"
             width="8"
             height="12"
             viewBox="0 0 8 12"
