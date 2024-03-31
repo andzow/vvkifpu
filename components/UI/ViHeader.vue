@@ -6,6 +6,7 @@
       disableUpperHeader: activeInnerHeader && !bodyClassName,
       activeBackground: backgroundLinear && !bodyClassName,
     }"
+    class="header"
   >
     <UIHeaderViVisual
       :activeVisualHeader="activeVisualHeader"
@@ -161,10 +162,13 @@ export default {
     },
     setBodyClassName() {
       setTimeout(() => {
+        const headerItem = document.querySelector(".header");
         if (document.body.className) {
           this.bodyClassName = true;
+          // headerItem.classList.add(document.body.className);
         } else {
           this.bodyClassName = false;
+          // headerItem.classList.remove(document.body.className);
         }
       }, 0);
     },
@@ -195,6 +199,8 @@ export default {
     this.scrollChangeColor();
 
     if (document.body.className) {
+      // const headerItem = document.querySelector(".header");
+      // headerItem.classList.add(document.body.className);
       this.bodyClassName = true;
     }
   },
