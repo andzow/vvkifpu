@@ -3,9 +3,13 @@
     <p class="traningCard__code font" data-font-actual="22">
       {{ card.code }}
     </p>
-    <h2 class="traningCard__name font" data-font-actual="28" v-html="card.name"></h2>
+    <h2
+      class="traningCard__name font"
+      data-font-actual="28"
+      v-html="card.name"
+    ></h2>
     <div class="traningCard__icon" v-html="card.icon"></div>
-    <img class="traningCard__image image" :src="card.image" alt="">
+    <img class="traningCard__image image" :src="card.image" alt="" />
     <div class="traningCard__background"></div>
   </NuxtLink>
 </template>
@@ -14,7 +18,7 @@
 export default {
   props: {
     card: Object,
-  }
+  },
 };
 </script>
 
@@ -22,14 +26,13 @@ export default {
 .traningCard:hover .traningCard__image,
 .traningCard:hover .traningCard__code,
 .traningCard:hover .traningCard__name,
-.traningCard:hover .traningCard__icon
-{
+.traningCard:hover .traningCard__icon {
   transform: translate(-10px, -10px);
 }
 .traningCard {
   position: relative;
   padding: 30px;
-  height: 320px;
+  height: 350px;
   z-index: 2;
 }
 .traningCard__element {
@@ -67,7 +70,7 @@ export default {
   bottom: 30px;
   right: 40px;
   z-index: 3;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .traningCard__image {
   position: absolute;
@@ -78,7 +81,7 @@ export default {
   height: 100%;
   width: 100%;
   z-index: 2;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 .traningCard__background {
   position: absolute;
