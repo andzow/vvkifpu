@@ -56,7 +56,7 @@
         </div>
         <button
           class="application__btn font"
-          data-font-actual="28"
+          data-font-actual="22"
           @click="sendData"
         >
           Отправить
