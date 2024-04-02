@@ -5,18 +5,35 @@
         <h2 class="news__title font" data-font-actual="60">Новости</h2>
         <button class="news__btn font border" data-font-actual="22">
           Все новости
-          <svg class="news__svg" width="55" height="19" viewBox="0 0 66 19" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path class="path arrow"
+          <svg
+            class="news__svg"
+            width="55"
+            height="19"
+            viewBox="0 0 66 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="path arrow"
               d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
-              fill="white" />
+              fill="white"
+            />
           </svg>
         </button>
       </div>
       <div class="news__content">
-        <div class="news__main" data-aos="fade-right" data-aos-offset="400" data-aos-duration="1000">
+        <div
+          class="news__main"
+          data-aos="fade-right"
+          data-aos-offset="400"
+          data-aos-duration="1000"
+        >
           <div class="news__main_image">
-            <img class="news__img image_opacity" :src="ArrayNews[0].image" alt="" />
+            <img
+              class="news__img image_opacity"
+              :src="ArrayNews[0].image"
+              alt=""
+            />
             <div class="news__background border"></div>
           </div>
           <p class="news__info font" data-font-actual="16">
@@ -29,18 +46,27 @@
             {{ ArrayNews[0].name }}
           </h3>
         </div>
-        <div class="news__additionally" data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000">
+        <div
+          class="news__additionally"
+          data-aos="fade-left"
+          data-aos-offset="400"
+          data-aos-duration="1000"
+        >
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img class="news__additionally_img image" :src="ArrayNews[1].image" alt="" />
+              <img
+                class="news__additionally_img image"
+                :src="ArrayNews[1].image"
+                alt=""
+              />
               <div class="news__background border"></div>
             </div>
             <div>
               <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[1].data }} |
                 <span class="news__type font" data-font-actual="20">{{
-              ArrayNews[1].type
-            }}</span>
+                  ArrayNews[1].type
+                }}</span>
               </p>
               <h3 class="news__name font" data-font-actual="28">
                 {{ ArrayNews[1].name }}
@@ -49,15 +75,19 @@
           </div>
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img class="news__additionally_img image" :src="ArrayNews[2].image" alt="" />
+              <img
+                class="news__additionally_img image"
+                :src="ArrayNews[2].image"
+                alt=""
+              />
               <div class="news__background border"></div>
             </div>
             <div>
               <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[2].data }} |
                 <span class="news__type font" data-font-actual="20">{{
-              ArrayNews[2].type
-            }}</span>
+                  ArrayNews[2].type
+                }}</span>
               </p>
               <h3 class="news__name font" data-font-actual="28">
                 {{ ArrayNews[2].name }}
@@ -105,7 +135,7 @@ export default {
   padding-top: 60px;
 }
 .news__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

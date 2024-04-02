@@ -1,11 +1,16 @@
 <template>
-  <NuxtLink :to="card.path" class="traningCard border" data-aos="fade-up" data-aos-duration="1000">
+  <NuxtLink
+    :to="card.path"
+    class="traningCard border"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+  >
     <p class="traningCard__code font" data-font-actual="22">
       {{ card.code }}
     </p>
     <h2
       class="traningCard__name font"
-      data-font-actual="28"
+      data-font-actual="24"
       v-html="card.name"
     ></h2>
     <div class="traningCard__icon" v-html="card.icon"></div>
@@ -32,7 +37,7 @@ export default {
 .traningCard {
   position: relative;
   padding: 30px;
-  height: 350px;
+  height: 300px;
   z-index: 2;
 }
 .traningCard__element {
@@ -57,7 +62,7 @@ export default {
   position: relative;
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 24px;
   color: #fff;
   margin-top: 5px;
   transition: all 0.3s ease;
