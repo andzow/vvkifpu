@@ -53,6 +53,7 @@ export default {
       activeVisual: false,
       useToogle: useToogle(),
       fontSizeInner: useFontSize(),
+      scrollbarBackground: '#000',
     };
   },
   mounted() {

@@ -128,6 +128,51 @@ button::-moz-focus-inner {
   background: var(--violo);
   border-radius: 5px;
 }
+
+.blue::-webkit-scrollbar {
+  width: 8px;
+  background: #9dd1ff;
+}
+.blue::-webkit-scrollbar-thumb {
+  background: #063462;
+  border-radius: 5px;
+}
+
+.white::-webkit-scrollbar {
+  width: 8px;
+  background: #fff;
+}
+.white::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 5px;
+}
+
+.black::-webkit-scrollbar {
+  width: 8px;
+  background: #000;
+}
+.black::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+
+.yellow::-webkit-scrollbar {
+  width: 8px;
+  background: #f7f3d6;
+}
+.yellow::-webkit-scrollbar-thumb {
+  background: #4d4b43;
+  border-radius: 5px;
+}
+
+.brown::-webkit-scrollbar {
+  width: 8px;
+  background: #3b2716;
+}
+.brown::-webkit-scrollbar-thumb {
+  background: #a9e44d;
+  border-radius: 5px;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

@@ -1,7 +1,7 @@
 <template>
   <section class="application">
     <div class="application__container">
-      <div class="application__info">
+      <div class="application__info" data-aos="fade-up-right" data-aos-duration="1000">
         <h3 class="application__title font_special" data-font-actual="68">
           Оставьте заявку и мы вам перезвоним
         </h3>
@@ -10,7 +10,7 @@
           программу
         </p>
       </div>
-      <div class="application__form">
+      <div class="application__form" data-aos="fade-up-left" data-aos-duration="1000">
         <div class="application__data">
           <div class="application__dop">
             <p class="application__text application__text_name font" data-font-actual="16">
