@@ -1,10 +1,6 @@
 <template>
-  <NuxtLink
-    :to="card.path"
-    class="traningCard border"
-    data-aos="fade-up"
-    data-aos-duration="1000"
-  >
+  <NuxtLink :to="card.path" class="traningCard border" ref="linkRef">
+    >
     <p class="traningCard__code font" data-font-actual="22">
       {{ card.code }}
     </p>
@@ -20,13 +16,27 @@
 </template>
 
 <script>
+import AOS from "aos";
+
 export default {
   props: {
     card: Object,
   },
+  mounted() {
+    const linkElement = this.$refs.linkRef.$el;
+
+    if (this.card.id > 1) {
+      linkElement.setAttribute("data-aos", "fade-up");
+      linkElement.setAttribute("data-aos-duration", "1000");
+    }
+
+    AOS.init({
+      initClassName: "aos-init",
+      startEvent: "DOMContentLoaded",
+    });
+  },
 };
 </script>
-
 <style scoped>
 .traningCard:hover .traningCard__image,
 .traningCard:hover .traningCard__code,
