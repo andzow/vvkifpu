@@ -65,6 +65,12 @@ export default {
     #6700eb 30%,
     #00eace 100%
   );
+  /* background-image: linear-gradient(
+    to right,
+    #df3575 0%,
+    #fb5b55 30%,
+    #ff9152 100%
+  ); */
   overflow: hidden;
   z-index: 1;
 }
