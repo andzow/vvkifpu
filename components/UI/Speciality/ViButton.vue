@@ -1,5 +1,5 @@
 <template>
-  <button class="button border font" data-font-actual="20"><slot /></button>
+  <button class="button border font" data-font-actual="17"><slot /></button>
 </template>
 
 <script>
@@ -8,11 +8,12 @@ export default {};
 
 <style scoped>
 .button {
-  font-size: 20px;
-  padding: 16px 30px;
+  font-size: 17px;
+  padding: 14px 25px;
   background: #fff;
+  font-family: "inter", sans-serif;
+  font-weight: 700;
   border-radius: 50px;
-  text-transform: uppercase;
   color: #542fe6;
   transition: all 0.3s ease;
   cursor: pointer;

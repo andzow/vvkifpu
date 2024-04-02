@@ -5,7 +5,7 @@ export const useFontSize = () => useState("size", () => 16);
 
 const navArr = [
   {
-    name: "АБИТУРИЕНТАМ",
+    name: "Абитуриентам",
     allPages: [
       {
         name: "День открытых дверей",
@@ -61,7 +61,7 @@ const navArr = [
     path: "/",
   },
   {
-    name: "СТУДЕНТАМ",
+    name: "Студентам",
     allPages: [
       {
         name: "Оплата обучения",
@@ -92,7 +92,7 @@ const navArr = [
     path: "/",
   },
   {
-    name: "БИБЛИОТЕКА",
+    name: "Библиотека",
     allPages: [
       {
         name: "Электронная библиотека",
@@ -113,7 +113,7 @@ const navArr = [
     path: "/",
   },
   {
-    name: "СВЕДЕНИЯ ОБ ОО",
+    name: "Сведения об ОО",
     allPages: [
       {
         name: "Основные сведения",
@@ -210,7 +210,7 @@ const navArr = [
     path: "/",
   },
   {
-    name: "НОВОСТИ",
+    name: "Новости",
     allPages: [
       {
         name: "Новости колледжа",
@@ -226,7 +226,7 @@ const navArr = [
     path: "/",
   },
   {
-    name: "КОНТАКТЫ",
+    name: "Контакты",
     path: "/contacts",
   },
 ];

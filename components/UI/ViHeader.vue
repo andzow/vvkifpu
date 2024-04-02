@@ -16,11 +16,11 @@
     <div class="header__container">
       <div class="header__info">
         <div class="header__left">
-          <p class="header__text font" data-font-actual="16">07:30 - 19:00</p>
-          <p class="header__text font" data-font-actual="16">
+          <p class="header__text font" data-font-actual="15">07:30 - 19:00</p>
+          <p class="header__text font" data-font-actual="15">
             г. Киров, ул. Герцена 41
           </p>
-          <p class="header__text font" data-font-actual="16">
+          <p class="header__text font" data-font-actual="15">
             8 (8332) 64-18-98
           </p>
           <div class="header__hide">
@@ -80,7 +80,7 @@
           >
             <li
               class="header__li font"
-              data-font-actual="19"
+              data-font-actual="17"
               v-for="(item, idx) in navArr"
               :key="item"
               @click="redirectPage(item)"
@@ -247,7 +247,7 @@ header {
 }
 
 .header__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -277,7 +277,8 @@ header {
 }
 .header__text {
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
+  font-family: 300;
   color: #fff;
   margin-right: 30px;
   transition: all 0.3s ease;
@@ -304,10 +305,9 @@ header {
   align-items: center;
 }
 .header__li {
-  font-size: 19px;
+  font-size: 17px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  text-transform: lowercase;
   color: white;
   transition: all 0.3s ease;
   cursor: pointer;

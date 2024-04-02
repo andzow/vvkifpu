@@ -104,14 +104,14 @@ export default {
   padding: 15px 0;
   max-height: calc(80vh - 40px);
 }
-.header__item::-webkit-scrollbar {
+/* .header__item::-webkit-scrollbar {
   width: 7px;
   background: #fff;
 }
 .header__item::-webkit-scrollbar-thumb {
   background: var(--violo);
   border-radius: 5px;
-}
+} */
 
 .header__item_text {
   position: relative;

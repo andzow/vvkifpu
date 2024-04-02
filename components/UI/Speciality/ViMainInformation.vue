@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <div class="main__video">
-      <video autoplay muted loop id="myVideo">
+      <video class="main__mp4" autoplay muted loop id="myVideo">
         <source src="@/assets/video/video.webm" type="video/webm" />
       </video>
     </div>
@@ -112,6 +112,21 @@ export default {
   overflow: hidden;
   background: rgba(0, 0, 0, 1);
   z-index: 1;
+}
+
+.main__video::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+}
+.main__mp4 {
+  /* width: 100vw;
+  height: 100vh;
+  border: 1px solid red; */
 }
 .main__container {
   position: relative;

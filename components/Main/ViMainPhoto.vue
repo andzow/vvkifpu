@@ -1,7 +1,9 @@
 <template>
   <section class="main" @mousemove="handleMouseMove" ref="main">
     <div class="main__background" :style="backgroundTransform"></div>
-    <MainViMainSlider :isColor="isColor" />
+    <MainViMainItem :isColor="isColor" />
+    <MainViParticles />
+    <!-- <MainViMainSlider :isColor="isColor" /> -->
   </section>
 </template>
 
@@ -47,7 +49,7 @@ export default {
 .main {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   overflow: hidden;
   background: black;
 }
