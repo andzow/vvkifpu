@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="footer__content">
+    <div class="footer__content" ref="footer_content">
       <div class="footer__container">
         <div class="footer__about">
           <div class="foooter__logo font" data-font-actual="40">ВВКИФПУ</div>
@@ -100,6 +100,23 @@ export default {
       ],
       arrNav: useNavArrFooter(),
     };
+  },
+  methods: {
+    changePadding(val) {
+      if (val.path !== "/") {
+        this.$refs.footer_content.style.paddingTop = "50px";
+        return;
+      }
+      this.$refs.footer_content.style.paddingTop = "136px";
+    },
+  },
+  mounted() {
+    this.changePadding(this.$route);
+  },
+  watch: {
+    $route(val) {
+      this.changePadding(val);
+    },
   },
 };
 </script>

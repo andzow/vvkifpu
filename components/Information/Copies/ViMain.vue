@@ -4,14 +4,24 @@
       <div class="main__breadcrumbs">
         <UIViBreadcrumbs />
       </div>
-      <UIViTitle :settings="true" class="main__header">Копии документов</UIViTitle>
+      <UIViTitle :settings="true" class="main__header"
+        >Копии документов</UIViTitle
+      >
       <div class="main__menu" v-for="item in arrCopies" :key="item">
         <h2 class="main__title font" data-font-actual="34">{{ item.name }}</h2>
         <div class="main__content">
-          <div clas="main__href" :href="list.href" target="_blank" v-for="list in item.arrDocs" :key="list">
+          <div
+            clas="main__href"
+            :href="list.href"
+            target="_blank"
+            v-for="list in item.arrDocs"
+            :key="list"
+          >
             <a class="main__log">
               <div class="main__item">
-                <div class="main__link font" data-font-actual="18">{{ list.name }}</div>
+                <div class="main__link font" data-font-actual="18">
+                  {{ list.name }}
+                </div>
               </div>
             </a>
           </div>
@@ -196,7 +206,7 @@ export default {
   padding-top: 230px;
 }
 .main__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

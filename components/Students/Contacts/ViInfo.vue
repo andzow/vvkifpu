@@ -2,7 +2,9 @@
   <section class="info">
     <div class="info__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="info__title" :settings="true">Контактные данные сотрудников ВВКИФПУ</UIViTitle>
+      <UIViTitle class="info__title" :settings="true"
+        >Контактные данные сотрудников ВВКИФПУ</UIViTitle
+      >
       <p class="info__description font" data-font-actual="18">
         <span class="info__description_special">Огромная просьба</span> по
         указанным номерам телефонов звонить строго с 10:00 до 17:00.<br />
@@ -21,12 +23,24 @@
         </thead>
         <tbody class="info__tbody">
           <tr v-for="(contact, index) in ArrayContacts" :key="index">
-            <td class="info__element font_special" data-font-actual="16">{{ contact.name }}</td>
-            <td class="info__element font_special" data-font-actual="16">{{ contact.post }}</td>
-            <td class="info__element font_special" data-font-actual="16">{{ contact.discipline }}</td>
-            <td class="info__element font_special" data-font-actual="16">{{ contact.info.mail }}</td>
-            <td class="info__element font_special" data-font-actual="16">{{ contact.info.vk }}</td>
-            <td class="info__element font_special" data-font-actual="16">{{ contact.info.phone }}</td>
+            <td class="info__element font_special" data-font-actual="16">
+              {{ contact.name }}
+            </td>
+            <td class="info__element font_special" data-font-actual="16">
+              {{ contact.post }}
+            </td>
+            <td class="info__element font_special" data-font-actual="16">
+              {{ contact.discipline }}
+            </td>
+            <td class="info__element font_special" data-font-actual="16">
+              {{ contact.info.mail }}
+            </td>
+            <td class="info__element font_special" data-font-actual="16">
+              {{ contact.info.vk }}
+            </td>
+            <td class="info__element font_special" data-font-actual="16">
+              {{ contact.info.phone }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -242,7 +256,7 @@ export default {
   margin-bottom: 65px;
 }
 .info__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

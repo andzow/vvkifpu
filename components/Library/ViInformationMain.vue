@@ -13,7 +13,9 @@
           <div class="main__btns">
             <div class="main__button" v-for="el in item.arrBtn" :key="el">
               <a :href="el.href" target="_blank"
-                ><button class="main__href font" data-font-actual="16">{{ el.name }}</button></a
+                ><button class="main__href font" data-font-actual="16">
+                  {{ el.name }}
+                </button></a
               >
             </div>
           </div>
@@ -152,7 +154,7 @@ export default {
   margin-bottom: 80px;
 }
 .main__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

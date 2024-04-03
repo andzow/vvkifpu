@@ -1,16 +1,24 @@
 <template>
   <div class="main__about">
-    <h1 class="main__title">
-      Думать. Делать.<br />
-      Действовать
+    <h1 class="main__title font_speciality" data-font-actual="58">
+      Фундаментальное<br />
+      Образование
     </h1>
     <div class="main__des">
-      <p class="main__link">Полезные ссылки:</p>
+      <p class="main__link font" data-font-actual="17">
+        Справочная информация:
+      </p>
       <div class="main__information">
-        <p class="main__text">Платные образовательные услуги</p>
-        <p class="main__text">Виды материальной поддержки</p>
-        <p class="main__text">Документы</p>
-        <p class="main__text">Дополнительные информационные ресурсы</p>
+        <p class="main__text font" data-font-actual="18">
+          Платные образовательные услуги
+        </p>
+        <p class="main__text font" data-font-actual="18">
+          Виды материальной поддержки
+        </p>
+        <p class="main__text font" data-font-actual="18">Документы</p>
+        <p class="main__text font" data-font-actual="18">
+          Дополнительные информационные ресурсы
+        </p>
       </div>
     </div>
     <UISpecialityViButton>Оставить заявку</UISpecialityViButton>
@@ -23,7 +31,7 @@ export default {};
 
 <style scoped>
 .main__title {
-  font-size: 68px;
+  font-size: 58px;
   font-family: "Inter", sans-serif;
   font-weight: 800;
   color: white;

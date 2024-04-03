@@ -28,7 +28,7 @@ export default {};
   margin-bottom: 65px;
 }
 .act__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

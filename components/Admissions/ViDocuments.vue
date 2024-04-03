@@ -1,9 +1,16 @@
 <template>
   <section class="documents">
     <div class="documents__container">
-      <h2 class="documents_title font_special" data-font-actual="34">СПИСОК ДОКУМЕНТОВ ДЛЯ ПОСТУПЛЕНИЯ:</h2>
+      <h2 class="documents_title font_special" data-font-actual="34">
+        СПИСОК ДОКУМЕНТОВ ДЛЯ ПОСТУПЛЕНИЯ:
+      </h2>
       <div class="documents_container">
-        <p class="documents_name font" data-font-actual="18" v-for="item in arrDocuments" :key="item">
+        <p
+          class="documents_name font"
+          data-font-actual="18"
+          v-for="item in arrDocuments"
+          :key="item"
+        >
           {{ item }}
         </p>
       </div>
@@ -36,7 +43,7 @@ export default {
   width: 100vw;
 }
 .documents__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px 80px 20px;
   margin: 0 auto;
 }

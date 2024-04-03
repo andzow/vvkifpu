@@ -3,7 +3,6 @@
     <div class="main__background" :style="backgroundTransform"></div>
     <MainViMainItem :isColor="isColor" />
     <MainViParticles />
-    <!-- <MainViMainSlider :isColor="isColor" /> -->
   </section>
 </template>
 

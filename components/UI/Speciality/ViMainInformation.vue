@@ -1,7 +1,16 @@
 <template>
   <main class="main">
     <div class="main__video">
-      <video class="main__mp4" autoplay muted loop id="myVideo">
+      <video
+        class="main__mp4"
+        autoplay
+        muted
+        loop
+        poster="@/assets/video/video.webm"
+        type="video/webm"
+        preload="metadata"
+        playsinline
+      >
         <source src="@/assets/video/video.webm" type="video/webm" />
       </video>
     </div>
@@ -22,7 +31,7 @@
         </div>
       </div>
       <div class="main__about border">
-        <div class="main__content">
+        <div class="main__content" id="main__content">
           <div class="main__start" v-for="item in arrDes" :key="item">
             <p class="main__start_title font" data-font-actual="18">
               {{ item.name }}
@@ -114,6 +123,12 @@ export default {
   z-index: 1;
 }
 
+.main__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .main__video::before {
   content: "";
   position: absolute;
@@ -123,11 +138,7 @@ export default {
   height: 100vh;
   background: rgba(0, 0, 0, 0.2);
 }
-.main__mp4 {
-  /* width: 100vw;
-  height: 100vh;
-  border: 1px solid red; */
-}
+
 .main__container {
   position: relative;
   height: 100%;
@@ -138,7 +149,7 @@ export default {
 }
 .main__breadcrumbs {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -170,7 +181,7 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

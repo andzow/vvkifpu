@@ -4,7 +4,9 @@
       <div class="main__breadcrumbs">
         <UIViBreadcrumbs />
       </div>
-      <UIViTitle :settings="true" class="main__header">Правила приема</UIViTitle>
+      <UIViTitle :settings="true" class="main__header"
+        >Правила приема</UIViTitle
+      >
       <div class="main__back">
         <p class="main__des font" data-font-actual="22">
           Поступить в колледж можно после 9 или после 11 класса.
@@ -28,7 +30,7 @@ export default {
   padding-top: 230px;
 }
 .main__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

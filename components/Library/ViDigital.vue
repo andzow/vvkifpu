@@ -2,7 +2,9 @@
   <section class="digital">
     <div class="digital__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="digital__title" :settings="true">Электронная библиотека</UIViTitle>
+      <UIViTitle class="digital__title" :settings="true"
+        >Электронная библиотека</UIViTitle
+      >
       <p class="digital__text digital__text_info font" data-font-actual="18">
         <span class="digital__text_special">Уважаемые студенты,</span> колледж
         предоставляет доступ к электронной библиотечной системе Юрайт.
@@ -11,21 +13,35 @@
         Для регистрации в библиотечной системе вам потребуется следовать
         инструкциям.
       </p>
-      <p class="digital__text_name font" data-font-actual="34">Инструкции для регистрации в системе</p>
+      <p class="digital__text_name font" data-font-actual="34">
+        Инструкции для регистрации в системе
+      </p>
       <div class="digital__position digital__position_special">
         <div class="digital__circle back"></div>
-        <a class="digital__description font" data-font-actual="17" href="../assets/downloads/Информация для преподавателей.pdf">Информация для
-          преподавателей</a>
+        <a
+          class="digital__description font"
+          data-font-actual="17"
+          href="../assets/downloads/Информация для преподавателей.pdf"
+          >Информация для преподавателей</a
+        >
       </div>
       <div class="digital__position">
         <div class="digital__circle back"></div>
-        <a class="digital__description font" data-font-actual="17" href="../assets/downloads/Информация для студентов.pdf">Информация для
-          студентов</a>
+        <a
+          class="digital__description font"
+          data-font-actual="17"
+          href="../assets/downloads/Информация для студентов.pdf"
+          >Информация для студентов</a
+        >
       </div>
       <div class="digital__position">
         <div class="digital__circle back"></div>
-        <a class="digital__description font" data-font-actual="17" href="../assets/downloads/Инструкция о регистрации.pdf">Инструкция о
-          регистрации</a>
+        <a
+          class="digital__description font"
+          data-font-actual="17"
+          href="../assets/downloads/Инструкция о регистрации.pdf"
+          >Инструкция о регистрации</a
+        >
       </div>
       <p class="digital__text digital__text_info font" data-font-actual="18">
         <span class="digital__text_special">ВАЖНО</span> при регистрации
@@ -47,7 +63,7 @@ export default {};
   margin-bottom: 65px;
 }
 .digital__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

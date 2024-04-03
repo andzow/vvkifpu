@@ -53,7 +53,7 @@ export default {
       activeVisual: false,
       useToogle: useToogle(),
       fontSizeInner: useFontSize(),
-      scrollbarBackground: '#000',
+      scrollbarBackground: "#000",
     };
   },
   mounted() {
@@ -416,7 +416,7 @@ export default {
 
 <style scoped>
 .header__visual {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
   display: flex;

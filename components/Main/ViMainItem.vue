@@ -1,8 +1,8 @@
 <template>
   <div class="main__container">
-    <!-- <div class="main__menu">
+    <div class="main__menu">
       <MainViMainAbout />
-      <div class="main__slider">
+      <div class="main__slider border">
         <swiper
           class="main__swiper"
           :slidesPerView="1"
@@ -19,19 +19,29 @@
             <div class="main__slider_item">
               <div class="main__slider_header">
                 <div class="main__slider_main">
-                  <img :src="item.imageSrcFirst" />
+                  <img class="image_opacity" :src="item.imageSrcFirst" />
                 </div>
                 <div class="main__slider_sec">
-                  <img :src="item.imageSrcSec" />
+                  <img class="image_opacity" :src="item.imageSrcSec" />
                 </div>
-                <h4 class="main__slider_name">Разработка сайтов и ПО</h4>
+                <h4 class="main__slider_name font" data-font-actual="18">
+                  Разработка сайтов и ПО
+                </h4>
               </div>
               <div class="main__slider_content">
                 <div class="main__slider_block">
-                  <p class="main__slider_code">{{ item.code }}</p>
+                  <p class="main__slider_code font" data-font-actual="18">
+                    {{ item.code }}
+                  </p>
                 </div>
-                <h3 class="main__slider_title">{{ item.title }}</h3>
-                <p class="main__slider_des" ref="el"></p>
+                <h3 class="main__slider_title font" data-font-actual="22">
+                  {{ item.title }}
+                </h3>
+                <p
+                  class="main__slider_des font"
+                  ref="el"
+                  data-font-actual="16"
+                ></p>
               </div>
             </div>
           </swiper-slide>
@@ -41,13 +51,11 @@
           @next="swiper.slideNext()"
         />
       </div>
-    </div> -->
-    <MainViMainMenuSec v-if="$route.query.id === '1'" />
-    <MainViMainMenu v-else />
+    </div>
   </div>
 </template>
 
-<!-- <script>
+<script>
 import Typed from "typed.js";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -147,7 +155,7 @@ export default {
     this.handleSlideChange();
   },
 };
-</script> -->
+</script>
 
 <style scoped>
 .main__container {
@@ -161,7 +169,7 @@ export default {
   align-items: flex-end;
   z-index: 5;
 }
-/* .main__menu {
+.main__menu {
   margin-bottom: 50px;
   display: flex;
   align-items: center;
@@ -253,5 +261,5 @@ export default {
   line-height: 140%;
   color: #858585;
   min-height: 70px;
-} */
+}
 </style>

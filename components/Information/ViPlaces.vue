@@ -2,7 +2,9 @@
   <section class="places">
     <div class="places__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="places__title" :settings="true">Вакантные места для приема (перевода)</UIViTitle>
+      <UIViTitle class="places__title" :settings="true"
+        >Вакантные места для приема (перевода)</UIViTitle
+      >
       <p class="places__text font" data-font-actual="18">
         Актуальную информацию по количеству свободных мест на 2024 год можно
         увидеть по этой ссылке
@@ -11,14 +13,22 @@
       <table class="places__table" cellpadding="0" cellspacing="0" border="0">
         <thead class="places__thead border">
           <tr>
-            <th class="places__pos font" data-font-actual="17">Наименование специальности</th>
-            <th class="places__pos font" data-font-actual="17">Вакантные места для приема/перевода</th>
+            <th class="places__pos font" data-font-actual="17">
+              Наименование специальности
+            </th>
+            <th class="places__pos font" data-font-actual="17">
+              Вакантные места для приема/перевода
+            </th>
           </tr>
         </thead>
         <tbody class="places__tbody">
           <tr v-for="(item, index) in ArrayPlaces" :key="index">
-            <td class="places__element font" data-font-actual="17">{{ item.name }}</td>
-            <td class="places__element font" data-font-actual="17">{{ item.answer }}</td>
+            <td class="places__element font" data-font-actual="17">
+              {{ item.name }}
+            </td>
+            <td class="places__element font" data-font-actual="17">
+              {{ item.answer }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -80,7 +90,7 @@ export default {
   margin-bottom: 65px;
 }
 .places__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

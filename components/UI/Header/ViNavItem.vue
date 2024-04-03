@@ -1,5 +1,5 @@
 <template>
-  <div v-if="item" class="header__item">
+  <div v-if="item" class="header__item" :style="changeBackground">
     <div
       class="header__item_text"
       ref="headerItem"
@@ -12,13 +12,15 @@
       @mouseenter="openChildren(list, idx)"
       @mouseleave="closeChildren($event, idx)"
     >
-      <p
-        class="header__item_name font"
-        data-font-actual="16"
+      <div
+        class="header__item_name"
+        :style="summFontSizeStyle"
         :class="{ activeBlockBody: bodyClassName }"
       >
-        {{ list.name }}
-      </p>
+        <NuxtLink class="header__item_link" :to="list.path">
+          {{ list.name }}</NuxtLink
+        >
+      </div>
       <div class="header__item_block" v-if="list.children">
         <div class="header__item_image">
           <svg
@@ -32,6 +34,7 @@
             <path
               class="stroke"
               d="M1 1L6 6L1 11"
+              :style="strokeChangeColor"
               stroke="#542FE6"
               stroke-width="2"
               stroke-linecap="round"
@@ -61,7 +64,38 @@ export default {
   data() {
     return {
       activeIdxList: null,
+      fontSize: useFontSize(),
+      color: useColor(),
     };
+  },
+  computed: {
+    summFontSizeStyle() {
+      const bodyElement = document.body;
+      const computedStyle = window.getComputedStyle(bodyElement);
+      const color = computedStyle.color;
+      if (!document.body.className) return;
+      return {
+        color: color,
+      };
+    },
+    changeBackground() {
+      const bodyElement = document.body;
+      const computedStyle = window.getComputedStyle(bodyElement);
+      const backgroundColor = computedStyle.backgroundColor;
+      if (!document.body.className) return;
+      return {
+        background: backgroundColor,
+      };
+    },
+    strokeChangeColor() {
+      const bodyElement = document.body;
+      const computedStyle = window.getComputedStyle(bodyElement);
+      const backgroundColor = computedStyle.color;
+      if (!document.body.className) return;
+      return {
+        stroke: backgroundColor,
+      };
+    },
   },
   methods: {
     openChildren(el, idx) {
@@ -82,6 +116,7 @@ export default {
       // }
     },
     redirectPage(item) {
+      this.$emit("close");
       this.$router.push(item.path);
     },
   },
@@ -94,6 +129,10 @@ export default {
         }
       }
     }, 0);
+    const elements = document.querySelectorAll(".header__item_name");
+    elements.forEach((el) => {
+      el.style.fontSize = this.fontSize + "px";
+    });
   },
 };
 </script>
@@ -118,9 +157,16 @@ export default {
   max-width: 320px;
   min-width: 320px;
   color: #333;
+
   text-transform: capitalize;
   transition: all 0.3s ease;
 }
+
+.header__item_link {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
 .header__item_image {
   display: flex;
   align-items: center;

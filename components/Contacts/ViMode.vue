@@ -1,13 +1,15 @@
 <template>
   <section class="mode">
     <div class="mode__container">
-        <UIViTitle class="mode__title" :settings="true">Режим работы ВВКИФПУ:</UIViTitle>
-        <div class="mode__position" v-for="(item, idx) in ArrayMode" :key="idx">
-          <div class="mode__circle font" data-font-actual="18">
-            {{ item.name }}
-          </div>
-          <p class="mode__text font" data-font-actual="20">{{ item.time }}</p>
+      <UIViTitle class="mode__title" :settings="true"
+        >Режим работы ВВКИФПУ:</UIViTitle
+      >
+      <div class="mode__position" v-for="(item, idx) in ArrayMode" :key="idx">
+        <div class="mode__circle font" data-font-actual="18">
+          {{ item.name }}
         </div>
+        <p class="mode__text font" data-font-actual="20">{{ item.time }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -19,36 +21,36 @@ export default {
       ArrayMode: [
         {
           name: "Пн",
-          time: "с 8:00 до 19:00"
+          time: "с 8:00 до 19:00",
         },
         {
           name: "Вт",
-          time: "с 8:00 до 19:00"
+          time: "с 8:00 до 19:00",
         },
         {
           name: "Ср",
-          time: "с 8:00 до 19:00"
+          time: "с 8:00 до 19:00",
         },
         {
           name: "Чт",
-          time: "с 8:00 до 19:00"
+          time: "с 8:00 до 19:00",
         },
         {
           name: "Пя",
-          time: "с 8:00 до 19:00"
+          time: "с 8:00 до 19:00",
         },
         {
           name: "Пя",
-          time: "с 8:00 до 17:00."
+          time: "с 8:00 до 17:00.",
         },
         {
           name: "Вс",
-          time: "Выходной"
+          time: "Выходной",
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -57,7 +59,7 @@ export default {
   margin-bottom: 65px;
 }
 .mode__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -73,21 +75,21 @@ export default {
   margin-bottom: 10px;
 }
 .mode__circle {
-    width: 55px;
-    height: 55px;
-    background: var(--violo);
-    border-radius: 50%;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-family: "Inter", sans-serif;
+  width: 55px;
+  height: 55px;
+  background: var(--violo);
+  border-radius: 50%;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: "Inter", sans-serif;
 }
 .mode__text {
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    margin-left: 5px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 5px;
 }
 </style>

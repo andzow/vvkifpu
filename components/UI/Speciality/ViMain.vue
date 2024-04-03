@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="main__about border">
-        <div class="main__content">
+        <div class="main__content" id="main__content">
           <div class="main__start" v-for="item in arrDes" :key="item">
             <p class="main__start_title font" data-font-actual="18">
               {{ item.name }}
@@ -114,7 +114,7 @@ export default {
 }
 .main__breadcrumbs {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -146,7 +146,7 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

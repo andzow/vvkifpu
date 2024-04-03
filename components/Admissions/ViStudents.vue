@@ -1,9 +1,16 @@
 <template>
   <section class="students">
     <div class="students__container">
-      <h2 class="students_title font_special" data-font-actual="34">НАШИ СТУДЕНТЫ ПОЛУЧАЮТ:</h2>
+      <h2 class="students_title font_special" data-font-actual="34">
+        НАШИ СТУДЕНТЫ ПОЛУЧАЮТ:
+      </h2>
       <div class="students_container">
-        <p class="students_name font" data-font-actual="18" v-for="item in arrStudents" :key="item">
+        <p
+          class="students_name font"
+          data-font-actual="18"
+          v-for="item in arrStudents"
+          :key="item"
+        >
           {{ item }}
         </p>
       </div>
@@ -30,7 +37,7 @@ export default {
   width: 100vw;
 }
 .students__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px 80px 20px;
   margin: 0 auto;
 }

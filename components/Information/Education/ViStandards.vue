@@ -2,28 +2,58 @@
   <section class="standards">
     <div class="standards__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="standards__title" :settings="true">Основные профессиональные образовательные стандарты
+      <UIViTitle class="standards__title" :settings="true"
+        >Основные профессиональные образовательные стандарты
       </UIViTitle>
 
-      <table class="standards__table" cellpadding="0" cellspacing="0" border="0">
+      <table
+        class="standards__table"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+      >
         <thead class="standards__thead border">
           <tr>
-            <th class="standards__pos font_special" data-font-actual="17">Наименование специальности</th>
-            <th class="standards__pos font_special" data-font-actual="17">Квалификация</th>
-            <th class="standards__pos font_special" data-font-actual="17">Уровень образования</th>
-            <th class="standards__pos font_special" data-font-actual="17">На базе какого образования обучаются</th>
-            <th class="standards__pos font_special" data-font-actual="17">Срок обучения</th>
-            <th class="standards__pos font_special" data-font-actual="17">Форма обучения</th>
+            <th class="standards__pos font_special" data-font-actual="17">
+              Наименование специальности
+            </th>
+            <th class="standards__pos font_special" data-font-actual="17">
+              Квалификация
+            </th>
+            <th class="standards__pos font_special" data-font-actual="17">
+              Уровень образования
+            </th>
+            <th class="standards__pos font_special" data-font-actual="17">
+              На базе какого образования обучаются
+            </th>
+            <th class="standards__pos font_special" data-font-actual="17">
+              Срок обучения
+            </th>
+            <th class="standards__pos font_special" data-font-actual="17">
+              Форма обучения
+            </th>
           </tr>
         </thead>
         <tbody class="info__tbody">
           <tr v-for="(item, index) in ArrayStandards" :key="index">
-            <td class="standards__element font_special" data-font-actual="17">{{ item.name }}</td>
-            <td class="standards__element font_special" data-font-actual="17">{{ item.qualification }}</td>
-            <td class="standards__element font_special" data-font-actual="17">{{ item.level }}</td>
-            <td class="standards__element font_special" data-font-actual="17">{{ item.education }}</td>
-            <td class="standards__element font_special" data-font-actual="17">{{ item.term }}</td>
-            <td class="standards__element font_special" data-font-actual="17">{{ item.form }}</td>
+            <td class="standards__element font_special" data-font-actual="17">
+              {{ item.name }}
+            </td>
+            <td class="standards__element font_special" data-font-actual="17">
+              {{ item.qualification }}
+            </td>
+            <td class="standards__element font_special" data-font-actual="17">
+              {{ item.level }}
+            </td>
+            <td class="standards__element font_special" data-font-actual="17">
+              {{ item.education }}
+            </td>
+            <td class="standards__element font_special" data-font-actual="17">
+              {{ item.term }}
+            </td>
+            <td class="standards__element font_special" data-font-actual="17">
+              {{ item.form }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -129,7 +159,7 @@ export default {
   margin-bottom: 65px;
 }
 .standards__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

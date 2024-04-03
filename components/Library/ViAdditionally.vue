@@ -2,16 +2,27 @@
   <section class="additionally">
     <div class="additionally__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="additionally__title" :settings="true">Дополнительная информация</UIViTitle>
-      <p class="additionally__text additionally__text_first font" data-font-actual="17">
+      <UIViTitle class="additionally__title" :settings="true"
+        >Дополнительная информация</UIViTitle
+      >
+      <p
+        class="additionally__text additionally__text_first font"
+        data-font-actual="17"
+      >
         Все учебные материалы ПОУ «ВВКИФПУ» для более комфортного обучения
         студентов находятся в электронном виде.
       </p>
-      <p class="additionally__text additionally__text_second font" data-font-actual="17">
+      <p
+        class="additionally__text additionally__text_second font"
+        data-font-actual="17"
+      >
         Получить доступ к учебным материалам можно с любого компьютера в
         кабинете 31.
       </p>
-      <p class="additionally__text additionally__text_third font" data-font-actual="17">
+      <p
+        class="additionally__text additionally__text_third font"
+        data-font-actual="17"
+      >
         Порядок пользования учебными материалами ПОУ «Волго-Вятский колледж
         информатики, финансов, права, управления»:
       </p>
@@ -23,7 +34,9 @@
       </div>
       <div class="additionally__position">
         <div class="additionally__circle back"></div>
-        <p class="additionally__description font" data-font-actual="17">открываем «диск Q»;</p>
+        <p class="additionally__description font" data-font-actual="17">
+          открываем «диск Q»;
+        </p>
       </div>
       <div class="additionally__position">
         <div class="additionally__circle back"></div>
@@ -44,7 +57,10 @@
           открываем один из необходимых учебников доступных для пользования.
         </p>
       </div>
-      <p class="additionally__text additionally__text_third font" data-font-actual="17">
+      <p
+        class="additionally__text additionally__text_third font"
+        data-font-actual="17"
+      >
         <span class="additionally__text__special">С 17 октября 2017 года</span>
         у студентов нашего колледжа есть возможность бесплатного доступа к
         библиотечному фонду КОГБУК «Кировской ордена почета государственной
@@ -68,7 +84,7 @@ export default {};
   margin-bottom: 65px;
 }
 .additionally__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

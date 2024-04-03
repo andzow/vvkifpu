@@ -5,7 +5,7 @@
       class="header__inner"
       id="header__inner"
       ref="inner"
-      v-show="idx === activeIdxLi && item.allPages !== undefined"
+      v-if="idx === activeIdxLi && item.allPages !== undefined"
     >
       <UIHeaderViNavItem
         :item="item"
@@ -15,36 +15,26 @@
         :bodyClassName="bodyClassName"
         @iItem="setItemTop"
         @slideChildren="setArrChildren"
+        @close="$emit('close')"
       />
     </div>
   </Transition>
   <Transition name="slide-right">
-    <div
-      class="header__slide"
-      v-show="arrChildren"
-      :style="calcLeftDistance"
-      @mouseleave="closeSlide"
-    >
-      <p
-        class="header__slide_text"
-        :style="summFontSizeStyle"
-        v-for="item in arrChildren"
-        :key="item"
-        :class="{
-          activeTextChildren: bodyClassName,
-          hoverText: !bodyClassName,
-        }"
-        @click="routerPush(item)"
-      >
-        {{ item.name }}
-      </p>
-    </div>
+    <UIHeaderViInnerItem
+      v-if="arrChildren"
+      :arrChildren="arrChildren"
+      :bodyClassName="bodyClassName"
+      @closeSlide="closeSlide"
+      @close="closeSlideInner"
+      :idx="idx"
+      :distancePx="distancePx"
+    />
   </Transition>
 </template>
 
 <script>
 export default {
-  emits: ["slideChildren", "animateCloseLi"],
+  emits: ["slideChildren", "animateCloseLi", "close"],
   props: {
     activeIdxLi: {
       type: Number,
@@ -68,23 +58,6 @@ export default {
       fontSize: useFontSize(),
     };
   },
-  computed: {
-    calcLeftDistance() {
-      if (this.arrChildren) {
-        return {
-          top: `${!this.idx ? "140%" : "160%"}`,
-          left: `${
-            !this.idx ? this.distancePx.left - 400 : this.distancePx.left - 345
-          }px`,
-        };
-      }
-    },
-    summFontSizeStyle() {
-      return {
-        fontSize: `${this.fontSize}px`,
-      };
-    },
-  },
   methods: {
     routerPush(item) {
       this.$router.push(item.path);
@@ -99,6 +72,10 @@ export default {
       if (!e?.relatedTarget?.className.includes(nameItem)) {
         this.arrChildren = null;
       }
+    },
+    closeSlideInner() {
+      this.arrChildren = null;
+      this.$emit("close");
     },
     setItemTop(topY) {
       this.topItem = topY;
@@ -129,9 +106,7 @@ export default {
     if (this.activeIdxLi !== this.idx) return;
   },
   watch: {
-    fontSize(val) {
-      console.log(val);
-    },
+    fontSize(val) {},
   },
 };
 </script>
@@ -150,33 +125,6 @@ export default {
   border-end-start-radius: 30px;
   transition: all 0.3s ease;
   z-index: 0;
-}
-.header__slide {
-  position: absolute;
-  padding: 15px 0;
-  max-width: 400px;
-  background: white;
-  border-radius: 30px;
-  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.1);
-  z-index: 0;
-}
-.header__slide_text {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 15px 20px;
-  color: #333;
-  text-transform: capitalize;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.activeTextChildren:hover {
-  text-decoration: underline;
-}
-
-.hoverText:hover {
-  color: white;
-  background: #542fe6;
 }
 
 .slide-right-enter-from {

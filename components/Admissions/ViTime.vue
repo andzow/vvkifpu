@@ -7,15 +7,21 @@
       </p>
       <div class="time__position time__position_special">
         <div class="time__circle back"></div>
-        <p class="time__info font" data-font-actual="18">1гр. — начало в 10:00</p>
+        <p class="time__info font" data-font-actual="18">
+          1гр. — начало в 10:00
+        </p>
       </div>
       <div class="time__position">
         <div class="time__circle back"></div>
-        <p class="time__info font" data-font-actual="18">2гр. — начало в 11:30</p>
+        <p class="time__info font" data-font-actual="18">
+          2гр. — начало в 11:30
+        </p>
       </div>
       <div class="time__position">
         <div class="time__circle back"></div>
-        <p class="time__info font" data-font-actual="18">3гр. — начало в 13:00</p>
+        <p class="time__info font" data-font-actual="18">
+          3гр. — начало в 13:00
+        </p>
       </div>
       <p class="time__text time__text_special font" data-font-actual="18">
         <span class="time__span">Записываться не нужно.</span> Мы ждем всех
@@ -35,7 +41,7 @@ export default {};
   margin-bottom: 65px;
 }
 .time__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

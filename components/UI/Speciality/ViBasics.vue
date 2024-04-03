@@ -1,15 +1,17 @@
 <template>
   <section class="basics">
-    <div class="basics__container">
-      <div class="basics__menu">
-        <UISpecialityViBasicsItem />
-      </div>
-      <div class="basics__content">
-        <UISpecialityViAbout :arrAbout="arrAbout" />
-        <UISpecialityViLearn :arrLearn="arrLearn" />
-        <UISpecialityVIFeatures :arrFeatures="arrFeatures" />
-        <UISpecialityViFiles :arrFiles="arrFiles" />
-        <UISpecialityViSert :arrSert="arrSert" />
+    <div class="basics__container" ref="basics__container">
+      <div class="basics__block">
+        <div class="basics__menu">
+          <UISpecialityViBasicsItem />
+        </div>
+        <div class="basics__content">
+          <UISpecialityViAbout :arrAbout="arrAbout" />
+          <UISpecialityViLearn :arrLearn="arrLearn" />
+          <UISpecialityVIFeatures :arrFeatures="arrFeatures" />
+          <UISpecialityViFiles :arrFiles="arrFiles" />
+          <UISpecialityViSert :arrSert="arrSert" />
+        </div>
       </div>
     </div>
   </section>
@@ -23,6 +25,19 @@ export default {
     arrFeatures: { type: Array },
     arrFiles: { type: Array },
     arrSert: { type: Array },
+  },
+  methods: {
+    resizeBlock() {
+      const elMainContent = document.getElementById("main__content");
+      this.$refs.basics__container.style.marginLeft =
+        elMainContent.getBoundingClientRect().left + "px";
+    },
+  },
+  mounted() {
+    this.resizeBlock();
+    window.addEventListener("resize", () => {
+      this.resizeBlock();
+    });
   },
 };
 </script>
@@ -39,10 +54,11 @@ export default {
   padding: 60px 0 30px 0;
 }
 .basics__container {
+}
+.basics__block {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  margin-left: 180px;
 }
 .basics__content {
   position: relative;

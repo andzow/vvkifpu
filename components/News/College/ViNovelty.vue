@@ -2,9 +2,15 @@
   <section class="novelty">
     <div class="novelty__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="novelty__title" :settings="true">Новости колледжа</UIViTitle>
+      <UIViTitle class="novelty__title" :settings="true"
+        >Новости колледжа</UIViTitle
+      >
       <div class="novelty__grid">
-        <div class="novelty__item" v-for="(item, idx) in ArrayOccasion" :key="idx">
+        <div
+          class="novelty__item"
+          v-for="(item, idx) in ArrayOccasion"
+          :key="idx"
+        >
           <div class="novelty__image">
             <img class="novelty__img image_opacity" :src="item.image" alt="" />
             <div class="novelty__back border">
@@ -13,13 +19,19 @@
           </div>
           <p class="novelty__info font" data-font-actual="16">
             {{ item.date }} |
-            <span class="novelty__type font" data-font-actual="16">{{ item.type }}</span>
+            <span class="novelty__type font" data-font-actual="16">{{
+              item.type
+            }}</span>
           </p>
-          <h3 class="novelty__name font" data-font-actual="24">{{ item.name }}</h3>
+          <h3 class="novelty__name font" data-font-actual="24">
+            {{ item.name }}
+          </h3>
         </div>
       </div>
       <div class="novelty__position">
-        <button class="novelty__btn font border" data-font-actual="18">Загрузить ещё</button>
+        <button class="novelty__btn font border" data-font-actual="18">
+          Загрузить ещё
+        </button>
       </div>
     </div>
   </section>
@@ -73,7 +85,7 @@ export default {
   margin-bottom: 65px;
 }
 .novelty__container {
-  max-width: 1600px;
+  max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
 }

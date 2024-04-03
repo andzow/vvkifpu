@@ -96,6 +96,7 @@
                 :item="item"
                 :distancePx="distancePx"
                 :bodyClassName="bodyClassName"
+                @close="setCloseLi"
                 @animateCloseLi="setCloseLi"
               />
             </li>
@@ -108,7 +109,7 @@
 
 <script>
 export default {
-  emits: ["animateCloseLi"],
+  emits: ["animateCloseLi", "close"],
   data() {
     return {
       navArr: useNavArr(),
@@ -170,7 +171,12 @@ export default {
       if (item.path !== "/") {
         this.$router.push(item.path);
       }
+      // this.activeIdxLi = null;
     },
+    closeWindow() {
+      this.activeIdxLi = null;
+    },
+
     setBodyClassName() {
       setTimeout(() => {
         const headerItem = document.querySelector(".header");
@@ -205,7 +211,6 @@ export default {
       return false;
     },
   },
-  watch: {},
   mounted() {
     this.scrollChangeColor();
 
