@@ -42,7 +42,7 @@
         />
       </div>
     </div> -->
-    <MainViMainMenuSec v-if="$route.query.id === 1" />
+    <MainViMainMenuSec v-if="$route.query.id === '1'" />
     <MainViMainMenu v-else />
   </div>
 </template>
