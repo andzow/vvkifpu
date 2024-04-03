@@ -431,7 +431,7 @@ input:focus:-ms-input-placeholder {
 }
 .main__control_pagination .swiper-pagination-bullet-active {
   background: #5035e4;
-  width: 24px;
+  width: 30px;
   border-radius: 13px;
   cursor: pointer;
 }

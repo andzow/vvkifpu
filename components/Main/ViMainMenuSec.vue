@@ -1,53 +1,49 @@
 <template>
-  <div class="main__container">
-    <!-- <div class="main__menu">
-      <MainViMainAbout />
-      <div class="main__slider">
-        <swiper
-          class="main__swiper"
-          :slidesPerView="1"
-          :slidesPerGroup="1"
-          :effect="'fade'"
-          :loop="false"
-          :rewind="true"
-          :modules="modules"
-          :navigation="false"
-          :pagination="pagination"
-          @swiper="onSwiperInit"
-        >
-          <swiper-slide v-for="item in arrSlider" :key="item">
-            <div class="main__slider_item">
-              <div class="main__slider_header">
-                <div class="main__slider_main">
-                  <img :src="item.imageSrcFirst" />
-                </div>
-                <div class="main__slider_sec">
-                  <img :src="item.imageSrcSec" />
-                </div>
-                <h4 class="main__slider_name">Разработка сайтов и ПО</h4>
+  <div class="main__menu">
+    <MainViMainAbout />
+    <div class="main__slider">
+      <swiper
+        class="main__swiper"
+        :slidesPerView="1"
+        :slidesPerGroup="1"
+        :effect="'fade'"
+        :loop="false"
+        :rewind="true"
+        :modules="modules"
+        :navigation="false"
+        :pagination="pagination"
+        @swiper="onSwiperInit"
+      >
+        <swiper-slide v-for="item in arrSlider" :key="item">
+          <div class="main__slider_item">
+            <div class="main__slider_header">
+              <div class="main__slider_main">
+                <img :src="item.imageSrcFirst" />
               </div>
-              <div class="main__slider_content">
-                <div class="main__slider_block">
-                  <p class="main__slider_code">{{ item.code }}</p>
-                </div>
-                <h3 class="main__slider_title">{{ item.title }}</h3>
-                <p class="main__slider_des" ref="el"></p>
+              <div class="main__slider_sec">
+                <img :src="item.imageSrcSec" />
               </div>
+              <h4 class="main__slider_name">Разработка сайтов и ПО</h4>
             </div>
-          </swiper-slide>
-        </swiper>
-        <MainViMainControl
-          @prev="swiper.slidePrev()"
-          @next="swiper.slideNext()"
-        />
-      </div>
-    </div> -->
-    <MainViMainMenuSec v-if="$route.query.id === 1" />
-    <MainViMainMenu v-else />
+            <div class="main__slider_content">
+              <div class="main__slider_block">
+                <p class="main__slider_code">{{ item.code }}</p>
+              </div>
+              <h3 class="main__slider_title">{{ item.title }}</h3>
+              <p class="main__slider_des" ref="el"></p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
+      <MainViMainControl
+        @prev="swiper.slidePrev()"
+        @next="swiper.slideNext()"
+      />
+    </div>
   </div>
 </template>
 
-<!-- <script>
+<script>
 import Typed from "typed.js";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -147,21 +143,10 @@ export default {
     this.handleSlideChange();
   },
 };
-</script> -->
+</script>
 
 <style scoped>
-.main__container {
-  position: relative;
-  width: 100vw;
-  height: 100%;
-  max-width: 1400px;
-  padding: 0 20px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-end;
-  z-index: 5;
-}
-/* .main__menu {
+.main__menu {
   margin-bottom: 50px;
   display: flex;
   align-items: center;
@@ -253,5 +238,5 @@ export default {
   line-height: 140%;
   color: #858585;
   min-height: 70px;
-} */
+}
 </style>
