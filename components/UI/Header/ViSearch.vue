@@ -67,6 +67,9 @@ export default {
   },
   methods: {
     setInput() {
+      if (this.activeVisualHeader) {
+        return;
+      }
       if (
         !this.isScrollDown &&
         this.activeVisualHeader &&
@@ -181,7 +184,12 @@ export default {
     },
     bodyClassName(val) {},
     activeVisualHeader(val) {
-      this.delayChangeColorInp();
+      if (!val) {
+        this.delayChangeColorInp();
+      }
+      setTimeout(() => {
+        this.activeInput = false;
+      }, 5);
     },
   },
   mounted() {
@@ -252,5 +260,10 @@ export default {
 .input-fade-leave-to {
   opacity: 0;
   transition: all 0.3s ease;
+}
+@media screen and (max-width: 960px) {
+  .header__search_block {
+    min-width: 250px;
+  }
 }
 </style>

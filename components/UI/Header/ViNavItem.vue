@@ -103,6 +103,7 @@ export default {
       this.activeIdxList = idx;
     },
     closeChildren(e, idx) {
+      if (!this.$refs.headerItem[idx]) return;
       const yItem = this.$refs.headerItem[idx].getBoundingClientRect().top;
       this.$emit("iItem", yItem);
       const nameSlide = "header__slide";
@@ -110,14 +111,14 @@ export default {
         this.$emit("slideChildren", null);
         return;
       }
-      // if (!this.item.allPages[idx].children) {
-      //   this.$emit("slideChildren", null);
-      //   return;
-      // }
     },
     redirectPage(item) {
-      this.$emit("close");
-      this.$router.push(item.path);
+      setTimeout(() => {
+        if (item.children === null) {
+          this.$router.push(item.path);
+          this.$emit("close", item);
+        }
+      }, 0);
     },
   },
   mounted() {
@@ -157,7 +158,6 @@ export default {
   max-width: 320px;
   min-width: 320px;
   color: #333;
-
   text-transform: capitalize;
   transition: all 0.3s ease;
 }
@@ -187,5 +187,18 @@ export default {
 }
 .activeBlock path {
   stroke: white;
+}
+@media screen and (max-width: 1280px) {
+  .header__item_name {
+    max-width: 240px;
+    min-width: auto;
+  }
+  .header__item_name {
+    font-size: 15px;
+  }
+  .header__item_link {
+    font-size: 15px;
+    font-weight: 500;
+  }
 }
 </style>

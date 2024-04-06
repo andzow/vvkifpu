@@ -2,109 +2,125 @@
   <header
     :class="{
       activeHeader:
-        (isHover || isScrollDown || activeVisualHeader) && !bodyClassName,
+        (!isHover || isScrollDown || activeVisualHeader) && !bodyClassName,
+      activeMobHeader: activeMobileHeader && !bodyClassName,
       disableUpperHeader: activeInnerHeader && !bodyClassName,
       activeBackground: backgroundLinear && !bodyClassName,
     }"
     class="header"
   >
-    <UIHeaderViVisual
-      :activeVisualHeader="activeVisualHeader"
-      @closeVisual="(activeVisualHeader = false), (isHover = false)"
-      @checkClass="setBodyClassName"
-    />
-    <div class="header__container">
-      <div class="header__info">
-        <div class="header__left">
-          <p class="header__text font" data-font-actual="15">07:30 - 19:00</p>
-          <p class="header__text font" data-font-actual="15">
-            г. Киров, ул. Герцена 41
-          </p>
-          <p class="header__text font" data-font-actual="15">
-            8 (8332) 64-18-98
-          </p>
-          <div class="header__hide">
-            <button
-              class="header__btn"
-              @click="
-                (activeVisualHeader = !activeVisualHeader), (isHover = !isHover)
-              "
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+    <div class="header__desktop">
+      <UIHeaderViVisual
+        :activeVisualHeader="activeVisualHeader"
+        @closeWindow="(activeVisualHeader = false), (isHover = false)"
+        @checkClass="setBodyClassName"
+        :bodyClassName="bodyClassName"
+      />
+      <div class="header__container">
+        <div class="header__info">
+          <div class="header__left">
+            <p class="header__text font" data-font-actual="15">07:30 - 19:00</p>
+            <p class="header__text font" data-font-actual="15">
+              г. Киров, ул. Герцена 41
+            </p>
+            <p class="header__text font" data-font-actual="15">
+              8 (8332) 64-18-98
+            </p>
+            <div class="header__hide">
+              <button
+                class="header__btn"
+                @click="
+                  (activeVisualHeader = !activeVisualHeader),
+                    (isHover = !isHover)
+                "
               >
-                <path
-                  class="stroke"
-                  d="M15.5819 12.0004C15.5819 13.9804 13.9819 15.5804 12.0019 15.5804C10.0219 15.5804 8.42188 13.9804 8.42188 12.0004C8.42188 10.0204 10.0219 8.42041 12.0019 8.42041C13.9819 8.42041 15.5819 10.0204 15.5819 12.0004Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  class="stroke"
-                  d="M12.0018 20.2702C15.5318 20.2702 18.8218 18.1902 21.1118 14.5902C22.0118 13.1802 22.0118 10.8102 21.1118 9.40021C18.8218 5.80021 15.5318 3.72021 12.0018 3.72021C8.4718 3.72021 5.1818 5.80021 2.8918 9.40021C1.9918 10.8102 1.9918 13.1802 2.8918 14.5902C5.1818 18.1902 8.4718 20.2702 12.0018 20.2702Z"
-                  stroke="white"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    class="stroke"
+                    d="M15.5819 12.0004C15.5819 13.9804 13.9819 15.5804 12.0019 15.5804C10.0219 15.5804 8.42188 13.9804 8.42188 12.0004C8.42188 10.0204 10.0219 8.42041 12.0019 8.42041C13.9819 8.42041 15.5819 10.0204 15.5819 12.0004Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    class="stroke"
+                    d="M12.0018 20.2702C15.5318 20.2702 18.8218 18.1902 21.1118 14.5902C22.0118 13.1802 22.0118 10.8102 21.1118 9.40021C18.8218 5.80021 15.5318 3.72021 12.0018 3.72021C8.4718 3.72021 5.1818 5.80021 2.8918 9.40021C1.9918 10.8102 1.9918 13.1802 2.8918 14.5902C5.1818 18.1902 8.4718 20.2702 12.0018 20.2702Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
+          <UIHeaderViSearch
+            :isHover="isHover"
+            :isScrollDown="isScrollDown"
+            :activeVisualHeader="activeVisualHeader"
+            :bodyClassName="bodyClassName"
+          />
         </div>
-        <UIHeaderViSearch
-          :isHover="isHover"
-          :isScrollDown="isScrollDown"
-          :activeVisualHeader="activeVisualHeader"
-          :bodyClassName="bodyClassName"
-        />
-      </div>
-      <div class="header__nav">
-        <h1
-          class="header__logo font"
-          @click="$router.push('/')"
-          data-font-actual="40"
-        >
-          ВВКИФПУ
-        </h1>
-        <nav class="header__words">
-          <ul
-            class="header__ul"
-            @mouseenter="isHover = true"
-            @mouseleave="activeVisualHeader ? isHover : (isHover = false)"
+        <div class="header__nav">
+          <h1
+            class="header__logo font"
+            @click="$router.push('/')"
+            ref="header__logo"
+            data-font-actual="40"
           >
-            <li
-              class="header__li font"
-              data-font-actual="17"
-              v-for="(item, idx) in navArr"
-              :key="item"
-              @click="redirectPage(item)"
-              @mouseenter="setActiveLi(idx)"
-              @mouseleave="setDisableLi"
-              :class="{ activeLi: activeIdxLi === idx && !bodyClassName }"
-              ref="navItem"
+            ВВКИФПУ
+          </h1>
+          <nav class="header__words">
+            <ul
+              class="header__ul"
+              @mouseenter="isHover = true"
+              @mouseleave="activeVisualHeader ? isHover : (isHover = false)"
             >
-              {{ item.name }}
-              <UIHeaderViInner
-                :idx="idx"
-                :activeIdxLi="activeIdxLi"
-                :item="item"
-                :distancePx="distancePx"
-                :bodyClassName="bodyClassName"
-                @close="setCloseLi"
-                @animateCloseLi="setCloseLi"
-              />
-            </li>
-          </ul>
-        </nav>
+              <li
+                class="header__li font"
+                data-font-actual="17"
+                v-for="(item, idx) in navArr"
+                :key="item"
+                @click="redirectPage(idx)"
+                @mouseenter="setActiveLi(idx)"
+                @mouseleave="setDisableLi"
+                :class="{ activeLi: activeIdxLi === idx && !bodyClassName }"
+                ref="navItem"
+              >
+                {{ item.name }}
+                <UIHeaderViInner
+                  :idx="idx"
+                  :activeIdxLi="activeIdxLi"
+                  :item="item"
+                  :distancePx="distancePx"
+                  :bodyClassName="bodyClassName"
+                  @close="setCloseLi"
+                  @animateCloseLi="setCloseLi"
+                />
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
+    <UIViHeaderMobile @open="setActiveMenu" :bodyClassName="bodyClassName" />
   </header>
+  <Transition name="fade-menu">
+    <UIViMenu
+      v-if="activeMobileBurger"
+      :activeMobileBurger="activeMobileBurger"
+      @closeVisual="bodyClassName = false"
+      @changeBody="bodyClassName = true"
+      :bodyClassName="bodyClassName"
+    />
+  </Transition>
 </template>
 
 <script>
@@ -124,6 +140,8 @@ export default {
       headerBackgroundActive: false,
       activeVisual: false,
       bodyClassName: false,
+      activeMobileBurger: false,
+      activeMobileHeader: false,
     };
   },
   methods: {
@@ -143,10 +161,15 @@ export default {
       this.activeInnerHeader = false;
       this.isScrollDown = false;
     },
-    setCloseLi() {
-      this.isHover = false;
-      this.activeIdxLi = null;
-      document.body.style.overflow = "auto";
+    setActiveMenu(item) {
+      this.activeMobileBurger = item;
+    },
+    setCloseLi(item) {
+      if (!item?.children) {
+        this.isHover = false;
+        this.activeIdxLi = null;
+        document.body.style.overflow = "auto";
+      }
     },
     scrollChangeColor() {
       window.addEventListener("scroll", () => {
@@ -158,20 +181,34 @@ export default {
       });
     },
     setActiveLi(idx) {
-      this.activeIdxLi = idx;
-      this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
-      document.body.style.overflow = "hidden";
-      this.headerBackgroundActive = false;
+      if (this.$refs.navItem[idx]) {
+        this.activeIdxLi = idx;
+        this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
+        document.body.style.overflow = "hidden";
+        this.headerBackgroundActive = false;
+      }
     },
     setDisableLi(e) {
       this.activeIdxLi = null;
       document.body.style.overflow = "auto";
     },
-    redirectPage(item) {
-      if (item.path !== "/") {
-        this.$router.push(item.path);
+    checkMobileDevice() {
+      return (
+        typeof window.orientation !== "undefined" ||
+        navigator.userAgent.indexOf("IEMobile") !== -1
+      );
+    },
+    redirectPage(idx) {
+      if (!this.$refs.navItem[idx]) {
+        return;
       }
-      // this.activeIdxLi = null;
+      const checkMobileDevice = this.checkMobileDevice();
+      if (!checkMobileDevice) {
+        this.activeIdxLi = idx;
+      }
+      this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
+      document.body.style.overflow = "hidden";
+      this.headerBackgroundActive = false;
     },
     closeWindow() {
       this.activeIdxLi = null;
@@ -182,12 +219,22 @@ export default {
         const headerItem = document.querySelector(".header");
         if (document.body.className) {
           this.bodyClassName = true;
-          // headerItem.classList.add(document.body.className);
         } else {
           this.bodyClassName = false;
-          // headerItem.classList.remove(document.body.className);
         }
       }, 0);
+    },
+    resizeMobileVersion() {
+      if (window.innerWidth <= 1260) {
+        this.activeMobileHeader = true;
+      }
+      if (window.innerWidth > 1160) return;
+      else if (window.innerWidth <= 1160) {
+        this.$refs.header__logo.setAttribute("data-font-actual", "35");
+        this.$refs.navItem.forEach((el) =>
+          el.setAttribute("data-font-actual", "16")
+        );
+      }
     },
   },
   computed: {
@@ -214,13 +261,20 @@ export default {
   mounted() {
     this.scrollChangeColor();
 
+    this.resizeMobileVersion();
+
     if (document.body.className) {
-      // const headerItem = document.querySelector(".header");
-      // headerItem.classList.add(document.body.className);
       this.bodyClassName = true;
     }
   },
   watch: {
+    activeMobileBurger(val) {
+      if (val) {
+        document.body.style.overflow = "hidden";
+        return;
+      }
+      document.body.style.overflow = "auto";
+    },
     isHover() {
       this.setBodyClassName();
     },
@@ -248,7 +302,7 @@ header {
   padding: 30px 0 0 0;
   background: rgba(0, 0, 0, 0);
   transition: all 0.3s ease;
-  z-index: 15;
+  z-index: 19;
 }
 
 .header__container {
@@ -308,6 +362,7 @@ header {
 .header__ul {
   display: flex;
   align-items: center;
+  gap: 50px;
 }
 .header__li {
   font-size: 17px;
@@ -321,7 +376,7 @@ header {
   padding: 35px 0px 35px 0px;
 }
 .header__li:not(:first-child) {
-  padding: 35px 0px 35px 55px;
+  padding: 35px 0px 35px 0px;
 }
 .activeLi {
   color: #542fe6 !important;
@@ -364,5 +419,56 @@ header {
 }
 .activeHeader .header__info path {
   stroke: black;
+}
+
+.activeMobHeader {
+  background: white;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.fade-menu-enter-from {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.fade-menu-enter-to {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.fade-menu-leave-from {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.fade-menu-leave-to {
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1160px) {
+  .header__logo {
+    font-size: 35px;
+    padding-bottom: 10px;
+  }
+  .header__li {
+    font-size: 16px;
+  }
+  .header__li:nth-child(1) {
+    padding: 35px 0px 35px 0px;
+  }
+  .header__li:not(:first-child) {
+    padding: 35px 0px 35px 0px;
+  }
+  .header__ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 990px) {
+  header {
+    padding: 0px 0 0 0;
+  }
+  .header__desktop {
+    display: none;
+  }
 }
 </style>

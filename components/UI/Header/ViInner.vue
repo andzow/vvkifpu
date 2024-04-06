@@ -6,6 +6,7 @@
       id="header__inner"
       ref="inner"
       v-if="idx === activeIdxLi && item.allPages !== undefined"
+      :class="{ activeHeaderInner: !bodyClassName }"
     >
       <UIHeaderViNavItem
         :item="item"
@@ -15,7 +16,7 @@
         :bodyClassName="bodyClassName"
         @iItem="setItemTop"
         @slideChildren="setArrChildren"
-        @close="$emit('close')"
+        @close="setClose"
       />
     </div>
   </Transition>
@@ -59,6 +60,9 @@ export default {
     };
   },
   methods: {
+    setClose(item) {
+      this.$emit("close", item);
+    },
     routerPush(item) {
       this.$router.push(item.path);
       this.$emit("animateCloseLi");
@@ -82,12 +86,6 @@ export default {
     },
   },
   watch: {
-    activeIdxLi(val) {
-      // const innerBl = document.getElementById("header__inner");
-      // if (innerBl) {
-      //   innerBl.classList.add("path");
-      // }
-    },
     arrChildren(val) {
       setTimeout(() => {
         if (this.bodyClassName) {
@@ -105,9 +103,6 @@ export default {
     });
     if (this.activeIdxLi !== this.idx) return;
   },
-  watch: {
-    fontSize(val) {},
-  },
 };
 </script>
 
@@ -115,16 +110,16 @@ export default {
 .header__inner {
   position: absolute;
   top: 100%;
-  background: white;
   overflow: hidden;
   box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
-  /* border-left: 2px solid #542fe6;
-  border-right: 2px solid #542fe6;
-  border-bottom: 2px solid #542fe6; */
   border-end-end-radius: 30px;
   border-end-start-radius: 30px;
   transition: all 0.3s ease;
+  max-height: calc(80vh - 100px);
   z-index: 0;
+}
+.activeHeaderInner {
+  background: white;
 }
 
 .slide-right-enter-from {

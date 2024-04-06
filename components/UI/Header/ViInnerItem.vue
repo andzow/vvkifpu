@@ -47,21 +47,43 @@ export default {
       const computedStyle = window.getComputedStyle(bodyElement);
       const backgroundColor = computedStyle.backgroundColor;
 
-      if (this.arrChildren && !document.body.className) {
+      if (window.innerWidth >= 1280) {
+        if (this.arrChildren && !document.body.className) {
+          return {
+            top: `${!this.idx ? "140%" : "160%"}`,
+            left: `${
+              !this.idx
+                ? this.distancePx.left - 400
+                : this.distancePx.left - 400
+            }px`,
+          };
+        }
         return {
           top: `${!this.idx ? "140%" : "160%"}`,
           left: `${
-            !this.idx ? this.distancePx.left - 400 : this.distancePx.left - 345
+            !this.idx ? this.distancePx.left - 400 : this.distancePx.left - 400
           }px`,
+          background: backgroundColor,
+        };
+      } else {
+        if (this.arrChildren && !document.body.className) {
+          return {
+            top: `${!this.idx ? "90%" : "100%"}`,
+            left: `${
+              !this.idx
+                ? this.distancePx.left - 290
+                : this.distancePx.left - 290
+            }px`,
+          };
+        }
+        return {
+          top: `${!this.idx ? "90%" : "100%"}`,
+          left: `${
+            !this.idx ? this.distancePx.left - 290 : this.distancePx.left - 290
+          }px`,
+          background: backgroundColor,
         };
       }
-      return {
-        top: `${!this.idx ? "140%" : "160%"}`,
-        left: `${
-          !this.idx ? this.distancePx.left - 400 : this.distancePx.left - 345
-        }px`,
-        background: backgroundColor,
-      };
     },
     summFontSizeStyle() {
       const bodyElement = document.body;
@@ -84,8 +106,14 @@ export default {
   mounted() {
     const elements = document.querySelectorAll(".header__slide_link");
 
+    if (window.innerWidth >= 1280) {
+      elements.forEach((el) => {
+        el.style.fontSize = this.fontSize + "px";
+      });
+      return;
+    }
     elements.forEach((el) => {
-      el.style.fontSize = this.fontSize + "px";
+      el.style.fontSize = this.fontSize - 1 + "px";
     });
   },
 };
@@ -99,6 +127,7 @@ export default {
   background: white;
   border-radius: 30px;
   box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.1);
+
   z-index: 0;
 }
 .header__slide_text {
@@ -123,5 +152,11 @@ export default {
 .hoverText:hover {
   color: white;
   background: #542fe6;
+}
+@media screen and (max-width: 1280px) {
+  .header__slide {
+    max-width: 290px;
+    min-width: 290px;
+  }
 }
 </style>

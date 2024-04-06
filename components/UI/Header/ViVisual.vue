@@ -1,7 +1,13 @@
 <template>
-  <div class="header__visual" :class="{ activeVisual: activeVisualHeader }">
+  <div
+    class="header__visual"
+    :class="{
+      activeVisual: activeVisualHeader,
+      activeVisualBurger: activeMobileBurger,
+    }"
+  >
     <div class="header__visual_images">
-      <p class="header__visual_text">Скрыть картинки</p>
+      <p class="header__visual_text">Выкл. картинки</p>
       <div class="header__visual_switches">
         <UIHeaderViToggle />
       </div>
@@ -30,11 +36,11 @@
     </div>
     <div class="header__visual_btn">
       <button class="header__visual_button border" @click="offVersion">
-        обычная версия сайта
+        обычная версия
       </button>
     </div>
     <div class="header__visual_leave">
-      <button class="header__visual_leav border" @click="$emit('closeVisual')">
+      <button class="header__visual_leav border" @click="$emit('closeWindow')">
         -
       </button>
     </div>
@@ -45,6 +51,8 @@
 export default {
   props: {
     activeVisualHeader: { type: Boolean },
+    activeMobileBurger: { type: Boolean },
+    bodyClassName: { type: Boolean },
   },
   data() {
     return {
@@ -54,6 +62,7 @@ export default {
       useToogle: useToogle(),
       fontSizeInner: useFontSize(),
       scrollbarBackground: "#000",
+      useImage: useSvgImage,
     };
   },
   mounted() {
@@ -94,27 +103,31 @@ export default {
       }, 5);
     },
     increaseFontSize(size) {
-      const elements = document.querySelectorAll(".font");
-      this.summFontSizeInner(false, size);
-      elements.forEach((element) => {
-        const dataFontValue = parseInt(
-          element.getAttribute("data-font-actual")
-        );
-        const newFontSize = (dataFontValue / 100) * size;
-        element.style.fontSize = `${newFontSize}px`;
-      });
-      const elements_special = document.querySelectorAll(".font_special");
-      elements_special.forEach((element) => {
-        if (size >= 150) {
-          this.ArrayFontSpecial = 150;
-        } else {
-          this.ArrayFontSpecial = 100;
-        }
-        const elementFont = parseInt(element.getAttribute("data-font-actual"));
-        const newFont = (elementFont / 100) * this.ArrayFontSpecial;
-        element.style.fontSize = `${newFont}px`;
-      });
-      localStorage.setItem("ArrayFont", size);
+      setTimeout(() => {
+        const elements = document.querySelectorAll(".font");
+        this.summFontSizeInner(false, size);
+        elements.forEach((element) => {
+          const dataFontValue = parseInt(
+            element.getAttribute("data-font-actual")
+          );
+          const newFontSize = (dataFontValue / 100) * size;
+          element.style.fontSize = `${newFontSize}px`;
+        });
+        const elements_special = document.querySelectorAll(".font_special");
+        elements_special.forEach((element) => {
+          if (size >= 150) {
+            this.ArrayFontSpecial = 150;
+          } else {
+            this.ArrayFontSpecial = 100;
+          }
+          const elementFont = parseInt(
+            element.getAttribute("data-font-actual")
+          );
+          const newFont = (elementFont / 100) * this.ArrayFontSpecial;
+          element.style.fontSize = `${newFont}px`;
+        });
+        localStorage.setItem("ArrayFont", size);
+      }, 0);
     },
     summFontSizeInner(font, size) {
       const fontStorage = localStorage.getItem("ArrayFont");
@@ -163,6 +176,8 @@ export default {
         back.classList.add("back-blue");
       });
       localStorage.setItem("background", "blue");
+      this.$emit("changeBody");
+      this.useImage(this.bodyClassName);
     },
     changeBackgroundBlack() {
       this.delayChangeBackground();
@@ -203,6 +218,8 @@ export default {
         back.classList.add("back-black");
       });
       localStorage.setItem("background", "black");
+      this.$emit("changeBody");
+      this.useImage(this.bodyClassName);
     },
     changeBackgroundWhite() {
       this.delayChangeBackground();
@@ -244,6 +261,8 @@ export default {
         back.classList.add("back-white");
       });
       localStorage.setItem("background", "white");
+      this.$emit("changeBody");
+      this.useImage(this.bodyClassName);
     },
     changeBackgroundBrown() {
       this.delayChangeBackground();
@@ -285,6 +304,8 @@ export default {
         back.classList.add("back-brown");
       });
       localStorage.setItem("background", "brown");
+      this.$emit("changeBody");
+      this.useImage(this.bodyClassName);
     },
     changeBackgroundYellow() {
       this.delayChangeBackground();
@@ -325,6 +346,8 @@ export default {
         back.classList.add("back-yellow");
       });
       localStorage.setItem("background", "yellow");
+      this.$emit("changeBody");
+      this.useImage(this.bodyClassName);
     },
     resetChangeBackground() {
       this.delayChangeBackground();
@@ -375,6 +398,7 @@ export default {
       localStorage.setItem("imageOff", false);
     },
     offVersion() {
+      this.$emit("closeW");
       this.increaseFontSize(100);
       this.resetChangeBackground();
       this.useToogle = false;
@@ -427,6 +451,13 @@ export default {
 }
 .activeVisual {
   height: 80px;
+
+  overflow: visible;
+}
+.activeVisualBurger {
+  height: 100%;
+  padding: 0;
+  flex-wrap: wrap;
   overflow: visible;
 }
 .header__visual_images {
@@ -546,5 +577,74 @@ export default {
   border: none;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+@media screen and (max-width: 1300px) {
+  .header__visual_size {
+    font-size: 16px;
+    min-width: 50px;
+    border-radius: 20px;
+  }
+  .header__visual_size:nth-child(2) {
+    font-size: 24px;
+  }
+  .header__visual_size:nth-child(3) {
+    font-size: 36px;
+  }
+  .header__visual_color {
+    font-size: 16px;
+    min-width: 50px;
+    border-radius: 20px;
+  }
+  .header__visual_button {
+    font-size: 14px;
+    padding: 15px 20px;
+  }
+}
+@media screen and (max-width: 936px) {
+  .header__visual_size {
+    font-size: 20px;
+    padding: 8px 10px;
+    min-width: 75px;
+    height: 50px;
+  }
+  .header__visual_size:nth-child(2) {
+    font-size: 32px;
+  }
+  .header__visual_size:nth-child(3) {
+    font-size: 40px;
+  }
+  .header__visual_color {
+    font-size: 20px;
+    padding: 8px 10px;
+    min-width: 75px;
+  }
+  .header__visual_button {
+    font-size: 14px;
+    padding: 15px 20px;
+  }
+  .header__visual_btn {
+    margin: 15px 0;
+  }
+  .header__visual_colors {
+    margin: 0;
+  }
+  .header__visual_leave {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header__visual_colors {
+    margin: 15px 0 0 0;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 510px) {
+  .header__visual_colors {
+    margin: 15px 0 0 0;
+    flex-wrap: wrap;
+  }
+  .header__visual_font {
+    margin: 15px 0 0 0;
+  }
 }
 </style>
