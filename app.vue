@@ -1,5 +1,5 @@
 <template>
-  <!-- <UIViHeader /> -->
+  <UIViHeader />
 
   <main>
     <NuxtPage />

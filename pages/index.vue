@@ -3,8 +3,8 @@
     <!-- <MainViMainPhoto /> -->
     <!-- <MainVimain /> -->
     <MainViTraning />
-    <!-- <MainViApplication />
-    <MainViNews />
+    <MainViApplication />
+    <!-- <MainViNews />
     <MainViAbout /> -->
   </div>
 </template>

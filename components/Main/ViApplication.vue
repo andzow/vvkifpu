@@ -1,11 +1,7 @@
 <template>
   <section class="application">
     <div class="application__container">
-      <div
-        class="application__info"
-        data-aos="fade-up-right"
-        data-aos-duration="1000"
-      >
+      <div class="application__info" data-aos="fade-up-right" data-aos-duration="1000">
         <h3 class="application__title font_special" data-font-actual="68">
           Оставьте заявку и мы вам перезвоним
         </h3>
@@ -14,59 +10,31 @@
           программу
         </p>
       </div>
-      <div
-        class="application__form"
-        data-aos="fade-up-left"
-        data-aos-duration="1000"
-      >
+      <div class="application__form" data-aos="fade-up-left" data-aos-duration="1000">
         <div class="application__data">
           <div class="application__dop">
-            <p
-              class="application__text application__text_name font"
-              data-font-actual="16"
-            >
+            <p class="application__text application__text_name font" data-font-actual="16">
               Короткое имя
             </p>
-            <input
-              class="application__input application__input_name font border"
-              data-font-actual="22"
-              type="text"
-              placeholder="Имя"
-              @input="nameValidator"
-              v-model="isName"
-            />
+            <input class="application__input application__input_name font border" data-font-actual="22" type="text"
+              placeholder="Имя" @input="nameValidator" v-model="isName" />
           </div>
           <div class="application__dop">
-            <p
-              class="application__text appliction__text_phone font"
-              data-font-actual="16"
-            >
+            <p class="application__text appliction__text_phone font" data-font-actual="16">
               Некорректный телефон
             </p>
-            <input
-              class="application__input application__input_phone font border"
-              data-font-actual="22"
-              type="text"
-              placeholder="+7 (000) - 000 - 00 - 00"
-              v-model="isNumber"
-              @beforeinput="handleBeforeInput"
-              @input="numberValidator"
-            />
+            <input class="application__input application__input_phone font border" data-font-actual="22" type="text"
+              placeholder="+7 (000) - 000 - 00 - 00" v-model="isNumber" @beforeinput="handleBeforeInput"
+              @input="numberValidator" />
           </div>
         </div>
-        <button
-          class="application__btn font"
-          data-font-actual="22"
-          @click="sendData"
-        >
+        <button class="application__btn font" data-font-actual="22" @click="sendData">
           Отправить
         </button>
         <p class="application__policy font" data-font-actual="14">
           *Нажимая кнопку вы соглашаетесь на обработку персональных данных на
           условиях, определенных
-          <span class="application__policy_special"
-            >Политикой конфиденциальности</span
-          >
+          <span class="application__policy_special">Политикой конфиденциальности</span>
         </p>
       </div>
     </div>
@@ -302,10 +270,6 @@ export default {
   border-bottom: 1px solid var(--violo);
 }
 .application__text {
-  /* position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%); */
   color: #dc143c;
   max-height: 0;
   opacity: 0;
@@ -316,9 +280,55 @@ export default {
   white-space: nowrap;
   text-align: center;
 }
+.application__info {
+  margin-right: 20px;
+}
 .application__text_error {
   max-height: 100px;
   margin-bottom: 10px;
   opacity: 1;
+}
+@media(max-width: 960px) {
+  .application__container {
+    display: flex;
+    max-width: 800px;
+    flex-direction: column;
+  }
+  .application__info  {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .application__title {
+    text-align: center;
+  }
+  .application__description {
+    text-align: center;
+  }
+}
+@media(max-width: 740px) {
+  .application__form  {
+    width: 100%;
+  }
+}
+@media(max-width: 600px) {
+  .application__title {
+    font-size: 48px !important;
+    line-height: 48px;
+  }
+}
+@media(max-width: 520px) {
+  .application__title {
+    font-size: 38px !important;
+    line-height: 48px;
+  }
+  .application {
+    padding: 60px 0 60px 0;
+  }
+}
+@media(max-width: 424px) {
+  .application__title {
+    font-size: 36px !important;
+    line-height: 48px;
+  }
 }
 </style>
