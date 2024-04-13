@@ -1,9 +1,9 @@
 <template>
-  <UIViHeader />
+  <!-- <UIViHeader /> -->
 
-  <!-- <main>
+  <main>
     <NuxtPage />
-    <Transition>
+    <!-- <Transition>
       <UIViPreloader v-if="!isActive" />
     </Transition>
     <Transition>
@@ -11,9 +11,9 @@
     </Transition>
     <Transition>
       <UIModalViModalFinal />
-    </Transition>
+    </Transition> -->
   </main>
-  <UIViFooter /> -->
+  <!-- <UIViFooter /> -->
 </template>
 
 <script>

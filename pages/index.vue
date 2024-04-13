@@ -1,11 +1,11 @@
 <template>
   <div class="app">
-    <MainViMainPhoto />
+    <!-- <MainViMainPhoto /> -->
     <!-- <MainVimain /> -->
     <MainViTraning />
-    <MainViApplication />
+    <!-- <MainViApplication />
     <MainViNews />
-    <MainViAbout />
+    <MainViAbout /> -->
   </div>
 </template>
 
