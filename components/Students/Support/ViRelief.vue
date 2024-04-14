@@ -86,4 +86,9 @@ export default {};
   margin-right: 10px;
   margin-left: 10px;
 }
+@media(max-width: 990px) {
+  .relief {
+  padding-top: 150px;
+}
+}
 </style>
