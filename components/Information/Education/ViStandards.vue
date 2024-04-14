@@ -2,16 +2,10 @@
   <section class="standards">
     <div class="standards__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="standards__title" :settings="true"
-        >Основные профессиональные образовательные стандарты
+      <UIViTitle class="standards__title" :settings="true">Основные профессиональные образовательные стандарты
       </UIViTitle>
 
-      <table
-        class="standards__table"
-        cellpadding="0"
-        cellspacing="0"
-        border="0"
-      >
+      <table class="standards__table" cellpadding="0" cellspacing="0" border="0">
         <thead class="standards__thead border">
           <tr>
             <th class="standards__pos font_special" data-font-actual="17">
@@ -57,6 +51,13 @@
           </tr>
         </tbody>
       </table>
+      <div class="standards__block" v-for="(item, i) in ArrayStandards" :key="i">
+        <p class="standards__info">{{ item.name }}</p>
+        <p class="standards__info">{{ item.qualification }}</p>
+        <p class="standards__info">{{ item.education }}</p>
+        <p class="standards__info">{{ item.term }}</p>
+        <p class="standards__info">{{ item.form }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -196,5 +197,30 @@ export default {
     #6700eb 30%,
     #00eace 100%
   );
+}
+.standards__info {
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+.standards__block {
+  border-bottom: 1px solid var(--violo);
+  padding: 10px 0;
+  display: none
+}
+@media(max-width: 990px) {
+  .standards {
+  padding-top: 150px;
+}
+}
+@media(max-width: 1150px) {
+  .standards__block {
+  display: block;
+}
+.standards__table {
+  display: none;
+}
+.standards__title {
+  margin-bottom: 20px;
+}
 }
 </style>

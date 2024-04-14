@@ -2,18 +2,11 @@
   <section class="administration">
     <div class="administration__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="administration__title" :settings="true"
-        >Структура и органы управления ПОУ «ВВКИФПУ»</UIViTitle
-      >
+      <UIViTitle class="administration__title" :settings="true">Структура и органы управления ПОУ «ВВКИФПУ»</UIViTitle>
       <p class="administration__name font" data-font-actual="18">
         Администрация ВВКИФПУ
       </p>
-      <table
-        class="administration__table border"
-        cellpadding="0"
-        cellspacing="0"
-        border="0"
-      >
+      <table class="administration__table border" cellpadding="0" cellspacing="0" border="0">
         <thead class="administration__thead">
           <tr>
             <th class="administration__pos font" data-font-actual="17">
@@ -31,10 +24,7 @@
           </tr>
         </thead>
         <tbody class="info__tbody">
-          <tr
-            v-for="(administration, index) in ArrayAdministration"
-            :key="index"
-          >
+          <tr v-for="(administration, index) in ArrayAdministration" :key="index">
             <td class="administration__element font" data-font-actual="17">
               {{ administration.name }}
             </td>
@@ -50,6 +40,12 @@
           </tr>
         </tbody>
       </table>
+      <div class="administration__block" v-for="(item, i) in ArrayAdministration" :key="i">
+        <p class="administration__info">{{ item.name }}</p>
+        <p class="administration__info">{{ item.post }}</p>
+        <p class="administration__info">{{ item.education }}</p>
+        <p class="administration__info">{{ item.time }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -162,5 +158,27 @@ export default {
     #6700eb 30%,
     #00eace 100%
   );
+}
+.administration__info {
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+.administration__block {
+  border-bottom: 1px solid var(--violo);
+  padding: 10px 0;
+  display: none
+}
+@media(max-width: 990px) {
+  .administration {
+  padding-top: 150px;
+}
+}
+@media(max-width:720px) {
+  .administration__block {
+    display: block;
+  }
+  .administration__table {
+    display: none;
+  }
 }
 </style>

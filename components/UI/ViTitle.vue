@@ -40,7 +40,7 @@ export default {
 }
 @media(max-width:520px) {
   .title {
-    font-size: 40px !important;
+    font-size: 36px !important;
   }
 }
 </style>
