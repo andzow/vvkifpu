@@ -12,7 +12,7 @@
       <p class="visit__text font visit__text_special" data-font-actual="18">
         Наши специалисты проконсультируют Вас по любым вопросам и в любое
         удобное для Вас время. Достаточно позвонить по телефону
-        <span class="visit__span">8 (8332) 64-18-98</span>, либо посетить наш
+        <a class="visit__span" href="tel:+78332641898">8 (8332) 64-18-98</a>, либо посетить наш
         колледж по адресу
         <span class="visit__span"
           >г.Киров, ул. Герцена 43. (Карла Маркса 75)</span
@@ -48,5 +48,6 @@ export default {};
 }
 .visit__span {
   color: var(--violo);
+  font-family: "Inter", sans-serif;
 }
 </style>

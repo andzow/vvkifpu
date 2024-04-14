@@ -33,4 +33,14 @@ export default {
   font-weight: 700;
   font-size: 60px;
 }
+@media(max-width:960px) {
+  .title {
+    font-size: 50px !important;
+  }
+}
+@media(max-width:520px) {
+  .title {
+    font-size: 40px !important;
+  }
+}
 </style>

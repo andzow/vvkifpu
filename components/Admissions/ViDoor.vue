@@ -104,6 +104,8 @@ export default {
   display: flex;
   align-items: center;
   margin-top: 50px;
+  max-width: 1400px;
+  padding: 0 20px;
 }
 .door__name {
   font-family: "Inter", sans-serif;
@@ -156,5 +158,38 @@ export default {
   bottom: 0;
   background: var(--violo);
   z-index: 4;
+}
+@media(max-width: 1200px) {
+  .door__map {
+  width: 450px;
+  height: 280px;
+}
+}
+@media(max-width: 960px) {
+  .door__map {
+  display: none;
+}
+}
+@media(max-width: 520px) {
+  .door__image {
+    min-width: 700px;
+  }
+  .door__name {
+    font-size: 48px !important;
+  }
+  .door__text {
+    font-size: 34px !important;
+  }
+}
+@media(max-width: 450px) {
+  .door__image {
+    min-width: 700px;
+  }
+  .door__name {
+    font-size: 44px !important;
+  }
+  .door__date  {
+    font-size: 22px !important;
+  }
 }
 </style>
