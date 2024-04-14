@@ -2,9 +2,7 @@
   <section class="payment">
     <div class="payment__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="payment__title" :settings="true"
-        >Оплата обучения</UIViTitle
-      >
+      <UIViTitle class="payment__title" :settings="true">Оплата обучения</UIViTitle>
       <div class="payment__back">
         <p class="payment__description font" data-font-actual="22">
           Стоимость обучения в 2024-2025 учебном году:
@@ -237,5 +235,41 @@ export default {
   font-weight: 500;
   font-size: 18px;
   margin: 0 40px;
+}
+@media(max-width: 990px) {
+  .payment {
+  padding-top: 150px;
+}
+.payment__grid {
+  max-width: 700px;
+}
+.payment__item {
+  flex-direction: column;
+}
+.payment__head {
+  flex-direction: column;
+}
+.payment__code  {
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+.payment__name {
+  margin-bottom: 10px;
+}
+}
+@media(max-width: 580px) {
+  .payment__footer {
+    flex-direction: column;
+  }
+  .payment__name  {
+    text-align: center;
+    color: var(--violo);
+  }
+  .payment__border  {
+    display: none;
+  }
+  .payment__term:nth-child(1) {
+    margin-bottom: 10px;
+  }
 }
 </style>

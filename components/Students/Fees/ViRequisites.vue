@@ -55,7 +55,6 @@
 </template>
 
 <script>
-export default {};
 </script>
 
 <style scoped>
@@ -94,5 +93,21 @@ export default {};
   overflow: hidden;
   background: var(--violo);
   margin: 10px 0;
+}
+@media(max-width:950px) {
+  .requisites__info {
+    width: auto;
+    max-width: 800px;
+  }
+}
+@media(max-width:520px) {
+  .requisites__line {
+    width: 100%;
+  }
+}
+@media(max-width:500px) {
+  .requisites {
+    margin-top: 40px;
+  }
 }
 </style>

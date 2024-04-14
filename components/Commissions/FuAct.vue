@@ -45,4 +45,9 @@ export default {};
 .act__text_special {
   margin-top: 20px;
 }
+@media(max-width: 500px) {
+  .act__title {
+  margin-top: 40px;
+}
+}
 </style>
