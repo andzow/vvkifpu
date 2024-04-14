@@ -4,8 +4,8 @@
     <!-- <MainVimain /> -->
     <MainViTraning />
     <MainViApplication />
-    <!-- <MainViNews />
-    <MainViAbout /> -->
+    <MainViNews />
+    <!-- <MainViAbout /> -->
   </div>
 </template>
 
