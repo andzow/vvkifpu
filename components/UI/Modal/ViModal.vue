@@ -2,7 +2,7 @@
     <div class="modal" v-show="useModal" @click="useModal = false">
         <div class="modal__container">
             <div class="modal__content border" @click.stop>
-                <h3 class="modal__title font" data-font-actual='60'>Оставьте заявку и мы<br> вам перезвоним</h3>
+                <h3 class="modal__title font" data-font-actual='60'>Оставьте заявку и мы вам перезвоним</h3>
                 <p class="modal__description font" data-font-actual='18'>Наши специалисты ответят на все вопросы и смогут
                     подобрать нужную программу</p>
                 <div class="modal__dop">
@@ -191,6 +191,7 @@ export default {
     background: #fff;
     border-radius: 60px;
     width: 1000px;
+    margin-top: 100px;
 }
 .modal__title {
     font-family: "Inter", sans-serif;
@@ -198,6 +199,7 @@ export default {
     color: var(--violo);
     font-weight: 700;
     line-height: 60px;
+    max-width: 670px;
 }
 .modal__description {
     font-family: "Inter", sans-serif;
@@ -307,5 +309,56 @@ export default {
     max-height: 100px;
     margin-bottom: 10px;
     opacity: 1;
+}
+@media(max-width: 1050px) {
+    .modal__content {
+    width: 100%;
+}
+}
+@media(max-width: 860px) {
+    .modal__title {
+    font-size: 50px !important;
+    line-height: 50px;
+}
+}
+@media(max-width: 720px) {
+    .modal__title {
+    font-size: 40px !important;
+    line-height: 40px;
+    text-align: center;
+}
+.modal__description  {
+    text-align: center;
+}
+}
+@media(max-width: 550px) {
+    .modal__title {
+    font-size: 32px !important;
+    line-height: 36px;
+}
+.modal__content {
+    padding: 60px 25px 30px 25px;
+    margin-top: 120px;
+} 
+.modal__input {
+  padding: 15px;
+  font-size: 20px !important;
+}
+.modal__btn {
+    padding: 15px;
+    font-size: 20px !important;
+}
+.modal {
+    backdrop-filter: blur(0px);
+}
+.modal__close {
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    right: 25px;
+}
+.modal__line {
+    width: 30px;
+}
 }
 </style>

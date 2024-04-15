@@ -131,6 +131,9 @@ export default {
   .commissions__title {
   font-size: 55px !important;
 }
+.commissions__img {
+  min-width: 800px;
+}
 }
 @media(max-width:520px) {
   .commissions__title {
