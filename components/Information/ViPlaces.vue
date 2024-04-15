@@ -2,9 +2,7 @@
   <section class="places">
     <div class="places__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="places__title" :settings="true"
-        >Вакантные места для приема (перевода)</UIViTitle
-      >
+      <UIViTitle class="places__title" :settings="true">Вакантные места для приема (перевода)</UIViTitle>
       <p class="places__text font" data-font-actual="18">
         Актуальную информацию по количеству свободных мест на 2024 год можно
         увидеть по этой ссылке
@@ -138,5 +136,23 @@ export default {
     #6700eb 30%,
     #00eace 100%
   );
+}
+@media(max-width: 990px) {
+  .places {
+  padding-top: 150px;
+}
+}
+@media(max-width: 600px) {
+  .places__thead {
+  background: var(--violo)
+}
+}
+@media(max-width: 430px) {
+  .places__element  {
+  padding: 10px 15px;
+}
+.places__pos  {
+  padding: 10px 20px;
+}
 }
 </style>
