@@ -79,4 +79,10 @@ export default {};
 .time__span {
   color: var(--violo);
 }
+@media(max-width: 500px) {
+
+.time {
+  margin-bottom: 40px;
+}
+}
 </style>

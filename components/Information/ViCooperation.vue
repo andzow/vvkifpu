@@ -37,4 +37,9 @@ export default {};
   font-size: 18px;
   margin-top: 40px;
 }
+@media(max-width: 990px) {
+  .cooperation {
+  padding-top: 150px;
+}
+}
 </style>

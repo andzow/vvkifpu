@@ -1,5 +1,6 @@
 <template>
-  <!-- <UIViHeader /> -->
+  <UIViHeader />
+
   <!-- <main>
     <NuxtPage />
     <Transition>

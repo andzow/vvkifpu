@@ -2,9 +2,7 @@
   <section class="info">
     <div class="info__container">
       <UIViBreadcrumbs />
-      <UIViTitle class="info__title" :settings="true"
-        >Контактные данные сотрудников ВВКИФПУ</UIViTitle
-      >
+      <UIViTitle class="info__title" :settings="true">Контактные данные сотрудников ВВКИФПУ</UIViTitle>
       <p class="info__description font" data-font-actual="18">
         <span class="info__description_special">Огромная просьба</span> по
         указанным номерам телефонов звонить строго с 10:00 до 17:00.<br />
@@ -44,6 +42,13 @@
           </tr>
         </tbody>
       </table>
+      <div class="contacts__block" v-for="(item, idx) in ArrayContacts" :key="idx">
+        <p class="contacts__info">{{ item.name }}</p>
+        <p class="contacts__info">{{ item.post }}</p>
+        <p class="contacts__info">{{ item.info.mail }}</p>
+        <p class="contacts__info">{{ item.info.vk }}</p>
+        <p class="contacts__info">{{ item.info.phone }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -266,6 +271,15 @@ export default {
 .info__table {
   margin-top: 40px;
 }
+.contacts__info {
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+.contacts__block {
+  border-bottom: 1px solid var(--violo);
+  padding: 10px 0;
+  display: none
+}
 .info__pos {
   font-family: "Inter", sans-serif;
   font-weight: 500;
@@ -305,5 +319,18 @@ export default {
     #6700eb 30%,
     #00eace 100%
   );
+}
+@media(max-width: 990px) {
+  .info {
+  padding-top: 150px;
+}
+}
+@media(max-width: 1200px) {
+  .info__table {
+    display: none;
+}
+.contacts__block {
+  display: block;
+}
 }
 </style>

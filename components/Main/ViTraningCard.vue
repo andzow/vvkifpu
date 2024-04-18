@@ -1,14 +1,9 @@
 <template>
   <NuxtLink :to="card.path" class="traningCard border" ref="linkRef">
-    >
     <p class="traningCard__code font" data-font-actual="22">
       {{ card.code }}
     </p>
-    <h2
-      class="traningCard__name font"
-      data-font-actual="24"
-      v-html="card.name"
-    ></h2>
+    <h2 class="traningCard__name font" data-font-actual="24" v-html="card.name"></h2>
     <div class="traningCard__icon" v-html="card.icon"></div>
     <img class="traningCard__image image" :src="card.image" alt="" />
     <div class="traningCard__background"></div>
@@ -52,8 +47,6 @@ export default {
 }
 .traningCard__element {
   position: relative;
-  width: 100%;
-  height: 320px;
   cursor: pointer;
   padding: 30px;
   transition: all 0.3s ease-in-out;
@@ -106,5 +99,39 @@ export default {
   bottom: 0;
   background: var(--violo);
   z-index: 1;
+}
+@media(max-width: 1220px) {
+  .traningCard {
+  height: 250px;
+}
+}
+@media(max-width: 960px) {
+  .traningCard {
+  height: 300px;
+}
+}
+@media(max-width: 560px) {
+  .traningCard {
+  height: 250px;
+  padding: 20px;
+}
+}
+@media(max-width: 480px) {
+  .traningCard {
+  height: 220px;
+}
+.traningCard__icon {
+  width: 30px;
+}
+}
+@media(max-width: 420px) {
+  .traningCard {
+  height: 200px;
+}
+}
+@media(max-width: 400px) {
+  .traningCard {
+  height: 180px;
+}
 }
 </style>

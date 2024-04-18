@@ -59,4 +59,14 @@ export default {
     font-size: 40px !important;
   }
 }
+@media(max-width:960px) {
+  .title {
+    font-size: 50px !important;
+  }
+}
+@media(max-width:520px) {
+  .title {
+    font-size: 36px !important;
+  }
+}
 </style>

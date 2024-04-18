@@ -53,6 +53,7 @@ export default {
     background: #fff;
     border-radius: 60px;
     width: 1000px;
+    margin-top: 100px;
 }
 .modalFinal__title {
     font-family: "Inter", sans-serif;
@@ -125,5 +126,63 @@ export default {
 .modalFinal__btn:hover {
     background: var(--violo);
     color: #fff;
+}
+@media(max-width: 1050px) {
+    .modalFinal__content {
+    width: 100%;
+}
+}
+@media(max-width: 860px) {
+    .modalFinal__title {
+    font-size: 50px !important;
+    line-height: 50px;
+}
+.modalFinal__info {
+    margin-left: 20px;
+}
+.modalFinal__btn {
+    padding: 15px;
+}
+}
+@media(max-width: 720px) {
+    .modalFinal__title {
+    font-size: 40px !important;
+    line-height: 40px;
+}
+}
+@media(max-width: 650px) {
+    .modalFinal__content {
+        padding: 60px 25px 30px 25px;
+    }
+    .modalFinal__position {
+        flex-direction: column;
+    }
+    .modalFinal__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .modalFinal__description {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+@media(max-width: 550px) {
+    .modalFinal__title {
+    font-size: 36px !important;
+    line-height: 36px;
+}
+.modalFinal {
+    backdrop-filter: blur(0px);
+}
+.modalFinal__close {
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    right: 25px;
+}
+.modalFinal__line {
+    width: 30px;
+}
 }
 </style>

@@ -75,6 +75,7 @@ export default {
   color: #fff;
   font-weight: 700;
   text-align: center;
+  white-space: nowrap;
 }
 .commissions__text {
   font-size: 24px;
@@ -115,5 +116,41 @@ export default {
   color: #fff;
   font-family: "Inter", sans-serif;
   font-size: 20px;
+}
+@media(max-width:800px) {
+  .commissions__title {
+  font-size: 75px !important;
+}
+}
+@media(max-width:720px) {
+  .commissions__title {
+  font-size: 65px !important;
+}
+}
+@media(max-width:620px) {
+  .commissions__title {
+  font-size: 55px !important;
+}
+.commissions__img {
+  min-width: 800px;
+}
+}
+@media(max-width:520px) {
+  .commissions__title {
+  font-size: 45px !important;
+}
+}
+@media(max-width:520px) {
+  .commissions__title {
+  font-size: 42px !important;
+}
+}
+@media(max-width:400px) {
+  .commissions__title {
+  font-size: 35px !important;
+}
+.commissions__text  {
+  font-size: 20px !important;
+}
 }
 </style>

@@ -135,4 +135,12 @@ export default {
 .preloader__letter_6 {
   animation-delay: 0.7s;
 }
+@media(max-width: 640px) {
+  .preloader__letter {
+  font-size: 60px;
+}
+.preloader__container {
+  width: 230px;
+}
+}
 </style>
