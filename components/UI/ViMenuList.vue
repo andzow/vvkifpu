@@ -33,21 +33,21 @@ export default {
     setActiveColorVisual() {
       if (!document.body.className)
         return {
-          fontSize: `${this.fontSize}px`,
+          fontSize: `${!this.fontSize ? "15" : this.fontSize}px`,
           color: "",
         };
       const bodyElement = document?.body;
       const computedStyle = window?.getComputedStyle(bodyElement);
       const color = computedStyle.borderColor;
       return {
-        fontSize: `${this.fontSize}px`,
+        fontSize: `${!this.fontSize ? "15" : this.fontSize}px`,
         color: color,
       };
     },
     setActiveFontSize() {
       if (!document.body.className) return;
       return {
-        fontSize: `${this.fontSize}px`,
+        fontSize: `${!this.fontSize ? "15" : this.fontSize}px`,
       };
     },
   },

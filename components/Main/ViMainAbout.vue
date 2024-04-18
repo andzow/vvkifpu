@@ -1,32 +1,50 @@
 <template>
   <div class="main__about">
-    <h1 class="main__title font_speciality" data-font-actual="58">
+    <h1
+      class="main__title font_speciality"
+      ref="main__about_title"
+      data-font-actual="58"
+    >
       Фундаментальное<br />
       Образование
     </h1>
     <div class="main__des">
-      <p class="main__link font" data-font-actual="17">
+      <p class="main__link font" ref="main__link" data-font-actual="17">
         Справочная информация:
       </p>
       <div class="main__information">
-        <p class="main__text font" data-font-actual="18">
+        <p class="main__text font" ref="main__text" data-font-actual="18">
           Платные образовательные услуги
         </p>
-        <p class="main__text font" data-font-actual="18">
+        <p class="main__text font" ref="main__text" data-font-actual="18">
           Виды материальной поддержки
         </p>
-        <p class="main__text font" data-font-actual="18">Документы</p>
-        <p class="main__text font" data-font-actual="18">
+        <p class="main__text font" ref="main__text" data-font-actual="18">
+          Документы
+        </p>
+        <p class="main__text font" ref="main__text" data-font-actual="18">
           Дополнительные информационные ресурсы
         </p>
       </div>
     </div>
-    <UISpecialityViButton>Оставить заявку</UISpecialityViButton>
+    <div class="main__btn">
+      <UISpecialityViButton>Оставить заявку</UISpecialityViButton>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    resizeWindow() {},
+  },
+  mounted() {
+    this.resizeWindow();
+  },
+};
 </script>
 
 <style scoped>
@@ -79,4 +97,63 @@ export default {};
 .main__text:hover {
   color: white;
 }
+@media screen and (max-width: 1400px) {
+  .main__title {
+    font-size: 48px !important;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main__title {
+    font-size: 68px !important;
+  }
+}
+@media screen and (max-width: 710px) {
+  .main__title {
+    font-size: 58px !important;
+  }
+}
+@media screen and (max-width: 604px) {
+  .main__title {
+    font-size: 48px !important;
+  }
+  .main__link {
+    font-size: 17px !important;
+  }
+  .main__text {
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 488px) {
+  .main__title {
+    font-size: 38px !important;
+  }
+}
+@media screen and (max-width: 410px) {
+  .main__title {
+    font-size: 36px !important;
+  }
+  .main__link {
+    font-size: 17px !important;
+  }
+  .main__text {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 356px) {
+  .main__title {
+    font-size: 30px !important;
+  }
+}
+
+/* @media screen and (max-width: 1100px) {
+  .main__title {
+    text-align: center;
+  }
+  .main__des {
+    display: none;
+  }
+  .main__btn {
+    display: none;
+  }
+} */
 </style>

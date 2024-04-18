@@ -27,18 +27,6 @@ export default {
       const adjustedPercent = percent * 0.3 + 35;
       this.backgroundTransform = `transform: translateX(${-adjustedPercent}%)`;
     },
-    initTypedJs() {
-      new Typed(this.$refs.el[0], {
-        strings: [
-          `Студенты углубятся в изучение языков программирования таких
-          как, C#, JavaScript, HTML, CSS, SQL, а также изучат
-          современные подходы к разработке! Это идеальное решение для
-          тех, кто стремится усовершенствовать свои навыки в создании
-          современных приложений.`,
-        ],
-        typeSpeed: 20,
-      });
-    },
   },
   mounted() {},
 };
@@ -50,6 +38,7 @@ export default {
   width: 100vw;
   height: 90vh;
   overflow: hidden;
+  padding-bottom: 20px;
   background: black;
 }
 .main__background {
@@ -72,5 +61,32 @@ export default {
   ); */
   overflow: hidden;
   z-index: 1;
+}
+@media screen and (max-width: 1320px) {
+  .main {
+    height: 100vh;
+  }
+}
+/* @media screen and (max-height: 680px) {
+  .main {
+    padding-top: 40px;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+@media screen and (max-height: 650px) {
+  .main {
+    padding-top: 50px;
+  }
+}
+@media screen and (max-height: 630px) {
+  .main {
+    padding-top: 50px;
+  }
+} */
+@media screen and (max-width: 760px) {
+  .main {
+    height: auto;
+  }
 }
 </style>

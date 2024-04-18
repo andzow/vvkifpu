@@ -15,7 +15,7 @@
               }}</router-link>
             </li>
           </ul>
-          <div class="footer__contact">
+          <div class="footer__contact footer__contact_des">
             <div class="footer__contact_title font" data-font-actual="40">
               КОНТАКТЫ
             </div>
@@ -62,6 +62,38 @@
               {{ el.name }}
             </li>
           </ul>
+        </div>
+        <div class="footer__contact footer__contact_mob">
+          <div class="footer__contact_title font" data-font-actual="40">
+            КОНТАКТЫ
+          </div>
+          <p class="footer__contact_text font" data-font-actual="16">
+            Адрес: 610002, г.Киров, ул.Герцена 41
+          </p>
+          <p class="footer__contact_text font" data-font-actual="16">
+            07:30 - 19:00
+          </p>
+          <p class="footer__contact_text font" data-font-actual="16">
+            8 (8332) 64-18-98
+          </p>
+          <p class="footer__contact_text font" data-font-actual="16">
+            vvkifpu@mail.ru
+          </p>
+          <div class="footer__contact_image">
+            <svg
+              width="38"
+              height="23"
+              viewBox="0 0 38 23"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="path"
+                d="M20.6969 23C7.71385 23 0.30856 14.3663 0 0H6.50347C6.71703 10.5446 11.5114 15.011 15.3091 15.9319V0H21.433V9.09405C25.1831 8.70267 29.1227 4.55853 30.4518 0H36.5757C35.5551 5.61758 31.2827 9.76173 28.2446 11.4655C31.2827 12.8468 36.1486 16.4614 38 23H31.259C29.8112 18.6256 26.2037 15.2412 21.433 14.7808V23H20.6969Z"
+                fill="white"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -202,7 +234,7 @@ footer {
   fill: #542fe6;
 }
 .footer__nav {
-  margin-right: 10px;
+  margin-right: 30px;
 }
 .footer__nav:last-child {
   margin-right: 0;
@@ -233,5 +265,72 @@ footer {
 .footer__nav_li:hover {
   color: White;
   transform: scale(1.02);
+}
+.footer__contact_mob {
+  display: none;
+}
+@media screen and (max-width: 1230px) {
+  .footer__nav:nth-child(5) {
+    display: none;
+  }
+}
+@media screen and (max-width: 1030px) {
+  .foooter__logo {
+    font-size: 34px !important;
+    margin-bottom: 15px;
+    height: 43px;
+  }
+  .footer__contact_title {
+    font-size: 34px !important;
+    margin-bottom: 15px;
+  }
+  .footer__spec_li a {
+    font-size: 14px !important;
+  }
+  .footer__contact_text {
+    font-size: 14px !important;
+    margin-bottom: 20px;
+  }
+  .footer__nav_title {
+    font-size: 19px !important;
+    padding-top: 10px;
+    height: 40px;
+    margin-bottom: 15px;
+  }
+  .footer__nav_li {
+    font-size: 14px !important;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .footer__content {
+    padding-top: 60px !important;
+  }
+  .footer__nav:nth-child(4) {
+    display: none;
+  }
+  .footer__nav:nth-child(6) {
+    display: none;
+  }
+  .footer__nav:nth-child(7) {
+    display: none;
+  }
+  .footer__spec {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .footer__container {
+    flex-wrap: wrap;
+  }
+  .footer__contact {
+    margin-bottom: 30px;
+  }
+  .footer__contact_mob {
+    display: block;
+  }
+  .footer__contact_des {
+    display: none;
+  }
 }
 </style>

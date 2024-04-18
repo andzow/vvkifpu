@@ -1,6 +1,5 @@
 <template>
-  <UIViHeader />
-
+  <!-- <UIViHeader /> -->
   <!-- <main>
     <NuxtPage />
     <Transition>
@@ -12,8 +11,8 @@
     <Transition>
       <UIModalViModalFinal />
     </Transition>
-  </main>
-  <UIViFooter /> -->
+  </main> -->
+  <UIViFooter />
 </template>
 
 <script>

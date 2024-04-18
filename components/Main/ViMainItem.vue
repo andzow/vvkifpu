@@ -24,17 +24,29 @@
                 <div class="main__slider_sec">
                   <img class="image_opacity" :src="item.imageSrcSec" />
                 </div>
-                <h4 class="main__slider_name font" data-font-actual="18">
+                <h4
+                  class="main__slider_name font"
+                  data-font-actual="18"
+                  ref="main__slider_name"
+                >
                   Разработка сайтов и ПО
                 </h4>
               </div>
               <div class="main__slider_content">
                 <div class="main__slider_block">
-                  <p class="main__slider_code font" data-font-actual="18">
+                  <p
+                    class="main__slider_code font"
+                    ref="main__slider_code"
+                    data-font-actual="18"
+                  >
                     {{ item.code }}
                   </p>
                 </div>
-                <h3 class="main__slider_title font" data-font-actual="22">
+                <h3
+                  class="main__slider_title font"
+                  ref="main__slider_title"
+                  data-font-actual="22"
+                >
                   {{ item.title }}
                 </h3>
                 <p
@@ -139,6 +151,22 @@ export default {
       });
       this.typedInstances[activeIndex] = typed;
     },
+    resizeStyle() {
+      if (window.innerWidth <= 1400) {
+        this.$refs.main__slider_title.forEach((el) => {
+          el.setAttribute("data-font-actual", "18");
+        });
+        this.$refs.main__slider_name.forEach((el) => {
+          el.setAttribute("data-font-actual", "16");
+        });
+        this.$refs.main__slider_code.forEach((el) => {
+          el.setAttribute("data-font-actual", "16");
+        });
+        this.$refs.el.forEach((el) => {
+          el.setAttribute("data-font-actual", "16");
+        });
+      }
+    },
   },
   setup() {
     return {
@@ -153,6 +181,7 @@ export default {
     this.swiperInit = true;
     this.swiper.on("slideChange", this.handleSlideChange);
     this.handleSlideChange();
+    this.resizeStyle();
   },
 };
 </script>
@@ -166,14 +195,14 @@ export default {
   padding: 0 20px;
   margin: 0 auto;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   z-index: 5;
 }
 .main__menu {
-  margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 170px 0 0 0;
   width: 100%;
 }
 
@@ -203,8 +232,6 @@ export default {
   position: absolute;
   top: 0%;
   right: 25%;
-  width: 341px;
-  height: 187px;
   z-index: 1;
 }
 
@@ -261,5 +288,92 @@ export default {
   line-height: 140%;
   color: #858585;
   min-height: 70px;
+}
+
+@media screen and (max-width: 1670px) {
+  .main__container {
+    max-width: 1350px;
+  }
+  .main__slider {
+    min-width: auto;
+    min-height: auto;
+    width: auto;
+    height: auto;
+    max-width: 650px;
+    background: white;
+    padding: 30px;
+  }
+  .main__menu {
+    margin: 170px 0 0 0;
+  }
+  .main__slider_main img {
+    width: 180px;
+    height: 161px;
+  }
+  .main__slider_sec img {
+    width: 351px;
+    height: 177px;
+  }
+  .main__slider_main {
+    bottom: 2%;
+  }
+  .main__slider_header {
+    width: 100%;
+    margin-bottom: 20px;
+    min-height: 233px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .main__container {
+    max-width: 1200px;
+  }
+  .main__slider {
+    max-width: 550px;
+  }
+  .main__slider_main {
+    bottom: 5%;
+    display: none;
+  }
+  .main__slider_main img {
+    width: 150px;
+    height: 131px;
+  }
+  .main__slider_sec {
+    left: 0;
+  }
+  .main__slider_sec img {
+    width: 100%;
+    height: 170px;
+  }
+  .main__slider_header {
+    margin-bottom: 5px;
+    min-height: 190px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .main__container {
+    display: block;
+    align-items: auto;
+  }
+  .main__slider {
+    max-width: 500px;
+  }
+  .main__menu {
+    margin: 190px 0 0 0;
+  }
+  .main__slider_name {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main__slider {
+    display: none;
+  }
+}
+@media screen and (max-width: 990px) {
+  .main__menu {
+    margin: 120px 0 0 0;
+    padding-bottom: 40px;
+  }
 }
 </style>

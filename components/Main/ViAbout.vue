@@ -107,7 +107,7 @@ export default {
 .about__btn {
   display: flex;
   align-items: center;
-  /* max-width: 790px; */
+
   font-size: 22px;
   font-family: "Inter", sans-serif;
   line-height: 140%;
@@ -147,6 +147,9 @@ export default {
   text-transform: lowercase;
   color: white;
 }
+.about__nav {
+  margin-right: 40px;
+}
 .about__animate_item:nth-child(1) .about__animate_title {
   max-width: 300px;
 }
@@ -166,5 +169,70 @@ export default {
 .about__animate_item:nth-child(3) {
   display: flex;
   justify-content: flex-end;
+}
+@media screen and (max-width: 1230px) {
+  .about__btn {
+    font-size: 20px;
+  }
+  .about__text {
+    font-size: 15px;
+    margin-bottom: 60px;
+  }
+  .about__animate_title {
+    font-size: 24px !important;
+  }
+  .about__animate_item:nth-child(2) .about__animate_title {
+    max-width: 250px;
+    padding-left: 0px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .about__animate_item:nth-child(2) .about__animate_title {
+    max-width: 280px;
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 990px) {
+  .about__animate_item:nth-child(1) {
+    margin-bottom: 20px;
+  }
+  .about__animate_item:nth-child(2) {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .about {
+    padding: 60px 0;
+  }
+  .about__container {
+    flex-direction: column;
+  }
+  .about__nav {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 538px) {
+  .about__animate_item:nth-child(2) .about__animate_title {
+    margin-right: 0px;
+  }
+  .about__animate_item:nth-child(2) {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .about__animate_item:nth-child(3) {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 360px) {
+  .about__btn {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .about__btn {
+    font-size: 15px;
+  }
 }
 </style>

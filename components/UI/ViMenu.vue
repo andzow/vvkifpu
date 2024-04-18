@@ -125,7 +125,7 @@ export default {
     setActiveText() {
       if (!this.bodyClassName) {
         return {
-          fontSize: `${this.fontSize}px`,
+          fontSize: `${!this.fontSize ? "16" : this.fontSize}px`,
           color: "",
         };
       }
@@ -134,7 +134,7 @@ export default {
       const color = computedStyle.color;
 
       return {
-        fontSize: `${this.fontSize}px`,
+        fontSize: `${!this.fontSize ? "16" : this.fontSize}px`,
         color: color,
       };
     },
@@ -142,7 +142,7 @@ export default {
       if (!this.bodyClassName) {
         return {
           border: ``,
-          fontSize: `${this.fontSize}px`,
+          fontSize: `${!this.fontSize ? "16" : this.fontSize}px`,
           color: "",
           background: "",
         };
@@ -153,7 +153,7 @@ export default {
       const backgroundC = computedStyle.backgroundColor;
       return {
         border: `1px solid ${color}`,
-        fontSize: `${this.fontSize}px`,
+        fontSize: `${!this.fontSize ? "16" : this.fontSize}px`,
         color: color,
         background: backgroundC,
       };
@@ -161,7 +161,7 @@ export default {
     borderBottom() {
       if (!this.bodyClassName) {
         return {
-          fontSize: `${this.fontSize}px`,
+          fontSize: `${!this.fontSize ? "16" : this.fontSize}px`,
           borderBottom: ``,
         };
       }
@@ -169,7 +169,7 @@ export default {
       const computedStyle = window?.getComputedStyle(bodyElement);
       const color = computedStyle.borderColor;
       return {
-        fontSize: `${this.fontSize}px`,
+        fontSize: `${!this.fontSize ? "16" : this.fontSize}px`,
         borderBottom: `1px solid ${color}`,
       };
     },
