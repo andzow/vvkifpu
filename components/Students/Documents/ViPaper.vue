@@ -1,14 +1,26 @@
 <template>
   <section class="paper">
     <div class="paper__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="paper__title" :settings="true">Документы на практику</UIViTitle>
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="paper__title" :settings="true"
+        >Документы на практику</UIViTitle
+      >
       <div class="paper__table">
-        <div class="paper__item" v-for="(item, idx) in ArrayDocument" :key="idx">
+        <div
+          class="paper__item"
+          v-for="(item, idx) in ArrayDocument"
+          :key="idx"
+        >
           <h3 class="paper__name font" data-font-actual="17">
             {{ item.name }} <span class="paper__special">-</span>
           </h3>
-          <a :href="item.path" class="paper__btn font" :download="item.pathName" data-font-actual="17">Скачать</a>
+          <a
+            :href="item.path"
+            class="paper__btn font"
+            :download="item.pathName"
+            data-font-actual="17"
+            >Скачать</a
+          >
         </div>
       </div>
     </div>
@@ -19,6 +31,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Документы на практику",
+          path: "/students/documents",
+        },
+      ],
       ArrayDocument: [
         {
           name: "Аттестационный лист «Информационные системы»",
@@ -112,24 +130,24 @@ export default {
 .paper__btn:hover {
   transform: scale(1.05);
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .paper {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-@media(max-width: 720px) {
+@media (max-width: 720px) {
   .paper__item {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid var(--violo);
   }
-  .paper__name  {
+  .paper__name {
     text-align: center;
   }
   .paper__special {
     display: none;
   }
-  .paper__btn  {
+  .paper__btn {
     margin-left: 0;
     margin-top: 10px;
     margin-bottom: 10px;

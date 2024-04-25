@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Вакансии для преподавателей</UIViTitle
@@ -36,6 +36,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Вакансии для преподавателей",
+          path: "/information/job",
+        },
+      ],
       arrCopies: [
         {
           name: "Общих дисциплин",
@@ -140,5 +146,24 @@ export default {
   font-weight: 500;
   font-size: 16px;
   color: black;
+}
+@media screen and (max-width: 990px) {
+  .main {
+    padding-top: 150px;
+  }
+  .main__header {
+    margin-bottom: 30px;
+  }
+  .main__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 550px) {
+  .main__content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .main__title {
+    font-size: 28px !important;
+  }
 }
 </style>

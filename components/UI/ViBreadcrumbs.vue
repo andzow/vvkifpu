@@ -49,22 +49,23 @@ export default {
     isColor: {
       type: Boolean,
     },
+    arrCrumbs: { type: Array },
   },
   computed: {
     crumbs() {
-      const fullPath = this.$route.fullPath.split("/");
-      fullPath.shift();
+      // const fullPath = this.$route.fullPath.split("/");
+      // fullPath.shift();
 
-      let path = "";
+      // let path = "";
 
-      const crumbs = fullPath.map((el) => {
-        path = `${path}/${el}`;
-        const resolveRoute = this.$router.resolve(path);
-        if (resolveRoute.name !== null) {
-          return resolveRoute;
-        }
-      });
-      return crumbs;
+      // const crumbs = fullPath.map((el) => {
+      //   path = `${path}/${el}`;
+      //   const resolveRoute = this.$router.resolve(path);
+      //   if (resolveRoute.name !== null) {
+      //     return resolveRoute;
+      //   }
+      // });
+      return this.arrCrumbs;
     },
   },
 };
@@ -115,5 +116,14 @@ export default {
 }
 .activeSpan {
   color: black;
+}
+
+@media screen and (max-width: 990px) {
+  .breadcrumbs__li:after {
+    font-size: 15px;
+  }
+  .breadcrumbs__li a {
+    font-size: 15px;
+  }
 }
 </style>

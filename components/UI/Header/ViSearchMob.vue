@@ -76,4 +76,14 @@ export default {
     min-width: 250px;
   }
 }
+@media screen and (max-width: 536px) {
+  .header__search_input {
+    border: 1px solid black;
+    color: black;
+    margin-bottom: 20px;
+  }
+  .header__search_input::placeholder {
+    color: black;
+  }
+}
 </style>

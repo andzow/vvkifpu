@@ -7,9 +7,7 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
-  hooks: {
-    "pages:extend": (pages) => {},
-  },
+
   modules: ["@nuxt/image", "nuxt-particles"],
   image: {
     format: ["webp", "svg"],

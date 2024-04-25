@@ -1,8 +1,10 @@
 <template>
   <section class="info">
     <div class="info__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="info__title" :settings="true">Контактные данные сотрудников ВВКИФПУ</UIViTitle>
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="info__title" :settings="true"
+        >Контактные данные сотрудников ВВКИФПУ</UIViTitle
+      >
       <p class="info__description font" data-font-actual="18">
         <span class="info__description_special">Огромная просьба</span> по
         указанным номерам телефонов звонить строго с 10:00 до 17:00.<br />
@@ -42,7 +44,11 @@
           </tr>
         </tbody>
       </table>
-      <div class="contacts__block" v-for="(item, idx) in ArrayContacts" :key="idx">
+      <div
+        class="contacts__block"
+        v-for="(item, idx) in ArrayContacts"
+        :key="idx"
+      >
         <p class="contacts__info">{{ item.name }}</p>
         <p class="contacts__info">{{ item.post }}</p>
         <p class="contacts__info">{{ item.info.mail }}</p>
@@ -57,6 +63,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Контактные данные сотрудников ВВКИФПУ",
+          path: "/students/contacts",
+        },
+      ],
       ArrayContacts: [
         {
           name: "Синенок В.Н.",
@@ -278,7 +290,7 @@ export default {
 .contacts__block {
   border-bottom: 1px solid var(--violo);
   padding: 10px 0;
-  display: none
+  display: none;
 }
 .info__pos {
   font-family: "Inter", sans-serif;
@@ -320,17 +332,17 @@ export default {
     #00eace 100%
   );
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .info {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-@media(max-width: 1200px) {
+@media (max-width: 1200px) {
   .info__table {
     display: none;
-}
-.contacts__block {
-  display: block;
-}
+  }
+  .contacts__block {
+    display: block;
+  }
 }
 </style>

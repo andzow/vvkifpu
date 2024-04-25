@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Учебные планы и Основные профессиональные образовательные программы
@@ -38,6 +38,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Учебные планы и Основные профессиональные образовательные программы",
+          path: "/information/study-plan",
+        },
+      ],
       arrCopies: [
         {
           name: "40.02.02 ПРАВООХРАНИТЕЛЬНАЯ ДЕЯТЕЛЬНОСТЬ",
@@ -196,6 +202,7 @@ export default {
 .main__header {
   margin-bottom: 50px;
   max-width: 1400px;
+  font-size: 48px !important;
 }
 .main__menu {
   margin-bottom: 80px;
@@ -203,7 +210,7 @@ export default {
 .main__title {
   font-weight: 700;
   font-family: "Inter", sans-serif;
-  font-size: 34px;
+  font-size: 28px;
   margin-bottom: 30px;
   max-width: 900px;
   color: black;
@@ -240,5 +247,32 @@ export default {
   font-weight: 500;
   font-size: 16px;
   color: black;
+}
+@media screen and (max-width: 990px) {
+  .main {
+    padding-top: 150px;
+  }
+  .main__header {
+    margin-bottom: 50px;
+    font-size: 40px !important;
+  }
+  .main__title {
+    font-size: 28px !important;
+  }
+  .main__content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 550px) {
+  .main__link {
+    border: none;
+    border-bottom: 1px solid var(--violo);
+    border-radius: 0;
+    text-align: start;
+    padding: 20px 0;
+  }
+  .main__title {
+    margin-bottom: 15px;
+  }
 }
 </style>

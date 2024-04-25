@@ -89,7 +89,7 @@
                 data-font-actual="17"
                 v-for="(item, idx) in navArr"
                 :key="item"
-                @click="redirectPage(idx)"
+                @click="redirectPage(idx, item)"
                 @mouseenter="setActiveLi(idx)"
                 @mouseleave="setDisableLi"
                 :class="{ activeLi: activeIdxLi === idx && !bodyClassName }"
@@ -204,16 +204,15 @@ export default {
         navigator.userAgent.indexOf("IEMobile") !== -1
       );
     },
-    redirectPage(idx) {
+    redirectPage(idx, item) {
+      if (item.path === "/contacts") {
+        this.$router.push("/contacts");
+      }
       if (!this.$refs.navItem[idx]) {
         return;
       }
-      const checkMobileDevice = this.checkMobileDevice();
-      if (!checkMobileDevice) {
-        this.activeIdxLi = idx;
-      }
       this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "auto";
       this.headerBackgroundActive = false;
     },
     closeWindow() {
@@ -231,12 +230,6 @@ export default {
       }, 0);
     },
     resizeMobileVersion() {
-      // if (window.innerWidth <= 1400) {
-      //   this.$refs.header__logo.setAttribute("data-font-actual", "35");
-      // }
-      // if (window.innerWidth <= 1260) {
-      //   this.activeMobileHeader = true;
-      // }
       if (window.innerWidth > 1160) return;
       else if (window.innerWidth <= 1160) {
         this.$refs.header__logo.setAttribute("data-font-actual", "35");

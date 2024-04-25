@@ -74,4 +74,24 @@ export default {
   font-size: 18px;
   margin-right: 10px;
 }
+
+@media screen and (max-width: 990px) {
+  .documents_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 760px) {
+  .documents_name {
+    border-radius: 50px;
+    font-size: 17px !important;
+  }
+  .documents_title {
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 620px) {
+  .documents_container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 </style>

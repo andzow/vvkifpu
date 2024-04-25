@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      :arrCrumbs="arrCrumbs"
       breadcrumbs="09.02.04 Информационные системы"
     />
     <UISpecialityViBasics
@@ -23,8 +24,14 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "09.02.04 Информационные системы",
+          path: "/speciality/information-systems",
+        },
+      ],
       specialityTitle: `09.02.04<br />
-          ИНФОРМАЦИОННЫЕ СИСТЕМЫ`,
+          Информационные системы`,
       arrDes: [
         {
           name: "Начало обучения",

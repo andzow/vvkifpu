@@ -4,7 +4,13 @@
     :class="{ activeMobHeader: activeBurger || isHover || isScrollDown }"
   >
     <div class="header__mob_head">
-      <div class="header__mob_logo" :style="setFontSizeAndColor()">ВВКИФПУ</div>
+      <div
+        class="header__mob_logo"
+        :style="setFontSizeAndColor()"
+        @click="$router.push('/')"
+      >
+        ВВКИФПУ
+      </div>
       <div class="header__mob_search">
         <UIHeaderViSearchMob
           :bodyClassName="bodyClassName"
@@ -100,7 +106,7 @@ export default {
 
 <style scoped>
 .header__mob {
-  padding: 25px 20px;
+  padding: 30px 20px;
   width: 100vw;
   display: none;
   background: none;
@@ -174,8 +180,8 @@ export default {
   }
 }
 @media screen and (max-width: 488px) {
-  .header__mob_logo {
+  /* .header__mob_logo {
     font-size: 32px !important;
-  }
+  } */
 }
 </style>

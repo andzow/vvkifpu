@@ -108,12 +108,12 @@ export default {
 
     if (window.innerWidth >= 1280) {
       elements.forEach((el) => {
-        el.style.fontSize = this.fontSize + "px";
+        el.style.fontSize = (!this.fontSize ? 16 : this.fontSize) + "px";
       });
       return;
     }
     elements.forEach((el) => {
-      el.style.fontSize = this.fontSize - 1 + "px";
+      el.style.fontSize = (!this.fontSize ? 16 : this.fontSize) - 1 + "px";
     });
   },
 };

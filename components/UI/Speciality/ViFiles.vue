@@ -23,9 +23,7 @@
         </div>
         <Transition name="fade-button">
           <div class="files__button" v-if="isActiveIndex === idx">
-            <button class="files__btn border font" data-font-actual="20">
-              скачать
-            </button>
+            <UISpecialityViFilesBtn />
           </div>
         </Transition>
       </div>
@@ -45,6 +43,7 @@ export default {
       isActiveIndex: null,
     };
   },
+  computed: {},
 };
 </script>
 
@@ -96,19 +95,6 @@ export default {
 .files__button {
   transition: all 0.3s ease;
 }
-.files__btn {
-  font-size: 20px;
-  color: white;
-  background: #542fe6;
-  border-radius: 50px;
-  padding: 13px 40px;
-  border: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.files__btn:hover {
-  transform: scale(1.02);
-}
 .fade-button-enter-from {
   opacity: 0;
 }
@@ -120,5 +106,30 @@ export default {
 }
 .fade-button-leave-to {
   opacity: 0;
+}
+
+@media screen and (max-width: 1320px) {
+  .files__index {
+    font-size: 34px !important;
+  }
+  .files__name {
+    font-size: 16px !important;
+  }
+  .files__image img {
+    max-width: 60px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .files__item {
+    padding: 20px 40px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .files__index {
+    font-size: 32px !important;
+  }
+  .files__name {
+    font-size: 15px !important;
+  }
 }
 </style>

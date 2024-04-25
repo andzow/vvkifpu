@@ -1,7 +1,6 @@
 <template>
   <UIViHeader />
-
-  <!-- <main>
+  <main>
     <NuxtPage />
     <Transition>
       <UIViPreloader v-if="!isActive" />
@@ -12,7 +11,7 @@
     <Transition>
       <UIModalViModalFinal />
     </Transition>
-  </main> -->
+  </main>
   <UIViFooter />
 </template>
 
@@ -50,9 +49,9 @@ main {
 }
 </style>
 <style>
-/* body {
+body {
   overflow: hidden;
-} */
+}
 /* body {
   overflow: auto;
 } */

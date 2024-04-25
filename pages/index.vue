@@ -1,22 +1,15 @@
 <template>
   <div class="app">
-    <!-- <MainViMainPhoto /> -->
-    <!-- <MainVimain /> -->
-    <!-- <MainViTraning />
+    <MainViMainPhoto />
+    <MainViTraning />
     <MainViApplication />
-    <MainViNews /> -->
-    <!-- <MainViAbout /> -->
+    <MainViNews />
+    <MainViAbout />
   </div>
 </template>
 
 <script>
-export default {
-  setup() {
-    definePageMeta({
-      middleware: "role",
-    });
-  },
-};
+export default {};
 </script>
 
 <style scoped>

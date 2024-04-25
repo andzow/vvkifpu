@@ -17,7 +17,10 @@
         :style="summFontSizeStyle"
         :class="{ activeBlockBody: bodyClassName }"
       >
-        <NuxtLink class="header__item_link" :to="list.path">
+        <NuxtLink
+          class="header__item_link"
+          :to="!list.children ? list.path : ''"
+        >
           {{ list.name }}</NuxtLink
         >
       </div>

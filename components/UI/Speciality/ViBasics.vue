@@ -29,8 +29,10 @@ export default {
   methods: {
     resizeBlock() {
       const elMainContent = document.getElementById("main__content");
-      this.$refs.basics__container.style.marginLeft =
-        elMainContent.getBoundingClientRect().left + "px";
+      if (this.$refs.basics__container) {
+        this.$refs.basics__container.style.marginLeft =
+          elMainContent.getBoundingClientRect().left + 20 + "px";
+      }
     },
   },
   mounted() {
@@ -53,8 +55,7 @@ export default {
   );
   padding: 60px 0 30px 0;
 }
-.basics__container {
-}
+
 .basics__block {
   position: relative;
   display: grid;
@@ -62,12 +63,26 @@ export default {
 }
 .basics__content {
   position: relative;
-  margin-left: 40px;
+  /* margin-left: 40px; */
   width: 100%;
 }
 .basics__menu {
   position: relative;
   display: grid;
   width: 450px;
+}
+@media screen and (max-width: 1130px) {
+  .basics__menu {
+    width: 390px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .basics__menu {
+    display: none;
+  }
+  .basics__block {
+    display: block;
+    padding-right: 20px;
+  }
 }
 </style>

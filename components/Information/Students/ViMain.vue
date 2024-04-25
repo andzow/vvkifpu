@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Численность обучающихся</UIViTitle
@@ -25,6 +25,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Численность обучающихся",
+          path: "/information/number-students",
+        },
+      ],
       arrStudents: [
         {
           name: "Численность обучающихся на 1 сентября 2020 г",
@@ -94,5 +100,34 @@ export default {
 }
 .main__link_text:nth-child(1) {
   margin-right: 20px;
+}
+@media screen and (max-width: 1100px) {
+  .main__content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .main__link {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 990px) {
+  .main {
+    padding-top: 150px;
+    margin-bottom: 40px;
+  }
+  .main__header {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .main__link_text {
+    white-space: pre-wrap;
+  }
+  .main__link {
+    flex-wrap: nowrap;
+    border: none;
+    border-bottom: 1px solid var(--violo);
+    border-radius: 0px;
+    padding: 20px 0;
+  }
 }
 </style>

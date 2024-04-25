@@ -40,4 +40,19 @@ export default {
 .about__li:last-child {
   margin-bottom: 0px;
 }
+@media screen and (max-width: 1320px) {
+  .about__li {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 670px) {
+  .about {
+    padding: 40px 40px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .about {
+    padding: 30px 40px;
+  }
+}
 </style>

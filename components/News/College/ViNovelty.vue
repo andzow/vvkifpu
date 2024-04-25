@@ -1,10 +1,18 @@
 <template>
   <section class="novelty">
     <div class="novelty__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="novelty__title" :settings="true">Новости колледжа</UIViTitle>
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="novelty__title" :settings="true"
+        >Новости колледжа</UIViTitle
+      >
       <div class="novelty__grid">
-        <div class="novelty__item" v-for="(item, idx) in ArrayOccasion" :key="idx"  data-aos="zoom-in-up" data-aos-duration="1000">
+        <div
+          class="novelty__item"
+          v-for="(item, idx) in ArrayOccasion"
+          :key="idx"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
           <div class="novelty__image">
             <img class="novelty__img image_opacity" :src="item.image" alt="" />
             <div class="novelty__back border">
@@ -14,8 +22,8 @@
           <p class="novelty__info font" data-font-actual="16">
             {{ item.date }} |
             <span class="novelty__type font" data-font-actual="16">{{
-        item.type
-      }}</span>
+              item.type
+            }}</span>
           </p>
           <h3 class="novelty__name font" data-font-actual="24">
             {{ item.name }}
@@ -35,6 +43,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Новости колледжа",
+          path: "/news/college",
+        },
+      ],
       ArrayOccasion: [
         {
           image: "../assets/images/News/college.webp",
@@ -161,33 +175,33 @@ export default {
   font-size: 28px;
   color: #fff;
 }
-@media(max-width: 1220px) {
+@media (max-width: 1220px) {
   .novelty__grid {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
 }
-}
-@media(max-width: 1061px) {
+@media (max-width: 1061px) {
   .novelty__grid {
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 50px;
-  gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 50px;
+    gap: 30px;
+  }
 }
-}
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .novelty {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-@media(max-width: 708px) {
+@media (max-width: 708px) {
   .novelty__grid {
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
-  max-width: 600px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    max-width: 600px;
+  }
 }
-}
-@media(max-width: 500px) {
-  .novelty__btn  {
+@media (max-width: 500px) {
+  .novelty__btn {
     margin-top: 40px;
     padding: 20px 30px;
   }
@@ -195,13 +209,13 @@ export default {
     margin-bottom: 40px;
   }
 }
-@media(max-width: 440px) {
-  .novelty__info  {
+@media (max-width: 440px) {
+  .novelty__info {
     margin-top: 20px;
   }
   .novelty__grid {
-  grid-template-columns: repeat(1, 1fr);
-  gap: 40px;
-}
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
 }
 </style>

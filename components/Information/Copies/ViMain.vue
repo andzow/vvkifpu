@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Копии документов</UIViTitle
@@ -36,6 +36,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Копии документов",
+          path: "/information/copies-documents",
+        },
+      ],
       arrCopies: [
         {
           name: "Нормативные документы",
@@ -266,5 +272,35 @@ export default {
   font-weight: 500;
   font-size: 16px;
   color: black;
+}
+@media screen and (max-width: 1320px) {
+  .main__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 990px) {
+  .main {
+    padding-top: 150px;
+  }
+  .main__title {
+    font-size: 28px !important;
+  }
+
+  .main__header {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .main__content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .main__link {
+    border: none;
+
+    border-bottom: 1px solid var(--violo);
+    border-radius: 0px;
+    font-size: 18px !important;
+    font-weight: 500;
+  }
 }
 </style>

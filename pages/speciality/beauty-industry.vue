@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      :arrCrumbs="arrCrumbs"
       breadcrumbs="43.02.17 Технологии индустрии красоты"
     />
     <UISpecialityViBasics
@@ -25,6 +26,12 @@ export default {
     return {
       specialityTitle: `43.02.17<br />
       Технологии индустрии красоты`,
+      arrCrumbs: [
+        {
+          name: "43.02.17 Технологии индустрии красоты",
+          path: "/speciality/beauty-industry",
+        },
+      ],
       arrDes: [
         {
           name: "Начало обучения",

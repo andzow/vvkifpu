@@ -1,7 +1,7 @@
 <template>
   <section class="main" @mousemove="handleMouseMove" ref="main">
     <div class="main__background" :style="backgroundTransform"></div>
-    <MainViMainItem :isColor="isColor" />
+    <MainViMainItem :isColor="isColor" v-if="checkBlock" />
     <MainViParticles />
   </section>
 </template>
@@ -12,6 +12,7 @@ export default {
     return {
       backgroundTransform: "transform: translateX(-50%)",
       isColor: "color: #6110E9",
+      checkBlock: false,
     };
   },
   methods: {
@@ -28,7 +29,11 @@ export default {
       this.backgroundTransform = `transform: translateX(${-adjustedPercent}%)`;
     },
   },
-  mounted() {},
+  mounted() {
+    setTimeout(() => {
+      this.checkBlock = true;
+    }, 0);
+  },
 };
 </script>
 
@@ -38,7 +43,7 @@ export default {
   width: 100vw;
   height: 90vh;
   overflow: hidden;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   background: black;
 }
 .main__background {
@@ -64,7 +69,7 @@ export default {
 }
 @media screen and (max-width: 1320px) {
   .main {
-    height: 100vh;
+    height: auto;
   }
 }
 /* @media screen and (max-height: 680px) {
@@ -84,7 +89,7 @@ export default {
     padding-top: 50px;
   }
 } */
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1024px) {
   .main {
     height: auto;
   }

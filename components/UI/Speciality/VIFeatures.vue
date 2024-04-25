@@ -60,4 +60,34 @@ export default {
   max-width: 1100px;
   color: black;
 }
+@media screen and (max-width: 1320px) {
+  .features__title {
+    font-size: 24px !important;
+  }
+  .features__des {
+    font-size: 16px !important;
+  }
+  .features__span {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 670px) {
+  .features {
+    padding: 40px 40px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .features {
+    padding: 30px 30px;
+  }
+  .features__title {
+    font-size: 24px !important;
+  }
+  .features__des {
+    font-size: 15px !important;
+  }
+  .features__span {
+    font-size: 15px !important;
+  }
+}
 </style>
