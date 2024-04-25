@@ -3,6 +3,16 @@ export const useModalFinal = () => useState("use_modal_final", () => false);
 export const useToogle = () => useState("use_toogle", () => false);
 export const useFontSize = () => useState("size", () => 16);
 export const useColor = () => useState("color", () => "black");
+export const useUserAuth = () => useState("use_user_auth", () => false);
+export const useUserData = () => useState("use_user_data", () => {});
+export const useStatus = () => useState("use_user_data", () => null);
+export const useApplication= () => useState('use_application', () => []);
+export const usePostAll= () => useState('use_post_all', () => []);
+export const usePage = () => useState('use_page', () => 1)
+export const usePageActive = () => useState('use_page_active', () => 1)
+export const useInfoActive = () => useState('use_info_active', () => 'application')
+export const usePostData = () => useState('use_post_data', () => {})
+export const useNews = () => useState('use_news', () => "Просмотр новостей")
 
 const navArr = [
   {

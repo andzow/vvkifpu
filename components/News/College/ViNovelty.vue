@@ -4,7 +4,8 @@
       <UIViBreadcrumbs />
       <UIViTitle class="novelty__title" :settings="true">Новости колледжа</UIViTitle>
       <div class="novelty__grid">
-        <div class="novelty__item" v-for="(item, idx) in ArrayOccasion" :key="idx"  data-aos="zoom-in-up" data-aos-duration="1000">
+        <div class="novelty__item" v-for="(item, idx) in ArrayOccasion" :key="idx" data-aos="zoom-in-up"
+          data-aos-duration="1000">
           <div class="novelty__image">
             <img class="novelty__img image_opacity" :src="item.image" alt="" />
             <div class="novelty__back border">

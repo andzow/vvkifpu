@@ -1,6 +1,5 @@
 <template>
-  <UIViHeader />
-
+  <UIViHeader v-if="isPath" />
   <main>
     <NuxtPage />
     <Transition>
@@ -12,8 +11,9 @@
     <Transition>
       <UIModalViModalFinal />
     </Transition>
+    <UIViModalStatus/>
   </main>
-  <!-- <UIViFooter /> -->
+  <UIViFooter v-if="isPath" />
 </template>
 
 <script>
@@ -24,9 +24,15 @@ export default {
   data() {
     return {
       isActive: false,
+      isPath: false
     };
   },
   mounted() {
+    if (this.$route.name == "Вход") {
+      this.isPath = false;
+    } else {
+      this.isPath = true;
+    }
     if (process.client) {
       AOS.init();
     }
@@ -35,12 +41,24 @@ export default {
     }, 2400);
   },
   watch: {
+    $route() {
+      this.checkPath(this.$route.name);
+    },
     isActive(val) {
       if (val) {
         document.body.style.overflow = "auto";
       }
     },
   },
+  methods: {
+    checkPath(path) {
+      if (path == "Вход") {
+        this.isPath = false;
+      } else {
+        this.isPath = true;
+      }
+    },
+  }
 };
 </script>
 

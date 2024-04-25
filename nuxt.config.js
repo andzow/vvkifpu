@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/style/main.css"],
@@ -6,9 +7,6 @@ export default defineNuxtConfig({
       name: "page",
       mode: "out-in",
     },
-  },
-  hooks: {
-    "pages:extend": (pages) => {},
   },
   modules: ["@nuxt/image", "nuxt-particles"],
   image: {
