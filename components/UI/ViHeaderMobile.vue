@@ -1,9 +1,17 @@
 <template>
-  <div class="header__mob">
+  <div
+    class="header__mob"
+    :class="{ activeMobHeader: activeBurger || isHover || isScrollDown }"
+  >
     <div class="header__mob_head">
       <div class="header__mob_logo" :style="setFontSizeAndColor()">ВВКИФПУ</div>
       <div class="header__mob_search">
-        <UIHeaderViSearchMob :bodyClassName="bodyClassName" />
+        <UIHeaderViSearchMob
+          :bodyClassName="bodyClassName"
+          :activeBurger="activeBurger"
+          :isHover="isHover"
+          :isScrollDown="isScrollDown"
+        />
       </div>
       <div
         class="header__mob_burger"
@@ -39,6 +47,8 @@
 export default {
   props: {
     bodyClassName: { type: Boolean },
+    isHover: { type: Boolean },
+    isScrollDown: { type: Boolean },
   },
   data() {
     return {
@@ -93,6 +103,8 @@ export default {
   padding: 25px 20px;
   width: 100vw;
   display: none;
+  background: none;
+  transition: all 0.3s ease;
 }
 .header__mob_head {
   display: flex;
@@ -101,7 +113,7 @@ export default {
 }
 .header__mob_logo {
   font-size: 35px;
-  color: black;
+  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -122,6 +134,11 @@ export default {
 
 .activeBack {
   background: #542fe6;
+}
+
+.activeMobHeader .header__mob_logo {
+  color: black;
+  transition: all 0.3s ease;
 }
 .header__mob_line {
   width: 100%;
@@ -154,6 +171,11 @@ export default {
 @media screen and (max-width: 536px) {
   .header__mob_search {
     display: none;
+  }
+}
+@media screen and (max-width: 488px) {
+  .header__mob_logo {
+    font-size: 32px !important;
   }
 }
 </style>

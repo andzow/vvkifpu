@@ -1,5 +1,10 @@
 <template>
-  <h1 class="title font_special" data-font-actual="60" v-if="settings" :style="setColor">
+  <h1
+    class="title font_special"
+    data-font-actual="60"
+    v-if="settings"
+    :style="setColor"
+  >
     <slot />
   </h1>
   <h2 class="title font" v-else :style="setColor">
@@ -32,6 +37,27 @@ export default {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 60px;
+  min-width: 310px;
+}
+@media screen and (max-width: 1230px) {
+  .title {
+    font-size: 52px !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .title {
+    font-size: 48px !important;
+  }
+}
+@media screen and (max-width: 330px) {
+  .title {
+    font-size: 44px !important;
+  }
+}
+@media screen and (max-width: 300px) {
+  .title {
+    font-size: 40px !important;
+  }
 }
 @media(max-width:960px) {
   .title {

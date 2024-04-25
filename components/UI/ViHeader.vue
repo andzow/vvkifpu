@@ -2,7 +2,8 @@
   <header
     :class="{
       activeHeader:
-        (!isHover || isScrollDown || activeVisualHeader) && !bodyClassName,
+        (isHover || isScrollDown || activeVisualHeader || activeMobileBurger) &&
+        !bodyClassName,
       activeMobHeader: activeMobileHeader && !bodyClassName,
       disableUpperHeader: activeInnerHeader && !bodyClassName,
       activeBackground: backgroundLinear && !bodyClassName,
@@ -110,7 +111,12 @@
         </div>
       </div>
     </div>
-    <UIViHeaderMobile @open="setActiveMenu" :bodyClassName="bodyClassName" />
+    <UIViHeaderMobile
+      @open="setActiveMenu"
+      :bodyClassName="bodyClassName"
+      :isHover="isHover"
+      :isScrollDown="isScrollDown"
+    />
   </header>
   <Transition name="fade-menu">
     <UIViMenu
@@ -184,7 +190,7 @@ export default {
       if (this.$refs.navItem[idx]) {
         this.activeIdxLi = idx;
         this.distancePx = this.$refs.navItem[idx].getBoundingClientRect();
-        document.body.style.overflow = "hidden";
+        idx === 3 ? (document.body.style.overflow = "hidden") : "";
         this.headerBackgroundActive = false;
       }
     },
@@ -225,9 +231,12 @@ export default {
       }, 0);
     },
     resizeMobileVersion() {
-      if (window.innerWidth <= 1260) {
-        this.activeMobileHeader = true;
-      }
+      // if (window.innerWidth <= 1400) {
+      //   this.$refs.header__logo.setAttribute("data-font-actual", "35");
+      // }
+      // if (window.innerWidth <= 1260) {
+      //   this.activeMobileHeader = true;
+      // }
       if (window.innerWidth > 1160) return;
       else if (window.innerWidth <= 1160) {
         this.$refs.header__logo.setAttribute("data-font-actual", "35");
@@ -441,6 +450,13 @@ header {
 .fade-menu-leave-to {
   opacity: 0;
   transition: all 0.3s ease;
+}
+@media screen and (max-width: 1670px) {
+}
+@media screen and (max-width: 1400px) {
+  .header__logo {
+    font-size: 35px !important;
+  }
 }
 
 @media screen and (max-width: 1160px) {

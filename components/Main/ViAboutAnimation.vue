@@ -113,4 +113,24 @@ export default {};
     transform: translate(0, 0) scale(1);
   }
 }
+
+@media screen and (max-width: 1230px) {
+  .about__animate {
+    left: 0%;
+  }
+  .about__animate_item1 {
+    display: none;
+  }
+  .about__animate_item3 {
+    display: none;
+  }
+  .about__animate_item6 {
+    display: none;
+  }
+}
+@media screen and (max-width: 760px) {
+  .about__animate {
+    display: none;
+  }
+}
 </style>
