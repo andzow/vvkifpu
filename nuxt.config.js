@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/style/main.css"],
@@ -7,7 +8,6 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
-
   modules: ["@nuxt/image", "nuxt-particles"],
   image: {
     format: ["webp", "svg"],

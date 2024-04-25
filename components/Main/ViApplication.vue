@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import ApplicationController from '@/http/controllers/ApplicationController'
+
 export default {
   data() {
     return {
@@ -120,7 +122,7 @@ export default {
         this.NameValidator = 0;
       }
     },
-    sendData() {
+    async sendData() {
       if (this.phoneValidator !== 2) {
         this.phoneValidator = 1;
       }
@@ -128,7 +130,14 @@ export default {
         this.NameValidator = 1;
       }
       if (this.phoneValidator === 2 && this.NameValidator === 2) {
+        const FormObject = {
+          name: this.isName,
+          phone: this.isNumber,
+          status: 'check',
+          statusName: 'Ожидает ответа',
+        }
         this.useModalFinal = true;
+        await ApplicationController.createApplication(FormObject)
       }
     },
   },

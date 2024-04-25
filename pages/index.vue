@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <MainViMainPhoto />
+    <MainVimain />
     <MainViTraning />
     <MainViApplication />
     <MainViNews />
@@ -8,9 +9,7 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
+<script></script>
 
 <style scoped>
 .app {
