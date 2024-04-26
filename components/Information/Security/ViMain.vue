@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Материально-техническое обеспечение и оснащенность образовательного
@@ -28,6 +28,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Материально-техническое обеспечение и оснащенность образовательного процесса",
+          path: "/information/social-security",
+        },
+      ],
       arrStudents: [
         {
           name: "Материально-техническое обеспечение образовательного процесса",
@@ -80,6 +86,7 @@ export default {
 }
 .main__header {
   margin-bottom: 50px;
+  font-size: 48px !important;
 }
 
 .main__content {
@@ -112,5 +119,28 @@ export default {
 }
 .main__link:hover .main__link_text {
   color: white;
+}
+@media screen and (max-width: 990px) {
+  .main {
+    padding-top: 150px;
+  }
+  .main__header {
+    margin-bottom: 50px;
+    font-size: 28px !important;
+  }
+}
+@media screen and (max-width: 790px) {
+  .main__content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 550px) {
+  .main__link {
+    border: none;
+    border-bottom: 1px solid var(--violo);
+    text-align: start;
+    border-radius: 0px;
+    padding: 20px 0px;
+  }
 }
 </style>

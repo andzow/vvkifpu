@@ -1,17 +1,28 @@
 <template>
   <section class="additionally">
     <div class="additionally__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="additionally__title" :settings="true">Дополнительная информация</UIViTitle>
-      <p class="additionally__text additionally__text_first font" data-font-actual="17">
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="additionally__title" :settings="true"
+        >Дополнительная информация</UIViTitle
+      >
+      <p
+        class="additionally__text additionally__text_first font"
+        data-font-actual="17"
+      >
         Все учебные материалы ПОУ «ВВКИФПУ» для более комфортного обучения
         студентов находятся в электронном виде.
       </p>
-      <p class="additionally__text additionally__text_second font" data-font-actual="17">
+      <p
+        class="additionally__text additionally__text_second font"
+        data-font-actual="17"
+      >
         Получить доступ к учебным материалам можно с любого компьютера в
         кабинете 31.
       </p>
-      <p class="additionally__text additionally__text_third font" data-font-actual="17">
+      <p
+        class="additionally__text additionally__text_third font"
+        data-font-actual="17"
+      >
         Порядок пользования учебными материалами ПОУ «Волго-Вятский колледж
         информатики, финансов, права, управления»:
       </p>
@@ -46,7 +57,10 @@
           открываем один из необходимых учебников доступных для пользования.
         </p>
       </div>
-      <p class="additionally__text additionally__text_third font" data-font-actual="17">
+      <p
+        class="additionally__text additionally__text_third font"
+        data-font-actual="17"
+      >
         <span class="additionally__text__special">С 17 октября 2017 года</span>
         у студентов нашего колледжа есть возможность бесплатного доступа к
         библиотечному фонду КОГБУК «Кировской ордена почета государственной
@@ -60,7 +74,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      arrCrumbs: [
+        {
+          name: "Дополнительная информация",
+          path: "/library/additionally",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -124,14 +149,14 @@ export default {};
   margin-top: 20px;
   width: 400px;
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .additionally {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-@media(max-width: 440px) {
+@media (max-width: 440px) {
   .additionally__image {
     width: 300px;
-}
+  }
 }
 </style>

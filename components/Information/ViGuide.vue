@@ -1,13 +1,20 @@
 <template>
   <section class="guide">
     <div class="guide__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="guide__title" :settings="true">Руководство и педагогический состав</UIViTitle>
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="guide__title" :settings="true"
+        >Руководство и педагогический состав</UIViTitle
+      >
 
       <p class="guide__name font" data-font-actual="20">
         Администрация ВВКИФПУ
       </p>
-      <table class="guide__table guide__table_administration" cellpadding="0" cellspacing="0" border="0">
+      <table
+        class="guide__table guide__table_administration"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+      >
         <thead class="guide__thead border">
           <tr>
             <th class="guide__pos font" data-font-actual="17">Ф. И. О.</th>
@@ -21,7 +28,10 @@
           </tr>
         </thead>
         <tbody class="info__tbody">
-          <tr v-for="(administration, index) in ArrayAdministration" :key="index">
+          <tr
+            v-for="(administration, index) in ArrayAdministration"
+            :key="index"
+          >
             <td class="guide__element font" data-font-actual="17">
               {{ administration.name }}
             </td>
@@ -38,7 +48,11 @@
         </tbody>
       </table>
 
-      <div class="standards__block_administration" v-for="(item, i) in ArrayAdministration" :key="i">
+      <div
+        class="standards__block_administration"
+        v-for="(item, i) in ArrayAdministration"
+        :key="i"
+      >
         <p class="standards__info_administration">{{ item.name }}</p>
         <p class="standards__info_administration">{{ item.post }}</p>
         <p class="standards__info_administration">{{ item.education }}</p>
@@ -48,7 +62,12 @@
       <p class="guide__name font" data-font-actual="20">
         Сведения о педагогическом составе ВВКИФПУ
       </p>
-      <table class="guide__table guide__table_teacher" cellpadding="0" cellspacing="0" border="0">
+      <table
+        class="guide__table guide__table_teacher"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+      >
         <thead class="guide__thead border">
           <tr>
             <th class="guide__pos font" data-font-actual="17">Ф. И. О.</th>
@@ -81,7 +100,11 @@
         </tbody>
       </table>
 
-      <div class="standards__block_teacher" v-for="(item, i) in ArrayAdministration" :key="i">
+      <div
+        class="standards__block_teacher"
+        v-for="(item, i) in ArrayAdministration"
+        :key="i"
+      >
         <p class="standards__info_teacher">{{ item.name }}</p>
         <p class="standards__info_teacher">{{ item.post }}</p>
         <p class="standards__info_teacher">{{ item.level }}</p>
@@ -91,7 +114,12 @@
       <p class="guide__name font" data-font-actual="20">
         Список преподавателей дисциплин по специальностям
       </p>
-      <table class="guide__table guide__table_special" cellpadding="0" cellspacing="0" border="0">
+      <table
+        class="guide__table guide__table_special"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+      >
         <thead class="guide__thead border">
           <tr>
             <th class="guide__pos font" data-font-actual="17">
@@ -106,28 +134,56 @@
         <tbody class="info__tbody">
           <tr v-for="(item, index) in ArraySpecialization" :key="index">
             <td class="guide__element">
-              <p class="guide__text font" data-font-actual="17" v-for="(name, idx) in item.names" :key="idx">
+              <p
+                class="guide__text font"
+                data-font-actual="17"
+                v-for="(name, idx) in item.names"
+                :key="idx"
+              >
                 {{ name }}
               </p>
             </td>
             <td class="guide__element">
-              <p class="guide__text font" data-font-actual="17" v-for="(contact, i) in item.contacts" :key="i">
+              <p
+                class="guide__text font"
+                data-font-actual="17"
+                v-for="(contact, i) in item.contacts"
+                :key="i"
+              >
                 {{ contact }}
               </p>
             </td>
-            <td class="guide__element guide__element_specialization font" data-font-actual="17">
+            <td
+              class="guide__element guide__element_specialization font"
+              data-font-actual="17"
+            >
               {{ item.specialization }}
             </td>
           </tr>
         </tbody>
       </table>
 
-      <div class="standards__block_special" v-for="(item, i) in ArraySpecialization" :key="i">
-        <p class="standards__info_special" >{{ item.specialization }}</p>
-        <p class="standards__info_special" v-for="(people, idx) in item.names" :key="idx">{{ people }}</p>
-        <p class="standards__info_special" v-for="(info, idx) in item.contacts" :key="idx">{{ info }}</p>
+      <div
+        class="standards__block_special"
+        v-for="(item, i) in ArraySpecialization"
+        :key="i"
+      >
+        <p class="standards__info_special">{{ item.specialization }}</p>
+        <p
+          class="standards__info_special"
+          v-for="(people, idx) in item.names"
+          :key="idx"
+        >
+          {{ people }}
+        </p>
+        <p
+          class="standards__info_special"
+          v-for="(info, idx) in item.contacts"
+          :key="idx"
+        >
+          {{ info }}
+        </p>
       </div>
-
     </div>
   </section>
 </template>
@@ -136,6 +192,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Руководство и педагогический состав",
+          path: "/information/guide",
+        },
+      ],
       ArrayAdministration: [
         {
           name: "Синенок В.Н.",
@@ -414,7 +476,7 @@ export default {
 .standards__block_administration {
   border-bottom: 1px solid var(--violo);
   padding: 10px 0;
-  display: none
+  display: none;
 }
 .standards__info_teacher {
   font-size: 18px;
@@ -423,7 +485,7 @@ export default {
 .standards__block_teacher {
   border-bottom: 1px solid var(--violo);
   padding: 10px 0;
-  display: none
+  display: none;
 }
 .standards__info_special {
   font-size: 18px;
@@ -435,25 +497,25 @@ export default {
 .standards__block_special {
   border-bottom: 1px solid var(--violo);
   padding: 10px 0;
-  display: none
+  display: none;
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .guide {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-@media(max-width: 820px) {
+@media (max-width: 820px) {
   .standards__block_teacher {
     display: block;
   }
   .guide__name {
-    color:var(--violo);
+    color: var(--violo);
   }
   .guide__table_teacher {
     display: none;
   }
 }
-@media(max-width:740px) {
+@media (max-width: 740px) {
   .standards__block_special {
     display: block;
   }
@@ -461,7 +523,7 @@ export default {
     display: none;
   }
 }
-@media(max-width: 720px) {
+@media (max-width: 720px) {
   .standards__block_administration {
     display: block;
   }

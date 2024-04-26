@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Правила приема</UIViTitle
@@ -19,7 +19,14 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      arrCrumbs: [
+        {
+          name: "Правила приема",
+          path: "/speciality/admission-rules",
+        },
+      ],
+    };
   },
 };
 </script>
@@ -60,5 +67,15 @@ export default {
     #6700eb 30%,
     #00eace 100%
   );
+}
+@media screen and (max-width: 990px) {
+  .main {
+    padding-top: 150px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .main__des {
+    font-size: 18px !important;
+  }
 }
 </style>

@@ -16,13 +16,17 @@
     </div>
     <div class="main__container">
       <div class="main__breadcrumbs" :style="distanceUnderHeader">
-        <UIViBreadcrumbs :isColor="true" />
+        <UIViBreadcrumbs
+          :isColor="true"
+          :arrCrumbs="arrCrumbs"
+          v-if="arrCrumbs"
+        />
       </div>
       <div class="main__name">
         <h1
           class="main__title font_special"
           v-html="specialityTitle"
-          data-font-actual="78"
+          data-font-actual="58"
         ></h1>
         <div class="main__button">
           <UISpecialityViButton @click="useModal = true"
@@ -88,6 +92,9 @@ export default {
     backImage: {
       type: String,
     },
+    arrCrumbs: {
+      type: Array,
+    },
   },
   data() {
     return {
@@ -136,7 +143,7 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .main__container {
@@ -160,12 +167,16 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 90px;
+  padding-bottom: 60px;
+  margin-bottom: 20px;
 }
 .main__title {
+  font-size: 58px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  margin: 0 20px;
   text-align: center;
   color: #fff;
-  font-size: 78px;
   margin-bottom: 20px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -219,5 +230,92 @@ export default {
   margin-left: 20px;
   color: #cdcdcd;
   list-style-type: circle;
+}
+
+@media screen and (max-width: 1320px) {
+  .main__title {
+    font-size: 54px !important;
+  }
+  .main__name {
+    padding-bottom: 0;
+  }
+  .main__image {
+    max-width: 80px;
+  }
+  .main__content {
+    column-gap: 20px;
+  }
+  .main__proffesions_ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 50px;
+  }
+  .main__proffesions_li:nth-child(n + 4) {
+    display: none;
+  }
+  .main__breadcrumbs {
+    padding: 220px 20px 0px !important;
+  }
+}
+@media screen and (max-width: 990px) {
+  .main__name {
+    padding-bottom: 50px;
+  }
+  .main__breadcrumbs {
+    padding: 140px 20px 0px !important;
+  }
+}
+@media screen and (max-width: 860px) {
+  .main__image {
+    display: none;
+  }
+}
+@media screen and (max-width: 830px) {
+  .main__name {
+    padding-bottom: 0px;
+    margin: 15px 0;
+  }
+  .main__title {
+    font-size: 44px !important;
+  }
+  /* .main__start:nth-child(2) {
+    display: block;
+  } */
+}
+@media screen and (max-width: 760px) {
+  .main__breadcrumbs {
+    padding: 120px 20px 0px !important;
+  }
+  .main__proffesions_title {
+    font-size: 15px !important;
+  }
+  .main__start_title {
+    font-size: 15px !important;
+  }
+  .main__proffesions_li {
+    font-size: 14px !important;
+  }
+  .main__start_des {
+    font-size: 14px !important;
+  }
+  .main__start:nth-child(2) {
+    display: none;
+  }
+}
+@media screen and (max-width: 540px) {
+  .main__name {
+    padding-bottom: 30px;
+  }
+  .main__start:nth-child(1) {
+    display: none;
+  }
+  .main__title {
+    font-size: 32px !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  .main__title {
+    font-size: 30px !important;
+  }
 }
 </style>

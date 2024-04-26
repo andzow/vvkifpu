@@ -11,7 +11,7 @@
     <Transition>
       <UIModalViModalFinal />
     </Transition>
-    <UIViModalStatus/>
+    <UIViModalStatus />
   </main>
   <UIViFooter v-if="isPath" />
 </template>
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       isActive: false,
-      isPath: false
+      isPath: false,
     };
   },
   mounted() {
@@ -58,7 +58,7 @@ export default {
         this.isPath = true;
       }
     },
-  }
+  },
 };
 </script>
 
@@ -68,9 +68,9 @@ main {
 }
 </style>
 <style>
-/* body {
+body {
   overflow: hidden;
-} */
+}
 /* body {
   overflow: auto;
 } */

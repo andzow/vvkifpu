@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      :arrCrumbs="arrCrumbs"
       breadcrumbs="43.02.10 Туризм"
     />
     <UISpecialityViBasics
@@ -24,7 +25,13 @@ export default {
   data() {
     return {
       specialityTitle: `43.02.10 <br />
-      ТУРИЗМ`,
+      Туризм`,
+      arrCrumbs: [
+        {
+          name: "43.02.10 Туризм",
+          path: "/speciality/tourism",
+        },
+      ],
       arrDes: [
         {
           name: "Начало обучения",

@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      :arrCrumbs="arrCrumbs"
       breadcrumbs="40.02.02 Правоохранительная деятельность"
     />
     <UISpecialityViBasics
@@ -25,6 +26,12 @@ export default {
     return {
       specialityTitle: `40.02.02 <br />
       Правоохранительная деятельность`,
+      arrCrumbs: [
+        {
+          name: "40.02.02 Правоохранительная деятельность",
+          path: "/speciality/pravoved",
+        },
+      ],
       arrDes: [
         {
           name: "Начало обучения",

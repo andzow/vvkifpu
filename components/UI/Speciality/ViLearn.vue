@@ -44,4 +44,42 @@ export default {
   margin-bottom: 10px;
   color: black;
 }
+@media screen and (max-width: 1320px) {
+  .learn__number {
+    font-size: 34px !important;
+  }
+  .learn__text {
+    font-size: 16px !important;
+  }
+}
+@media screen and (max-width: 1185px) {
+  .learn {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 960px) {
+  .learn {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 860px) {
+  .learn {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 670px) {
+  .learn {
+    padding: 40px 40px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .learn {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media screen and (max-width: 550px) {
+  .learn {
+    padding: 30px 30px;
+  }
+}
 </style>

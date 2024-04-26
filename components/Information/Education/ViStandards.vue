@@ -1,11 +1,17 @@
 <template>
   <section class="standards">
     <div class="standards__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="standards__title" :settings="true">Основные профессиональные образовательные стандарты
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="standards__title" :settings="true"
+        >Основные профессиональные образовательные стандарты
       </UIViTitle>
 
-      <table class="standards__table" cellpadding="0" cellspacing="0" border="0">
+      <table
+        class="standards__table"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+      >
         <thead class="standards__thead border">
           <tr>
             <th class="standards__pos font_special" data-font-actual="17">
@@ -51,7 +57,11 @@
           </tr>
         </tbody>
       </table>
-      <div class="standards__block" v-for="(item, i) in ArrayStandards" :key="i">
+      <div
+        class="standards__block"
+        v-for="(item, i) in ArrayStandards"
+        :key="i"
+      >
         <p class="standards__info">{{ item.name }}</p>
         <p class="standards__info">{{ item.qualification }}</p>
         <p class="standards__info">{{ item.education }}</p>
@@ -66,6 +76,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Основные профессиональные образовательные стандарты",
+          path: "/information/education/standards",
+        },
+      ],
       ArrayStandards: [
         {
           name: "09.02.04 Информационные системы (по отраслям)",
@@ -205,22 +221,22 @@ export default {
 .standards__block {
   border-bottom: 1px solid var(--violo);
   padding: 10px 0;
-  display: none
-}
-@media(max-width: 990px) {
-  .standards {
-  padding-top: 150px;
-}
-}
-@media(max-width: 1150px) {
-  .standards__block {
-  display: block;
-}
-.standards__table {
   display: none;
 }
-.standards__title {
-  margin-bottom: 20px;
+@media (max-width: 990px) {
+  .standards {
+    padding-top: 150px;
+  }
 }
+@media (max-width: 1150px) {
+  .standards__block {
+    display: block;
+  }
+  .standards__table {
+    display: none;
+  }
+  .standards__title {
+    margin-bottom: 20px;
+  }
 }
 </style>

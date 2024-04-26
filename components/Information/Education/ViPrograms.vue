@@ -1,7 +1,7 @@
 <template>
   <section class="programs">
     <div class="programs__container">
-      <UIViBreadcrumbs />
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       <UIViTitle class="programs__title" :settings="true"
         >Образовательные программы</UIViTitle
       >
@@ -32,6 +32,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Образовательные программы",
+          path: "/information/education",
+        },
+      ],
       ArrayPrograms: [
         {
           name: "40.02.02 «Правоохранительная деятельность»",

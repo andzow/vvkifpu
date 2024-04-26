@@ -1,8 +1,10 @@
 <template>
   <section class="payment">
     <div class="payment__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="payment__title" :settings="true">Оплата обучения</UIViTitle>
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="payment__title" :settings="true"
+        >Оплата обучения</UIViTitle
+      >
       <div class="payment__back">
         <p class="payment__description font" data-font-actual="22">
           Стоимость обучения в 2024-2025 учебном году:
@@ -49,6 +51,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Оплата обучения",
+          path: "/students/payment",
+        },
+      ],
       ArrauInfo: [
         {
           code: "09.02.07",
@@ -236,36 +244,36 @@ export default {
   font-size: 18px;
   margin: 0 40px;
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .payment {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
+  .payment__grid {
+    max-width: 700px;
+  }
+  .payment__item {
+    flex-direction: column;
+  }
+  .payment__head {
+    flex-direction: column;
+  }
+  .payment__code {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .payment__name {
+    margin-bottom: 10px;
+  }
 }
-.payment__grid {
-  max-width: 700px;
-}
-.payment__item {
-  flex-direction: column;
-}
-.payment__head {
-  flex-direction: column;
-}
-.payment__code  {
-  margin-right: 0;
-  margin-bottom: 10px;
-}
-.payment__name {
-  margin-bottom: 10px;
-}
-}
-@media(max-width: 580px) {
+@media (max-width: 580px) {
   .payment__footer {
     flex-direction: column;
   }
-  .payment__name  {
+  .payment__name {
     text-align: center;
     color: var(--violo);
   }
-  .payment__border  {
+  .payment__border {
     display: none;
   }
   .payment__term:nth-child(1) {

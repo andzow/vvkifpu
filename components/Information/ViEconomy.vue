@@ -1,23 +1,39 @@
 <template>
   <section class="economy">
     <div class="economy__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="economy__title" :settings="true">План финансово-хозяйственной деятельности ПОУ «ВВКИФПУ» на
-        2019-2020
-        учебный год</UIViTitle>
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="economy__title" :settings="true"
+        >План финансово-хозяйственной деятельности ПОУ «ВВКИФПУ» на 2019-2020
+        учебный год</UIViTitle
+      >
       <p class="economy__text font" data-font-actual="18">
         Полный отчет о финансово-хозяйственной деятельности колледжа отражен на
         сайте министерства юстиции Кировской области.
       </p>
       <div class="economy__image">
-        <img class="economy__img image" src="~/assets/images/Information/document.webp" alt="" />
+        <img
+          class="economy__img image"
+          src="~/assets/images/Information/document.webp"
+          alt=""
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      arrCrumbs: [
+        {
+          name: "План финансово-хозяйственной деятельности ПОУ «ВВКИФПУ» на 2019-2020 учебный год",
+          path: "/information/economy",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -48,10 +64,9 @@ export default {};
 .economy__image {
   max-width: 500px;
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .economy {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-
 </style>

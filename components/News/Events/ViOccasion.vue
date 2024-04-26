@@ -1,10 +1,18 @@
 <template>
   <section class="occasion">
     <div class="occasion__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="occasion__title" :settings="true">Мероприятия</UIViTitle>
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="occasion__title" :settings="true"
+        >Мероприятия</UIViTitle
+      >
       <div class="occasion__grid">
-        <div class="occasion__item" v-for="(item, idx) in ArrayOccasion" :key="idx" data-aos="zoom-in-up" data-aos-duration="1000">
+        <div
+          class="occasion__item"
+          v-for="(item, idx) in ArrayOccasion"
+          :key="idx"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
           <div class="occasion__image">
             <img class="occasion__img image_opacity" :src="item.image" alt="" />
             <div class="occasion__back border">
@@ -16,8 +24,8 @@
           <p class="occasion__info font" data-font-actual="16">
             {{ item.date }} |
             <span class="occasion__type font" data-font-actual="16">{{
-        item.type
-      }}</span>
+              item.type
+            }}</span>
           </p>
           <h3 class="occasion__name font" data-font-actual="24">
             {{ item.name }}
@@ -37,6 +45,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Мероприятия",
+          path: "/news/events",
+        },
+      ],
       ArrayOccasion: [
         {
           image: "../assets/images/News/occasion.webp",
@@ -162,33 +176,34 @@ export default {
 .occasion__help {
   font-size: 28px;
   color: #fff;
-}@media(max-width: 1220px) {
+}
+@media (max-width: 1220px) {
   .occasion__grid {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
 }
-}
-@media(max-width: 1061px) {
+@media (max-width: 1061px) {
   .occasion__grid {
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 50px;
-  gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 50px;
+    gap: 30px;
+  }
 }
-}
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .occasion {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-@media(max-width: 708px) {
+@media (max-width: 708px) {
   .occasion__grid {
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
-  max-width: 600px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    max-width: 600px;
+  }
 }
-}
-@media(max-width: 500px) {
-  .occasion__btn  {
+@media (max-width: 500px) {
+  .occasion__btn {
     margin-top: 40px;
     padding: 20px 30px;
   }
@@ -196,13 +211,13 @@ export default {
     margin-bottom: 40px;
   }
 }
-@media(max-width: 440px) {
-  .occasion__info  {
+@media (max-width: 440px) {
+  .occasion__info {
     margin-top: 20px;
   }
   .occasion__grid {
-  grid-template-columns: repeat(1, 1fr);
-  gap: 40px;
-}
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
 }
 </style>

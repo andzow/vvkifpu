@@ -27,4 +27,20 @@ export default {
 .sert__item {
   margin-right: 20px;
 }
+@media screen and (max-width: 1320px) {
+  .sert__item {
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .sert {
+    padding: 40px 40px;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  .sert {
+    padding: 30px 30px;
+  }
+}
 </style>

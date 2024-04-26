@@ -44,11 +44,12 @@ export default {
     font-size: 52px !important;
   }
 }
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 990px) {
   .title {
     font-size: 48px !important;
   }
 }
+
 @media screen and (max-width: 330px) {
   .title {
     font-size: 44px !important;
@@ -59,12 +60,12 @@ export default {
     font-size: 40px !important;
   }
 }
-@media(max-width:960px) {
+@media (max-width: 960px) {
   .title {
     font-size: 50px !important;
   }
 }
-@media(max-width:520px) {
+@media (max-width: 520px) {
   .title {
     font-size: 36px !important;
   }

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Дизайна нет</h1>
-    <UIViBreadcrumbs />
+    <StudentsFeesViPayment />
+    <StudentsFeesViRequisites />
+    <MainViApplication />
   </div>
 </template>
 

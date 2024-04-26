@@ -85,11 +85,6 @@ const navArr = [
         children: null,
       },
       {
-        name: "Онлайн обучение",
-        path: "https://vk.com/vvkifpu?w=wall-1774054_561",
-        children: null,
-      },
-      {
         name: "Документы на практику",
         path: "/students/documents",
         children: null,
@@ -314,11 +309,6 @@ const mobileNavArr = [
         children: null,
       },
       {
-        name: "Онлайн обучение",
-        path: "https://vk.com/vvkifpu?w=wall-1774054_561",
-        children: null,
-      },
-      {
         name: "Документы на практику",
         path: "/students/documents",
         children: null,
@@ -507,11 +497,7 @@ const navArrFooter = [
         path: "/students/payment",
         children: null,
       },
-      {
-        name: "Онлайн обучение",
-        path: "https://vk.com/vvkifpu?w=wall-1774054_561",
-        children: null,
-      },
+
       {
         name: "Документы на практику",
         path: "/students/documents",

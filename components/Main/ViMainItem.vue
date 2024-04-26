@@ -291,9 +291,6 @@ export default {
 }
 
 @media screen and (max-width: 1670px) {
-  .main__container {
-    max-width: 1350px;
-  }
   .main__slider {
     min-width: auto;
     min-height: auto;
@@ -304,7 +301,7 @@ export default {
     padding: 30px;
   }
   .main__menu {
-    margin: 170px 0 0 0;
+    margin: 190px 0 0 0;
   }
   .main__slider_main img {
     width: 180px;
@@ -324,9 +321,6 @@ export default {
   }
 }
 @media screen and (max-width: 1400px) {
-  .main__container {
-    max-width: 1200px;
-  }
   .main__slider {
     max-width: 550px;
   }

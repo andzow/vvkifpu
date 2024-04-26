@@ -32,7 +32,7 @@
             class="about__animate_item"
             data-aos="flip-up"
             data-aos-offset="200"
-            data-aos-duration="800"
+            data-aos-duration="700"
             :data-aos-delay="item.delay"
             v-for="item in arrAnimateText"
             :key="item"

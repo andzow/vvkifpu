@@ -1,9 +1,16 @@
 <template>
   <section class="intelligence">
     <div class="intelligence__container">
-      <UIViBreadcrumbs />
-      <UIViTitle class="intelligence__title" :settings="true">Основные сведения ПОУ Волго-Вятский колледж</UIViTitle>
-      <table class="intelligence__table" cellpadding="0" cellspacing="0" border="0">
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
+      <UIViTitle class="intelligence__title" :settings="true"
+        >Основные сведения ПОУ Волго-Вятский колледж</UIViTitle
+      >
+      <table
+        class="intelligence__table"
+        cellpadding="0"
+        cellspacing="0"
+        border="0"
+      >
         <tbody class="intelligence__tbody">
           <tr v-for="(item, index) in ArrayIntelligence" :key="index">
             <td class="intelligence__element font" data-font-actual="17">
@@ -23,6 +30,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Основные сведения ПОУ Волго-Вятский колледж",
+          path: "/information/intelligence",
+        },
+      ],
       ArrayIntelligence: [
         {
           first:
@@ -127,26 +140,25 @@ export default {
   padding: 15px 20px;
   color: #000;
   border: 2px solid var(--violo);
-
 }
 .intelligence__element:first-child {
   background-color: var(--violo);
   color: #fff;
   font-weight: 500;
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .intelligence {
-  padding-top: 150px;
+    padding-top: 150px;
+  }
 }
-}
-@media(max-width: 450px) {
+@media (max-width: 450px) {
   .intelligence__element {
-  padding: 10px 15px;
+    padding: 10px 15px;
+  }
 }
-}
-@media(max-width: 420px) {
+@media (max-width: 420px) {
   .intelligence__element {
     word-break: break-all;
-}
+  }
 }
 </style>

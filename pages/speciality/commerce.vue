@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      :arrCrumbs="arrCrumbs"
       breadcrumbs="38.02.04 Коммерция (по отраслям)"
     />
     <UISpecialityViBasics
@@ -24,7 +25,13 @@ export default {
   data() {
     return {
       specialityTitle: `38.02.04 <br />
-      КОММЕРЦИЯ(ПО ОТРАСЛЯМ)`,
+      Коммерция (по отраслям)`,
+      arrCrumbs: [
+        {
+          name: "38.02.04 Коммерция (по отраслям)",
+          path: "/speciality/commerce",
+        },
+      ],
       arrDes: [
         {
           name: "Начало обучения",

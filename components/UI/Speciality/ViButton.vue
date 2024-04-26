@@ -23,6 +23,12 @@ export default {};
   color: white;
   background: #542fe6;
 }
+@media screen and (max-width: 990px) {
+  .button {
+    font-size: 16px !important;
+    padding: 12px 20px;
+  }
+}
 @media screen and (max-width: 604px) {
   .button {
     font-size: 16px !important;

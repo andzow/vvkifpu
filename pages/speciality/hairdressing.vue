@@ -6,6 +6,7 @@
       :arrProffesions="arrProffesions"
       :imageSrc="imageSrc"
       :backImage="backImage"
+      :arrCrumbs="arrCrumbs"
       breadcrumbs="43.02.02 Парикмахерское искусство"
     />
     <UISpecialityViBasics
@@ -25,6 +26,12 @@ export default {
     return {
       specialityTitle: `43.02.02 <br />
       Парикмахерское искусство`,
+      arrCrumbs: [
+        {
+          name: "43.02.02 Парикмахерское искусство",
+          path: "/speciality/hairdressing",
+        },
+      ],
       arrDes: [
         {
           name: "Начало обучения",

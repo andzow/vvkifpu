@@ -58,4 +58,17 @@ export default {};
 .about_text:last-child {
   margin-bottom: 0px;
 }
+@media screen and (max-width: 990px) {
+  .about__container {
+    padding: 0 20px 40px 20px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .about_text {
+    font-size: 16px !important;
+  }
+  .about_li {
+    font-size: 16px !important;
+  }
+}
 </style>

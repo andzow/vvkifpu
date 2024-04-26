@@ -1,7 +1,7 @@
 <template>
   <section class="cooperation">
     <div class="cooperation__container">
-      <UIViBreadcrumbs />
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       <UIViTitle class="cooperation__title" :settings="true"
         >Международное сотрудничество</UIViTitle
       >
@@ -14,7 +14,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      arrCrumbs: [
+        {
+          name: "Международное сотрудничество",
+          path: "/information/cooperation",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -37,9 +48,9 @@ export default {};
   font-size: 18px;
   margin-top: 40px;
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .cooperation {
-  padding-top: 150px;
-}
+    padding-top: 150px;
+  }
 }
 </style>

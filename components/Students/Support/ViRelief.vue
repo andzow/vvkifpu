@@ -1,7 +1,7 @@
 <template>
   <section class="relief">
     <div class="relief__container">
-      <UIViBreadcrumbs />
+      <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       <UIViTitle class="relief__title" :settings="true"
         >Виды материальной поддержки</UIViTitle
       >
@@ -39,7 +39,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      arrCrumbs: [
+        {
+          name: "Виды материальной поддержки",
+          path: "/students/support",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -86,9 +97,9 @@ export default {};
   margin-right: 10px;
   margin-left: 10px;
 }
-@media(max-width: 990px) {
+@media (max-width: 990px) {
   .relief {
-  padding-top: 150px;
-}
+    padding-top: 150px;
+  }
 }
 </style>

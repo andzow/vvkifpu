@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Дополнительные информационные ресурсы</UIViTitle
@@ -29,6 +29,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Дополнительные информационные ресурсы",
+          path: "/library/informational-resources",
+        },
+      ],
       arrMain: [
         {
           name: "40.02.02 Правоохранительная деятельность",
@@ -209,5 +215,39 @@ export default {
 .main__href:hover {
   color: white;
   background: #542fe6;
+}
+@media screen and (max-width: 990px) {
+  .main {
+    padding-top: 150px;
+  }
+  .main__name {
+    font-size: 28px !important;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .main__item {
+    flex-wrap: wrap;
+    padding: 25px 0px;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #542fe6;
+  }
+  .main__header {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .main {
+    padding-top: 150px;
+  }
+  .main__name {
+    font-size: 17px !important;
+    margin-bottom: 25px;
+  }
+  .main__btns {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
 }
 </style>
