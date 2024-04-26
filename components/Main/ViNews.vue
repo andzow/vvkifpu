@@ -80,6 +80,7 @@
 </template>
 
 <script>
+import PostController from '@/http/controllers/PostController'
 export default {
   data() {
     return {
@@ -105,6 +106,10 @@ export default {
       ],
     };
   },
+  async mounted() {
+    const posts = await PostController.getPostThree()
+    console.log(posts)
+  }
 };
 </script>
 

@@ -89,6 +89,7 @@ export default {
   height: 100%;
   width: 100%;
   z-index: 2;
+  object-fit: cover;
   transition: all 0.3s ease;
 }
 .traningCard__background {

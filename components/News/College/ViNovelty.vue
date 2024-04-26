@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import PostController from '@/http/controllers/PostController'
 export default {
   data() {
     return {
@@ -70,6 +71,10 @@ export default {
       ],
     };
   },
+  async mounted() {
+    const post = await PostController.getPostNews(this.$route.query)
+    console.log(post)
+  }
 };
 </script>
 

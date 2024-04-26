@@ -1,7 +1,6 @@
 <template>
   <div class="app">
     <MainViMainPhoto />
-    <MainVimain />
     <MainViTraning />
     <MainViApplication />
     <MainViNews />

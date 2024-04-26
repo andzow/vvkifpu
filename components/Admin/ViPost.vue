@@ -325,6 +325,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     top: 0;
     left: 0;
     right: 0;

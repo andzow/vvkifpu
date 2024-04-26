@@ -28,7 +28,7 @@ export default {
     };
   },
   mounted() {
-    if (this.$route.name == "Вход") {
+    if (this.$route.name == "login") {
       this.isPath = false;
     } else {
       this.isPath = true;

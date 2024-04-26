@@ -3,7 +3,7 @@
     <div class="filter__item" v-for="(item, idx) in data" :key="idx" data-aos="zoom-in-up"
       data-aos-duration="1000">
       <div class="filter__image" @click="updatePost(item)">
-        <img class="filter__img" :src="imgSrc + item.image" alt="" />
+        <img class="filter__img" v-if="imgSrc" :src="imgSrc + item.image" alt="" />
         <div class="filter__back">
         </div>
       </div>
@@ -25,7 +25,7 @@ export default {
     return {
       data: usePostAll(),
       usePostData: usePostData(),
-      imgSrc: '',
+      imgSrc: false,
       useNews: useNews(),
       usePage: usePage(),
       usePageActive: usePageActive()
@@ -75,6 +75,7 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 3;
+  object-fit: cover;
   transition: all 0.3s ease-in-out;
 }
 .filter__back {

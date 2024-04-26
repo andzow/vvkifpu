@@ -21,6 +21,26 @@ export default class PostController {
         }
     }
 
+    static async getPostThree() {
+        try {
+            const response = await PostService.getPostThree()
+            return response.data
+        } catch (e) {
+            console.log(e.response?.data?.message)
+            return e.response.status
+        }
+    }
+
+    static async getPostNews(query) {
+        try {
+            const response = await PostService.getPostNews(query)
+            return response.data
+        } catch (e) {
+            console.log(e.response?.data?.message)
+            return e.response.status
+        }
+    }
+
     static async deletePost(id) {
         try {
             const response = await PostService.deletePost(id)
@@ -35,6 +55,16 @@ export default class PostController {
         try {
             const response = await PostService.updatePost(dataObject)
             return response.status
+        } catch (e) {
+            console.log(e.response?.data?.message)
+            return e.response.status
+        }
+    }
+
+    static async fetchPostOne(id) {
+        try {
+            const response = await PostService.fetchPostOne(id)
+            return response.data
         } catch (e) {
             console.log(e.response?.data?.message)
             return e.response.status

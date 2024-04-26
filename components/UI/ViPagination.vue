@@ -161,16 +161,16 @@
         }
       },
       async active() {
-        if (this.$route.query.page > 1) {
-          this.isActiveLeft = true
+        if (this.isActive == 1) {
+          this.isActiveLeft = false;
         } else {
-          this.isActiveLeft = false
+          this.isActiveLeft = true;
         }
 
-        if (this.$route.query.page >= this.isPage) {
-          this.isActiveRight = false
+        if (this.isActive == this.isPage) {
+          this.isActiveRight = false;
         } else {
-          this.isActiveLeft = true
+          this.isActiveRight = true;
         }
       },
       scrollToAnchor() {
