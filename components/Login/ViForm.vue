@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="form__image">
-                <img class="form__img" src="~/assets/images/login/back.png" alt="" />
+                <img class="form__img" src="~/assets/images/Login/back.png" alt="" />
             </div>
         </div>
     </section>
