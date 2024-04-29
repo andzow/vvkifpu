@@ -1,17 +1,17 @@
 <template>
   <UIViHeader v-if="isPath" />
+  <Transition>
+    <UIViPreloader v-if="!isActive" />
+  </Transition>
   <main>
     <NuxtPage />
     <Transition>
-      <UIViPreloader v-if="!isActive" />
+      <UIModalViModal v-if="isActive" />
     </Transition>
     <Transition>
-      <UIModalViModal />
+      <UIModalViModalFinal v-if="isActive" />
     </Transition>
-    <Transition>
-      <UIModalViModalFinal />
-    </Transition>
-    <UIViModalStatus />
+    <UIViModalStatus v-if="isActive" />
   </main>
   <UIViFooter v-if="isPath" />
 </template>

@@ -5,18 +5,35 @@
         <h2 class="news__title font" data-font-actual="60">Новости</h2>
         <button class="news__btn font border" data-font-actual="22">
           Все новости
-          <svg class="news__svg" width="55" height="19" viewBox="0 0 66 19" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path class="path arrow"
+          <svg
+            class="news__svg"
+            width="55"
+            height="19"
+            viewBox="0 0 66 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="path arrow"
               d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
-              fill="white" />
+              fill="white"
+            />
           </svg>
         </button>
       </div>
-      <div class="news__content">
-        <div class="news__main" data-aos="fade-right" data-aos-offset="400" data-aos-duration="1000">
+      <div class="news__content" v-if="ArrayNews">
+        <div
+          class="news__main"
+          data-aos="fade-right"
+          data-aos-offset="400"
+          data-aos-duration="1000"
+        >
           <div class="news__main_image">
-            <img class="news__img image_opacity" :src="ArrayNews[0].image" alt="" />
+            <img
+              class="news__img image_opacity"
+              :src="ArrayNews[0].image"
+              alt=""
+            />
             <div class="news__background border"></div>
           </div>
           <p class="news__info font" data-font-actual="16">
@@ -28,28 +45,48 @@
           <h3 class="news__name font" data-font-actual="28">
             {{ ArrayNews[0].name }}
           </h3>
-          <button class="news__btn news__btn_mobile font border" data-font-actual="22">
-          Все новости
-          <svg class="news__svg" width="55" height="19" viewBox="0 0 66 19" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path class="path arrow"
-              d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
-              fill="white" />
-          </svg>
-        </button>
+          <button
+            class="news__btn news__btn_mobile font border"
+            data-font-actual="22"
+          >
+            Все новости
+            <svg
+              class="news__svg"
+              width="55"
+              height="19"
+              viewBox="0 0 66 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="path arrow"
+                d="M66 9.5L51 0.839743L51 18.1603L66 9.5ZM52.5 8L-6.55671e-08 8L6.55671e-08 11L52.5 11L52.5 8Z"
+                fill="white"
+              />
+            </svg>
+          </button>
         </div>
-        <div class="news__additionally" data-aos="fade-left" data-aos-offset="400" data-aos-duration="1000">
+        <div
+          class="news__additionally"
+          data-aos="fade-left"
+          data-aos-offset="400"
+          data-aos-duration="1000"
+        >
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img class="news__additionally_img image" :src="ArrayNews[1].image" alt="" />
+              <img
+                class="news__additionally_img image"
+                :src="ArrayNews[1].image"
+                alt=""
+              />
               <div class="news__background border"></div>
             </div>
             <div>
               <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[1].data }} |
                 <span class="news__type font" data-font-actual="20">{{
-              ArrayNews[1].type
-            }}</span>
+                  ArrayNews[1].type
+                }}</span>
               </p>
               <h3 class="news__name font" data-font-actual="28">
                 {{ ArrayNews[1].name }}
@@ -58,15 +95,19 @@
           </div>
           <div class="news__additionally_add">
             <div class="news__additionally_image">
-              <img class="news__additionally_img image" :src="ArrayNews[2].image" alt="" />
+              <img
+                class="news__additionally_img image"
+                :src="ArrayNews[2].image"
+                alt=""
+              />
               <div class="news__background border"></div>
             </div>
             <div>
               <p class="news__info news__info_add font" data-font-actual="16">
                 {{ ArrayNews[2].data }} |
                 <span class="news__type font" data-font-actual="20">{{
-              ArrayNews[2].type
-            }}</span>
+                  ArrayNews[2].type
+                }}</span>
               </p>
               <h3 class="news__name font" data-font-actual="28">
                 {{ ArrayNews[2].name }}
@@ -80,36 +121,38 @@
 </template>
 
 <script>
-import PostController from '@/http/controllers/PostController'
+import PostController from "@/http/controllers/PostController";
+import { USE_SERVER } from "~/url";
+
 export default {
   data() {
     return {
-      ArrayNews: [
-        {
-          image: "../assets/images/Main/new.webp",
-          data: "15 сентября, 2023",
-          type: "Мероприятия",
-          name: "Путешествие в Советский район",
-        },
-        {
-          image: "../assets/images/Main/new.webp",
-          data: "10 августа, 2023",
-          type: "Новости колледжа",
-          name: "Посвящение в студенты",
-        },
-        {
-          image: "../assets/images/Main/new.webp",
-          data: "21 мая, 2022",
-          type: "Новости колледжа",
-          name: "Дополнительные предметы",
-        },
-      ],
+      ArrayNews: null,
     };
   },
+  methods: {
+    async initApp() {
+      try {
+        const posts = await PostController.getPostThree();
+        this.ArrayNews = posts.map((el) => {
+          const obj = { ...el };
+          obj.image = USE_SERVER + obj.image;
+          obj.data = new Date(el.createdAt)
+            .toLocaleString("ru-RU", {
+              month: "long",
+              year: "numeric",
+              day: "2-digit",
+            })
+            .replace(".", "");
+          obj.data = obj.data.substring(0, obj.data.length - 1);
+          return obj;
+        });
+      } catch {}
+    },
+  },
   async mounted() {
-    const posts = await PostController.getPostThree()
-    console.log(posts)
-  }
+    this.initApp();
+  },
 };
 </script>
 
@@ -165,8 +208,16 @@ export default {
 }
 .news__main_image {
   position: relative;
+  max-height: 400px;
+  max-width: 100%;
   z-index: 2;
   cursor: pointer;
+}
+.news__main_image img {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  max-height: 400px;
 }
 .news__info {
   margin-top: 30px;
@@ -194,6 +245,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  object-fit: cover;
   transition: all 0.3s ease-in-out;
   z-index: 3;
 }
@@ -227,6 +279,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   z-index: 3;
   transition: all 0.3s ease-in-out;
 }
@@ -236,11 +289,11 @@ export default {
 .news__info_add {
   margin-top: 0;
 }
-@media(max-width: 960px) {
+@media (max-width: 960px) {
   .news__content {
     grid-template-columns: repeat(1, 1fr);
   }
-  .news__main  {
+  .news__main {
     margin-right: 0;
     display: flex;
     flex-direction: column;
@@ -253,17 +306,24 @@ export default {
     max-width: 600px;
   }
 }
-@media(max-width: 620px) {
+@media (max-width: 620px) {
   .news__title {
     font-size: 40px !important;
   }
-  .news__btn  {
+  .news__btn {
     font-size: 20px !important;
     padding: 15px 30px;
   }
+  .news__main_image {
+    max-height: 250px;
+  }
+  .news__main_image img {
+    min-height: 250px;
+    max-height: 250px;
+  }
 }
-@media(max-width: 520px) {
-  .news__btn  {
+@media (max-width: 520px) {
+  .news__btn {
     display: none;
   }
   .news__content {
@@ -275,7 +335,7 @@ export default {
   }
   .news__btn_mobile {
     display: block;
-    margin-top:20px
+    margin-top: 20px;
   }
   .news__svg {
     transform: translateY(5px);

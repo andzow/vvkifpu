@@ -5,7 +5,7 @@
       <UIViTitle class="occasion__title" :settings="true"
         >Мероприятия</UIViTitle
       >
-      <div class="occasion__grid">
+      <div class="occasion__grid" v-if="ArrayOccasion">
         <div
           class="occasion__item"
           v-for="(item, idx) in ArrayOccasion"
@@ -32,8 +32,19 @@
           </h3>
         </div>
       </div>
+      <div
+        class="occasion__empty"
+        v-if="!ArrayOccasion || ArrayOccasion?.length <= 0"
+      >
+        Пусто
+      </div>
       <div class="occasion__position">
-        <button class="occasion__btn font border" data-font-actual="18">
+        <button
+          class="occasion__btn font border"
+          data-font-actual="18"
+          @click="addNumber"
+          v-if="!isActiveButton"
+        >
           Загрузить ещё
         </button>
       </div>
@@ -42,6 +53,9 @@
 </template>
 
 <script>
+import PostController from "@/http/controllers/PostController";
+import { USE_SERVER } from "~/url";
+
 export default {
   data() {
     return {
@@ -51,39 +65,66 @@ export default {
           path: "/news/events",
         },
       ],
-      ArrayOccasion: [
-        {
-          image: "../assets/images/News/occasion.webp",
-          date: "15 сентября, 2020",
-          type: "Мероприятия",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/occasion.webp",
-          date: "15 сентября, 2020",
-          type: "Мероприятия",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/occasion.webp",
-          date: "15 сентября, 2020",
-          type: "Мероприятия",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/occasion.webp",
-          date: "15 сентября, 2020",
-          type: "Мероприятия",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/occasion.webp",
-          date: "15 сентября, 2020",
-          type: "Мероприятия",
-          name: "Чаепитие в библиотеке",
-        },
-      ],
+      ArrayOccasion: null,
+      numberCounter: null,
+      isActiveButton: true,
     };
+  },
+  methods: {
+    async addNumber() {
+      try {
+        const { number } = { ...this.$route.query };
+        this.$router.replace({
+          path: "/news/events",
+          query: {
+            ...this.$route.query,
+            type: "Мероприятия",
+            number: !number ? 6 : parseInt(number) + 6,
+          },
+        });
+        const router = { ...this.$route.query };
+        router.number = parseInt(number) + 6;
+        const post = await PostController.getPostNews(router);
+        this.isActiveButton = post.log;
+        if (post) {
+          this.changeArray(post);
+        }
+      } catch {}
+    },
+    async changeArray(post) {
+      this.ArrayOccasion = post.posts.map((el) => {
+        const obj = { ...el };
+        obj.image = USE_SERVER + obj.image;
+        obj.date = new Date(el.createdAt)
+          .toLocaleString("ru-RU", {
+            month: "long",
+            year: "numeric",
+            day: "2-digit",
+          })
+          .replace(".", "");
+        obj.date = obj.date.substring(0, obj.date.length - 1);
+        return obj;
+      });
+    },
+    async initApp() {
+      try {
+        const { number } = { ...this.$route.query };
+        await this.$router.push({
+          path: "/news/events",
+          query: {
+            ...this.$route.query,
+            type: "Мероприятия",
+            number: !number ? 6 : number,
+          },
+        });
+        const post = await PostController.getPostNews(this.$route.query);
+        this.isActiveButton = post.log;
+        this.changeArray(post);
+      } catch {}
+    },
+  },
+  async mounted() {
+    this.initApp();
   },
 };
 </script>
@@ -177,6 +218,22 @@ export default {
   font-size: 28px;
   color: #fff;
 }
+.occasion__empty {
+  font-family: "Inter", sans-serif;
+  font-size: 76px;
+  font-weight: 600;
+  color: #6b7280;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+@media (max-width: 1320px) {
+  .occasion__empty {
+    height: 200px;
+  }
+}
 @media (max-width: 1220px) {
   .occasion__grid {
     grid-template-columns: repeat(3, 1fr);
@@ -194,6 +251,9 @@ export default {
   .occasion {
     padding-top: 150px;
   }
+  .occasion__empty {
+    font-size: 55px;
+  }
 }
 @media (max-width: 708px) {
   .occasion__grid {
@@ -209,6 +269,9 @@ export default {
   }
   .occasion {
     margin-bottom: 40px;
+  }
+  .occasion__empty {
+    font-size: 38px;
   }
 }
 @media (max-width: 440px) {

@@ -5,7 +5,7 @@
       <UIViTitle class="novelty__title" :settings="true"
         >Новости колледжа</UIViTitle
       >
-      <div class="novelty__grid">
+      <div class="novelty__grid" v-if="ArrayOccasion">
         <div
           class="novelty__item"
           v-for="(item, idx) in ArrayOccasion"
@@ -30,8 +30,19 @@
           </h3>
         </div>
       </div>
+      <div
+        class="novelty__empty"
+        v-if="!ArrayOccasion || ArrayOccasion?.length <= 0"
+      >
+        Пусто
+      </div>
       <div class="novelty__position">
-        <button class="novelty__btn font border" data-font-actual="18">
+        <button
+          class="novelty__btn font border"
+          data-font-actual="18"
+          @click="addNumber"
+          v-if="!isActiveButton"
+        >
           Загрузить ещё
         </button>
       </div>
@@ -40,7 +51,9 @@
 </template>
 
 <script>
-import PostController from '@/http/controllers/PostController'
+import PostController from "@/http/controllers/PostController";
+import { USE_SERVER } from "~/url";
+
 export default {
   data() {
     return {
@@ -50,44 +63,67 @@ export default {
           path: "/news/college",
         },
       ],
-      ArrayOccasion: [
-        {
-          image: "../assets/images/News/college.webp",
-          date: "15 сентября, 2020",
-          type: "Новости колледжа",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/college.webp",
-          date: "15 сентября, 2020",
-          type: "Новости колледжа",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/college.webp",
-          date: "15 сентября, 2020",
-          type: "Новости колледжа",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/college.webp",
-          date: "15 сентября, 2020",
-          type: "Новости колледжа",
-          name: "Чаепитие в библиотеке",
-        },
-        {
-          image: "../assets/images/News/college.webp",
-          date: "15 сентября, 2020",
-          type: "Новости колледжа",
-          name: "Чаепитие в библиотеке",
-        },
-      ],
+      ArrayOccasion: null,
+      numberCounter: null,
+      isActiveButton: true,
     };
   },
+  methods: {
+    async addNumber() {
+      try {
+        const { number } = { ...this.$route.query };
+        this.$router.replace({
+          path: "/news/college",
+          query: {
+            ...this.$route.query,
+            type: "Новости колледжа",
+            number: !number ? 6 : parseInt(number) + 6,
+          },
+        });
+        const router = { ...this.$route.query };
+        router.number = parseInt(number) + 6;
+        const post = await PostController.getPostNews(router);
+        this.isActiveButton = post.log;
+        if (post) {
+          this.changeArray(post);
+        }
+      } catch {}
+    },
+    async changeArray(post) {
+      this.ArrayOccasion = post.posts.map((el) => {
+        const obj = { ...el };
+        obj.image = USE_SERVER + obj.image;
+        obj.date = new Date(el.createdAt)
+          .toLocaleString("ru-RU", {
+            month: "long",
+            year: "numeric",
+            day: "2-digit",
+          })
+          .replace(".", "");
+        obj.date = obj.date.substring(0, obj.date.length - 1);
+        return obj;
+      });
+    },
+    async initApp() {
+      try {
+        const { number } = { ...this.$route.query };
+        await this.$router.push({
+          path: "/news/college",
+          query: {
+            ...this.$route.query,
+            type: "Новости колледжа",
+            number: !number ? 6 : number,
+          },
+        });
+        const post = await PostController.getPostNews(this.$route.query);
+        this.isActiveButton = post.log;
+        this.changeArray(post);
+      } catch {}
+    },
+  },
   async mounted() {
-    const post = await PostController.getPostNews(this.$route.query)
-    console.log(post)
-  }
+    this.initApp();
+  },
 };
 </script>
 
@@ -113,6 +149,9 @@ export default {
 }
 .novelty__image {
   position: relative;
+  min-height: 250px;
+  max-height: 250px;
+  max-width: 100%;
   cursor: pointer;
 }
 .novelty__image:hover .novelty__img {
@@ -120,8 +159,12 @@ export default {
 }
 .novelty__img {
   position: relative;
-  z-index: 3;
+  object-fit: cover;
+  width: 100%;
+  min-height: 250px;
+  max-height: 250px;
   transition: all 0.3s ease-in-out;
+  z-index: 3;
 }
 .novelty__back {
   position: absolute;
@@ -180,6 +223,22 @@ export default {
   font-size: 28px;
   color: #fff;
 }
+.novelty__empty {
+  font-family: "Inter", sans-serif;
+  font-size: 76px;
+  font-weight: 600;
+  color: #6b7280;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+@media (max-width: 1320px) {
+  .novelty__empty {
+    height: 200px;
+  }
+}
 @media (max-width: 1220px) {
   .novelty__grid {
     grid-template-columns: repeat(3, 1fr);
@@ -197,6 +256,9 @@ export default {
   .novelty {
     padding-top: 150px;
   }
+  .novelty__empty {
+    font-size: 55px;
+  }
 }
 @media (max-width: 708px) {
   .novelty__grid {
@@ -212,6 +274,9 @@ export default {
   }
   .novelty {
     margin-bottom: 40px;
+  }
+  .novelty__empty {
+    font-size: 38px;
   }
 }
 @media (max-width: 440px) {
