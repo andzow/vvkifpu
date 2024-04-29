@@ -34,7 +34,16 @@ export default class PostController {
   static async getPostNews(query) {
     try {
       const response = await PostService.getPostNews(query);
+      return response.data;
+    } catch (e) {
+      console.log(e.response?.data?.message);
+      return e.response.status;
+    }
+  }
 
+  static async getPostCommunity(query) {
+    try {
+      const response = await PostService.getPostCommunity(query);
       return response.data;
     } catch (e) {
       console.log(e.response?.data?.message);
@@ -62,9 +71,9 @@ export default class PostController {
     }
   }
 
-  static async fetchPostOne(id) {
+  static async fetchPostOne(name) {
     try {
-      const response = await PostService.fetchPostOne(id);
+      const response = await PostService.fetchPostOne(name);
       return response.data;
     } catch (e) {
       console.log(e.response?.data?.message);

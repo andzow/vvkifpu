@@ -21,6 +21,12 @@ export default class PostService {
         })
     }
 
+    static async getPostCommunity(query) {
+        return $api.get('/post/community', {
+            params: query
+        })
+    }
+
     static async deletePost(id) {
         return $api.delete('/post/delete', { data: { id } })
     }
@@ -29,7 +35,7 @@ export default class PostService {
         return $api.put('/post/update', dataObject)
     }
 
-    static async fetchPostOne (id) {
-        return $api.get('/post/' + id)
+    static async fetchPostOne (name) {
+        return $api.get('/post/' + name)
     }
 }
