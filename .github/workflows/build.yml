@@ -21,6 +21,8 @@ jobs:
     - name: Install dependencies
       run: npm install
       # Этот шаг устанавливает зависимости вашего проекта
+    - name: Pull the project
+      run: git pull
 
     - name: Build the project
       run: npm run build
