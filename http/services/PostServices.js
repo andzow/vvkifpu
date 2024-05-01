@@ -2,40 +2,40 @@ import $api from "..";
 
 export default class PostService {
     static async createPost(FormObject) {
-        return $api.post('/post/create', FormObject)
+        return $api.post('/api/post/create', FormObject)
     }
 
     static async getPostAll(query) {
-        return $api.get('/post', {
+        return $api.get('/api/post', {
             params: query
         })
     }
 
     static async getPostThree() {
-        return $api.get('/post/three')
+        return $api.get('/api/post/three')
     }
 
     static async getPostNews(query) {
-        return $api.get('/post/news', {
+        return $api.get('/api/post/news', {
             params: query
         })
     }
 
     static async getPostCommunity(query) {
-        return $api.get('/post/community', {
+        return $api.get('/api/post/community', {
             params: query
         })
     }
 
     static async deletePost(id) {
-        return $api.delete('/post/delete', { data: { id } })
+        return $api.delete('/api/post/delete', { data: { id } })
     }
 
     static async updatePost(dataObject) {
-        return $api.put('/post/update', dataObject)
+        return $api.put('/api/post/update', dataObject)
     }
 
     static async fetchPostOne (name) {
-        return $api.get('/post/' + name)
+        return $api.get('/api/post/' + name)
     }
 }
