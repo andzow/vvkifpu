@@ -86,7 +86,6 @@ export default {
             await this.$router.push({ path: "/admin", query: { ...this.$route.query, name: this.isName, page: 1 } })
             const useData = await PostController.getPostAll(this.$route.query)
             this.usePostAll = useData.posts
-            console.log(this.usePostAll.length)
             this.usePage = useData.totalPages
             this.usePageActive = 1
         }
