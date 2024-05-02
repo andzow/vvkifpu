@@ -30,7 +30,7 @@
           <p class="modalInfo__description">
             Мы рады сообщить, что вы успешно вошли создали новый объект
           </p>
-          <NuxtLink class="modalInfo__btn" to="/admin" @click="useStatus = null">Хорошо</NuxtLink>
+          <NuxtLink class="modalInfo__btn" @click="useStatus = null">Хорошо</NuxtLink>
         </div>
       </div>
     </Transition>
