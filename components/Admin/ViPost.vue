@@ -3,114 +3,44 @@
     <div class="post__container">
       <div class="post__position">
         <div class="post__wrapper">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="80"
-            height="80"
-            fill="#542fe6"
-            class="bi bi-upload"
-            viewBox="0 0 16 16"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#542fe6" class="bi bi-upload"
+            viewBox="0 0 16 16">
             <path
-              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
-            />
+              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
             <path
-              d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"
-            />
+              d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
           </svg>
-          <input
-            class="post__file"
-            type="file"
-            @change="handleFileUpload"
-            ref="fileInput"
-          />
+          <input class="post__file" type="file" @change="handleFileUpload" ref="fileInput" />
           <Transition>
-            <img
-              class="post__img"
-              :src="imageUrl"
-              alt=""
-              v-if="imageUrl !== '' && useNews === 'Создать новость'"
-            />
+            <img class="post__img" :src="imageUrl" alt="" v-if="imageUrl !== '' && useNews === 'Создать новость'" />
           </Transition>
           <Transition>
-            <img
-              class="post__img"
-              :src="imageUrl"
-              alt=""
-              v-if="imageUrl !== '' && useNews === 'Редактировать новость'"
-            />
+            <img class="post__img" :src="imageUrl" alt=""
+              v-if="imageUrl !== '' && useNews === 'Редактировать новость'" />
           </Transition>
           <div class="post__circle" v-if="imageUrl !== ''" @click="clearFile">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 41 43"
-              fill="#542fe6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                width="51.2508"
-                height="7.32154"
-                rx="3.66077"
-                transform="matrix(0.699989 -0.714153 0.699989 0.714153 0 37.1289)"
-                fill="#542fe6"
-              />
-              <rect
-                width="51.2508"
-                height="7.32154"
-                rx="3.66077"
-                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.125 0.739258)"
-                fill="#542fe6"
-              />
+            <svg width="20" height="20" viewBox="0 0 41 43" fill="#542fe6" xmlns="http://www.w3.org/2000/svg">
+              <rect width="51.2508" height="7.32154" rx="3.66077"
+                transform="matrix(0.699989 -0.714153 0.699989 0.714153 0 37.1289)" fill="#542fe6" />
+              <rect width="51.2508" height="7.32154" rx="3.66077"
+                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.125 0.739258)" fill="#542fe6" />
             </svg>
           </div>
         </div>
-        <input
-          class="post__input"
-          type="text"
-          placeholder="Название"
-          v-model="isName"
-        />
+        <input class="post__input" type="text" placeholder="Название" v-model="isName" />
         <div class="post__block">
-          <div
-            class="post__input post__type"
-            @click="isOtherActive = !isOtherActive"
-          >
+          <div class="post__input post__type" @click="isOtherActive = !isOtherActive">
             <p>{{ isType }}</p>
-            <svg
-              width="30"
-              height="14"
-              viewBox="0 0 78 46"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                width="55.5528"
-                height="7.93612"
-                rx="3.96806"
-                transform="matrix(0.699989 -0.714153 0.699989 0.714153 33.5625 39.6729)"
-                fill="white"
-              />
-              <rect
-                width="55.5528"
-                height="7.93612"
-                rx="3.96806"
-                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.55469 0.228516)"
-                fill="white"
-              />
+            <svg width="30" height="14" viewBox="0 0 78 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="55.5528" height="7.93612" rx="3.96806"
+                transform="matrix(0.699989 -0.714153 0.699989 0.714153 33.5625 39.6729)" fill="white" />
+              <rect width="55.5528" height="7.93612" rx="3.96806"
+                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.55469 0.228516)" fill="white" />
             </svg>
           </div>
-          <div
-            class="post__other"
-            :class="{ post__active: isOtherActive === true }"
-          >
-            <p
-              class="post__item"
-              :class="{ post__item_active: type === isType }"
-              v-for="(type, index) in isTypeArray"
-              :key="index"
-              @click="toType(type)"
-            >
+          <div class="post__other" :class="{ post__active: isOtherActive === true }">
+            <p class="post__item" :class="{ post__item_active: type === isType }" v-for="(type, index) in isTypeArray"
+              :key="index" @click="toType(type)">
               {{ type }}
             </p>
           </div>
@@ -119,68 +49,23 @@
       <div class="post__description">
         <div class="post__array" v-for="(item, idx) in isInfo" :key="idx">
           <div class="post__delay">
-            <input
-              class="post__input_log"
-              placeholder="Заголовок"
-              type="text"
-              v-model="item.title"
-            />
-            <svg
-              class="post__delete"
-              width="20"
-              height="20"
-              viewBox="0 0 41 43"
-              fill="#542fe6"
-              @click="removeInfo"
-              v-if="idx !== 0"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                width="51.2508"
-                height="7.32154"
-                rx="3.66077"
-                transform="matrix(0.699989 -0.714153 0.699989 0.714153 0 37.1289)"
-                fill="#fff"
-              />
-              <rect
-                width="51.2508"
-                height="7.32154"
-                rx="3.66077"
-                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.125 0.739258)"
-                fill="#fff"
-              />
+            <input class="post__input_log" placeholder="Заголовок" type="text" v-model="item.title" />
+            <svg class="post__delete" width="20" height="20" viewBox="0 0 41 43" fill="#542fe6" @click="removeInfo"
+              v-if="idx !== 0" xmlns="http://www.w3.org/2000/svg">
+              <rect width="51.2508" height="7.32154" rx="3.66077"
+                transform="matrix(0.699989 -0.714153 0.699989 0.714153 0 37.1289)" fill="#fff" />
+              <rect width="51.2508" height="7.32154" rx="3.66077"
+                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.125 0.739258)" fill="#fff" />
             </svg>
           </div>
           <div class="post__delay" v-for="(area, i) in item.info" :key="i">
-            <textarea
-              class="post__textarea"
-              placeholder="Содержание абзаца"
-              v-model="item.info[i]"
-            ></textarea>
-            <svg
-              class="post__delete_text"
-              width="20"
-              height="20"
-              viewBox="0 0 41 43"
-              fill="#542fe6"
-              @click="removeParagraph(idx, i)"
-              v-if="i !== 0"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                width="51.2508"
-                height="7.32154"
-                rx="3.66077"
-                transform="matrix(0.699989 -0.714153 0.699989 0.714153 0 37.1289)"
-                fill="#542fe6"
-              />
-              <rect
-                width="51.2508"
-                height="7.32154"
-                rx="3.66077"
-                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.125 0.739258)"
-                fill="#542fe6"
-              />
+            <textarea class="post__textarea" placeholder="Содержание абзаца" v-model="item.info[i]"></textarea>
+            <svg class="post__delete_text" width="20" height="20" viewBox="0 0 41 43" fill="#542fe6"
+              @click="removeParagraph(idx, i)" v-if="i !== 0" xmlns="http://www.w3.org/2000/svg">
+              <rect width="51.2508" height="7.32154" rx="3.66077"
+                transform="matrix(0.699989 -0.714153 0.699989 0.714153 0 37.1289)" fill="#542fe6" />
+              <rect width="51.2508" height="7.32154" rx="3.66077"
+                transform="matrix(0.699989 0.714153 -0.699989 0.714153 5.125 0.739258)" fill="#542fe6" />
             </svg>
           </div>
         </div>
@@ -192,25 +77,13 @@
             Добавить абзац
           </button>
         </div>
-        <button
-          class="post__button post__data"
-          v-if="useNews === 'Создать новость'"
-          @click="sendData"
-        >
+        <button class="post__button post__data" v-if="useNews === 'Создать новость'" @click="sendData">
           Создать новость
         </button>
-        <button
-          class="post__button update__data"
-          v-if="useNews === 'Редактировать новость'"
-          @click="updateData"
-        >
+        <button class="post__button update__data" v-if="useNews === 'Редактировать новость'" @click="updateData">
           Редактировать новость
         </button>
-        <button
-          class="post__button delete__data"
-          v-if="useNews === 'Редактировать новость'"
-          @click="deleteData"
-        >
+        <button class="post__button delete__data" v-if="useNews === 'Редактировать новость'" @click="deleteData">
           Удалить новость
         </button>
       </div>
@@ -280,6 +153,7 @@ export default {
       this.isInfo.push(newInfo);
     },
     async sendData() {
+      this.useStatus = 'clock'
       if (this.isName === "") {
         this.useStatus = 400;
         return;
@@ -304,6 +178,7 @@ export default {
       }
     },
     async updateData() {
+      this.useStatus = 'clock'
       if (this.isName === "") {
         this.useStatus = 400;
         return;
@@ -349,6 +224,7 @@ export default {
       this.$refs.fileInput.value = null;
     },
     async deleteData() {
+      this.useStatus = 'clock'
       const data = await PostController.deletePost(this.usePostData.id);
       if (data === 200) {
         this.useStatus = 214;
