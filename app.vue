@@ -21,6 +21,17 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default {
+  setup() {
+    useHead({
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "../favicon.svg",
+        },
+      ],
+    });
+  },
   data() {
     return {
       isActive: false,
