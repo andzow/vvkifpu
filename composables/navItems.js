@@ -6,13 +6,16 @@ export const useColor = () => useState("color", () => "black");
 export const useUserAuth = () => useState("use_user_auth", () => false);
 export const useUserData = () => useState("use_user_data", () => {});
 export const useStatus = () => useState("use_user_data", () => null);
-export const useApplication= () => useState('use_application', () => []);
-export const usePostAll= () => useState('use_post_all', () => []);
-export const usePage = () => useState('use_page', () => 1)
-export const usePageActive = () => useState('use_page_active', () => 1)
-export const useInfoActive = () => useState('use_info_active', () => 'application')
-export const usePostData = () => useState('use_post_data', () => {})
-export const useNews = () => useState('use_news', () => "Просмотр новостей")
+export const useApplication = () => useState("use_application", () => []);
+export const usePostAll = () => useState("use_post_all", () => []);
+export const usePage = () => useState("use_page", () => 1);
+export const usePageActive = () => useState("use_page_active", () => 1);
+export const useInfoActive = () =>
+  useState("use_info_active", () => "application");
+export const usePostData = () => useState("use_post_data", () => {});
+export const useNews = () => useState("use_news", () => "Просмотр новостей");
+
+export const useNewsAll = () => useState("use_news_all", () => null);
 
 const navArr = [
   {

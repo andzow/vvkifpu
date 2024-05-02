@@ -116,6 +116,7 @@
       :bodyClassName="bodyClassName"
       :isHover="isHover"
       :isScrollDown="isScrollDown"
+      :activeMobileBurger="activeMobileBurger"
     />
   </header>
   <Transition name="fade-menu">
@@ -123,6 +124,13 @@
       v-if="activeMobileBurger"
       :activeMobileBurger="activeMobileBurger"
       @closeVisual="bodyClassName = false"
+      @close="
+        (bodyClassName = false),
+          (activeMobileBurger = false),
+          (activeMobileHeader = false),
+          (isHover = false),
+          (isScrollDown = false)
+      "
       @changeBody="bodyClassName = true"
       :bodyClassName="bodyClassName"
     />

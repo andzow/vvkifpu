@@ -55,6 +55,7 @@ export default {
     bodyClassName: { type: Boolean },
     isHover: { type: Boolean },
     isScrollDown: { type: Boolean },
+    activeMobileBurger: {},
   },
   data() {
     return {
@@ -96,6 +97,13 @@ export default {
       return {
         border: `1px solid ${color}`,
       };
+    },
+  },
+  watch: {
+    activeMobileBurger(val) {
+      if (!val) {
+        this.activeBurger = false;
+      }
     },
   },
   mounted() {

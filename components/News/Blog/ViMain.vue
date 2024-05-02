@@ -4,26 +4,32 @@
       <div class="main__breadcrumbs">
         <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
-      <div class="main__content">
+      <div class="main__content" v-if="arrInformation">
         <div class="main__image">
-          <img class="main__img" :src="'../blog.png'" />
+          <img class="main__img" :src="arrInformation.image" />
         </div>
         <div class="main__information">
-          <UIViTitle :settings="true" class="main__header"
-            >Правила приема</UIViTitle
-          >
+          <UIViTitle :settings="true" class="main__header">{{
+            arrInformation.name
+          }}</UIViTitle>
           <p class="main__time font" data-font-actual="17">
-            15 сентября, 2020 |
-            <span class="main__span">Новости колледжа </span>
+            {{ arrInformation.date }} |
+            <span class="main__span">{{ arrInformation.type }}</span>
           </p>
-          <div class="main__about" v-for="item in arrInformation" :key="item">
+          <div
+            class="main__about"
+            v-for="item in arrInformation.text"
+            :key="item"
+          >
             <h2 class="main__about_header font_special" data-font-actual="34">
-              {{ item.name }}
+              {{ item.title }}
             </h2>
             <p
               class="main__about_text font"
               data-font-actual="17"
-              v-html="item.inf"
+              v-for="list in item.info"
+              :key="list"
+              v-html="list"
             ></p>
           </div>
         </div>
@@ -33,39 +39,68 @@
 </template>
 
 <script>
+import PostController from "@/http/controllers/PostController";
+import { USE_SERVER } from "~/url";
+
 export default {
   data() {
     return {
-      arrInformation: [
-        {
-          name: "Особенности учебного процесса в колледже",
-          inf: `Студенты колледжа не меньше преподавателей и сотрудников готовились и ждали первокурсников. Посвящение в первокурсники –
-          это не только поздравление вчерашних школьников. Это способ познакомиться со своими сокурсниками, одногруппниками и, конечно, преподавателями.
-          Очень многие хотели бы пройти по этому пути. Вам повезло – вы на него вступили!<br><br>
-          Студенты колледжа не меньше преподавателей и сотрудников готовились и ждали первокурсников. Посвящение в первокурсники –
-           это не только поздравление вчерашних школьников. Это способ познакомиться со своими сокурсниками, одногруппниками и,
-          конечно, преподавателями. Очень многие хотели бы пройти по этому пути. Вам повезло – вы на него вступили!
-          `,
-        },
-        {
-          name: "Развитие технологий",
-          inf: `Студенты колледжа не меньше преподавателей и сотрудников готовились и ждали первокурсников. Посвящение в первокурсники –
-          это не только поздравление вчерашних школьников. Это способ познакомиться со своими сокурсниками, одногруппниками и, конечно, преподавателями.
-          Очень многие хотели бы пройти по этому пути.
-          `,
-        },
-      ],
+      arrInformation: null,
       arrCrumbs: null,
     };
   },
   methods: {
-    initNews() {
-      this.arrCrumbs = [
-        {
-          name: this.$route.params.id,
-          path: this.$route.path,
-        },
-      ];
+    async initNews() {
+      try {
+        const route = await useRoute();
+        const post = await PostController.fetchPostOne(route.params.name);
+
+        if (post === 404) {
+          this.$router.push("/page/not-found");
+        }
+        this.changeArray(post);
+        if (this.arrInformation.type === "Мероприятия") {
+          this.arrCrumbs = [
+            {
+              name: "Мероприятия",
+              path: "/news/events",
+            },
+            {
+              name: this.$route.params.name,
+              path: this.$route.path,
+            },
+          ];
+          return;
+        }
+        this.arrCrumbs = [
+          {
+            name: "Новости колледжа",
+            path: "/news/college",
+          },
+          {
+            name: this.$route.params.name,
+            path: this.$route.path,
+          },
+        ];
+      } catch (e) {}
+    },
+    async changeArray(post) {
+      const newArr = [post];
+      const arr = newArr.map((el) => {
+        const obj = { ...el };
+        obj.image = USE_SERVER + obj.image;
+        obj.date = new Date(el.createdAt)
+          .toLocaleString("ru-RU", {
+            month: "long",
+            year: "numeric",
+            day: "2-digit",
+          })
+          .replace(".", "");
+        obj.date = obj.date.substring(0, obj.date.length - 1);
+        obj.text = JSON.parse(obj.text);
+        return obj;
+      });
+      this.arrInformation = arr[0];
     },
   },
   mounted() {
@@ -92,7 +127,6 @@ export default {
 .main__content {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
 }
 .main__information {
   max-width: 950px;
@@ -109,6 +143,12 @@ export default {
 }
 .main__span {
   color: #542fe6;
+}
+
+.main__img {
+  width: 641px;
+  height: 488px;
+  object-fit: cover;
 }
 .main__about_header {
   font-weight: 700;
@@ -171,6 +211,13 @@ export default {
   }
   .main__about_text {
     font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .main__img {
+    width: 641px;
+    height: 310px;
+    object-fit: cover;
   }
 }
 </style>

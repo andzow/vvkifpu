@@ -1,11 +1,12 @@
 <template>
-  <form class="header__search" @submit.prevent>
+  <form class="header__search" @submit.prevent="searchNews">
     <input
       :class="{ activeMobInput: activeBurger || isHover || isScrollDown }"
       class="header__search_input"
       type="text"
       placeholder="Поиск..."
       :style="borderInput"
+      v-model="valSearch"
     />
   </form>
 </template>
@@ -19,7 +20,10 @@ export default {
     isScrollDown: { type: Boolean },
   },
   data() {
-    return {};
+    return {
+      valSearch: "",
+      arrNews: useNewsAll(),
+    };
   },
   computed: {
     borderInput() {
@@ -36,8 +40,35 @@ export default {
       };
     },
   },
-  methods: {},
-  mounted() {},
+  methods: {
+    async searchNews() {
+      try {
+        this.$emit("close");
+        const post = await PostController.getPostCommunity(
+          this.$route.query.name
+        );
+        this.arrNews = post;
+        this.$router.replace({
+          path: "/news/all-news",
+          query: {
+            name: this.valSearch,
+          },
+        });
+      } catch {
+        this.$emit("close");
+        this.arrNews = [];
+        this.$router.replace({
+          path: "/news/all-news",
+          query: {
+            name: this.valSearch,
+          },
+        });
+      }
+    },
+  },
+  mounted() {
+    this.valSearch = !this.$route.query.name ? "" : this.$route.query.name;
+  },
 };
 </script>
 

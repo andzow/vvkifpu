@@ -9,6 +9,7 @@
         <div
           class="occasion__item"
           v-for="(item, idx) in ArrayOccasion"
+          @click="$router.push(`/news/${item.name}`)"
           :key="idx"
           data-aos="zoom-in-up"
           data-aos-duration="1000"
@@ -151,6 +152,9 @@ export default {
 }
 .occasion__image {
   position: relative;
+  min-height: 250px;
+  max-height: 250px;
+  max-width: 100%;
   cursor: pointer;
 }
 .occasion__image:hover .occasion__img {
@@ -158,8 +162,12 @@ export default {
 }
 .occasion__img {
   position: relative;
-  z-index: 3;
+  object-fit: cover;
+  width: 100%;
+  min-height: 250px;
+  max-height: 250px;
   transition: all 0.3s ease-in-out;
+  z-index: 3;
 }
 .occasion__back {
   position: absolute;

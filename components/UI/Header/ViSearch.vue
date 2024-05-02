@@ -1,7 +1,7 @@
 <template>
   <form
     class="header__search"
-    @submit.prevent
+    @submit.prevent="searchNews"
     :class="{ activeForm: (isHover || isScrollDown) && !bodyClassName }"
   >
     <div class="header__search_block">
@@ -16,11 +16,12 @@
             activeInp: activeInput && !bodyClassName,
             activeBodyClassName: bodyClassName,
           }"
+          v-model="valSearch"
         />
       </Transition>
     </div>
     <div class="header__search_btn">
-      <button class="header__search_button" type="submit" @click="setInput">
+      <button class="header__search_button" type="button" @click="setInput">
         <svg
           width="20"
           height="20"
@@ -51,6 +52,8 @@
 </template>
 
 <script>
+import PostController from "@/http/controllers/PostController";
+
 export default {
   props: {
     isHover: { type: Boolean },
@@ -63,6 +66,8 @@ export default {
   data() {
     return {
       activeInput: false,
+      valSearch: "",
+      arrNews: useNewsAll(),
     };
   },
   methods: {
@@ -154,6 +159,28 @@ export default {
         }
       }, 0);
     },
+    async searchNews() {
+      try {
+        const post = await PostController.getPostCommunity(
+          this.$route.query.name
+        );
+        this.arrNews = post;
+        this.$router.replace({
+          path: "/news/all-news",
+          query: {
+            name: this.valSearch,
+          },
+        });
+      } catch {
+        this.arrNews = [];
+        this.$router.replace({
+          path: "/news/all-news",
+          query: {
+            name: this.valSearch,
+          },
+        });
+      }
+    },
   },
   watch: {
     isHover(val) {
@@ -193,6 +220,7 @@ export default {
     },
   },
   mounted() {
+    this.valSearch = !this.$route.query.name ? "" : this.$route.query.name;
     this.delayChangeColorInp();
   },
 };

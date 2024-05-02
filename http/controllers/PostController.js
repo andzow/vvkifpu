@@ -43,7 +43,8 @@ export default class PostController {
 
   static async getPostCommunity(query) {
     try {
-      const response = await PostService.getPostCommunity(query);
+      const obj = { name: query };
+      const response = await PostService.getPostCommunity(obj);
       return response.data;
     } catch (e) {
       console.log(e.response?.data?.message);

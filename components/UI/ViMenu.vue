@@ -2,7 +2,10 @@
   <section class="menu" :style="setActiveBack">
     <div class="menu__content" :style="setActiveBack">
       <div class="menu__search">
-        <UIHeaderViSearchMob :bodyClassName="bodyClassName" />
+        <UIHeaderViSearchMob
+          :bodyClassName="bodyClassName"
+          @close="$emit('close')"
+        />
       </div>
       <nav class="menu__nav">
         <ul class="menu__ul">
@@ -85,6 +88,7 @@
 
 <script>
 export default {
+  emits: ["close"],
   props: {
     activeMobileBurger: { type: Boolean },
     bodyClassName: { type: Boolean },
