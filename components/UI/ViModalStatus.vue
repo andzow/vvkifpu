@@ -343,4 +343,19 @@
   .modalInfo__cancellation {
     margin-right: 20px;
   }
+  @media(max-width: 660px) {
+    .modalInfo__card {
+      width: 520px;
+    }
+  }
+  @media(max-width: 540px) {
+    .modalInfo__card {
+      width: 420px;
+    }
+  }
+  @media(max-width: 460px) {
+    .modalInfo__card {
+      width: 320px;
+    }
+  }
   </style>

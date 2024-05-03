@@ -2,7 +2,7 @@
   <section class="news">
     <div class="news__container">
       <div class="news__roof">
-        <h2 class="news__title font" data-font-actual="60">Новости 12</h2>
+        <h2 class="news__title font" data-font-actual="60">Новости</h2>
         <button class="news__btn font border" data-font-actual="22">
           Все новости
           <svg class="news__svg" width="55" height="19" viewBox="0 0 66 19" fill="none"

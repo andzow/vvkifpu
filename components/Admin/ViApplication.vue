@@ -62,7 +62,7 @@ export default {
             ]
         }
     },
-    async mounted() {
+    async mounted() {   
         if (this.$route.query.condition === "final") {
             this.isCondition = "Прочитанные"
         } else {
@@ -286,5 +286,31 @@ export default {
 }
 .application__btn:hover {
     transform: scale(1.03);
+}
+@media(max-width: 848px) {
+    .application__serch {
+        display: none;
+    }
+    .application__sort {
+        margin-bottom: 35px;
+    }
+}
+@media(max-width: 500px) {
+    .application__serch {
+        display: block;
+    }
+    .application__sort {
+        margin-top: 30px;
+        margin-bottom: 35px;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .application__block {
+        margin-top: 20px;
+    }
+    .application__empty {
+        height: 200px;
+        font-size: 46px;
+    }
 }
 </style>
