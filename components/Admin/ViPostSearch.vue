@@ -24,6 +24,7 @@ export default {
   data() {
     return {
       data: usePostAll(),
+      useStatus: useStatus(),
       usePostData: usePostData(),
       imgSrc: false,
       useNews: useNews(),
@@ -32,7 +33,9 @@ export default {
     }
   },
   async mounted() {
+    this.useStatus = 'clock'
     const useData = await PostController.getPostAll(this.$route.query)
+    this.useStatus = null
     this.data = useData.posts
     this.imgSrc = USE_SERVER
     this.usePage = useData.totalPages
