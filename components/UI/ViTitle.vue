@@ -38,6 +38,7 @@ export default {
   font-weight: 700;
   font-size: 60px;
   min-width: 310px;
+  word-break: break-all;
 }
 @media screen and (max-width: 1230px) {
   .title {
