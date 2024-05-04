@@ -31,10 +31,7 @@
           </tr>
         </thead>
         <tbody class="info__tbody">
-          <tr
-            v-for="(administration, index) in ArrayAdministration"
-            :key="index"
-          >
+          <tr v-for="(administration, index) in getArray" :key="index">
             <td class="administration__element font" data-font-actual="17">
               {{ administration.name }}
             </td>
@@ -50,11 +47,7 @@
           </tr>
         </tbody>
       </table>
-      <div
-        class="administration__block"
-        v-for="(item, i) in ArrayAdministration"
-        :key="i"
-      >
+      <div class="administration__block" v-for="(item, i) in getArray" :key="i">
         <p class="administration__info">{{ item.name }}</p>
         <p class="administration__info">{{ item.post }}</p>
         <p class="administration__info">{{ item.education }}</p>
@@ -65,6 +58,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import { USE_STRAPI } from "~/url";
+
 export default {
   data() {
     return {
@@ -76,55 +72,73 @@ export default {
       ],
       ArrayAdministration: [
         {
-          name: "Синенок В.Н.",
-          post: "Директор",
-          time: "15 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
         {
-          name: "Семакова Н.В.",
-          post: "Фин. директор",
-          time: "40 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
         {
-          name: "Быстроновская М.А.",
-          post: "Зам. директора по УР",
-          time: "40 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
         {
-          name: "Макарова М.А.",
-          post: "Методист. Заведующий практическим обучением",
-          time: "35 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
         {
-          name: "Борзова Э.В.",
-          post: "Методист. Зам директора по УВР",
-          time: "35 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
         {
-          name: "Бельтюкова Н.А.",
-          post: "Методист. Социальный педагог",
-          time: "35 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
         {
-          name: "Никулин Р.В.",
-          post: "Заведующий комплексной безопасностью",
-          time: "15 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
         {
-          name: "Домрачева Н.И",
-          post: "Библиотекарь, кассир",
-          time: "40 лет",
-          education: "Высшее",
+          name: "",
+          post: "",
+          time: "",
+          education: "",
         },
       ],
     };
+  },
+  computed: {
+    getArray() {
+      return this.ArrayAdministration;
+    },
+  },
+  methods: {
+    async initApp() {
+      try {
+        const {
+          data: { data: response },
+        } = await axios.get(USE_STRAPI + `administrationd`);
+        this.ArrayAdministration = response.attributes.staff;
+      } catch (e) {}
+    },
+  },
+  mounted() {
+    this.initApp();
   },
 };
 </script>

@@ -130,13 +130,7 @@ export default {
   border: 1px solid var(--violo);
   border-radius: 70px;
   padding: 20px 30px;
-
-  cursor: pointer;
   transition: all 0.3s ease;
-}
-.main__link:hover {
-  color: white;
-  background: var(--violo);
 }
 .main__des {
   margin-top: 40px;

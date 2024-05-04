@@ -7,37 +7,53 @@
       <UIViTitle :settings="true" class="main__header"
         >Учебные планы и Основные профессиональные образовательные программы
       </UIViTitle>
-      <div class="main__menu" v-for="item in arrCopies" :key="item">
-        <h2 class="main__title font_special" data-font-actual="34">
-          {{ item.name }}
+      <div class="main__menu" v-for="item in getArray" :key="item">
+        <h2
+          class="main__title font_special"
+          data-font-actual="34"
+          :class="{ activeLoadingTitle: item.loading }"
+        >
+          {{ item?.attributes?.title }}
         </h2>
-        <div class="main__content">
+        <div class="main__content" v-if="!item.loading">
           <div
             clas="main__href"
             :href="list.href"
             target="_blank"
-            v-for="list in item.arrDocs"
+            v-for="list in item.attributes.files.data"
             :key="list"
           >
-            <a>
+            <a :href="urlServer + list?.attributes?.url">
               <div class="main__item">
                 <div class="main__link font" data-font-actual="17">
-                  {{ list.name }}
+                  {{ list.attributes.alternativeText }}
                 </div>
               </div>
             </a>
           </div>
         </div>
-        <div class="main__des font" data-font-actual="16">{{ item.des }}</div>
+        <div class="main__loading" v-else>
+          <div
+            class="main__loading_item"
+            v-for="list in item.arrDocs"
+            :key="list"
+          ></div>
+        </div>
+        <!-- <div class="main__des font" data-font-actual="16">{{ item.des }}</div> -->
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import axios from "axios";
+import { USE_STRAPI } from "~/url";
+import { USE_STRAPI_UPLOADS } from "~/url";
+
 export default {
   data() {
     return {
+      urlServer: null,
       arrCrumbs: [
         {
           name: "Учебные планы и Основные профессиональные образовательные программы",
@@ -46,142 +62,68 @@ export default {
       ],
       arrCopies: [
         {
-          name: "40.02.02 ПРАВООХРАНИТЕЛЬНАЯ ДЕЯТЕЛЬНОСТЬ",
+          name: "",
+          loading: true,
           arrDocs: [
             {
-              name: "2020 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
+              loading: true,
             },
             {
-              name: "2021 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
+              loading: true,
             },
             {
-              name: "2022 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
+              loading: true,
             },
             {
-              name: "2023 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "Основная профессиональная образовательная программы",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
+              loading: true,
             },
           ],
         },
         {
-          name: "09.02.04 ИНФОРМАЦИОННЫЕ СИСТЕМЫ (ПО ОТРАСЛЯМ)",
+          name: "",
+          loading: true,
           arrDocs: [
             {
-              name: "2020 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
+              loading: true,
             },
             {
-              name: "Основная профессиональная образовательная программы",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-          ],
-        },
-        {
-          name: "09.02.07 ИНФОРМАЦИОННЫЕ СИСТЕМЫ И ПРОГРАММИРОВАНИЕ",
-          arrDocs: [
-            {
-              name: "2021 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "Приказ о проведении самообследования",
+              loading: true,
             },
             {
-              name: "2022 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "Отчет о результатах самообследования",
+              loading: true,
             },
             {
-              name: "2023 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "Отчет о результатах самообследования",
+              loading: true,
             },
             {
-              name: "Основная профессиональная образовательная программы",
-              href: "Отчет о результатах самообследования",
-            },
-          ],
-        },
-        {
-          name: "43.02.10 ТУРИЗМ",
-          arrDocs: [
-            {
-              name: "2021 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
+              loading: true,
             },
             {
-              name: "2022 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "2023 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "Основная профессиональная образовательная программы",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-          ],
-        },
-        {
-          name: "38.02.04 КОММЕРЦИЯ(ПО ОТРАСЛЯМ)",
-          arrDocs: [
-            {
-              name: "2021 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "2022 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "2023 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "Основная профессиональная образовательная программы",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-          ],
-        },
-        {
-          name: "43.02.03 СТИЛИСТИКА И ИСКУССТВО ВИЗАЖА",
-          arrDocs: [
-            {
-              name: "2020 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "2021 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "2022 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "Основная профессиональная образовательная программы",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-          ],
-        },
-        {
-          name: "43.02.17 ТЕХНОЛОГИИ ИНДУСТРИИ КРАСОТЫ",
-          arrDocs: [
-            {
-              name: "2023 год. Учебный план, график учебного процесса, пояснительная записка.",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
-            },
-            {
-              name: "Основная профессиональная образовательная программы",
-              href: "http://vvkifpu.ru/wp-content/uploads/2019/10/IMG_0450-14-10-19-15-37.pdf",
+              loading: true,
             },
           ],
         },
       ],
     };
+  },
+  computed: {
+    getArray() {
+      return this.arrCopies;
+    },
+  },
+  methods: {
+    async initApp() {
+      try {
+        const {
+          data: { data: response },
+        } = await axios.get(USE_STRAPI + `study-plans?populate=files`);
+        this.arrCopies = response;
+        this.urlServer = USE_STRAPI_UPLOADS;
+      } catch (e) {}
+    },
+  },
+  mounted() {
+    this.initApp();
   },
 };
 </script>
@@ -215,10 +157,42 @@ export default {
   max-width: 900px;
   color: black;
 }
+.activeLoadingTitle {
+  height: 63px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  border: none;
+  border-radius: 70px;
+  transition: all 0.3s ease;
+}
 .main__content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+}
+.main__loading {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.main__loading_item {
+  border-radius: 70px;
+  height: 63px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 200%;
+  }
 }
 .main__link {
   display: flex;

@@ -10,7 +10,16 @@
 
 <script>
 export default {
-  mounted() {},
+  data() {
+    return {
+      checkVer: useChangeSpeciality(),
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.checkVer = true;
+    }, 0);
+  },
 };
 </script>
 

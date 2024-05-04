@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header">Столовая</UIViTitle>
       <p class="main__des">
@@ -18,7 +18,14 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      arrCrumbs: [
+        {
+          name: "Столовая",
+          path: "/information/canteen",
+        },
+      ],
+    };
   },
 };
 </script>

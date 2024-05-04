@@ -18,11 +18,15 @@
         :class="{ activeBlockBody: bodyClassName }"
       >
         <NuxtLink
+          v-if="list.path !== '../dostup-sreda.pdf'"
           class="header__item_link"
           :to="!list.children ? list.path : ''"
         >
           {{ list.name }}</NuxtLink
         >
+        <p class="header__item_link" v-else @click="redirectSreda(list)">
+          {{ list.name }}
+        </p>
       </div>
       <div class="header__item_block" v-if="list.children">
         <div class="header__item_image">
@@ -101,6 +105,9 @@ export default {
     },
   },
   methods: {
+    redirectSreda() {
+      window.open("http://localhost:3000/dostup-sreda.pdf", "_blank");
+    },
     openChildren(el, idx) {
       this.$emit("slideChildren", el.children);
       this.activeIdxList = idx;
@@ -116,6 +123,7 @@ export default {
       }
     },
     redirectPage(item) {
+      if (item.path === "../dostup-sreda.pdf") return;
       setTimeout(() => {
         if (item.children === null) {
           this.$router.push(item.path);

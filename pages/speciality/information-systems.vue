@@ -7,9 +7,11 @@
       :imageSrc="imageSrc"
       :backImage="backImage"
       :arrCrumbs="arrCrumbs"
+      :codeSpec="codeSpec"
       breadcrumbs="09.02.04 Информационные системы"
     />
     <UISpecialityViBasics
+      v-if="arrFeatures && arrFiles && arrAbout && arrLearn && arrSert"
       :arrAbout="arrAbout"
       :arrLearn="arrLearn"
       :arrFeatures="arrFeatures"
@@ -21,108 +23,61 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      arrCrumbs: [
-        {
-          name: "09.02.04 Информационные системы",
-          path: "/speciality/information-systems",
-        },
-      ],
-      specialityTitle: `09.02.04<br />
-          Информационные системы`,
-      arrDes: [
-        {
-          name: "Начало обучения",
-          arrDes: ["01 сен 2024"],
-        },
-        {
-          name: "Продолжительность",
-          arrDes: ["3 г 10 мес (база 9 кл)", "2 г 10 мес (база 11 кл)"],
-        },
-      ],
+      arrCrumbs: null,
+      codeSpec: null,
+      specialityTitle: null,
+      arrDes: null,
       backImage: "../assets/images/Speciality/information.webp",
-      arrProffesions: [
-        "программист информационных систем",
-        "системный администратор",
-        "администратор компьютерной сети",
-        "техник по обслуживанию аппаратных средств",
-        "веб-мастер (веб-дизайнер)",
-        "ИТ-специалист",
-        "администратор базы данных",
-        "и многие другие",
-      ],
+      arrProffesions: null,
       imageSrc: `<svg class="image_opacity" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path class="path" d="M66 21L26 44.094L66 67.1881L66 21ZM44.5359 50.177L29.5359 76.1577L36.4641 80.1577L51.4641 54.177L44.5359 50.177Z" fill="white"/>
 </svg>`,
-      arrAbout: [
-        "Основы алгоритмизации и программирования",
-        "Основы проектирования баз данных",
-        "Технология разработки программного обеспечения",
-        "Разработка и эксплуатация удаленных баз данных",
-        "Информационные системы на базе Интернет –технологий",
-        "Разработка кода информационных систем",
-        "Технические средства информатизации",
-        "Интеллектуальные системы и технологии",
-        "и прочие",
-      ],
-      arrLearn: [
-        "Разрабатывать программное обеспечение на Delphi, C++, JAVA, PHP и других языках",
-        "Эксплуатировать и сопровождать информационные системы и сервисы",
-        "Устанавливать и настраивать аппаратное обеспечение для информационных и автоматизированных систем",
-        "Выполнять монтаж и настройку компьютерных сетей",
-        "Управлять корпоративной сетью предприятия (организации)",
-        "Ставить и решать прикладные задачи, используя современные информационно-коммуникационные технологии",
-        "Помогать заказчику в оценке и выборе вариантов программного обеспечения",
-        "Работать с современным программным обеспечением, выполнять его настройку, тестирование, администрирование",
-      ],
-      arrFeatures: [
-        {
-          name: "Особеннсть учебного процесса в колледже",
-          des: `Особенностью организации учебного процесса в колледже является его практикоориентированная направленность. Большинство занятий посвящено
-          практическому изучению современных автоматизированных систем, систем управления базами данных, автоматизированных систем бухгалтерского учета;
-          веб-программированию, программного обеспечения для создания и сопровождения интерактивных веб-сайтов.
-           <br><br>В колледже имеются компьютерные классы, оснащенные современными персональными компьютерами на базе многоядерных микропроцессоров и программным
-            обеспечением ведущих производителей (Microsoft, Adobe Systems, 1C, Лаборатория Касперского и пр.).`,
-        },
-        {
-          name: "Что дает наш колледж?",
-          des: `ВВКИФПУ обеспечивает всех студентов базами практики, которая проводится на предприятиях различных форм
-          собственности города Кирова.<br><br>Образовательное учреждение поддерживает тесные деловые отношения с крупными организациями города.
-          В ходе такого сотрудничества организуются встречи, на которых обсуждаются вопросы организации прохождения практики студентов и перспективы
-          трудоустройства выпускников.<br><br>`,
-        },
-      ],
-      arrFiles: [
-        {
-          name: "Образовательная программа",
-          imageSrc: "../assets/images/Speciality/word.svg",
-        },
-        {
-          name: "Учебный план",
-          imageSrc: "../assets/images/Speciality/xml.svg",
-        },
-        {
-          name: "Рабочая программа",
-          imageSrc: "../assets/images/Speciality/jav.svg",
-        },
-      ],
-      arrSert: [
-        {
-          imageSrc: "./assets/images/Speciality/doc1.png",
-          imageOpen: "../assets/images/Speciality/doc1.png",
-        },
-        {
-          imageSrc: "./assets/images/Speciality/doc2.png",
-          imageOpen: "../assets/images/Speciality/doc2.png",
-        },
-        {
-          imageSrc: "./assets/images/Speciality/doc3.png",
-          imageOpen: "../assets/images/Speciality/doc3.png",
-        },
-      ],
+      arrAbout: null,
+      arrLearn: null,
+      arrFeatures: null,
+      arrFiles: null,
+      arrSert: null,
+      checkVer: useChangeSpeciality(),
     };
+  },
+  methods: {
+    async initInformation() {
+      try {
+        const { data } = await axios.get(
+          "http://localhost:1337/api/specialties/4/?populate=docFiles&populate=sertImage"
+        );
+        this.arrFeatures = await data.data.attributes.Data.arrFeatures;
+        this.specialityTitle = await data.data.attributes.Data.specialityTitle;
+        this.arrDes = await data.data.attributes.Data.arrDes;
+        this.arrProffesions = await data.data.attributes.Data.arrProffesions;
+        this.arrAbout = await data.data.attributes.Data.arrAbout;
+        this.arrLearn = await data.data.attributes.Data.arrLearn;
+        this.codeSpec = await data.data.attributes.Data.codeSpec;
+        this.arrFiles = data.data.attributes.docFiles.data;
+        this.arrSert = data.data.attributes.sertImage.data;
+        this.arrCrumbs = [
+          {
+            name: `${this.codeSpec} ${this.specialityTitle}`,
+            path: "/speciality/information-systems",
+          },
+        ];
+      } catch {}
+    },
+  },
+  mounted() {
+    this.initInformation();
+  },
+  watch: {
+    arrSert(val) {
+      if (val !== null) {
+        this.checkVer = true;
+      }
+    },
   },
 };
 </script>

@@ -15,6 +15,9 @@ export const useInfoActive = () =>
 export const usePostData = () => useState("use_post_data", () => {});
 export const useNews = () => useState("use_news", () => "Просмотр новостей");
 
+export const useChangeSpeciality = () =>
+  useState("use_speciality", () => false);
+
 export const useNewsAll = () => useState("use_news_all", () => null);
 
 const navArr = [
@@ -54,10 +57,6 @@ const navArr = [
           {
             name: "43.02.17 “Технологии индустрии красоты”",
             path: "/speciality/beauty-industry",
-          },
-          {
-            name: "43.02.02 “Парикмахерское искусство”",
-            path: "/speciality/hairdressing",
           },
         ],
       },
@@ -185,7 +184,7 @@ const navArr = [
       },
       {
         name: "Доступная среда",
-        path: "http://vvkifpu.ru/wp-content/uploads/2021/04/dostup-sreda.pdf",
+        path: "../dostup-sreda.pdf",
         children: null,
       },
       {
@@ -280,11 +279,7 @@ const mobileNavArr = [
         path: "/speciality/beauty-industry",
         children: null,
       },
-      {
-        name: "43.02.02 “Парикмахерское искусство”",
-        path: "/speciality/hairdressing",
-        children: null,
-      },
+
       {
         name: "Правила приема",
         path: "/speciality/admission-rules",
@@ -406,7 +401,7 @@ const mobileNavArr = [
       },
       {
         name: "Доступная среда",
-        path: "http://vvkifpu.ru/wp-content/uploads/2021/04/dostup-sreda.pdf",
+        path: "../dostup-sreda.pdf",
         children: null,
       },
       {
@@ -467,17 +462,13 @@ const navArrFooter = [
     allPages: [
       {
         name: "День открытых дверей",
-        path: "/",
+        path: "/applicants/open",
         children: null,
       },
       {
         name: "Приемная комиссия",
-        path: "/",
+        path: "/commissions",
         children: null,
-      },
-      {
-        name: "Список специальностей",
-        path: "/",
       },
       {
         name: "Правила приема",
@@ -540,59 +531,45 @@ const navArrFooter = [
     allPages: [
       {
         name: "Основные сведения",
-        path: "/",
+        path: "/information/intelligence",
         children: null,
       },
       {
         name: "Структура и органы управления ОО",
-        path: "/",
+        path: "/information/administration",
         children: null,
       },
       {
         name: "Документы",
-        path: "/",
+        path: "/information/copies-documents",
         children: null,
       },
-      {
-        name: "Образование",
-        path: "/",
-      },
+
       {
         name: "Руководство",
-        path: "/",
+        path: "/information/guide",
         children: null,
       },
       {
-        name: "Педагогический состав",
-        path: "/",
+        name: `Материально-техническое обеспечение
+и оснащенность образовательного процесса. Доступная среда`,
+        path: "/information/social-security",
         children: null,
       },
       {
-        name: "Правила приема",
-        path: "/",
+        name: "Платные образовательнные услуги",
+        path: "/students/payment",
         children: null,
       },
       {
-        name: "Виды материальной поддержки",
-        path: "/",
+        name: "Стипендии и меры поддержки обучающихся",
+        path: "/students/support",
         children: null,
       },
       {
-        name: "Наши реквизиты",
-        path: "/",
+        name: "Финансово-хозяйственная деятельность",
+        path: "/information/economy",
         children: null,
-      },
-      {
-        name: "Численность обучающихся",
-        path: "/",
-      },
-      {
-        name: "Основные профессиональные образовательные стандарты",
-        path: "/",
-      },
-      {
-        name: "Учебные планы и Основные профессиональные образовательные программы",
-        path: "/",
       },
     ],
     path: "/",
@@ -602,12 +579,12 @@ const navArrFooter = [
     allPages: [
       {
         name: "Новости колледжа",
-        path: "/",
+        path: "/news/college",
         children: null,
       },
       {
         name: "Мероприятия",
-        path: "/",
+        path: "/news/events",
         children: null,
       },
     ],
@@ -615,7 +592,7 @@ const navArrFooter = [
   },
   {
     name: "КОНТАКТЫ",
-    path: "/",
+    path: "/contacts",
   },
 ];
 

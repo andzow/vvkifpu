@@ -10,20 +10,34 @@
       >
         <div class="files__about">
           <div class="files__image">
-            <img class="image_opacity" :src="item.imageSrc" />
+            <img
+              v-if="idx === 0"
+              class="image_opacity"
+              :src="'../assets/images/Speciality/word.svg'"
+            />
+            <img
+              v-if="idx === 1"
+              class="image_opacity"
+              :src="'../assets/images/Speciality/xml.svg'"
+            />
+            <img
+              v-if="idx === 2"
+              class="image_opacity"
+              :src="'../assets/images/Speciality/jav.svg'"
+            />
           </div>
           <div class="files__des">
             <p class="files__index font_special" data-font-actual="40">
               {{ idx + 1 < 10 ? "0" + (idx + 1) : idx + 1 }}
             </p>
             <p class="files__name font" data-font-actual="17">
-              {{ item.name }}
+              {{ item.attributes.alternativeText }}
             </p>
           </div>
         </div>
         <Transition name="fade-button">
           <div class="files__button" v-if="isActiveIndex === idx">
-            <UISpecialityViFilesBtn />
+            <UISpecialityViFilesBtn :srcFile="item.attributes.url" />
           </div>
         </Transition>
       </div>
@@ -44,6 +58,7 @@ export default {
     };
   },
   computed: {},
+  mounted() {},
 };
 </script>
 
@@ -71,7 +86,7 @@ export default {
   align-items: center;
 }
 .files__image img {
-  max-width: 70px;
+  max-width: 65px;
 }
 .files__des {
   padding-top: 5px;

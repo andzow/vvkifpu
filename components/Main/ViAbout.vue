@@ -97,12 +97,14 @@ export default {
   background: black;
 }
 .about__container {
+  position: relative;
   max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  z-index: 15;
 }
 .about__btn {
   display: flex;

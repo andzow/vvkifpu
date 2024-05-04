@@ -31,7 +31,7 @@
             <p class="footer__contact_text font" data-font-actual="16">
               vvkifpu@mail.ru
             </p>
-            <div class="footer__contact_image">
+            <div class="footer__contact_image" @click="redirectVk">
               <svg
                 width="38"
                 height="23"
@@ -48,7 +48,12 @@
             </div>
           </div>
         </div>
-        <div class="footer__nav" v-for="item in arrNav" :key="item">
+        <div
+          class="footer__nav"
+          v-for="item in arrNav"
+          :key="item"
+          @click="redirectPage(item)"
+        >
           <div class="footer__nav_title font" data-font-actual="22">
             {{ item.name }}
           </div>
@@ -59,7 +64,9 @@
               :key="el"
               data-font-actual="16"
             >
-              {{ el.name }}
+              <NuxtLink class="footer__nav_link" :to="el.path">{{
+                el.name
+              }}</NuxtLink>
             </li>
           </ul>
         </div>
@@ -79,7 +86,7 @@
           <p class="footer__contact_text font" data-font-actual="16">
             vvkifpu@mail.ru
           </p>
-          <div class="footer__contact_image">
+          <div class="footer__contact_image" @click="redirectVk">
             <svg
               width="38"
               height="23"
@@ -107,33 +114,37 @@ export default {
       arrSpeciality: [
         {
           name: "9.02.04 “Информационные системы”",
-          path: "/",
+          path: "/speciality/information-systems",
         },
         {
           name: "40.02.02 “Правоохранительная деятельность”",
-          path: "/",
+          path: "/speciality/pravoved",
         },
         {
           name: "43.02.10 “Туризм”",
-          path: "/",
+          path: "/speciality/tourism",
         },
         {
           name: "38.02.04 “Коммерция (По отраслям)”",
-          path: "/",
+          path: "/speciality/commerce",
         },
         {
           name: "43.02.17 “Технологии индустрии красоты”",
-          path: "/",
-        },
-        {
-          name: "43.02.02 “Парикмахерское искусство”",
-          path: "/",
+          path: "/speciality/beauty-industry",
         },
       ],
       arrNav: useNavArrFooter(),
     };
   },
   methods: {
+    redirectVk() {
+      window.open("https://vk.com/vvkifpu", "_blank");
+    },
+    redirectPage(item) {
+      if (item.path !== "/") {
+        this.$router.push(item.path);
+      }
+    },
     changePadding(val) {
       if (val.path !== "/") {
         this.$refs.footer_content.style.paddingTop = "50px";
@@ -252,13 +263,17 @@ footer {
   cursor: pointer;
 }
 .footer__nav_li {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
   max-width: 250px;
   margin-bottom: 20px;
   color: #a5a5a5;
-  text-transform: capitalize;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.footer__nav_link {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #a5a5a5;
   transition: all 0.3s ease;
   cursor: pointer;
 }

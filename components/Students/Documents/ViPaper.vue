@@ -8,16 +8,21 @@
       <div class="paper__table">
         <div
           class="paper__item"
-          v-for="(item, idx) in ArrayDocument"
+          v-for="(item, idx) in getArray"
           :key="idx"
+          :class="{ loadingActive: item.loading }"
         >
-          <h3 class="paper__name font" data-font-actual="17">
-            {{ item.name }} <span class="paper__special">-</span>
+          <h3
+            class="paper__name font"
+            data-font-actual="17"
+            v-if="!item.loading"
+          >
+            {{ item.attributes.title }} <span class="paper__special">-</span>
           </h3>
           <a
-            :href="item.path"
+            v-if="!item.loading"
+            :href="urlServer + item.attributes.files.data.attributes.url"
             class="paper__btn font"
-            :download="item.pathName"
             data-font-actual="17"
             >Скачать</a
           >
@@ -28,6 +33,10 @@
 </template>
 
 <script>
+import axios from "axios";
+import { USE_STRAPI } from "~/url";
+import { USE_STRAPI_UPLOADS } from "~/url";
+
 export default {
   data() {
     return {
@@ -39,52 +48,49 @@ export default {
       ],
       ArrayDocument: [
         {
-          name: "Аттестационный лист «Информационные системы»",
-          path: "../assets/downloads/AtList.docx",
-          pathName: "AtList.docx",
+          loading: true,
         },
         {
-          name: "Аттестационный лист «Коммерция»",
-          path: "../assets/downloads/AtListKom.docx",
-          pathName: "AtListKom.docx",
+          loading: true,
         },
         {
-          name: "Аттестационный лист «Правоохранительная деятельность»",
-          path: "../assets/downloads/AtListP.docx",
-          pathName: "AtListP.docx",
+          loading: true,
         },
         {
-          name: "Аттестационный лист «Стилистика» и «Парикмахерское искусство»",
-          path: "../assets/downloads/AtListPi.docx",
-          pathName: "AtListPi.docx",
+          loading: true,
         },
         {
-          name: "Договор на практику «Информационные системы»",
-          path: "../assets/downloads/Dogovor_IS_09_02_04.docx",
-          pathName: "Dogovor_IS_09_02_04.docx",
+          loading: true,
+        },
+
+        {
+          loading: true,
         },
         {
-          name: "Договор на практику «Коммерция»",
-          path: "../assets/downloads/Dogovor_Commerce.docx",
-          pathName: "Dogovor_Commerce.docx",
-        },
-        {
-          name: "Дневник",
-          path: "../assets/downloads/Dnevnik.docx",
-          pathName: "Dnevnik.docx",
-        },
-        {
-          name: "Рецензия + характеристика",
-          path: "../assets/downloads/Recenz.docx",
-          pathName: "Recenz.docx",
-        },
-        {
-          name: "Памятка",
-          path: "../assets/downloads/Pamyatka.docx",
-          pathName: "Pamyatka.docx",
+          loading: true,
         },
       ],
+      urlServer: null,
     };
+  },
+  computed: {
+    getArray() {
+      return this.ArrayDocument;
+    },
+  },
+  methods: {
+    async initApp() {
+      try {
+        const {
+          data: { data: response },
+        } = await axios.get(USE_STRAPI + `documents/?populate=files`);
+        this.ArrayDocument = response;
+        this.urlServer = USE_STRAPI_UPLOADS;
+      } catch (e) {}
+    },
+  },
+  mounted() {
+    this.initApp();
   },
 };
 </script>
@@ -106,6 +112,25 @@ export default {
 .paper__item {
   display: flex;
   align-items: center;
+  transition: all 0.3s ease;
+}
+.loadingActive {
+  height: 20px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1s infinite;
+  max-width: 600px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 200%;
+  }
 }
 .paper__item:not(:last-child) {
   margin-bottom: 20px;

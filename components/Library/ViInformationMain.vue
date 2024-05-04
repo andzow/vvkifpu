@@ -8,9 +8,14 @@
         >Дополнительные информационные ресурсы</UIViTitle
       >
       <div class="main__content">
-        <div class="main__item" v-for="item in arrMain" :key="item">
+        <div
+          class="main__item"
+          v-for="item in getArray"
+          :key="item"
+          :class="{ loadingActive: item.loading }"
+        >
           <p class="main__name font" data-font-actual="18">{{ item.name }}</p>
-          <div class="main__btns">
+          <div class="main__btns" v-if="!item.loading">
             <div class="main__button" v-for="el in item.arrBtn" :key="el">
               <a :href="el.href" target="_blank"
                 ><button class="main__href font" data-font-actual="16">
@@ -26,6 +31,9 @@
 </template>
 
 <script>
+import axios from "axios";
+import { USE_STRAPI } from "~/url";
+
 export default {
   data() {
     return {
@@ -37,118 +45,48 @@ export default {
       ],
       arrMain: [
         {
-          name: "40.02.02 Правоохранительная деятельность",
-          arrBtn: [
-            {
-              name: "Официальный сайт Гарант",
-              href: "https://www.garant.ru/",
-            },
-            {
-              name: "Официальный сайт Консультант +",
-              href: "https://www.consultant.ru/",
-            },
-          ],
+          loading: true,
         },
         {
-          name: "09.02.04 Информационные системы (По отраслям)",
-          arrBtn: [
-            {
-              name: "Сайт Метанит",
-              href: "https://metanit.com/",
-            },
-            {
-              name: "Официальный сайт Microsoft",
-              href: "https://learn.microsoft.com/ru-ru/dotnet/csharp/",
-            },
-            {
-              name: "Консультант +",
-              href: "https://www.consultant.ru/",
-            },
-          ],
+          loading: true,
         },
         {
-          name: "09.02.04 Информационные системы и программирование",
-          arrBtn: [
-            {
-              name: "Сайт Метанит",
-              href: "https://metanit.com/",
-            },
-            {
-              name: "Официальный сайт Microsoft",
-              href: "https://learn.microsoft.com/ru-ru/dotnet/csharp/",
-            },
-            {
-              name: "Консультант +",
-              href: "https://www.consultant.ru/",
-            },
-          ],
+          loading: true,
         },
         {
-          name: "43.02.10 Туризм",
-          arrBtn: [
-            {
-              name: "Официальный сайт Юрайт",
-              href: "https://urait.ru/",
-            },
-            {
-              name: "Министерство экономического развития Российской Федерации+",
-              href: "https://www.economy.gov.ru/",
-            },
-            {
-              name: "Консультант +",
-              href: "https://www.consultant.ru/",
-            },
-          ],
+          loading: true,
         },
         {
-          name: "38.02.04 Коммерция (по отраслям)",
-          arrBtn: [
-            {
-              name: "Официальный сайт Гарант",
-              href: "https://www.garant.ru/",
-            },
-            {
-              name: "Официальный сайт Консультант +",
-              href: "https://www.consultant.ru/",
-            },
-          ],
+          loading: true,
         },
         {
-          name: "43.02.03 Стилистика и исскуство визажа",
-          arrBtn: [
-            {
-              name: "Сайт Метанит",
-              href: "https://metanit.com/",
-            },
-            {
-              name: "Официальный сайт Microsoft",
-              href: "https://learn.microsoft.com/ru-ru/dotnet/csharp/",
-            },
-            {
-              name: "Официальный сайт Консультант +",
-              href: "https://www.consultant.ru/",
-            },
-          ],
+          loading: true,
         },
         {
-          name: "43.02.17 Технологии индустрии красоты",
-          arrBtn: [
-            {
-              name: "Официальный сайт Консультант +",
-              href: "https://www.consultant.ru/",
-            },
-            {
-              name: "Подборка стиля — Jessica Cheetham",
-              href: "https://the-glitter-collective.pixpa.com/home",
-            },
-            {
-              name: "Поисковая система Дзен +",
-              href: "https://dzen.ru/",
-            },
-          ],
+          loading: true,
         },
       ],
     };
+  },
+  computed: {
+    getArray() {
+      return this.arrMain;
+    },
+  },
+  methods: {
+    async initApp() {
+      try {
+        const {
+          data: {
+            data: [response],
+          },
+        } = await axios.get(USE_STRAPI + `informational-resources`);
+        this.arrMain = response.attributes.resources;
+      } catch (e) {}
+    },
+  },
+  mounted() {
+    this.initApp();
   },
 };
 </script>
@@ -185,6 +123,27 @@ export default {
   padding: 15px 40px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+.loadingActive {
+  height: 83px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  border: none;
+  transition: all 0.3s ease;
+}
+.loadingActive:hover {
+  background: none !important;
+  color: initial;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 200%;
+  }
 }
 .main__name {
   font-family: "Inter", sans-serif;

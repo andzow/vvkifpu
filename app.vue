@@ -11,7 +11,7 @@
     <Transition>
       <UIModalViModalFinal v-if="isActive" />
     </Transition>
-    <UIViModalStatus v-if="isActive" />
+    <UIViModalStatus v-if="isActive && $route.path === 'admin'" />
   </main>
   <UIViFooter v-if="isPath" />
 </template>
@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      isActive: false,
+      isActive: true,
       isPath: false,
     };
   },

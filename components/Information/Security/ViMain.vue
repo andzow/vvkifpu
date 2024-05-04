@@ -11,12 +11,12 @@
       <div class="main__content">
         <div
           class="main__link"
-          v-for="item in arrStudents"
+          v-for="item in getArray"
           :key="item"
-          @click="setPage(item)"
+          @click="setPage(item?.attributes)"
         >
           <p class="main__link_text font" data-font-actual="17">
-            {{ item.name }}
+            {{ item?.attributes?.title }}
           </p>
         </div>
       </div>
@@ -25,6 +25,10 @@
 </template>
 
 <script>
+import axios from "axios";
+import { USE_STRAPI } from "~/url";
+import { USE_STRAPI_UPLOADS } from "~/url";
+
 export default {
   data() {
     return {
@@ -34,39 +38,43 @@ export default {
           path: "/information/social-security",
         },
       ],
-      arrStudents: [
-        {
-          name: "Материально-техническое обеспечение образовательного процесса",
-          set: "href",
-          href: "http://vvkifpu.ru/wp-content/uploads/2019/10/MatTechObesp.pdf",
-        },
-        {
-          name: "Условия питания",
-          set: "link",
-          href: "/information/canteen",
-        },
-        {
-          name: "Электронная библиотека",
-          set: "href",
-          href: "http://vvkifpu.ru/wp-content/uploads/2019/10/MatTechObesp.pdf",
-        },
-        {
-          name: "Договор об информационном и консультационно-справочном обслуживании",
-          set: "href",
-          href: "http://vvkifpu.ru/wp-content/uploads/2019/10/MatTechObesp.pdf",
-        },
-      ],
+      arrStudents: null,
     };
+  },
+  computed: {
+    getArray() {
+      if (this.arrStudents !== null) {
+        this.arrStudents.push({
+          attributes: {
+            title: "Условия питания",
+            set: "link",
+            href: "/information/canteen",
+          },
+        });
+      }
+      return this.arrStudents;
+    },
   },
   methods: {
     setPage(item) {
-      const { set } = item;
-      if (set === "link") {
+      console.log(item);
+      if (item?.href) {
         this.$router.push(item.href);
         return;
       }
-      window.open(item.href, "_blank");
+      window.open(USE_STRAPI_UPLOADS + item.file.data.attributes.url, "_blank");
     },
+    async initApp() {
+      try {
+        const {
+          data: { data: response },
+        } = await axios.get(USE_STRAPI + `social-securitys?populate=file`);
+        this.arrStudents = response;
+      } catch (e) {}
+    },
+  },
+  mounted() {
+    this.initApp();
   },
 };
 </script>

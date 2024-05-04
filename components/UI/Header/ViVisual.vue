@@ -63,6 +63,7 @@ export default {
       fontSizeInner: useFontSize(),
       scrollbarBackground: "#000",
       useImage: useSvgImage,
+      checkVer: useChangeSpeciality(),
     };
   },
   mounted() {
@@ -433,6 +434,37 @@ export default {
             break;
         }
       }, 700);
+    },
+    checkVer(val) {
+      if (val) {
+        setTimeout(() => {
+          const font = localStorage.getItem("ArrayFont");
+          const background = localStorage.getItem("background");
+          if (font !== null) {
+            this.increaseFontSize(font);
+          }
+          switch (background) {
+            case "blue":
+              this.changeBackgroundBlue();
+              break;
+            case "yellow":
+              this.changeBackgroundYellow();
+              break;
+            case "brown":
+              this.changeBackgroundBrown();
+              break;
+            case "black":
+              this.changeBackgroundBlack();
+              break;
+            case "white":
+              this.changeBackgroundWhite();
+              break;
+            default:
+              break;
+          }
+          this.checkVer = false;
+        }, 0);
+      }
     },
   },
 };

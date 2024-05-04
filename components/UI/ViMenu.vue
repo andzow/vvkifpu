@@ -14,7 +14,7 @@
             :style="borderBottom"
             v-for="(item, idx) in navArr"
             :key="item"
-            @click="setActiveItemIdx(idx)"
+            @click="setActiveItemIdx(idx, item)"
           >
             <div
               class="menu__li_block"
@@ -54,6 +54,7 @@
                 v-if="activeVectorIdx === idx"
                 :pages="item.allPages"
                 :bodyClassName="bodyClassName"
+                @close="$emit('close')"
               />
             </Transition>
           </li>
@@ -104,7 +105,13 @@ export default {
     };
   },
   methods: {
-    setActiveItemIdx(idx) {
+    setActiveItemIdx(idx, item) {
+      if (item.path !== "/") {
+        this.$emit("close");
+        this.$router.push(item.path);
+        return;
+      }
+
       if (this.activeVectorIdx === idx) {
         this.activeVectorIdx = null;
         return;

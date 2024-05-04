@@ -177,7 +177,7 @@ export default {
     font-size: 42px !important;
   }
   .basics__item_arrow {
-    left: 80%;
+    left: 65%;
   }
   .basics__item_name {
     font-size: 16px !important;
@@ -186,6 +186,9 @@ export default {
 @media screen and (max-width: 1130px) {
   .basics__item_header {
     width: 390px;
+  }
+  .basics__item_arrow {
+    left: 75%;
   }
 }
 </style>

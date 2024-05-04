@@ -1,9 +1,14 @@
 <template>
-  <button class="files__btn border" :style="styleForBtn">скачать</button>
+  <button class="files__btn border" :style="styleForBtn">
+    <a :href="'http://localhost:1337' + srcFile">скачать</a>
+  </button>
 </template>
 
 <script>
 export default {
+  props: {
+    srcFile: {},
+  },
   data() {
     return {
       fontSize: useFontSize(),

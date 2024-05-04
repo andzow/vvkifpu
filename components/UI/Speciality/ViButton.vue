@@ -20,8 +20,7 @@ export default {};
   z-index: 2;
 }
 .button:hover {
-  color: white;
-  background: #542fe6;
+  transform: scale(0.98);
 }
 @media screen and (max-width: 990px) {
   .button {

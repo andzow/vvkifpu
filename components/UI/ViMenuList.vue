@@ -5,10 +5,18 @@
       :style="setActiveFontSize"
       v-for="list in pages"
       :key="list"
+      @click="$emit('close')"
     >
-      <NuxtLink class="menu__inner_link" :style="setActiveColorVisual">{{
-        list.name
-      }}</NuxtLink>
+      <NuxtLink
+        v-if="list.path !== '../dostup-sreda.pdf'"
+        class="menu__inner_link"
+        :style="setActiveColorVisual"
+        :to="list.path"
+        >{{ list.name }}</NuxtLink
+      >
+      <p class="menu__inner_link" v-else @click="redirect(list)">
+        {{ list.name }}
+      </p>
     </li>
   </ul>
 </template>
@@ -28,7 +36,11 @@ export default {
       fontSize: useFontSize(),
     };
   },
-  methods: {},
+  methods: {
+    redirect(list) {
+      window.open("http://localhost:3000/dostup-sreda.pdf", "_blank");
+    },
+  },
   computed: {
     setActiveColorVisual() {
       if (!document.body.className)

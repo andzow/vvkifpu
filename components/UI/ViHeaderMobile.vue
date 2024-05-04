@@ -63,12 +63,14 @@ export default {
       fontSize: useFontSize(),
       className: false,
       borderColor: useColor(),
+      checkVer: useChangeSpeciality(),
     };
   },
   methods: {
     setActiveBurger() {
       this.activeBurger = !this.activeBurger;
       this.$emit("open", this.activeBurger);
+      this.checkVer = true;
     },
     setFontSizeAndColor() {
       if (!this.bodyClassName) {
@@ -126,7 +128,7 @@ export default {
   justify-content: space-between;
 }
 .header__mob_logo {
-  font-size: 35px;
+  font-size: 35px !important;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;

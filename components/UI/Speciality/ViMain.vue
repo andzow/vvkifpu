@@ -15,48 +15,76 @@
         />
       </div>
       <div class="main__name">
+        <div
+          class="main__cd font_special"
+          data-font-actual="58"
+          v-show="arrCrumbs"
+        >
+          {{ codeSpec }}
+        </div>
+        <div class="main__loadcd" v-show="!arrCrumbs"></div>
         <h1
           class="main__title font_special"
-          data-font-actual="58"
           v-html="specialityTitle"
+          v-show="arrCrumbs"
+          data-font-actual="58"
         ></h1>
-        <div class="main__button">
+        <div class="main__loadtitl" v-show="!arrCrumbs"></div>
+        <div class="main__button" v-show="arrCrumbs">
           <UISpecialityViButton @click="useModal = true"
             >Заявка на обучение</UISpecialityViButton
           >
         </div>
+        <div class="main__loadbtn" v-show="!arrCrumbs"></div>
       </div>
       <div class="main__about border">
         <div class="main__content" id="main__content">
-          <div class="main__start" v-for="item in arrDes" :key="item">
-            <p class="main__start_title font" data-font-actual="18">
+          <div class="main__start" v-for="item in getArrDes" :key="item">
+            <p
+              class="main__start_title font"
+              data-font-actual="18"
+              :class="{ loadingTitle: !item.name }"
+            >
               {{ item.name }}
             </p>
             <p
               class="main__start_des font"
               data-font-actual="15"
               v-for="list in item.arrDes"
+              :class="{ loadingDes: !item.name }"
               :key="list"
             >
               {{ list }}
             </p>
           </div>
           <div class="main__proffesions">
-            <p class="main__proffesions_title font" data-font-actual="18">
+            <p
+              class="main__proffesions_title font"
+              data-font-actual="18"
+              :class="{ loadingProfTitle: !arrProffesions }"
+            >
               Будущие профессии
             </p>
             <ul class="main__proffesions_ul">
               <li
                 class="main__proffesions_li font"
                 data-font-actual="15"
-                v-for="item in arrProffesions"
+                v-for="item in getArrProffesions"
+                :class="{ loadingProffesions: !item }"
                 :key="item"
               >
                 {{ item }}
               </li>
             </ul>
           </div>
-          <div class="main__image" v-html="imageSrc"></div>
+          <div class="main__check">
+            <div
+              class="main__image"
+              v-html="imageSrc"
+              v-show="arrProffesions"
+            ></div>
+            <div class="main__check_loading" v-show="!arrProffesions"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +94,7 @@
 <script>
 export default {
   props: {
+    codeSpec: { type: String },
     breadcrumbs: {
       type: String,
     },
@@ -91,6 +120,17 @@ export default {
   data() {
     return {
       useModal: useModal(),
+      arrDesLoading: [
+        {
+          name: false,
+          arrDes: [false],
+        },
+        {
+          name: false,
+          arrDes: [false, false],
+        },
+      ],
+      arrProffesionsLoading: [false, false, false, false, false, false],
     };
   },
   computed: {
@@ -98,6 +138,18 @@ export default {
       return {
         padding: `${200}px 20px 0 20px`,
       };
+    },
+    getArrDes() {
+      if (this.arrDes === null) {
+        return this.arrDesLoading;
+      }
+      return this.arrDes;
+    },
+    getArrProffesions() {
+      if (this.arrDes === null) {
+        return this.arrProffesionsLoading;
+      }
+      return this.arrProffesions;
     },
   },
 };
@@ -146,11 +198,132 @@ export default {
   overflow: hidden;
   transition: all 0.3s ease;
 }
+.main__cd {
+  font-size: 58px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  margin: 0 20px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 .main__about {
   width: 100vw;
   padding: 30px 0;
   background: black;
   min-height: 150px;
+}
+.main__loadabout {
+  min-height: 150px;
+  width: 100vw;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.main__loadcd {
+  border-radius: 50px;
+  min-height: 50px;
+  width: 300px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  margin-bottom: 20px;
+  border: none;
+  transition: all 0.3s ease;
+}
+.main__loadtitl {
+  border-radius: 50px;
+  min-height: 50px;
+  width: 600px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  margin-bottom: 30px;
+  border: none;
+  transition: all 0.3s ease;
+}
+.main__loadbtn {
+  border-radius: 50px;
+  min-height: 33px;
+  width: 150px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  margin-bottom: 30px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.loadingTitle {
+  border-radius: 15px;
+  font-size: 0px !important;
+  height: 25px;
+  width: 150px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  margin-bottom: 30px;
+  border: none;
+  transition: all 0.3s ease;
+}
+.loadingProfTitle {
+  border-radius: 15px;
+  font-size: 0px !important;
+  height: 25px;
+  width: 150px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  animation: slide 1.3s infinite;
+  margin-bottom: 30px;
+  border: none;
+  transition: all 0.3s ease;
+}
+.loadingDes {
+  border-radius: 15px;
+  font-size: 0px !important;
+  height: 15px;
+  width: 200px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  margin-bottom: 10px !important;
+  animation: slide 1.3s infinite;
+  border: 1px solid red;
+  border: none;
+  transition: all 0.3s ease;
+}
+.loadingProffesions {
+  border-radius: 15px;
+  font-size: 0px !important;
+  height: 15px;
+  width: 300px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  margin-bottom: 10px !important;
+  list-style-type: none !important;
+  margin-left: 0 !important;
+  animation: slide 1.3s infinite;
+  border: 1px solid red;
+  border: none;
+  transition: all 0.3s ease;
+}
+.main__check_loading {
+  border-radius: 23px;
+  font-size: 0px !important;
+  height: 70px;
+  width: 70px;
+  background: linear-gradient(to right, #f3f3f3 50%, #ddd 50%);
+  background-size: 200% 100%;
+  margin-bottom: 10px !important;
+  list-style-type: none !important;
+  margin-left: 0 !important;
+  animation: slide 1.3s infinite;
+  border: 1px solid red;
+  border: none;
+  transition: all 0.3s ease;
 }
 .main__content {
   display: flex;
@@ -201,6 +374,9 @@ export default {
   .main__title {
     font-size: 54px !important;
   }
+  .main__cd {
+    font-size: 54px !important;
+  }
   .main__name {
     padding-bottom: 0;
   }
@@ -236,6 +412,9 @@ export default {
   }
 }
 @media screen and (max-width: 830px) {
+  .main__cd {
+    font-size: 44px !important;
+  }
   .main__name {
     padding-bottom: 0px;
     margin: 15px 0;
@@ -268,6 +447,9 @@ export default {
   }
 }
 @media screen and (max-width: 540px) {
+  .main__cd {
+    font-size: 32px !important;
+  }
   .main__name {
     padding-bottom: 30px;
   }
@@ -279,6 +461,9 @@ export default {
   }
 }
 @media screen and (max-width: 370px) {
+  .main__cd {
+    font-size: 30px !important;
+  }
   .main__title {
     font-size: 30px !important;
   }
