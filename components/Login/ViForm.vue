@@ -190,4 +190,38 @@ export default {
   .card__text_error_active {
     opacity: 1;
   }
+  .form__image {
+    height: 100vh;
+    width: 50%;
+  }
+  .form__img {
+    height: 100%;
+    width: 100%;
+  }
+  @media(max-width: 1400px) {
+    .form__info {
+    width: 700px;
+  }
+  }
+  @media(max-width: 1200px) {
+    .form__info {
+    width: 600px;
+  }
+  }
+  @media(max-width: 1000px) {
+    .form__image {
+      display: none;
+    }
+    .form__info {
+    width: 100%;
+  }
+  .form__box {
+    min-width: 350px;
+  }
+  }
+  @media(max-width: 400px) {
+  .form__box {
+    min-width: 300px;
+  }
+  }
   </style>

@@ -226,4 +226,25 @@ export default {
 .news__btn:hover {
     transform: scale(1.03);
 }
+@media (max-width: 880px) {
+    .news__serch {
+        display: none;
+    }
+    .news__create {
+        display: none;
+    }
+}
+@media (max-width: 500px) {
+    .news__serch {
+        display: block;
+        margin-top: 30px;
+    }
+    .news__sort {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .news__block {
+        margin-top: 20px;
+    }
+}
 </style>

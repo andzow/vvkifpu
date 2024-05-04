@@ -113,4 +113,15 @@ export default {
   margin-top: 10px;
   transition: all 0.3s ease;
 }
+@media (max-width: 1150px) {
+  .filter {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+}
+@media (max-width: 860px) {
+  .filter {
+  grid-template-columns: repeat(1, 1fr);
+}
+}
 </style>

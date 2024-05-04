@@ -150,4 +150,15 @@ path {
 .v-leave-to {
   opacity: 0;
 }
+
+@media(max-width: 990px) {
+  .panel__container {
+    padding: 150px 20px 100px 20px;
+  }
+}
+@media(max-width: 500px) {
+  .panel__container {
+    flex-direction: column;
+  }
+}
 </style>

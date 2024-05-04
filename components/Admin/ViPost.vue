@@ -459,4 +459,31 @@ export default {
 .post__border_error {
   border-color: #e02020;
 }
+@media (max-width: 1120px) {
+  .post__container {
+    flex-direction:column;
+  }
+  .post__position {
+    margin-right: 0px
+  }
+  .post__description {
+    padding-left: 0px;
+    border-left: 0px solid var(--violo);
+  }
+}
+@media (max-width: 500px) {
+  .post__position  {
+    width: 100%;
+    max-width: none;
+  }
+  .post__input {
+    width: 100%
+  }
+  .post__wrapper {
+    width: 100%
+  }
+  .post__block {
+    width: 100%
+  }
+}
 </style>
