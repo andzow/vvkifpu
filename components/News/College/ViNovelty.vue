@@ -70,26 +70,26 @@ export default {
     };
   },
   methods: {
-    // async addNumber() {
-    //   try {
-    //     const { number } = { ...this.$route.query };
-    //     this.$router.replace({
-    //       path: "/news/college",
-    //       query: {
-    //         ...this.$route.query,
-    //         type: "Новости колледжа",
-    //         number: !number ? 6 : parseInt(number) + 6,
-    //       },
-    //     });
-    //     const router = { ...this.$route.query };
-    //     router.number = parseInt(number) + 6;
-    //     const post = await PostController.getPostNews(router);
-    //     this.isActiveButton = post.log;
-    //     if (post) {
-    //       this.changeArray(post);
-    //     }
-    //   } catch {}
-    // },
+    async addNumber() {
+      try {
+        const { number } = { ...this.$route.query };
+        this.$router.replace({
+          path: "/news/college",
+          query: {
+            ...this.$route.query,
+            type: "Новости колледжа",
+            number: !number ? 6 : parseInt(number) + 6,
+          },
+        });
+        const router = { ...this.$route.query };
+        router.number = parseInt(number) + 6;
+        const post = await PostController.getPostNews(router);
+        this.isActiveButton = post.log;
+        if (post) {
+          this.changeArray(post);
+        }
+      } catch {}
+    },
     async changeArray(post) {
       if (post === 404) return;
       this.ArrayOccasion = post.posts.map((el) => {

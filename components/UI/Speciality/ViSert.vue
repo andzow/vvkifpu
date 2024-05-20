@@ -1,19 +1,28 @@
 <template>
-  <section class="sert border">
+  <section class="sert border" id="specialitySert">
     <div class="sert__item" v-for="item in arrSert" :key="item">
-      <a :href="'http://localhost:1337' + item.attributes.url" target="_blank"
+      <a :href="urlServer + item.attributes.url" target="_blank"
         ><img
           class="sert__image image_opacity"
-          :src="'http://localhost:1337' + item.attributes.url"
+          :src="urlServer + item.attributes.url"
       /></a>
     </div>
   </section>
 </template>
 
 <script>
+import { USE_STRAPI_UPLOADS } from "~/url";
+
 export default {
   props: { arrSert: { type: Array } },
-  mounted() {},
+  data() {
+    return {
+      urlServer: null,
+    };
+  },
+  mounted() {
+    this.urlServer = USE_STRAPI_UPLOADS;
+  },
 };
 </script>
 
@@ -25,8 +34,10 @@ export default {
   gap: 20px;
   background: white;
   padding: 30px 30px 30px 60px;
+
   /* margin-bottom: 60px; */
 }
+
 .sert__image {
   height: 394px;
   width: 300px;

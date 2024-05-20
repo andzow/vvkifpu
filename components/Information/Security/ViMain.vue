@@ -44,13 +44,30 @@ export default {
   computed: {
     getArray() {
       if (this.arrStudents !== null) {
-        this.arrStudents.push({
-          attributes: {
-            title: "Условия питания",
-            set: "link",
-            href: "/information/canteen",
+        this.arrStudents.push(
+          {
+            attributes: {
+              title: "Условия питания",
+              set: "link",
+              href: "/information/canteen",
+            },
           },
-        });
+          {
+            attributes: {
+              title: "Электронная библиотека",
+              set: "link",
+              href: "/library/digital",
+            },
+          },
+          {
+            attributes: {
+              title:
+                "Договор об информационном и консультационно-справочном обслуживании",
+              set: "link",
+              href: "/library/additionally",
+            },
+          }
+        );
       }
       return this.arrStudents;
     },

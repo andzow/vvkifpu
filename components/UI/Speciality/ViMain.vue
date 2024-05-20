@@ -159,17 +159,19 @@ export default {
 .main {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  height: auto;
+  min-height: 100vh;
   background-size: cover;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 .main__container {
-  height: 100%;
+  position: relative;
+  height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 2;
 }
 .main__breadcrumbs {
   width: 100%;
@@ -411,6 +413,7 @@ export default {
     display: none;
   }
 }
+
 @media screen and (max-width: 830px) {
   .main__cd {
     font-size: 44px !important;

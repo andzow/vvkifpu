@@ -39,7 +39,7 @@ const navArr = [
         path: "/",
         children: [
           {
-            name: "9.02.04 “Информационные системы”",
+            name: "9.02.07 “Информационные системы”",
             path: "/speciality/information-systems",
           },
           {
@@ -255,7 +255,7 @@ const mobileNavArr = [
       },
 
       {
-        name: "9.02.04 “Информационные системы”",
+        name: "9.02.07 “Информационные системы”",
         path: "/speciality/information-systems",
         children: null,
       },

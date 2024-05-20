@@ -45,12 +45,16 @@
             <td class="standards__element font_special" data-font-actual="17">
               {{ item.level }}
             </td>
-            <td class="standards__element font_special" data-font-actual="17">
-              {{ item.education }}
-            </td>
-            <td class="standards__element font_special" data-font-actual="17">
-              {{ item.term }}
-            </td>
+            <td
+              class="standards__element font_special"
+              data-font-actual="17"
+              v-html="item.education"
+            ></td>
+            <td
+              class="standards__element font_special"
+              data-font-actual="17"
+              v-html="item.term"
+            ></td>
             <td class="standards__element font_special" data-font-actual="17">
               {{ item.form }}
             </td>
@@ -84,83 +88,43 @@ export default {
       ],
       ArrayStandards: [
         {
-          name: "09.02.04 Информационные системы (по отраслям)",
-          qualification: "Техник по информационным системам",
+          name: "09.02.07 Информационные системы и программирование",
+          qualification: "Техник",
           level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "3г. 10 мес.",
-          form: "очная",
-        },
-        {
-          name: "09.02.03 Программирование в компьютерных системах",
-          qualification: "Техник программист",
-          level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "3г. 10 мес.",
+          education: "(11 кл.)<br>(9 кл.)",
+          term: "2 г. 10 мес.<br> 3г. 10 мес.",
           form: "очная",
         },
         {
           name: "38.02.04 Коммерция(по отраслям)",
-          qualification: "Менеджер по продажам",
+          qualification: "Менеджер",
           level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "2г. 10 мес.",
-          form: "очная",
-        },
-        {
-          name: "38.02.04 Экономика и бухгалтерский учет (по отраслям)",
-          qualification: "Бухгалтер",
-          level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "2г. 10 мес.",
-          form: "очная",
-        },
-        {
-          name: "38.02.06 Финансы",
-          qualification: "Финансист",
-          level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "2г. 10 мес.",
+          education: "(11 кл.)<br>(9 кл.)",
+          term: "1 г. 10 мес.<br>2г. 10 мес.",
           form: "очная",
         },
         {
           name: "40.02.02 Правоохранительная деятельность",
           qualification: "Юрист",
           level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "3 г. 6 мес.",
+          education: "(11 кл.)<br>(9 кл.)",
+          term: "2 г. 6 мес.<br>3 г. 6 мес.",
           form: "очная",
         },
         {
-          name: "43.02.02 Парикмахерское искусство",
+          name: "43.02.17 Технологии индустрии красоты",
           qualification: "Технолог",
           level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "2г. 10 мес.",
+          education: "(11 кл.)<br>(9 кл.)",
+          term: "2 г. 10 мес.<br>3г. 10 мес.",
           form: "очная",
         },
         {
-          name: "43.02.03 Стилистика и искусство визажа",
-          qualification: "Визажист-стилист",
-          level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "2г. 10 мес.",
-          form: "очная",
-        },
-        {
-          name: "43.02.10 Туризм",
+          name: "43.02.16 Туризм",
           qualification: "Специалист по туризму",
           level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "2г. 10 мес.",
-          form: "очная",
-        },
-        {
-          name: "43.02.11 Гостиничный сервис",
-          qualification: "Менеджер",
-          level: "Базовый уровень",
-          education: "(9 кл.)",
-          term: "2г. 10 мес.",
+          education: "(11 кл.)<br>(9 кл.)",
+          term: "1 г. 10 мес.<br>2г. 10 мес.",
           form: "очная",
         },
       ],
@@ -196,11 +160,13 @@ export default {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 17px;
+  line-height: 25px;
   padding: 15px 20px;
   color: #000;
   text-align: center;
   border: solid 1px #000;
 }
+
 .standards__table {
   border-collapse: collapse;
   max-width: 1600px;

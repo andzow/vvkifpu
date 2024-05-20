@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import ApplicationController from "@/http/controllers/ApplicationController";
+
 export default {
   data() {
     return {
@@ -137,7 +139,7 @@ export default {
         this.NameValidator = 0;
       }
     },
-    sendData() {
+    async sendData() {
       if (this.phoneValidator !== 2) {
         this.phoneValidator = 1;
       }
@@ -147,6 +149,18 @@ export default {
       if (this.phoneValidator === 2 && this.NameValidator === 2) {
         this.useModal = false;
         this.useModalFinal = true;
+        const FormObject = {
+          name: this.isName,
+          phone: this.isNumber,
+          status: "check",
+          statusName: "Ожидает ответа",
+        };
+        await ApplicationController.createApplication(FormObject);
+        this.isName = "";
+        this.isNumber = "";
+        this.phoneValidator = 0;
+        this.NameValidator = 0;
+        this.isNumberPrev = "";
       }
     },
   },
@@ -198,14 +212,13 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100vh;
-  z-index: 10;
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
+  z-index: 20;
 }
 .modal__container {
   padding: 0 20px;
@@ -216,7 +229,7 @@ export default {
   background: #fff;
   border-radius: 60px;
   width: 1000px;
-  margin-top: 100px;
+  margin-top: 0px;
 }
 .modal__title {
   font-family: "Inter", sans-serif;

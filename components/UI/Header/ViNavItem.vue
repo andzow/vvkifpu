@@ -106,7 +106,7 @@ export default {
   },
   methods: {
     redirectSreda() {
-      window.open("http://localhost:3000/dostup-sreda.pdf", "_blank");
+      window.open("https://vvkifpu.ru/dostup-sreda.pdf", "_blank");
     },
     openChildren(el, idx) {
       this.$emit("slideChildren", el.children);

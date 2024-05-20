@@ -31,6 +31,19 @@
               </div>
             </a>
           </div>
+          <div
+            clas="main__href"
+            :href="list.href"
+            target="_blank"
+            v-for="list in item?.attributes?.element"
+            :key="list"
+          >
+            <div class="main__item" @click="$router.push(list.href)">
+              <div class="main__link font" data-font-actual="18">
+                {{ list?.name }}
+              </div>
+            </div>
+          </div>
         </div>
         <div class="main__loading" v-else>
           <div

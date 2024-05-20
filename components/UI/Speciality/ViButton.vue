@@ -22,6 +22,12 @@ export default {};
 .button:hover {
   transform: scale(0.98);
 }
+@media screen and (max-width: 1600px) {
+  .button {
+    font-size: 16px !important;
+    padding: 13px 25px;
+  }
+}
 @media screen and (max-width: 990px) {
   .button {
     font-size: 16px !important;

@@ -67,7 +67,7 @@ export default {
   overflow: hidden;
   z-index: 1;
 }
-@media screen and (max-width: 1320px) {
+@media screen and (max-width: 1600px) {
   .main {
     height: auto;
   }

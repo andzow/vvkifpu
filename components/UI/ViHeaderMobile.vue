@@ -1,7 +1,10 @@
 <template>
   <div
     class="header__mob"
-    :class="{ activeMobHeader: activeBurger || isHover || isScrollDown }"
+    :class="{
+      activeMobHeader:
+        (!bodyClassName && activeBurger) || isHover || isScrollDown,
+    }"
   >
     <div class="header__mob_head">
       <div
@@ -116,7 +119,7 @@ export default {
 
 <style scoped>
 .header__mob {
-  padding: 30px 20px;
+  padding: 18px 20px 18px 20px;
   width: 100vw;
   display: none;
   background: none;
@@ -128,7 +131,7 @@ export default {
   justify-content: space-between;
 }
 .header__mob_logo {
-  font-size: 35px !important;
+  font-size: 30px !important;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;

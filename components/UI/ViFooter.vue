@@ -20,7 +20,7 @@
               КОНТАКТЫ
             </div>
             <p class="footer__contact_text font" data-font-actual="16">
-              Адрес: 610002, г.Киров, ул.Герцена 41
+              Адрес: 610002, г.Киров, ул.Герцена 43
             </p>
             <p class="footer__contact_text font" data-font-actual="16">
               07:30 - 19:00
@@ -75,7 +75,7 @@
             КОНТАКТЫ
           </div>
           <p class="footer__contact_text font" data-font-actual="16">
-            Адрес: 610002, г.Киров, ул.Герцена 41
+            Адрес: 610002, г.Киров, ул.Герцена 43
           </p>
           <p class="footer__contact_text font" data-font-actual="16">
             07:30 - 19:00
@@ -113,7 +113,7 @@ export default {
     return {
       arrSpeciality: [
         {
-          name: "9.02.04 “Информационные системы”",
+          name: "9.02.07 “Информационные системы и программирование”",
           path: "/speciality/information-systems",
         },
         {
@@ -300,7 +300,7 @@ footer {
     margin-bottom: 15px;
   }
   .footer__spec_li a {
-    font-size: 14px !important;
+    font-size: 16px !important;
   }
   .footer__contact_text {
     font-size: 14px !important;

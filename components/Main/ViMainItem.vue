@@ -19,17 +19,25 @@
             <div class="main__slider_item">
               <div class="main__slider_header">
                 <div class="main__slider_main">
-                  <img class="image_opacity" :src="item.imageSrcFirst" />
+                  <img
+                    class="image_opacity"
+                    :src="item.imageSrcFirst"
+                    alt="Слайдер"
+                  />
                 </div>
                 <div class="main__slider_sec">
-                  <img class="image_opacity" :src="item.imageSrcSec" />
+                  <img
+                    class="image_opacity"
+                    :src="item.imageSrcSec"
+                    alt="Слайдер"
+                  />
                 </div>
                 <h4
                   class="main__slider_name font"
                   data-font-actual="18"
                   ref="main__slider_name"
                 >
-                  Разработка сайтов и ПО
+                  {{ item.codeText }}
                 </h4>
               </div>
               <div class="main__slider_content">
@@ -88,11 +96,12 @@ export default {
       typedInstances: [],
       arrSlider: [
         {
-          code: "09.02.04",
+          code: "09.02.07",
           title: "Информационные системы",
           des: `Студенты углубятся в изучение языков программирования таких
                 как, C#, JavaScript, HTML, CSS, SQL, а также изучат
                 современные подходы к разработке!`,
+          codeText: "Разработка сайтов и ПО ",
           imageSrcFirst:
             "../assets/images/SpecialitySlider/informationSystem1.webp",
           imageSrcSec:
@@ -106,20 +115,23 @@ export default {
               кибербезопасность, анализ данных и др.`,
           imageSrcFirst: "../assets/images/SpecialitySlider/enform1.webp",
           imageSrcSec: "../assets/images/SpecialitySlider/enform2.webp",
+          codeText: "Закон и технологии",
         },
         {
           code: "43.02.10",
           title: "Туризм",
           des: `Студенты погрузятся в мир современного туризма, изучая технологии бронирования, анализа рынка, управления гостиничными ресурсами и другие 
               актуальные аспекты.`,
+          codeText: "Туристическая деятельность",
           imageSrcFirst: "../assets/images/SpecialitySlider/tourism1.webp",
           imageSrcSec: "../assets/images/SpecialitySlider/tourism2.webp",
         },
         {
           code: "43.02.17",
           title: "Технологии индустрии красоты",
-          des: `Студенты погрузятся в мир современного туризма, изучая технологии бронирования, анализа рынка, управления гостиничными ресурсами и другие 
-              актуальные аспекты.`,
+          codeText: "Красота и инновации",
+          des: `Студенты будут погружаться в мир индустрии красоты, изучая современные технологии, тренды в области косметики и ухода за кожей, основы макияжа, методики 
+          ухода за волосами и ногтями, а также основы управления салоном красоты.`,
           imageSrcFirst: "../assets/images/SpecialitySlider/beauty1.webp",
           imageSrcSec: "../assets/images/SpecialitySlider/beauty2.webp",
         },
@@ -320,7 +332,10 @@ export default {
     min-height: 233px;
   }
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
+  .main__menu {
+    margin: 180px 0 0 0;
+  }
   .main__slider {
     max-width: 550px;
   }
@@ -342,6 +357,18 @@ export default {
   .main__slider_header {
     margin-bottom: 5px;
     min-height: 190px;
+  }
+  .main__slider_name {
+    font-size: 16px !important;
+  }
+  .main__slider_title {
+    font-size: 20px !important;
+  }
+  .main__slider_des {
+    font-size: 15px !important;
+  }
+  .main__slider_code {
+    font-size: 16px !important;
   }
 }
 @media screen and (max-width: 1100px) {

@@ -24,8 +24,62 @@
 
 <script>
 import axios from "axios";
+import { USE_STRAPI } from "~/url";
 
 export default {
+  setup() {
+    useHead({
+      title:
+        "Коммерция(по отраслям) - Волго-Вятский колледж информатики, финансов, права, управления",
+      meta: [
+        {
+          name: "viewport",
+          content: `width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes`,
+        },
+        // {
+        //   name: "google-site-verification",
+        //   content: "_14UGNz5nfZyg1n0hSBDp1RSWAPFktd6bvetIIbJu1E",
+        // },
+        {
+          name: "description",
+          content: `Поступить на специальность 38.02.04 Коммерция(по отраслям) в Кирове`,
+        },
+        {
+          name: "keywords",
+          content: "Колледж киров, Коммерция(по отраслям)",
+        },
+        { name: "format-detection", content: "telephone=no" },
+        {
+          property: "og:title",
+          content:
+            "Коммерция(по отраслям) - Волго-Вятский колледж информатики, финансов, права, управления",
+        },
+        {
+          property: "og:description",
+          content: `Поступить на специальность 38.02.04 Коммерция(по отраслям) в Кирове`,
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "ru_RU" },
+        {
+          property: "og:site_name",
+          content:
+            "Волго-Вятский колледж информатики, финансов, права, управления",
+        },
+        {
+          property: "og:image",
+          content: "https://vvkifpu.ru/Meta/Index/logo.webp",
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "../favicon.svg",
+        },
+      ],
+      htmlAttrs: { lang: "ru-RU" },
+    });
+  },
   data() {
     return {
       codeSpec: null,
@@ -57,7 +111,7 @@ export default {
     async initApp() {
       try {
         const { data } = await axios.get(
-          "http://localhost:1337/api/specialties/7/?populate=docFiles&populate=sertImage"
+          `${USE_STRAPI}specialties/7/?populate=docFiles&populate=sertImage`
         );
         this.arrFeatures = await data.data.attributes.Data.arrFeatures;
         this.specialityTitle = await data.data.attributes.Data.specialityTitle;

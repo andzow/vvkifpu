@@ -1,6 +1,6 @@
 <template>
   <button class="files__btn border" :style="styleForBtn">
-    <a :href="'http://localhost:1337' + srcFile">скачать</a>
+    <a :href="'https://vvkifpu.ru/server' + srcFile">Скачать</a>
   </button>
 </template>
 
@@ -34,6 +34,7 @@ export default {
 .files__btn {
   font-size: 16px;
   color: white;
+  font-family: "Inner", sans-serif;
   background: #542fe6;
   border-radius: 50px;
   padding: 13px 40px;
@@ -41,7 +42,18 @@ export default {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.files__btn:hover {
-  transform: scale(1.02);
+.files__btn a {
+  font-family: "Inner", sans-serif;
+  font-weight: 700;
+}
+@media screen and (min-width: 990px) {
+  .files__btn:hover {
+    transform: scale(1.02);
+  }
+}
+@media screen and (max-width: 600px) {
+  .files__btn {
+    font-size: 15px !important;
+  }
 }
 </style>

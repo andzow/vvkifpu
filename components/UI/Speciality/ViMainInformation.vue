@@ -10,8 +10,22 @@
         type="video/webm"
         preload="metadata"
         playsinline
+        v-if="!tourismVideo"
       >
         <source src="@/assets/video/video.webm" type="video/webm" />
+      </video>
+      <video
+        class="main__mp4"
+        autoplay
+        muted
+        loop
+        poster="@/assets/video/tourism.mp4"
+        type="video/mp4"
+        preload="metadata"
+        playsinline
+        v-else
+      >
+        <source src="@/assets/video/tourism.mp4" type="video/mp4" />
       </video>
     </div>
     <div class="main__container">
@@ -124,6 +138,9 @@ export default {
     arrCrumbs: {
       type: Array,
     },
+    tourismVideo: {
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -178,7 +195,8 @@ export default {
 .main {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   background-size: cover;
   overflow-x: hidden;
 }
@@ -211,7 +229,8 @@ export default {
 
 .main__container {
   position: relative;
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -237,6 +256,7 @@ export default {
   font-size: 58px;
   font-family: "Inter", sans-serif;
   font-weight: 800;
+  max-width: 900px;
   margin: 0 20px;
   text-align: center;
   color: #fff;
@@ -481,6 +501,7 @@ export default {
     display: block;
   } */
 }
+
 @media screen and (max-width: 760px) {
   .main__breadcrumbs {
     padding: 120px 20px 0px !important;

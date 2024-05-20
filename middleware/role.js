@@ -7,8 +7,10 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
       const auth = await AuthController.cheackAuth();
       const data = jwtDecode(localStorage.getItem("accessToken"));
       if (auth !== 200 || data.roles.some((item) => item !== "ADMIN")) {
-        return navigateTo("/");
+        return navigateTo("/login");
       }
     }
-  } catch {}
+  } catch {
+    return navigateTo("/login");
+  }
 });

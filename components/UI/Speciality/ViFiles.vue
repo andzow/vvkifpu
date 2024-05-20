@@ -1,5 +1,5 @@
 <template>
-  <section class="files border">
+  <section class="files border" id="specialityFiles">
     <div class="files__container">
       <div
         class="files__item"
@@ -36,7 +36,10 @@
           </div>
         </div>
         <Transition name="fade-button">
-          <div class="files__button" v-if="isActiveIndex === idx">
+          <div
+            class="files__button"
+            v-if="isActiveIndex === idx || checkMobile"
+          >
             <UISpecialityViFilesBtn :srcFile="item.attributes.url" />
           </div>
         </Transition>
@@ -55,10 +58,15 @@ export default {
   data() {
     return {
       isActiveIndex: null,
+      checkMobile: false,
     };
   },
   computed: {},
-  mounted() {},
+  mounted() {
+    if (window.innerWidth <= 990) {
+      this.checkMobile = true;
+    }
+  },
 };
 </script>
 
@@ -67,6 +75,7 @@ export default {
   background: white;
   margin-bottom: 30px;
 }
+
 .files__item {
   display: flex;
   align-items: center;
@@ -75,12 +84,7 @@ export default {
   background: none;
   transition: all 0.3s ease;
 }
-.files__item:hover {
-  background: rgba(84, 47, 230, 0.15);
-}
-.files__item:hover .files__index {
-  color: #542fe6;
-}
+
 .files__about {
   display: flex;
   align-items: center;
@@ -134,9 +138,27 @@ export default {
     max-width: 60px;
   }
 }
+@media screen and (min-width: 990px) {
+  .files__item:hover {
+    background: rgba(84, 47, 230, 0.15);
+  }
+  .files__item:hover .files__index {
+    color: #542fe6;
+  }
+}
 @media screen and (max-width: 670px) {
   .files__item {
     padding: 20px 40px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .files__item {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .files__about {
+    margin-bottom: 20px;
   }
 }
 @media screen and (max-width: 550px) {

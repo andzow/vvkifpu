@@ -31,9 +31,11 @@
           data-aos="fade-right"
           data-aos-offset="400"
           data-aos-duration="1000"
-          @click="$router.push(`/news/${ArrayNews[0].name}`)"
         >
-          <div class="news__main_image">
+          <div
+            class="news__main_image"
+            @click="$router.push(`/news/${ArrayNews[0].name}`)"
+          >
             <img
               class="news__img image_opacity"
               :src="ArrayNews[0].image"
@@ -41,13 +43,21 @@
             />
             <div class="news__background border"></div>
           </div>
-          <p class="news__info font" data-font-actual="16">
+          <p
+            class="news__info font"
+            data-font-actual="16"
+            @click="$router.push(`/news/${ArrayNews[0].name}`)"
+          >
             {{ ArrayNews[0].data }} |
             <span class="news__type font" data-font-actual="20">{{
               ArrayNews[0].type
             }}</span>
           </p>
-          <h3 class="news__name font" data-font-actual="28">
+          <h3
+            class="news__name font"
+            data-font-actual="28"
+            @click="$router.push(`/news/${ArrayNews[0].name}`)"
+          >
             {{ ArrayNews[0].name }}
           </h3>
           <button
@@ -231,10 +241,11 @@ export default {
   max-height: 400px;
 }
 .news__info {
-  margin-top: 30px;
+  padding-top: 30px;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   color: #9b9b9b;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 .news__type {
@@ -267,6 +278,7 @@ export default {
   font-family: "Inter", sans-serif;
   font-size: 28px;
   margin-top: 10px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 .news__additionally_add {
@@ -274,6 +286,7 @@ export default {
   padding: 30px 0;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
+  cursor: pointer;
 }
 .news__additionally_add:nth-child(1) {
   margin-bottom: 30px;

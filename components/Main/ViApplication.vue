@@ -217,22 +217,29 @@ export default {
       }
     },
     async sendData() {
-      if (this.phoneValidator !== 2) {
-        this.phoneValidator = 1;
-      }
-      if (this.NameValidator !== 2) {
-        this.NameValidator = 1;
-      }
-      if (this.phoneValidator === 2 && this.NameValidator === 2) {
-        const FormObject = {
-          name: this.isName,
-          phone: this.isNumber,
-          status: "check",
-          statusName: "Ожидает ответа",
-        };
-        this.useModalFinal = true;
-        await ApplicationController.createApplication(FormObject);
-      }
+      try {
+        if (this.phoneValidator !== 2) {
+          this.phoneValidator = 1;
+        }
+        if (this.NameValidator !== 2) {
+          this.NameValidator = 1;
+        }
+        if (this.phoneValidator === 2 && this.NameValidator === 2) {
+          const FormObject = {
+            name: this.isName,
+            phone: this.isNumber,
+            status: "check",
+            statusName: "Ожидает ответа",
+          };
+          this.useModalFinal = true;
+          await ApplicationController.createApplication(FormObject);
+          this.isName = "";
+          this.isNumber = "";
+          this.phoneValidator = 0;
+          this.NameValidator = 0;
+          this.isNumberPrev = "";
+        }
+      } catch {}
     },
   },
   watch: {
@@ -391,7 +398,19 @@ export default {
   margin-bottom: 10px;
   opacity: 1;
 }
+@media (max-width: 1220px) {
+  .application__title {
+    font-size: 58px !important;
+  }
+}
 @media (max-width: 960px) {
+  .application__btn {
+    font-size: 20px !important;
+    /* width: 90%; */
+  }
+  .application__input {
+    font-size: 20px !important;
+  }
   .application__container {
     display: flex;
     max-width: 800px;
@@ -420,6 +439,13 @@ export default {
   }
 }
 @media (max-width: 520px) {
+  .application__btn {
+    padding: 18px 0;
+  }
+  .application__input {
+    font-size: 20px !important;
+    padding: 18px 25px;
+  }
   .application__title {
     font-size: 38px !important;
     line-height: 48px;

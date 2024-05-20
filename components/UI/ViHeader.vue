@@ -22,7 +22,7 @@
           <div class="header__left">
             <p class="header__text font" data-font-actual="15">07:30 - 19:00</p>
             <p class="header__text font" data-font-actual="15">
-              г. Киров, ул. Герцена 41
+              г. Киров, ул. Герцена 43
             </p>
             <p class="header__text font" data-font-actual="15">
               8 (8332) 64-18-98
@@ -452,11 +452,12 @@ header {
   opacity: 0;
   transition: all 0.3s ease;
 }
-@media screen and (max-width: 1670px) {
-}
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
   .header__logo {
     font-size: 35px !important;
+  }
+  .header__li {
+    font-size: 17px !important;
   }
 }
 

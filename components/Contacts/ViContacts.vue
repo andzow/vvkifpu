@@ -43,7 +43,7 @@
               </svg>
             </div>
             <p class="contacst__text font" data-font-actual="20">
-              610002, г.Киров, ул.Герцена 41
+              610017, г.Киров, ул.Герцена 43
             </p>
           </div>
           <div class="contacts__box">
@@ -229,17 +229,17 @@ export default {
   position: relative;
   width: 100%;
   min-width: 500px;
-  height: 100%;
+  height: 90%;
   transition: all 0.3s ease-in-out;
   z-index: 5;
 }
-.contacts__frame:hover {
+/* .contacts__frame:hover {
   transform: translate(-10px, -10px);
-}
+} */
 .contacts__map {
   position: relative;
   flex-grow: 2;
-  background: var(--violo);
+  /* background: var(--violo); */
   z-index: 4;
 }
 .contacts__info {

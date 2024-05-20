@@ -1,5 +1,5 @@
 <template>
-  <section class="about border">
+  <section class="about border" id="specialityAbout">
     <ul class="about__ul">
       <li
         class="about__li font"

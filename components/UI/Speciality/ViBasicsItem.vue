@@ -26,8 +26,9 @@
       data-font-actual="17"
       v-for="item in arrNames"
       :key="item"
+      @click="scrollToElement(item.elId)"
     >
-      {{ item }}
+      {{ item.name }}
     </p>
   </div>
 </template>
@@ -46,11 +47,27 @@ export default {
   data() {
     return {
       arrNames: [
-        "Чему научат?",
-        "Область проф. деятельности",
-        "Немного о нас",
-        "Документы",
-        "Лицензия и аккредитация",
+        {
+          name: "Чему научат?",
+          elId: "specialityAbout",
+        },
+
+        {
+          name: "Область проф. деятельности",
+          elId: "specialityLearn",
+        },
+        {
+          name: "Немного о нас",
+          elId: "specialityFeatures",
+        },
+        {
+          name: "Документы",
+          elId: "specialityFiles",
+        },
+        {
+          name: "Лицензия и аккредитация",
+          elId: "specialitySert",
+        },
       ],
       distanceOnContainer: null,
       distanceBottomOnContainer: null,
@@ -118,6 +135,13 @@ export default {
         },
       };
     },
+    scrollToElement(elId) {
+      const anchor = document.getElementById(elId);
+
+      const offset = 200;
+      const top = anchor?.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    },
   },
   mounted() {
     setTimeout(() => {
@@ -171,6 +195,11 @@ export default {
   font-size: 17px;
   margin-bottom: 20px;
   color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.basics__item_name:hover {
+  transform: scale(0.99);
 }
 @media screen and (max-width: 1320px) {
   .basics__item_title {

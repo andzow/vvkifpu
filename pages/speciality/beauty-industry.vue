@@ -24,8 +24,63 @@
 
 <script>
 import axios from "axios";
+import { USE_STRAPI } from "~/url";
 
 export default {
+  setup() {
+    useHead({
+      title:
+        "Технологии индустрии красоты | Волго-Вятский колледж информатики, финансов, права, управления",
+      meta: [
+        {
+          name: "viewport",
+          content: `width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes`,
+        },
+        // {
+        //   name: "google-site-verification",
+        //   content: "_14UGNz5nfZyg1n0hSBDp1RSWAPFktd6bvetIIbJu1E",
+        // },
+        {
+          name: "description",
+          content: `Поступить на стилиста визажиста по специальности 43.02.03 Стилистика и искусство визажа в Кирове`,
+        },
+        {
+          name: "keywords",
+          content: "Колледж киров, Технологии индустрии красоты",
+        },
+        { name: "format-detection", content: "telephone=no" },
+        {
+          property: "og:title",
+          content:
+            "Технологии индустрии красоты | Волго-Вятский колледж информатики, финансов, права, управления",
+        },
+        {
+          property: "og:description",
+          content: `Поступить на стилиста визажиста по специальности 43.02.03 Стилистика и искусство визажа в Кирове`,
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "ru_RU" },
+        {
+          property: "og:site_name",
+          content:
+            "Волго-Вятский колледж информатики, финансов, права, управления",
+        },
+        {
+          property: "og:image",
+          content: "https://vvkifpu.ru/Meta/Index/logo.webp",
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "../favicon.svg",
+        },
+      ],
+      htmlAttrs: { lang: "ru-RU" },
+    });
+  },
+
   data() {
     return {
       checkVer: useChangeSpeciality(),
@@ -51,7 +106,7 @@ export default {
     async initApp() {
       try {
         const { data } = await axios.get(
-          "http://localhost:1337/api/specialties/6/?populate=docFiles&populate=sertImage"
+          `${USE_STRAPI}specialties/6/?populate=docFiles&populate=sertImage`
         );
         this.arrFeatures = await data.data.attributes.Data.arrFeatures;
         this.specialityTitle = await data.data.attributes.Data.specialityTitle;

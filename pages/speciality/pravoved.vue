@@ -24,8 +24,61 @@
 
 <script>
 import axios from "axios";
+import { USE_STRAPI } from "~/url";
 
 export default {
+  setup() {
+    useHead({
+      title:
+        "Правоохранительная деятельность - Поступить учиться на юриста после 9 класса в Кирове",
+      meta: [
+        {
+          name: "viewport",
+          content: `width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes`,
+        },
+        // {
+        //   name: "google-site-verification",
+        //   content: "_14UGNz5nfZyg1n0hSBDp1RSWAPFktd6bvetIIbJu1E",
+        // },
+        {
+          name: "description",
+          content: `Решил поступить выучиться на юриста в Кирове? Тогда поступай в Волго-Вятский колледж информатики, финансов, права, управления.`,
+        },
+        {
+          name: "keywords",
+          content: "Колледж киров, Правоохранительная деятельность",
+        },
+        { name: "format-detection", content: "telephone=no" },
+        {
+          property: "og:title",
+          content:
+            "Правоохранительная деятельность - Поступить учиться на юриста после 9 класса в Кирове",
+        },
+        {
+          property: "og:description",
+          content: `Решил поступить выучиться на юриста в Кирове? Тогда поступай в Волго-Вятский колледж информатики, финансов, права, управления.`,
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "ru_RU" },
+        {
+          property: "og:site_name",
+          content: "Поступить на юриста после 9 класса Киров",
+        },
+        {
+          property: "og:image",
+          content: "https://vvkifpu.ru/Meta/Index/logo.webp",
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "../favicon.svg",
+        },
+      ],
+      htmlAttrs: { lang: "ru-RU" },
+    });
+  },
   data() {
     return {
       codeSpec: null,
@@ -56,7 +109,7 @@ export default {
     async initApp() {
       try {
         const { data } = await axios.get(
-          "http://localhost:1337/api/specialties/8/?populate=docFiles&populate=sertImage"
+          `${USE_STRAPI}specialties/8/?populate=docFiles&populate=sertImage`
         );
         this.arrFeatures = await data.data.attributes.Data.arrFeatures;
         this.specialityTitle = await data.data.attributes.Data.specialityTitle;

@@ -3,9 +3,17 @@
     <p class="traningCard__code font" data-font-actual="22">
       {{ card.code }}
     </p>
-    <h2 class="traningCard__name font" data-font-actual="24" v-html="card.name"></h2>
+    <h2
+      class="traningCard__name font"
+      data-font-actual="24"
+      v-html="card.name"
+    ></h2>
     <div class="traningCard__icon" v-html="card.icon"></div>
-    <img class="traningCard__image image" :src="card.image" alt="" />
+    <img
+      class="traningCard__image image"
+      :src="card.image"
+      alt="Программа обучения"
+    />
     <div class="traningCard__background"></div>
   </NuxtLink>
 </template>
@@ -45,6 +53,16 @@ export default {
   height: 300px;
   z-index: 2;
 }
+.traningCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  z-index: 4;
+}
 .traningCard__element {
   position: relative;
   cursor: pointer;
@@ -59,7 +77,7 @@ export default {
   font-size: 22px;
   color: #fff;
   transition: all 0.3s ease;
-  z-index: 3;
+  z-index: 6;
 }
 .traningCard__name {
   position: relative;
@@ -71,13 +89,13 @@ export default {
   transition: all 0.3s ease;
   display: flex;
   justify-content: flex-start;
-  z-index: 3;
+  z-index: 6;
 }
 .traningCard__icon {
   position: absolute;
   bottom: 30px;
   right: 40px;
-  z-index: 3;
+  z-index: 6;
   transition: all 0.3s ease;
 }
 .traningCard__image {
@@ -101,38 +119,38 @@ export default {
   background: var(--violo);
   z-index: 1;
 }
-@media(max-width: 1220px) {
+@media (max-width: 1220px) {
   .traningCard {
-  height: 250px;
+    height: 250px;
+  }
 }
-}
-@media(max-width: 960px) {
+@media (max-width: 960px) {
   .traningCard {
-  height: 300px;
+    height: 300px;
+  }
 }
-}
-@media(max-width: 560px) {
+@media (max-width: 560px) {
   .traningCard {
-  height: 250px;
-  padding: 20px;
+    height: 250px;
+    padding: 20px;
+  }
 }
-}
-@media(max-width: 480px) {
+@media (max-width: 480px) {
   .traningCard {
-  height: 220px;
+    height: 220px;
+  }
+  .traningCard__icon {
+    width: 30px;
+  }
 }
-.traningCard__icon {
-  width: 30px;
-}
-}
-@media(max-width: 420px) {
+@media (max-width: 420px) {
   .traningCard {
-  height: 200px;
+    height: 200px;
+  }
 }
-}
-@media(max-width: 400px) {
+@media (max-width: 400px) {
   .traningCard {
-  height: 180px;
-}
+    height: 180px;
+  }
 }
 </style>

@@ -24,8 +24,61 @@
 
 <script>
 import axios from "axios";
+import { USE_STRAPI } from "~/url";
 
 export default {
+  setup() {
+    useHead({
+      title:
+        "Поступить на программиста после 9 класса в Кирове - Стать программистом C++ PHP C# Delphi 1C в Кирове",
+      meta: [
+        {
+          name: "viewport",
+          content: `width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes`,
+        },
+        // {
+        //   name: "google-site-verification",
+        //   content: "_14UGNz5nfZyg1n0hSBDp1RSWAPFktd6bvetIIbJu1E",
+        // },
+        {
+          name: "description",
+          content: `Специальность 04.02.07 «Информационные системы и программирование» Стань перспективным разработчиком в сфере IT. Изучаем самые актуальные технологии Java, C#, HTML, CSS, JavaScript, и прочее… Создаем проекты для портфолио (по каждой изучаемой технологии) Высокие требования к выполняемым проектам Дебагинг, рефакторинг, тестирование Диплом… Read More`,
+        },
+        {
+          name: "keywords",
+          content: "Колледж киров, Информационные системы",
+        },
+        { name: "format-detection", content: "telephone=no" },
+        {
+          property: "og:title",
+          content:
+            "Поступить на программиста после 9 класса в Кирове - Стать программистом C++ PHP C# Delphi 1C в Кирове",
+        },
+        {
+          property: "og:description",
+          content: `Специальность 04.02.07 «Информационные системы и программирование» Стань перспективным разработчиком в сфере IT. Изучаем самые актуальные технологии Java, C#, HTML, CSS, JavaScript, и прочее… Создаем проекты для портфолио (по каждой изучаемой технологии) Высокие требования к выполняемым проектам Дебагинг, рефакторинг, тестирование Диплом… Read More`,
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "ru_RU" },
+        {
+          property: "og:site_name",
+          content: "Стать программистом C++ PHP C# Delphi 1C в Кирове",
+        },
+        {
+          property: "og:image",
+          content: "https://vvkifpu.ru/Meta/Index/logo.webp",
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "../favicon.svg",
+        },
+      ],
+      htmlAttrs: { lang: "ru-RU" },
+    });
+  },
   data() {
     return {
       arrCrumbs: null,
@@ -49,7 +102,7 @@ export default {
     async initInformation() {
       try {
         const { data } = await axios.get(
-          "http://localhost:1337/api/specialties/4/?populate=docFiles&populate=sertImage"
+          `${USE_STRAPI}specialties/4/?populate=docFiles&populate=sertImage`
         );
         this.arrFeatures = await data.data.attributes.Data.arrFeatures;
         this.specialityTitle = await data.data.attributes.Data.specialityTitle;

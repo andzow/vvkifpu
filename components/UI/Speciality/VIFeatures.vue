@@ -1,5 +1,5 @@
 <template>
-  <section class="features border">
+  <section class="features border" id="specialityFeatures">
     <div class="features__container" v-for="item in arrFeatures" :key="item">
       <h3 class="features__title font_special" data-font-actual="28">
         {{ item.name }}

@@ -1,7 +1,7 @@
 <template>
   <section class="requisites">
     <div class="requisites__container">
-      <UIViTitle :settings="true">наши реквизиты</UIViTitle>
+      <UIViTitle :settings="true">Наши реквизиты</UIViTitle>
       <div class="requisites__info">
         <div class="requisites__box">
           <p class="requisites__description font" data-font-actual="18">
@@ -54,8 +54,7 @@
   </section>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style scoped>
 .requisites {
@@ -94,18 +93,18 @@
   background: var(--violo);
   margin: 10px 0;
 }
-@media(max-width:950px) {
+@media (max-width: 950px) {
   .requisites__info {
     width: auto;
     max-width: 800px;
   }
 }
-@media(max-width:520px) {
+@media (max-width: 520px) {
   .requisites__line {
     width: 100%;
   }
 }
-@media(max-width:500px) {
+@media (max-width: 500px) {
   .requisites {
     margin-top: 40px;
   }

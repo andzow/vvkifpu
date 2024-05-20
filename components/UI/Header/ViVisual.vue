@@ -462,7 +462,6 @@ export default {
             default:
               break;
           }
-          this.checkVer = false;
         }, 0);
       }
     },
@@ -664,19 +663,37 @@ export default {
     margin: 0;
   }
 }
-@media screen and (max-width: 600px) {
-  .header__visual_colors {
-    margin: 15px 0 0 0;
-    flex-wrap: wrap;
+@media screen and (max-width: 677px) {
+  .header__visual_leave {
+    margin: 0 0 15px 0;
+    padding: 0;
   }
 }
-@media screen and (max-width: 510px) {
+@media screen and (max-width: 600px) {
   .header__visual_colors {
-    margin: 15px 0 0 0;
+    /* margin: 15px 0 0 0; */
+    gap: 8px;
     flex-wrap: wrap;
   }
   .header__visual_font {
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .header__visual_leave {
+    margin: 0 0 0px 15px;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 510px) {
+  /* .header__visual_colors {
     margin: 15px 0 0 0;
   }
+  .header__visual_font {
+    margin: 15px 0 0 0;
+  } */
+}
+@media screen and (max-width: 447px) {
 }
 </style>

@@ -62,7 +62,7 @@
       </nav>
       <div class="menu__about">
         <p class="menu__text" :style="setActiveText">
-          Адрес: 610002, г.Киров, ул.Герцена 41
+          Адрес: 610002, г.Киров, ул.Герцена 43
         </p>
         <p class="menu__text" :style="setActiveText">07:30 - 19:00</p>
         <p class="menu__text" :style="setActiveText">8 (8332) 64-18-98</p>
@@ -89,7 +89,7 @@
 
 <script>
 export default {
-  emits: ["close"],
+  emits: ["close", "changeBody", "closeVisual"],
   props: {
     activeMobileBurger: { type: Boolean },
     bodyClassName: { type: Boolean },

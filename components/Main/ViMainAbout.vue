@@ -13,22 +13,44 @@
         Справочная информация:
       </p>
       <div class="main__information">
-        <p class="main__text font" ref="main__text" data-font-actual="18">
+        <p
+          class="main__text font"
+          ref="main__text"
+          data-font-actual="18"
+          @click="$router.push('/students/payment')"
+        >
           Платные образовательные услуги
         </p>
-        <p class="main__text font" ref="main__text" data-font-actual="18">
+        <p
+          class="main__text font"
+          ref="main__text"
+          data-font-actual="18"
+          @click="$router.push('/students/support')"
+        >
           Виды материальной поддержки
         </p>
-        <p class="main__text font" ref="main__text" data-font-actual="18">
+        <p
+          class="main__text font"
+          ref="main__text"
+          data-font-actual="18"
+          @click="$router.push('/information/copies-documents')"
+        >
           Документы
         </p>
-        <p class="main__text font" ref="main__text" data-font-actual="18">
-          Дополнительные информационные ресурсы
+        <p
+          class="main__text font"
+          ref="main__text"
+          data-font-actual="18"
+          @click="$router.push('/students/documents')"
+        >
+          Документы на практику
         </p>
       </div>
     </div>
     <div class="main__btn">
-      <UISpecialityViButton>Оставить заявку</UISpecialityViButton>
+      <UISpecialityViButton @click="useModal = true"
+        >Оставить заявку</UISpecialityViButton
+      >
     </div>
   </div>
 </template>
@@ -36,7 +58,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      useModal: useModal(),
+    };
   },
   methods: {
     resizeWindow() {},
@@ -97,9 +121,17 @@ export default {
 .main__text:hover {
   color: white;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
   .main__title {
-    font-size: 48px !important;
+    font-size: 50px !important;
+    margin-bottom: 30px;
+  }
+  .main__link {
+    font-size: 18px !important;
+  }
+  .main__text {
+    font-size: 16px !important;
+    margin-bottom: 25px;
   }
 }
 @media screen and (max-width: 1024px) {

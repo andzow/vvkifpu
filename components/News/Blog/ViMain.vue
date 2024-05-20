@@ -9,9 +9,11 @@
           <img class="main__img" :src="arrInformation.image" />
         </div>
         <div class="main__information">
-          <UIViTitle :settings="true" class="main__header">{{
-            arrInformation.name
-          }}</UIViTitle>
+          <div class="main__title">
+            <UIViTitle :settings="true" class="main__header">{{
+              arrInformation.name
+            }}</UIViTitle>
+          </div>
           <p class="main__time font" data-font-actual="17">
             {{ arrInformation.date }} |
             <span class="main__span">{{ arrInformation.type }}</span>
@@ -124,6 +126,9 @@ export default {
 .main__breadcrumbs {
   margin-bottom: 30px;
 }
+.main__title {
+  max-width: 600px;
+}
 .main__content {
   display: flex;
   align-items: flex-start;
@@ -146,8 +151,8 @@ export default {
 }
 
 .main__img {
-  width: 641px;
-  height: 488px;
+  width: 741px;
+  height: 448px;
   object-fit: cover;
 }
 .main__about_header {
@@ -161,7 +166,7 @@ export default {
   font-weight: 500;
   font-family: "Inter", sans-serif;
   font-size: 16px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   color: #151515;
   max-width: 750px;
 }
@@ -179,6 +184,11 @@ export default {
   }
   .main__about_text {
     font-size: 16px !important;
+  }
+  .main__img {
+    width: 741px;
+    height: 388px;
+    object-fit: cover;
   }
 }
 @media screen and (max-width: 990px) {

@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <UISpecialityViMain
+    <UISpecialityViMainInformation
       :specialityTitle="specialityTitle"
       :codeSpec="codeSpec"
       :arrDes="arrDes"
@@ -8,6 +8,7 @@
       :imageSrc="imageSrc"
       :backImage="backImage"
       :arrCrumbs="arrCrumbs"
+      :tourismVideo="true"
       breadcrumbs="43.02.10 Туризм"
     />
     <UISpecialityViBasics
@@ -24,8 +25,59 @@
 
 <script>
 import axios from "axios";
+import { USE_STRAPI } from "~/url";
 
 export default {
+  setup() {
+    useHead({
+      title: "Специальность Туризм - Выучиться по специальности Туризм",
+      meta: [
+        {
+          name: "viewport",
+          content: `width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes`,
+        },
+        // {
+        //   name: "google-site-verification",
+        //   content: "_14UGNz5nfZyg1n0hSBDp1RSWAPFktd6bvetIIbJu1E",
+        // },
+        {
+          name: "description",
+          content: `Специальность Туризм - Выучиться по специальности Туризм`,
+        },
+        {
+          name: "keywords",
+          content: "Колледж киров, Туризм",
+        },
+        { name: "format-detection", content: "telephone=no" },
+        {
+          property: "og:title",
+          content: "Специальность Туризм - Выучиться по специальности Туризм",
+        },
+        {
+          property: "og:description",
+          content: `Специальность Туризм - Выучиться по специальности Туризм`,
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:locale", content: "ru_RU" },
+        {
+          property: "og:site_name",
+          content: "Специальность Туризм - Выучиться по специальности Туризм",
+        },
+        {
+          property: "og:image",
+          content: "https://vvkifpu.ru/Meta/Index/logo.webp",
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "../favicon.svg",
+        },
+      ],
+      htmlAttrs: { lang: "ru-RU" },
+    });
+  },
   data() {
     return {
       codeSpec: null,
@@ -50,7 +102,7 @@ export default {
     async initApp() {
       try {
         const { data } = await axios.get(
-          "http://localhost:1337/api/specialties/9/?populate=docFiles&populate=sertImage"
+          `${USE_STRAPI}specialties/9/?populate=docFiles&populate=sertImage`
         );
         this.arrFeatures = await data.data.attributes.Data.arrFeatures;
         this.specialityTitle = await data.data.attributes.Data.specialityTitle;

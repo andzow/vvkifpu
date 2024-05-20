@@ -6,7 +6,11 @@
           >о ВВКИФПУ</UIViTitle
         >
         <div class="about__button" v-for="item in arrNav" :key="item">
-          <button class="about__btn font" data-font-actual="22">
+          <button
+            class="about__btn font"
+            data-font-actual="22"
+            @click="$router.push(item.path)"
+          >
             {{ item.name }}
             <svg
               class="news__svg"
@@ -54,12 +58,12 @@ export default {
     return {
       arrNav: [
         {
-          name: "СВЕДЕНИЯ ОБ ОО",
-          path: "/",
+          name: "Сведения об ОО",
+          path: "/information/intelligence",
         },
         {
-          name: "Лицензии",
-          path: "/",
+          name: "Правила приема",
+          path: "/speciality/admission-rules",
         },
       ],
       arrAnimateText: [
@@ -109,12 +113,11 @@ export default {
 .about__btn {
   display: flex;
   align-items: center;
-
   font-size: 22px;
   font-family: "Inter", sans-serif;
   line-height: 140%;
   font-weight: 600;
-  text-transform: lowercase;
+
   color: white;
   transition: all 0.3s ease;
   cursor: pointer;

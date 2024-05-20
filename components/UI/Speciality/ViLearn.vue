@@ -1,5 +1,5 @@
 <template>
-  <section class="learn border">
+  <section class="learn border" id="specialityLearn">
     <div class="learn__item" v-for="(item, idx) in arrLearn" :key="item">
       <h3 class="learn__number font_special" data-font-actual="40">
         {{ idx + 1 < 10 ? "0" + (idx + 1) : idx + 1 }}

@@ -1,7 +1,7 @@
 <template>
   <h1
     class="title font_special"
-    data-font-actual="60"
+    data-font-actual="54"
     v-if="settings"
     :style="setColor"
   >
@@ -36,9 +36,9 @@ export default {
 .title {
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 60px;
+  font-size: 54px;
   min-width: 310px;
-  word-break: break-all;
+  word-break: keep-all;
 }
 @media screen and (max-width: 1230px) {
   .title {

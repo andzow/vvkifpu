@@ -22,7 +22,7 @@ export default {
           id: 0,
           name: "Информационные<br> системы",
           class: "information",
-          code: "09.02.04",
+          code: "09.02.07",
           path: "/speciality/information-systems",
           image: "../assets/images/Main/code.webp",
           icon: "<svg width='30' height='50' viewBox='0 0 40 60' fill='none' xmlns='http://www.w3.org/2000/svg'> <path class='path' d='M40 3.92199e-05L1.90869e-06 23.094L40 46.1881L40 3.92199e-05ZM18.5359 29.177L3.5359 55.1577L10.4641 59.1577L25.4641 33.177L18.5359 29.177Z' fill='white'/> </svg>",
@@ -56,13 +56,13 @@ export default {
         },
         {
           id: 4,
-          name: "Технологии<br> индустрии<br> красоты",
+          name: "Технологии<br> индустрии красоты",
           class: "beauty",
           code: "43.02.17",
           path: "/speciality/beauty-industry",
           image: "../assets/images/Main/beauty.webp",
           icon: "<svg width='56' height='63' viewBox='0 0 66 73' fill='none' xmlns='http://www.w3.org/2000/svg'><path class='path' d='M40 0L47.0224 18.9776L66 26L47.0224 33.0224L40 52L32.9776 33.0224L14 26L32.9776 18.9776L40 0Z' fill='white'/><path class='path' d='M14 45L17.7813 55.2187L28 59L17.7813 62.7813L14 73L10.2187 62.7813L0 59L10.2187 55.2187L14 45Z' fill='white'/></svg>",
-        }
+        },
         // {
         //   id: 5,
         //   name: "Парикмахерское<br> искусство",
@@ -94,16 +94,16 @@ export default {
   gap: 40px;
   grid-template-columns: repeat(2, 1fr);
 }
-@media(max-width: 1100px) {
+@media (max-width: 1100px) {
   .traning__grid {
-  gap: 20px;
+    gap: 20px;
+  }
 }
-}
-@media(max-width: 960px) {
+@media (max-width: 960px) {
   .traning__grid {
     max-width: 640px;
     margin: 0 auto;
     grid-template-columns: repeat(1, 1fr);
-}
+  }
 }
 </style>

@@ -2,7 +2,7 @@
   <section class="main">
     <div class="main__container">
       <div class="main__breadcrumbs">
-        <UIViBreadcrumbs />
+        <UIViBreadcrumbs :arrCrumbs="arrCrumbs" v-if="arrCrumbs" />
       </div>
       <UIViTitle :settings="true" class="main__header"
         >Федеральные государственные образовательные стандарты
@@ -27,6 +27,12 @@
 export default {
   data() {
     return {
+      arrCrumbs: [
+        {
+          name: "Федеральные государственные образовательные стандарты",
+          path: "/information/federal-standards",
+        },
+      ],
       arrStudents: [
         {
           name: "40.02.02 «Правоохранительная деятельность»",

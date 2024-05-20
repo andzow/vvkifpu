@@ -1,11 +1,17 @@
 <template>
   <section class="door">
-    <img class="door__image image" :src="'../assets/images/UI/background.webp'" alt="">
+    <img
+      class="door__image image"
+      :src="'../assets/images/UI/background.webp'"
+      alt=""
+    />
     <div class="door__color"></div>
     <div class="door__container">
       <div class="door__position">
-        <h1 class="door__name font_special" data-font-actual="56">День открытых дверей</h1>
-        <p class="door__text font" data-font-actual="40">30 марта 2024</p>
+        <h1 class="door__name font_special" data-font-actual="56">
+          День открытых дверей
+        </h1>
+        <p class="door__text font" data-font-actual="40">30 марта 2025</p>
         <p class="door__date font" data-font-actual="28">
           Осталось: {{ remainingTime.days }}д {{ remainingTime.hours }}ч
           {{ remainingTime.minutes }}м {{ remainingTime.seconds }}с
@@ -159,18 +165,18 @@ export default {
   background: var(--violo);
   z-index: 4;
 }
-@media(max-width: 1200px) {
+@media (max-width: 1200px) {
   .door__map {
-  width: 450px;
-  height: 280px;
+    width: 450px;
+    height: 280px;
+  }
 }
-}
-@media(max-width: 960px) {
+@media (max-width: 960px) {
   .door__map {
-  display: none;
+    display: none;
+  }
 }
-}
-@media(max-width: 520px) {
+@media (max-width: 520px) {
   .door__image {
     min-width: 700px;
   }
@@ -181,14 +187,14 @@ export default {
     font-size: 34px !important;
   }
 }
-@media(max-width: 450px) {
+@media (max-width: 450px) {
   .door__image {
     min-width: 700px;
   }
   .door__name {
     font-size: 44px !important;
   }
-  .door__date  {
+  .door__date {
     font-size: 22px !important;
   }
 }

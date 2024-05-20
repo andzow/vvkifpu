@@ -7,14 +7,13 @@ export default class AuthController {
   static async login(login, password) {
     try {
       const response = await AuthServices.login(login, password);
-      console.log(response);
       localStorage.setItem("accessToken", response.data);
       const token = jwtDecode(response.data);
       useState("useUserAuth", () => true);
       useState("useUserData", () => token);
       return response.status;
     } catch (e) {
-      console.log(e.response?.data?.message);
+      console.log(e);
       return e.response.status;
     }
   }
