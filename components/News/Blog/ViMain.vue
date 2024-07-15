@@ -6,7 +6,7 @@
       </div>
       <div class="main__content" v-if="arrInformation">
         <div class="main__image">
-          <img class="main__img" :src="arrInformation.image" />
+          <img class="main__img image_opacity" :src="arrInformation.image" />
         </div>
         <div class="main__information">
           <div class="main__title">
@@ -49,6 +49,7 @@ export default {
     return {
       arrInformation: null,
       arrCrumbs: null,
+      checkVer: useChangeSpeciality(),
     };
   },
   methods: {
@@ -169,6 +170,7 @@ export default {
   margin-bottom: 15px;
   color: #151515;
   max-width: 750px;
+  white-space: pre-wrap;
 }
 
 @media screen and (max-width: 1230px) {

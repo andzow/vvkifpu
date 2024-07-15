@@ -63,6 +63,7 @@
           <button
             class="news__btn news__btn_mobile font border"
             data-font-actual="22"
+            @click="$router.push('/news/college')"
           >
             Все новости
             <svg

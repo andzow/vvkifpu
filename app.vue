@@ -1,8 +1,8 @@
 <template>
   <UIViHeader v-if="isPath" />
-  <Transition>
+  <!-- <Transition>
     <UIViPreloader v-if="!isActive" />
-  </Transition>
+  </Transition> -->
   <main>
     <NuxtPage />
     <Transition>
@@ -36,9 +36,9 @@ export default {
     if (process.client) {
       AOS.init();
     }
-    setTimeout(() => {
-      this.isActive = true;
-    }, 2400);
+    // setTimeout(() => {
+    //   this.isActive = true;
+    // }, 2400);
   },
   watch: {
     $route() {

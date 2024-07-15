@@ -211,7 +211,7 @@ export default {
   background: #f6f5f3;
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 10;
+  z-index: 17;
 }
 .menu__content {
   background: #f6f5f3;

@@ -69,7 +69,7 @@ export default {
     #6700eb 30%,
     #00eace 100%
   );
-  animation: progress 1.3s ease forwards;
+  animation: progress 5.3s ease forwards;
   animation-delay: 1s;
   border-radius: 20px;
 }
@@ -135,12 +135,12 @@ export default {
 .preloader__letter_6 {
   animation-delay: 0.7s;
 }
-@media(max-width: 640px) {
+@media (max-width: 640px) {
   .preloader__letter {
-  font-size: 60px;
-}
-.preloader__container {
-  width: 230px;
-}
+    font-size: 60px;
+  }
+  .preloader__container {
+    width: 230px;
+  }
 }
 </style>

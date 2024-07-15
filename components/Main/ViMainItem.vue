@@ -9,7 +9,7 @@
           :slidesPerGroup="1"
           :effect="'fade'"
           :loop="false"
-          :rewind="true"
+          :rewind="false"
           :modules="modules"
           :navigation="false"
           :pagination="pagination"
