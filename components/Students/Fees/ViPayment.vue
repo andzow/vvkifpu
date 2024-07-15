@@ -38,11 +38,11 @@
             <div class="payment__border font" data-font-actual="18">|</div>
             <div class="payment__term">
               <p class="payment__price font" data-font-actual="18">
-                {{ item.attributes.info.info[0].price }} руб
+                {{ item.attributes.info.info[1].price }} руб
               </p>
               <p class="payment__line font" data-font-actual="18">-</p>
               <p class="payment__price font" data-font-actual="18">
-                {{ item.attributes.info.info[0].term1 }} сем.
+                {{ item.attributes.info.info[1].term1 }} сем.
               </p>
             </div>
           </div>
